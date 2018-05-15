@@ -1,0 +1,1 @@
+- 2018-05-15 - Initial sketch of the specification
