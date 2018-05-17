@@ -2,9 +2,10 @@
 
 The lack of a standard way of transfering information between brokers
 and consumer banking companies, leads to wasted effort in integrating
-systems used by various actors. This specification, building, upon
-established and modern internet standard aims provide an extensible,
-validatable method of integrating system efficiently.
+systems and increased operational risks used by various actors. This
+specification, building, upon established and modern internet standard
+aims provide an extensible, validatable method of integrating system
+efficiently.
 
 The design allows for middlewares and is suitable for microservice
 architectures. Additionally, a design goal is ease of implementation
@@ -21,8 +22,8 @@ between two systems.
 The standard defines the behaviour of two actors, the producer and the
 consumer, as defined in the CloudEvents specification. The producer
 creates events and the consumer reads events created by the
-producer. In a typical bank-broker integration both parties will act
-in both roles defined by this standard.
+producer. In order to ensure a engaging end user experience both parties
+will act in both roles as defined by this standard.
 
 Additionally behaviour in this specification is defined on three
 levels of operations.
@@ -91,9 +92,11 @@ format. The root of each event must be a JSON-object.
 # Defined Event Types
 
 All events specified in this working-copy of the spec shall be in
-namespace `org.open-broker.v0`. If this specification were to specify
-an event called `example` it's event-type on the would be
-`org.open-broker.v0.example`.
+namespace `org.open-broker.v0.COUNTRYCODE` where country-code is a two
+letter ISO-3166-1 code reffering to the country in which the new loan
+is requested. If this specification were to specify an event for Sweden
+called `example` it's event-type on the would be
+`org.open-broker.v0.SE.example`.
 
 - Name: the name of the field in the JSON format
 - Cardinality (C.): `0..1` indicates an optional field. `1` indicates a
@@ -101,8 +104,8 @@ an event called `example` it's event-type on the would be
   `1..*` indicates a list of atleast one element. `1..2` indicates a
   list of one or two elements.
 - Type: Lower-case indicates built-in types: `string`, `number`,
-  `boolean`, A type specified in `CamelCase` refers to a definition to
-  follow below.
+  `boolean`, A type specified in `CamelCase` refers to a definition as
+  follows below.
 - Version (V.): The first version of the spec that it was included in.
 
 ## PrivateUnsecuredLoanApplicationCreated
@@ -121,8 +124,8 @@ Application
 
 | Name            | C.   | Type      | V. | Remark                             |
 |-----------------|------|-----------|----|------------------------------------|
-| loanAmount      | 1    | number    | v0 | N/o SEK applied for                |
-| termYears       | 1    | number    | v0 | Number desired years term for loan |
+| loanAmount      | 1    | number    | v0 | Total N/o SEK applied for          |
+| termYears       | 1    | number    | v0 | N/o desired years term for loan |
 | refinanceAmount | 0..1 | number    | v0 | N/o SEK which are refinanced       |
 | applicant       | 1    | Applicant | v0 | Main applicant                     |
 | coApplicant     | 0..1 | Applicant | v0 | co-Applicant                       |
@@ -130,8 +133,10 @@ Application
 Applicant
 
 | Name                       | C.   | Type             | V. | Remark                                                  |
+|----------------------------|------|------------------|----|---------------------------------------------------------|
 | ssn                        | 1    | string           | v0 | Swedish Social Security Number, with century, 12 digits |
-| phone                      | 0..1 | string           | v0 | phonenumber formatted as E.164                          |
+| phone                      | 0..1 | string           | v0 | Phonenumber formatted as E.164                          |
+| emailAddress               | 0..1 | string           | v0 | Email address on the form local.part@host.tld           |
 | employmentStatus           | 1    | EmploymentStatus | v0 |                                                         |
 | employmentStatusSinceYear  | 1    | number           | v0 | Year since common era                                   |
 | employmentStatusSinceMonth | 1    | number           | v0 | Number beteween 1 and 12                                |
@@ -139,12 +144,13 @@ Applicant
 | housingType                | 1    | HousingType      | v0 |                                                         |
 | housingCostPerMonth        | 1    | number           | v0 | Cost relating to housing in SEK                         |
 | maritalStatus              | 1    | MaritalStatus    | v0 |                                                         |
-| employer                   | 0..1 | string           | v0 | Name of the primary employer                            |
+| employerName               | 0..1 | string           | v0 | Name of the primary employer                            |
 | employerPhone              | 0..1 | string           | v0 | PhoneNo to primary employer as  E.164                   |
 
 EmploymentStatus.
 
 | String value  | Remark                                           |
+|---------------|--------------------------------------------------|
 | FULLTIME      |                                                  |
 | TRIAL         | Trial employment sv. Provanställning             |
 | RETIRED       | Retired due to age                               |
@@ -156,6 +162,7 @@ EmploymentStatus.
 HousingType
 
 | String value  | Remark |
+|---------------|--------|
 | RENTED        |        |
 | OWN_APARTMENT |        |
 | OWN_HOUSE     |        |
@@ -164,6 +171,7 @@ HousingType
 MaritalStatus
 
 | String value | Remark |
+|--------------|--------|
 | SINGLE       |        |
 | MARRIED      |        |
 | COHABITING   |        |
