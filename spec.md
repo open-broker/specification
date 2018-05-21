@@ -89,14 +89,44 @@ are specified in the following section.
 The events are to be formatted as JSON and to agree with a strict
 format. The root of each event must be a JSON-object.
 
+## Extensibility
+
+Events may, depending on their type, define extension
+points. Extension points provide a means of adding extensions to an
+object consisting of vendor specific information. An extension point
+can consist of any number of such extensions, each identified by the
+reversed DNS name of organization adding the extension. For example,
+if `example.com` its extension would be identified by the key
+`com.example`. Organizations are free to use any sub-domain to
+distinguish extensions created within the organization.
+
+The content of the extension MUST be a JSON-object containing a
+valid JSON subtree; it's structure defined by the extending
+organization. Extensions SHOULD NOT be used to overload data that
+already exists in the specification.
+
+Extension points can only be used when a defined event type contains a
+value of the type `ExtensionPoint`, in those cases an extension point
+is defined it's name shall be `extensions`. Its cardinaility shall be
+`0..1`, that is the field can be null, indicating that no extensions
+were added.
+
+```
+{
+  "com.example": {
+    "someField": "foo"
+  }
+}
+```
+
 # Defined Event Types
 
 All events specified in this working-copy of the spec shall be in
 namespace `org.open-broker.v0.COUNTRYCODE` where country-code is a two
 letter ISO-3166-1 code referring to the country in which the new loan
 is requested. If this specification were to specify an event for
-services brokered within Sweden called `example` it's event-type on the
-would be `org.open-broker.v0.SE.example`.
+services brokered within Sweden called `example` its event-type would
+be `org.open-broker.v0.SE.example`.
 
 - Name: the name of the field in the JSON format
 - Cardinality (C.): `0..1` indicates an optional field. `1` indicates a
@@ -122,13 +152,14 @@ Event (root element)
 
 Application
 
-| Name            | C.   | Type      | V. | Remark                             |
-|-----------------|------|-----------|----|------------------------------------|
-| loanAmount      | 1    | number    | v0 | Total N/o SEK applied for          |
-| termYears       | 1    | number    | v0 | N/o desired years term for loan |
-| refinanceAmount | 0..1 | number    | v0 | N/o SEK which are refinanced       |
-| applicant       | 1    | Applicant | v0 | Main applicant                     |
-| coApplicant     | 0..1 | Applicant | v0 | co-Applicant                       |
+| Name            | C.   | Type           | V. | Remark                          |
+|-----------------|------|----------------|----|---------------------------------|
+| loanAmount      | 1    | number         | v0 | Total N/o SEK applied for       |
+| termYears       | 1    | number         | v0 | N/o desired years term for loan |
+| refinanceAmount | 0..1 | number         | v0 | N/o SEK which are refinanced    |
+| applicant       | 1    | Applicant      | v0 | Main applicant                  |
+| coApplicant     | 0..1 | Applicant      | v0 | co-Applicant                    |
+| extensions      | 0..1 | ExtensionPoint | v0 |                                 |
 
 Applicant
 
@@ -146,6 +177,7 @@ Applicant
 | maritalStatus              | 1    | MaritalStatus    | v0 |                                                         |
 | employerName               | 0..1 | string           | v0 | Name of the primary employer                            |
 | employerPhone              | 0..1 | string           | v0 | PhoneNo to primary employer as  E.164                   |
+| extensions                 | 0..1 | ExtensionPoint   | v0 |                                                         |
 
 EmploymentStatus.
 

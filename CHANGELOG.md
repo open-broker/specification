@@ -1,1 +1,2 @@
+- 2018-05-21 - Added extension points
 - 2018-05-15 - Initial sketch of the specification
