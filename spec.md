@@ -22,7 +22,7 @@ between two systems.
 The standard defines the behaviour of two actors, the producer and the
 consumer, as defined in the CloudEvents specification. The producer
 creates events and the consumer reads events created by the
-producer. In order to ensure a engaging end user experience both parties
+producer. In order to ensure an engaging end user experience both parties
 will act in both roles as defined by this standard.
 
 Additionally behaviour in this specification is defined on three
@@ -93,10 +93,10 @@ format. The root of each event must be a JSON-object.
 
 All events specified in this working-copy of the spec shall be in
 namespace `org.open-broker.v0.COUNTRYCODE` where country-code is a two
-letter ISO-3166-1 code reffering to the country in which the new loan
-is requested. If this specification were to specify an event for Sweden
-called `example` it's event-type on the would be
-`org.open-broker.v0.SE.example`.
+letter ISO-3166-1 code referring to the country in which the new loan
+is requested. If this specification were to specify an event for
+services brokered within Sweden called `example` it's event-type on the
+would be `org.open-broker.v0.SE.example`.
 
 - Name: the name of the field in the JSON format
 - Cardinality (C.): `0..1` indicates an optional field. `1` indicates a
