@@ -153,7 +153,6 @@ The constrained primitive types are
 | Name        | Primitive | Description                  | Constraint type | Constraint        |
 |-------------|-----------|------------------------------|-----------------|-------------------|
 | reverse-dns | string    | Reverse domain name notation | regex           | Regex[^dns regex] |
-|             |           |                              |                 |                   |
 
 [^dns regex]: ^(([a-zA-Z0-9]|[a-zA-Z0-9][a-zA-Z0-9\-]*[a-zA-Z0-9])\.)*([A-Za-z0-9]|[A-Za-z0-9][A-Za-z0-9\-]*[A-Za-z0-9])$
 
