@@ -167,11 +167,11 @@ unsecured loan customers.
 
 Event (root element)
 
-| Name            | C.   | Type         | V. | Remark                         |
-|-----------------|------|--------------|----|--------------------------------|
-| application     | 1    | Application  | v0 | Contains the loan application  |
-| broker          | 0..1 | reversed-dns | v0 | Domain-name of the broker      |
-| brokerReference | 0..1 | string       | v0 | A reference used by the broker |
+| Name            | C.   | Type        | V. | Remark                         |
+|-----------------|------|-------------|----|--------------------------------|
+| application     | 1    | Application | v0 | Contains the loan application  |
+| broker          | 0..1 | reverse-dns | v0 | Domain-name of the broker      |
+| brokerReference | 0..1 | string      | v0 | A reference used by the broker |
 
 Application
 
