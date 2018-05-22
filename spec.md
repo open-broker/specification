@@ -150,11 +150,11 @@ written in lower-case.
 
 The constrained primitive types are
 
-| Name        | Primitive | Description                  | Constraint type | Constraint        |
-|-------------|-----------|------------------------------|-----------------|-------------------|
-| reverse-dns | string    | Reverse domain name notation | regex           | Regex[^dns regex] |
+| Name        | Primitive | Description                  | Constraint type | Constraint               |
+|-------------|-----------|------------------------------|-----------------|--------------------------|
+| reverse-dns | string    | Reverse domain name notation | regex           | [dns-regex](#dns-regex)] |
 
-[^dns regex]: ^(([a-zA-Z0-9]|[a-zA-Z0-9][a-zA-Z0-9\-]*[a-zA-Z0-9])\.)*([A-Za-z0-9]|[A-Za-z0-9][A-Za-z0-9\-]*[A-Za-z0-9])$
+<b id="dns-regex>dns-regex:</b>  ^(([a-zA-Z0-9]|[a-zA-Z0-9][a-zA-Z0-9\-]*[a-zA-Z0-9])\.)*([A-Za-z0-9]|[A-Za-z0-9][A-Za-z0-9\-]*[A-Za-z0-9])$
 
 The third kind of types are complex objects, these are written in
 `CamelCase` and defined as they are used in the specification.
