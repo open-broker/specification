@@ -113,8 +113,10 @@ were added.
 
 ```
 {
-  "com.example": {
-    "someField": "foo"
+  "extensions": {
+    "com.example": {
+      "someField": "foo"
+    }
   }
 }
 ```
