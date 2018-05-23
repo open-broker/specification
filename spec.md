@@ -175,6 +175,7 @@ LoanPurpose
 | HOME_DOWNPAYMENT    | To finance a downpayment for a loan            |
 | EDUCATION           | To finance education of some kind              |
 | TRAVEL              | To finance a vacation or other travel expenses |
+| CAR                 | To finance the purchase of a car or similar    |
 
 Applicant
 
