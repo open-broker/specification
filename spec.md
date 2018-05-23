@@ -154,14 +154,29 @@ Event (root element)
 
 Application
 
-| Name            | C.   | Type           | V. | Remark                          |
-|-----------------|------|----------------|----|---------------------------------|
-| loanAmount      | 1    | number         | v0 | Total N/o SEK applied for       |
-| termYears       | 1    | number         | v0 | N/o desired years term for loan |
-| refinanceAmount | 0..1 | number         | v0 | N/o SEK which are refinanced    |
-| applicant       | 1    | Applicant      | v0 | Main applicant                  |
-| coApplicant     | 0..1 | Applicant      | v0 | co-Applicant                    |
-| extensions      | 0..1 | ExtensionPoint | v0 |                                 |
+| Name            | C.   | Type           | V. | Remark                              |
+|-----------------|------|----------------|----|-------------------------------------|
+| loanAmount      | 1    | number         | v0 | Total N/o SEK applied for           |
+| termYears       | 1    | number         | v0 | N/o desired years term for loan     |
+| refinanceAmount | 0..1 | number         | v0 | N/o SEK which are refinanced        |
+| applicant       | 1    | Applicant      | v0 | Main applicant                      |
+| coApplicant     | 0..1 | Applicant      | v0 | co-Applicant                        |
+| loanPurpose     | 1    | LoanPurpose    | v0 | Primary purpose of getting the loan |
+| extensions      | 0..1 | ExtensionPoint | v0 |                                     |
+
+LoanPurpose
+
+| String value        | Remark                                         |
+|---------------------|------------------------------------------------|
+| REFINANCE           | refinancing existing debt                      |
+| HOME_REMODELLING    | Home remodelling or renovation                 |
+| HEALTHCARE_EXPENSES | To finance health-care costs.                  |
+| DIVORCE_PROCEEDINGS | To finance costs relating to a divorce.        |
+| HOME_DOWNPAYMENT    | To finance a downpayment for a loan            |
+| EDUCATION           | To finance education of some kind              |
+| TRAVEL              | To finance a vacation or other travel expenses |
+| CAR                 | To finance the purchase of a car or similar    |
+| OTHER               | Purpose not fitting the above categories       |
 
 Applicant
 
