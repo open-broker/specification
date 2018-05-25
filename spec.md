@@ -200,8 +200,8 @@ Applicant
 | housingCostMonthly          | 0..1 | number           | v0 |                                                         |
 | bankAccount                 | 0..1 | AccountNo        | v0 |                                                         |
 | citizenships                | 0..* | string           | v0 |                                                         |
-| countriesOfResidence        | 0..* | string           | v0 |                                                         |
-| taxResidentOf               | 0..* | string           | v0 |                                                         |
+| countriesOfResidence        | 1..* | string           | v0 |                                                         |
+| taxResidentOf               | 1..* | string           | v0 |                                                         |
 
 AccountNo.
 
