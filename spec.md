@@ -198,11 +198,17 @@ Applicant
 | childSupportReceivedMonthly | 0..1 | number           | v0 | 0 - to indicate not received, missing field unknown     |
 | childSupportPaidMonthly     | 0..1 | number           | v0 | 0 - to indicate not received, missing field unknown     |
 | housingCostMonthly          | 0..1 | number           | v0 |                                                         |
-| bankAccClearingNo           | 0..1 | string           | v0 |                                                         |
-| bankAccAccountNo            | 0..1 | string           | v0 |                                                         |
+| bankAccount                 | 0..1 | AccountNo        | v0 |                                                         |
 | citizenships                | 0..* | string           | v0 |                                                         |
 | countriesOfResidence        | 0..* | string           | v0 |                                                         |
 | taxResidentOf               | 0..* | string           | v0 |                                                         |
+
+AccountNo.
+
+| Name       | C. | Type   | V. | Remark |
+|------------|----|--------|----|--------|
+| clearingNo | 1  | string | v0 |        |
+| accountNo  | 1  | string | v0 |        |
 
 EmploymentStatus.
 
