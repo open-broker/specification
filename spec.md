@@ -180,21 +180,23 @@ LoanPurpose
 
 Applicant
 
-| Name                       | C.   | Type             | V. | Remark                                                  |
-|----------------------------|------|------------------|----|---------------------------------------------------------|
-| ssn                        | 1    | string           | v0 | Swedish Social Security Number, with century, 12 digits |
-| phone                      | 0..1 | string           | v0 | Phonenumber formatted as E.164                          |
-| emailAddress               | 0..1 | string           | v0 | Email address on the form local.part@host.tld           |
-| employmentStatus           | 1    | EmploymentStatus | v0 |                                                         |
-| employmentStatusSinceYear  | 1    | number           | v0 | Year since common era                                   |
-| employmentStatusSinceMonth | 1    | number           | v0 | Number beteween 1 and 12                                |
-| dependentChildren          | 1    | number           | v0 | Range may be truncated by receiving party               |
-| housingType                | 1    | HousingType      | v0 |                                                         |
-| housingCostPerMonth        | 1    | number           | v0 | Cost relating to housing in SEK                         |
-| maritalStatus              | 1    | MaritalStatus    | v0 |                                                         |
-| employerName               | 0..1 | string           | v0 | Name of the primary employer                            |
-| employerPhone              | 0..1 | string           | v0 | PhoneNo to primary employer as  E.164                   |
-| extensions                 | 0..1 | ExtensionPoint   | v0 |                                                         |
+| Name                        | C.   | Type             | V. | Remark                                                  |
+|-----------------------------|------|------------------|----|---------------------------------------------------------|
+| ssn                         | 1    | string           | v0 | Swedish Social Security Number, with century, 12 digits |
+| phone                       | 0..1 | string           | v0 | Phonenumber formatted as E.164                          |
+| emailAddress                | 0..1 | string           | v0 | Email address on the form local.part@host.tld           |
+| employmentStatus            | 1    | EmploymentStatus | v0 |                                                         |
+| employmentStatusSinceYear   | 1    | number           | v0 | Year since common era                                   |
+| employmentStatusSinceMonth  | 1    | number           | v0 | Number beteween 1 and 12                                |
+| dependentChildren           | 1    | number           | v0 | Range may be truncated by receiving party               |
+| housingType                 | 1    | HousingType      | v0 |                                                         |
+| housingCostPerMonth         | 1    | number           | v0 | Cost relating to housing in SEK                         |
+| maritalStatus               | 1    | MaritalStatus    | v0 |                                                         |
+| employerName                | 0..1 | string           | v0 | Name of the primary employer                            |
+| employerPhone               | 0..1 | string           | v0 | PhoneNo to primary employer as  E.164                   |
+| extensions                  | 0..1 | ExtensionPoint   | v0 |                                                         |
+| childSupportReceivedMonthly | 0..1 | number           | v0 | 0 - to indicate not received, missing field unknown     |
+| childSupportPaidMonthly     | 0..1 | number           | v0 | 0 - to indicate not received, missing field unknown     |
 
 EmploymentStatus.
 
