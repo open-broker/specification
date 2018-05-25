@@ -135,10 +135,30 @@ be `org.open-broker.v0.SE.example`.
   required field. `0..*` indicates a list of at least zero elements.
   `1..*` indicates a list of atleast one element. `1..2` indicates a
   list of one or two elements.
-- Type: Lower-case indicates built-in types: `string`, `number`,
-  `boolean`, A type specified in `CamelCase` refers to a definition as
-  follows below.
+- Type: As defined in the field types section below.
 - Version (V.): The first version of the spec that it was included in.
+
+## Field types
+
+There are three kinds of types considered in this specification. The
+first kind of types include the primitive types defined in JSON,
+`string`, `number` and `boolean`, these are written in lower-case.
+
+The second kind of types are constrained primitives and are
+constrained versions of the primitive types. The constrained types are
+written in lower-case.
+
+The constrained primitive types are
+
+| Name        | Primitive | Description                  | Constraint type | Constraint               |
+|-------------|-----------|------------------------------|-----------------|--------------------------|
+| reverse-dns | string    | Reverse domain name notation | regex           | [dns-regex](#dns-regex) |
+
+<b id="dns-regex">dns-regex:</b>  ^(([a-zA-Z0-9]|[a-zA-Z0-9][a-zA-Z0-9\-]*[a-zA-Z0-9])\.)*([A-Za-z0-9]|[A-Za-z0-9][A-Za-z0-9\-]*[A-Za-z0-9])$
+
+The third kind of types are complex objects, these are written in
+`CamelCase` and defined as they are used in the specification.
+
 
 ## PrivateUnsecuredLoanApplicationCreated
 
@@ -147,10 +167,11 @@ unsecured loan customers.
 
 Event (root element)
 
-| Name        | C. | Type        | V. | Remark                        |
-|-------------|----|-------------|----|-------------------------------|
-| application | 1  | Application | v0 | Contains the loan application |
-
+| Name            | C.   | Type        | V. | Remark                          |
+|-----------------|------|-------------|----|---------------------------------|
+| application     | 1    | Application | v0 | Contains the loan application   |
+| broker          | 0..1 | reverse-dns | v0 | Domain-name of the broker       |
+| brokerReference | 0..1 | string      | v0 | Per-broker unique, not globally |
 
 Application
 
