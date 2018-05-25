@@ -178,7 +178,7 @@ Application
 | Name            | C.   | Type           | V. | Remark                              |
 |-----------------|------|----------------|----|-------------------------------------|
 | loanAmount      | 1    | number         | v0 | Total N/o SEK applied for           |
-| termYears       | 1    | number         | v0 | N/o desired years term for loan     |
+| termMonths      | 1    | number         | v0 | N/o desired years term for loan     |
 | refinanceAmount | 0..1 | number         | v0 | N/o SEK which are refinanced        |
 | applicant       | 1    | Applicant      | v0 | Main applicant                      |
 | coApplicant     | 0..1 | Applicant      | v0 | co-Applicant                        |
@@ -293,3 +293,69 @@ MaritalStatus
   }
 }
 ```
+
+
+## PrivateUnsecuredLoanOffering
+
+This event pertains to offers for unsecured loans for Swedish customers.
+
+Event (root element)
+
+| Name            | C.   | Type        | V. | Remark                          |
+|-----------------|------|-------------|----|---------------------------------|
+| offer           | 1    | Application | v0 | Contains the offer for loan     |
+| broker          | 1    | reverse-dns | v0 | Domain-name of the broker       |
+| brokerReference | 1    | string      | v0 | Per-broker unique, not globally |
+
+Offer
+
+| Name                  | C.   | Type               | V. | Remark                                                          |
+|-----------------------|------|--------------------|----|-----------------------------------------------------------------|
+| effectiveInterestRate | 1    | number             | v0 | A number formatted as a string to reduce risk of rounding error |
+| nominalInterestRate   | 1    | number             |    | 
+| offeredCredit         | 1    | number             |    | 
+| establishingFee       | 1    | number             |    | 
+| termFee               | 1    | number             |    | 
+| numberOfMonths        | 1    | number             |    | 
+| loanInsuranceOffer    | 0..1 | LoanInsuranceOffer |    | 
+
+
+LoanInsuranceOffer
+
+| Name           | C.   | Type       | V. | Remark 
+|----------------|------|------------|----|---------
+| insuredAmount  | 1    | number     | v0 |
+| monthlyPremium | 1    | number     | v0 |
+
+
+
+
+## PrivateUnsecuredDelayedProcessing
+
+This event signifies that the processing of a request will take more time than usual
+This is usually due to manual processing of the application.
+This event is not needed but might be provided as a courtesy.
+
+| Name            | C.   | Type        | V. | Remark                          |
+|-----------------|------|-------------|----|---------------------------------|
+| delayReason     | 0..1 | DelayReason | v0 | Contains the loan application   |
+| broker          | 1    | reverse-dns | v0 | Domain-name of the broker       |
+| brokerReference | 1    | string      | v0 | Per-broker unique, not globally |
+
+DelayReason
+
+| String value      | Remark |
+|-------------------|--------|
+| ManualProcessing  |        |
+| Holiday           |        |
+| OperationalIssues |        |
+
+## PrivateUnsecuredLoanRejection
+
+This event pertains denials of unsecured loans for Swedish customers.
+
+| Name            | C.   | Type        | V. | Remark                          |
+|-----------------|------|-------------|----|---------------------------------|
+| rejectionReason | 0..1 | Application | v0 | Contains the loan application   |
+| broker          | 1    | reverse-dns | v0 | Domain-name of the broker       |
+| brokerReference | 1    | string      | v0 | Per-broker unique, not globally |
