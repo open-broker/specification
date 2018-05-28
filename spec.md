@@ -223,6 +223,17 @@ Applicant
 | citizenships                | 0..* | string           | v0 |                                                         |
 | countriesOfResidence        | 1..* | string           | v0 |                                                         |
 | taxResidentOf               | 1..* | string           | v0 |                                                         |
+| tentativeAddress            | 0..* | Address          | v0 | Tentative address information                           |
+
+Address.
+| Name       | C. | Type   | V. | Remark |
+|------------|----|--------|----|--------|
+| firstName  | 1  | String | v0 |        |
+| lastName   | 1  | String | v0 |        |
+| address    | 1  | String | v0 |        |
+| city       | 1  | String | v0 |        |
+| postalCode | 1  | String | v0 |        |
+| careOf     | 1  | String | v0 |        |
 
 AccountNo.
 
