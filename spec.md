@@ -150,11 +150,13 @@ written in lower-case.
 
 The constrained primitive types are
 
-| Name        | Primitive | Description                  | Constraint type | Constraint               |
-|-------------|-----------|------------------------------|-----------------|--------------------------|
-| reverse-dns | string    | Reverse domain name notation | regex           | [dns-regex](#dns-regex) |
+| Name           | Primitive | Description                                               | Constraint type | Constraint               |
+|----------------|-----------|-----------------------------------------------------------|-----------------|--------------------------|
+| reverse-dns    | string    | Reverse domain name notation | regex                      | regex           | [dns-regex](#dns-regex)  |
+| decimal-number | string    | Decimal number protected from float-parsing in json layer | regex           | [decimal-regex](#decimal-regex) |
 
 <b id="dns-regex">dns-regex:</b>  ^(([a-zA-Z0-9]|[a-zA-Z0-9][a-zA-Z0-9\-]*[a-zA-Z0-9])\.)*([A-Za-z0-9]|[A-Za-z0-9][A-Za-z0-9\-]*[A-Za-z0-9])$
+<b id="decimal-regex">decimal-regex:</b> ^[0-9]+(\.[0-9]+)?$
 
 The third kind of types are complex objects, these are written in
 `CamelCase` and defined as they are used in the specification.
@@ -311,14 +313,14 @@ Offer
 
 | Name                  | C.   | Type               | V. | Remark                                                                         |
 |-----------------------|------|--------------------|----|--------------------------------------------------------------------------------|
-| effectiveInterestRate | 1    | string             | v0 | A number formatted as a string to reduce risk of rounding error                |
-| nominalInterestRate   | 1    | string             | v0 | A number formatted as a string to reduce risk of rounding error                |
+| effectiveInterestRate | 1    | decimal-number     | v0 | A number formatted as a string to reduce risk of rounding error                |
+| nominalInterestRate   | 1    | decimal-number     | v0 | A number formatted as a string to reduce risk of rounding error                |
 | minOfferedCredit      | 1    | number             | v0 | The smallest amount that can be offered at the current nominal interest rate * |
 | offeredCredit         | 1    | number             | v0 | Offered amount, this is the value that the APR is based on.                    |
 | maxOfferedCredit      | 1    | number             | v0 | The largest amount that can be offered at the current nominal interest rate *  |
-| establishingFee       | 1    | number             | v0 | The initial payment for establishment of the loan                              |
-| termFee               | 1    | number             | v0 | The invoice cost or other fixed fees to be paid along with amortisation and interest every month |
-| numberOfMonths        | 1    | number             | v0 | The offered term of the loan expressed as months                               |
+| arrangementFee        | 1    | number             | v0 | The initial payment for establishment of the loan                              |
+| termFee               | 1    | number             | v0 | Fixed fees to be paid along with amortisation and interest every month         |
+| termMonths            | 1    | number             | v0 | The offered term of the loan expressed as months                               |
 | loanInsuranceOffer    | 0..1 | LoanInsuranceOffer | v0 | If any optional insurance is offered along with the loan                       |
 
  ** If there is no leeway in the offer the min amount and the max amount should be set to the offeredCredit value
