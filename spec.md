@@ -167,11 +167,12 @@ unsecured loan customers.
 
 Event (root element)
 
-| Name            | C.   | Type        | V. | Remark                          |
-|-----------------|------|-------------|----|---------------------------------|
-| application     | 1    | Application | v0 | Contains the loan application   |
-| broker          | 0..1 | reverse-dns | v0 | Domain-name of the broker       |
-| brokerReference | 0..1 | string      | v0 | Per-broker unique, not globally |
+| Name                  | C.   | Type                      | V. | Remark                                   |
+|-----------------------|------|---------------------------|----|------------------------------------------|
+| application           | 1    | Application               | v0 | Contains the loan application            |
+| broker                | 0..1 | reverse-dns               | v0 | Domain-name of the broker                |
+| brokerReference       | 0..1 | string                    | v0 | Per-broker unique, not globally          |
+| dataProtectionContext | 1    | DataProtectionContext | v0 | Sets data-protection rules for the event |
 
 Application
 
@@ -184,6 +185,18 @@ Application
 | coApplicant     | 0..1 | Applicant      | v0 | co-Applicant                        |
 | loanPurpose     | 1    | LoanPurpose    | v0 | Primary purpose of getting the loan |
 | extensions      | 0..1 | ExtensionPoint | v0 |                                     |
+
+DataProtectionContext
+| String value | Remark                                                   |
+|--------------|----------------------------------------------------------|
+| REAL         | Production data consisting concerning real data-subjects |
+| FICTIONAL    | Fictional data, does not concern real data-subjects      |
+
+Consumers MAY reject or refuse to process data sent in the `REAL` data
+protection context if the consumer deems it cannot secure the data
+being sent. Additionally consumers may reject `FICTIONAL` data if
+processing may affect real persons, for example, ordering a hard credit
+inquiry.
 
 LoanPurpose
 
