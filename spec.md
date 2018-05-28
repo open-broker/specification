@@ -349,10 +349,10 @@ This event is not needed but might be provided as a courtesy.
 DelayReason
 
 | String value      | Remark |
-|-------------------|--------|
-| ManualProcessing  |        |
-| Holiday           |        |
-| OperationalIssues |        |
+|--------------------|--------|
+| MANUAL_PROCESSING  |        |
+| HOLIDAY            |        |
+| OPERATIONAL_ISSUES |        |
 
 ## PrivateUnsecuredLoanRejection
 
