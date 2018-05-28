@@ -187,6 +187,7 @@ Application
 | extensions      | 0..1 | ExtensionPoint | v0 |                                     |
 
 DataProtectionContext
+
 | String value | Remark                                                   |
 |--------------|----------------------------------------------------------|
 | REAL         | Production data consisting concerning real data-subjects |
