@@ -309,15 +309,19 @@ Event (root element)
 
 Offer
 
-| Name                  | C.   | Type               | V. | Remark                                                          |
-|-----------------------|------|--------------------|----|-----------------------------------------------------------------|
-| effectiveInterestRate | 1    | number             | v0 | A number formatted as a string to reduce risk of rounding error |
-| nominalInterestRate   | 1    | number             |    | 
-| offeredCredit         | 1    | number             |    | 
-| establishingFee       | 1    | number             |    | 
-| termFee               | 1    | number             |    | 
-| numberOfMonths        | 1    | number             |    | 
-| loanInsuranceOffer    | 0..1 | LoanInsuranceOffer |    | 
+| Name                  | C.   | Type               | V. | Remark                                                                         |
+|-----------------------|------|--------------------|----|--------------------------------------------------------------------------------|
+| effectiveInterestRate | 1    | string             | v0 | A number formatted as a string to reduce risk of rounding error                |
+| nominalInterestRate   | 1    | string             | v0 | A number formatted as a string to reduce risk of rounding error                |
+| minOfferedCredit      | 1    | number             | v0 | The smallest amount that can be offered at the current nominal interest rate * |
+| offeredCredit         | 1    | number             | v0 | Offered amount, this is the value that the APR is based on.                    |
+| maxOfferedCredit      | 1    | number             | v0 | The largest amount that can be offered at the current nominal interest rate *  |
+| establishingFee       | 1    | number             | v0 | The initial payment for establishment of the loan                              |
+| termFee               | 1    | number             | v0 | The invoice cost or other fixed fees to be paid along with amortisation and interest every month |
+| numberOfMonths        | 1    | number             | v0 | The offered term of the loan expressed as months                               |
+| loanInsuranceOffer    | 0..1 | LoanInsuranceOffer | v0 | If any optional insurance is offered along with the loan                       |
+
+ ** If there is no leeway in the offer the min amount and the max amount should be set to the offeredCredit value
 
 
 LoanInsuranceOffer
@@ -326,13 +330,13 @@ LoanInsuranceOffer
 |----------------|------|------------|----|---------
 | insuredAmount  | 1    | number     | v0 |
 | monthlyPremium | 1    | number     | v0 |
-
+| descriptiveText| 0..1 | string     | v0 |
 
 
 
 ## PrivateUnsecuredDelayedProcessing
 
-This event signifies that the processing of a request will take more time than usual
+This event signifies that the processing of a request will take longer time than usual
 This is usually due to manual processing of the application.
 This event is not needed but might be provided as a courtesy.
 
