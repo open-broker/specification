@@ -167,9 +167,11 @@ The constrained primitive types are
 |----------------|-----------|-----------------------------------------------------------|-----------------|---------------------------------|
 | reverse-dns    | string    | Reverse domain name notation                              | regex           | [dns-regex](#dns-regex)         |
 | decimal-number | string    | Decimal number protected from float-parsing in json layer | regex           | [decimal-regex](#decimal-regex) |
+| e164           | string    | Phone number formatted according to the E.164             | regex           | [e164-regex](#e164-regex)       |
 
 - <b id="dns-regex">dns-regex:</b>  ^(([a-zA-Z0-9]|[a-zA-Z0-9][a-zA-Z0-9\-]*[a-zA-Z0-9])\.)*([A-Za-z0-9]|[A-Za-z0-9][A-Za-z0-9\-]*[A-Za-z0-9])$
 - <b id="decimal-regex">decimal-regex:</b> ^[0-9]+(\.[0-9]+)?$
+- <b id="e164-regex">e164-regex:</b> ^\+[1-9][0-9]{1,14}$
 
 The third kind of types are complex objects, these are written in
 `CamelCase` and defined as they are used in the specification.
@@ -233,8 +235,8 @@ Applicant
 | Name                        | C.   | Type             | V. | Remark                                                  |
 |-----------------------------|------|------------------|----|---------------------------------------------------------|
 | ssn                         | 1    | string           | v0 | Swedish Social Security Number, with century, 12 digits |
-| phone                       | 0..1 | string           | v0 | Phonenumber formatted as E.164                          |
-| secondaryPhone              | 0..* | string           | v0 | Additional phonenumbers formatted as E.164              |
+| phone                       | 0..1 | e164             | v0 | Primary phone number                                    |
+| secondaryPhone              | 0..* | e164             | v0 | Secondary phone numbers                                 |
 | emailAddress                | 0..1 | string           | v0 | Email address on the form local.part@host.tld           |
 | employmentStatus            | 1    | EmploymentStatus | v0 |                                                         |
 | employmentStatusSinceYear   | 1    | number           | v0 | Year since common era                                   |
@@ -244,7 +246,7 @@ Applicant
 | housingCostPerMonth         | 1    | number           | v0 | Cost relating to housing in SEK                         |
 | maritalStatus               | 1    | MaritalStatus    | v0 |                                                         |
 | employerName                | 0..1 | string           | v0 | Name of the primary employer                            |
-| employerPhone               | 0..1 | string           | v0 | PhoneNo to primary employer as  E.164                   |
+| employerPhone               | 0..1 | e164             | v0 | Phone number of employer                                |
 | extensions                  | 0..1 | ExtensionPoint   | v0 |                                                         |
 | childSupportReceivedMonthly | 0..1 | number           | v0 | 0 - to indicate not received, missing field unknown     |
 | childSupportPaidMonthly     | 0..1 | number           | v0 | 0 - to indicate not received, missing field unknown     |
