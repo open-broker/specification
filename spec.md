@@ -16,17 +16,30 @@ while not compromising on the semantics.
 # Overview
 
 This specification defines a number of events that can occur in the
-broker-bank relationship, and how these events should be transferred
-between two systems.
+broker - service provider relationship, and how these events should be
+transferred between two systems.
 
-The standard defines the behaviour of two actors, the producer and the
-consumer, as defined in the CloudEvents specification. The producer
-creates events and the consumer reads events created by the
-producer. In order to ensure an engaging end user experience both parties
-will act in both roles as defined by this standard.
+The service provider is defined as the party providing a service,
+defined in this specification. This might for example be a loan, an
+insurance product or a mortgage.
 
-Additionally behaviour in this specification is defined on three
-levels of operations.
+The broker is defined as the actor sending a tender for offers for a
+customer to the service provider. Such a tender may be sent to
+multiple service providers.
+
+The typical interaction with a broker may include two-way
+communication, that is the service provider sending events to the
+broker and vice versa. This means that both the service provider and
+broker will act as consumers and producers of the events. For the
+purposes of this standard the terms consumer and producer are defined
+as in the CloudEvents specification. The producer creates events and
+the consumer reads events created by the producer.
+
+All interactions between the service provider and the broker are
+communicated as well-formed events as defined in the CloudEvents
+specification. This separates concerns of transmission, parsing and
+semantics, thereby dividing the specification into levels of
+processing. These are:
 
 - Transport: Defines how messages are transferred between two parties, ensuring mutual authentication and secrecy.
 - Envelope: Defines meta-data and senders for events and handles dispatch based on message types.
@@ -363,7 +376,7 @@ Offer
 
 LoanInsuranceOffer
 
-| Name           | C.   | Type       | V. | Remark 
+| Name           | C.   | Type       | V. | Remark
 |----------------|------|------------|----|---------
 | insuredAmount  | 1    | number     | v0 |
 | monthlyPremium | 1    | number     | v0 |
