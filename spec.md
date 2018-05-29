@@ -163,15 +163,17 @@ written in lower-case.
 
 The constrained primitive types are
 
-| Name           | Primitive | Description                                               | Constraint type | Constraint                      |
-|----------------|-----------|-----------------------------------------------------------|-----------------|---------------------------------|
-| reverse-dns    | string    | Reverse domain name notation                              | regex           | [dns-regex](#dns-regex)         |
-| decimal-number | string    | Decimal number protected from float-parsing in json layer | regex           | [decimal-regex](#decimal-regex) |
-| e164           | string    | Phone number formatted according to the E.164             | regex           | [e164-regex](#e164-regex)       |
+| Name           | Primitive | Description                                               | Constraint type | Constraint                                            |
+|----------------|-----------|-----------------------------------------------------------|-----------------|-------------------------------------------------------|
+| reverse-dns    | string    | Reverse domain name notation                              | regex           | [dns-regex](#dns-regex)                               |
+| decimal-number | string    | Decimal number protected from float-parsing in json layer | regex           | [decimal-regex](#decimal-regex)                       |
+| e164           | string    | Phone number formatted according to the E.164             | regex           | [e164-regex](#e164-regex)                             |
+| country-code   | string    | Two letter, ISO 3166-1 alpha-2 country code               | regex           | [iso-3166-1-alpha-2-regex](#iso-3166-1-alpha-2-regex) |
 
 - <b id="dns-regex">dns-regex:</b>  ^(([a-zA-Z0-9]|[a-zA-Z0-9][a-zA-Z0-9\-]*[a-zA-Z0-9])\.)*([A-Za-z0-9]|[A-Za-z0-9][A-Za-z0-9\-]*[A-Za-z0-9])$
 - <b id="decimal-regex">decimal-regex:</b> ^[0-9]+(\.[0-9]+)?$
 - <b id="e164-regex">e164-regex:</b> ^\+[1-9][0-9]{1,14}$
+- <b id="iso-3166-1-alpha-2-regex">iso-3166-1-alpha-2-regex:</b> ^[A-Z]{2}$
 
 The third kind of types are complex objects, these are written in
 `CamelCase` and defined as they are used in the specification.
@@ -252,9 +254,9 @@ Applicant
 | childSupportPaidMonthly     | 0..1 | number           | v0 | 0 - to indicate not received, missing field unknown     |
 | housingCostMonthly          | 0..1 | number           | v0 |                                                         |
 | bankAccount                 | 0..1 | AccountNo        | v0 |                                                         |
-| citizenships                | 0..* | string           | v0 |                                                         |
-| countriesOfResidence        | 1..* | string           | v0 |                                                         |
-| taxResidentOf               | 1..* | string           | v0 |                                                         |
+| citizenships                | 0..* | country-code     | v0 |                                                         |
+| countriesOfResidence        | 1..* | country-code     | v0 |                                                         |
+| taxResidentOf               | 1..* | country-code     | v0 |                                                         |
 | tentativeAddress            | 0..* | Address          | v0 | Tentative address information                           |
 
 Address.
