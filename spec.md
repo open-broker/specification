@@ -272,7 +272,7 @@ EmploymentStatus.
 | SELF_EMPLOYED |                                                      |
 | HOURLY        | Formally permanently employed, hired by the hour     |
 | EARLY_RETIRED |                                                      |
-| STUDENT       | Signed up to an university or other higher education |
+| STUDENT       | Signed up to a university or other higher education  |
 | UNEMPLOYED    |                                                      |
 | OTHER         |                                                      |
 
