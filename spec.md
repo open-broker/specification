@@ -150,11 +150,13 @@ written in lower-case.
 
 The constrained primitive types are
 
-| Name        | Primitive | Description                  | Constraint type | Constraint               |
-|-------------|-----------|------------------------------|-----------------|--------------------------|
-| reverse-dns | string    | Reverse domain name notation | regex           | [dns-regex](#dns-regex) |
+| Name           | Primitive | Description                                               | Constraint type | Constraint               |
+|----------------|-----------|-----------------------------------------------------------|-----------------|--------------------------|
+| reverse-dns    | string    | Reverse domain name notation | regex                      | regex           | [dns-regex](#dns-regex)  |
+| decimal-number | string    | Decimal number protected from float-parsing in json layer | regex           | [decimal-regex](#decimal-regex) |
 
 <b id="dns-regex">dns-regex:</b>  ^(([a-zA-Z0-9]|[a-zA-Z0-9][a-zA-Z0-9\-]*[a-zA-Z0-9])\.)*([A-Za-z0-9]|[A-Za-z0-9][A-Za-z0-9\-]*[A-Za-z0-9])$
+<b id="decimal-regex">decimal-regex:</b> ^[0-9]+(\.[0-9]+)?$
 
 The third kind of types are complex objects, these are written in
 `CamelCase` and defined as they are used in the specification.
@@ -179,7 +181,7 @@ Application
 | Name            | C.   | Type           | V. | Remark                              |
 |-----------------|------|----------------|----|-------------------------------------|
 | loanAmount      | 1    | number         | v0 | Total N/o SEK applied for           |
-| termYears       | 1    | number         | v0 | N/o desired years term for loan     |
+| termMonths      | 1    | number         | v0 | N/o desired years term for loan     |
 | refinanceAmount | 0..1 | number         | v0 | N/o SEK which are refinanced        |
 | applicant       | 1    | Applicant      | v0 | Main applicant                      |
 | coApplicant     | 0..1 | Applicant      | v0 | co-Applicant                        |
@@ -320,3 +322,73 @@ MaritalStatus
   }
 }
 ```
+
+
+## PrivateUnsecuredLoanOffering
+
+This event pertains to offers for unsecured loans for Swedish customers.
+
+Event (root element)
+
+| Name            | C.   | Type        | V. | Remark                          |
+|-----------------|------|-------------|----|---------------------------------|
+| offer           | 1    | Application | v0 | Contains the offer for loan     |
+| broker          | 1    | reverse-dns | v0 | Domain-name of the broker       |
+| brokerReference | 1    | string      | v0 | Per-broker unique, not globally |
+
+Offer
+
+| Name                  | C.   | Type               | V. | Remark                                                                         |
+|-----------------------|------|--------------------|----|--------------------------------------------------------------------------------|
+| effectiveInterestRate | 1    | decimal-number     | v0 | A number formatted as a string to reduce risk of rounding error                |
+| nominalInterestRate   | 1    | decimal-number     | v0 | A number formatted as a string to reduce risk of rounding error                |
+| minOfferedCredit      | 1    | number             | v0 | The smallest amount that can be offered at the current nominal interest rate * |
+| offeredCredit         | 1    | number             | v0 | Offered amount, this is the value that the APR is based on.                    |
+| maxOfferedCredit      | 1    | number             | v0 | The largest amount that can be offered at the current nominal interest rate *  |
+| arrangementFee        | 1    | number             | v0 | The initial payment for establishment of the loan                              |
+| termFee               | 1    | number             | v0 | Fixed fees to be paid along with amortisation and interest every month         |
+| termMonths            | 1    | number             | v0 | The offered term of the loan expressed as months                               |
+| loanInsuranceOffer    | 0..1 | LoanInsuranceOffer | v0 | If any optional insurance is offered along with the loan                       |
+
+ ** If there is no leeway in the offer the min amount and the max amount should be set to the offeredCredit value
+
+
+LoanInsuranceOffer
+
+| Name           | C.   | Type       | V. | Remark 
+|----------------|------|------------|----|---------
+| insuredAmount  | 1    | number     | v0 |
+| monthlyPremium | 1    | number     | v0 |
+| descriptiveText| 0..1 | string     | v0 |
+
+
+
+## PrivateUnsecuredDelayedProcessing
+
+This event signifies that the processing of a request will take longer time than usual
+This is usually due to manual processing of the application.
+This event is not needed but might be provided as a courtesy.
+
+| Name            | C.   | Type        | V. | Remark                          |
+|-----------------|------|-------------|----|---------------------------------|
+| delayReason     | 0..1 | DelayReason | v0 | Contains the loan application   |
+| broker          | 1    | reverse-dns | v0 | Domain-name of the broker       |
+| brokerReference | 1    | string      | v0 | Per-broker unique, not globally |
+
+DelayReason
+
+| String value      | Remark |
+|--------------------|--------|
+| MANUAL_PROCESSING  |        |
+| HOLIDAY            |        |
+| OPERATIONAL_ISSUES |        |
+
+## PrivateUnsecuredLoanRejection
+
+This event pertains denials of unsecured loans for Swedish customers.
+
+| Name            | C.   | Type        | V. | Remark                          |
+|-----------------|------|-------------|----|---------------------------------|
+| rejectionReason | 0..1 | Application | v0 | Contains the loan application   |
+| broker          | 1    | reverse-dns | v0 | Domain-name of the broker       |
+| brokerReference | 1    | string      | v0 | Per-broker unique, not globally |
