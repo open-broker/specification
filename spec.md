@@ -262,14 +262,21 @@ AccountNo.
 
 EmploymentStatus.
 
-| String value  | Remark                                           |
-|---------------|--------------------------------------------------|
-| FULLTIME      |                                                  |
-| TRIAL         | Trial employment sv. Provanställning             |
-| RETIRED       | Retired due to age                               |
-| HOURLY        | Works fewer than 40h per week                    |
-| PROJECT       | Non-full time employment pertaining to a project |
-| SELF_EMPLOYED |                                                  |
+| String value  | Remark                                               |
+|---------------|------------------------------------------------------|
+| FULL_TIME     |                                                      |
+| TRIAL         | Trial employment sv. Provanställning                 |
+| RETIRED       | Retired due to age                                   |
+| HOURLY        | Works fewer than 40h per week                        |
+| TEMPORARY     | Non-full time employment pertaining to a project     |
+| SELF_EMPLOYED |                                                      |
+| HOURLY        | Formally permanently employed, hired by the hour     |
+| EARLY_RETIRED |                                                      |
+| STUDENT       | Signed up to a university or other higher education  |
+| UNEMPLOYED    |                                                      |
+| OTHER         |                                                      |
+
+
 
 
 HousingType
