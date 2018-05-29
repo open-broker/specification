@@ -219,6 +219,7 @@ Applicant
 |-----------------------------|------|------------------|----|---------------------------------------------------------|
 | ssn                         | 1    | string           | v0 | Swedish Social Security Number, with century, 12 digits |
 | phone                       | 0..1 | string           | v0 | Phonenumber formatted as E.164                          |
+| secondaryPhone              | 0..* | string           | v0 | Additional phonenumbers formatted as E.164              |
 | emailAddress                | 0..1 | string           | v0 | Email address on the form local.part@host.tld           |
 | employmentStatus            | 1    | EmploymentStatus | v0 |                                                         |
 | employmentStatusSinceYear   | 1    | number           | v0 | Year since common era                                   |
@@ -303,7 +304,8 @@ MaritalStatus
       "termYears": 3,
       "applicant": {
         "ssn": "195911057916",
-        "phone": "+464315114441",
+        "phone": "+467015114441",
+        "secondaryPhone": ["+465062718282"],
         "employmentStatus": "FULL_TIME",
         "employmentStatusSinceYear": 2014,
         "employmentStatusSinceMonth": 3,
