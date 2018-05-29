@@ -243,6 +243,7 @@ Applicant
 | tentativeAddress            | 0..* | Address          | v0 | Tentative address information                           |
 
 Address.
+
 | Name       | C. | Type   | V. | Remark |
 |------------|----|--------|----|--------|
 | firstName  | 1  | String | v0 |        |
