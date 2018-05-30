@@ -267,9 +267,9 @@ ExistingLoan
 |------------------|----|----------------------------|--------|
 | loanAmmount      | 1  | Number                     | 
 | monthlyPayment   | 1  | Number                     | 
-| ExistingLoanType | 1  | ExistingLoanType           | 
-| ShouldRefinance  | 1  | boolean                    | 
-| Responsibility   | 1  | ExistingLoanResponsibility | @will
+| existingLoanType | 1  | ExistingLoanType           | 
+| shouldRefinance  | 1  | boolean                    | 
+| responsibility   | 1  | ExistingLoanResponsibility | @will
 
 
 ExistingLoanType
