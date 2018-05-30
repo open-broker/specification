@@ -353,7 +353,7 @@ Offer
 | minOfferedCredit      | 1    | number             | v0 | The smallest amount that can be offered at the current nominal interest rate * |
 | offeredCredit         | 1    | number             | v0 | Offered amount, this is the value that the APR is based on.                    |
 | maxOfferedCredit      | 1    | number             | v0 | The largest amount that can be offered at the current nominal interest rate *  |
-| mustRefinance         | 1    | number             | v0 | Amount the borrower must use to refinance other loans                          |
+| mustRefinance         | 1    | number             | v0 | Amount the customer must use to refinance other loans                          |
 | arrangementFee        | 1    | number             | v0 | The initial payment for establishment of the loan                              |
 | termFee               | 1    | number             | v0 | Fixed fees to be paid along with amortisation and interest every month         |
 | termMonths            | 1    | number             | v0 | The offered term of the loan expressed as months                               |
