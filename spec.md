@@ -20,8 +20,7 @@ broker - service provider relationship, and how these events should be
 transferred between two systems.
 
 The service provider is defined as the party providing a service,
-defined in this specification. This might for example be a loan, an
-insurance product or a mortgage.
+defined in this specification.
 
 The broker is defined as the actor sending a tender for offers for a
 customer to the service provider. Such a tender may be sent to
