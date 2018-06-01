@@ -403,7 +403,7 @@ This event pertains denials of unsecured loans for Swedish customers.
 
 ## PrivateUnsecuredLoanStatusUpdated
 
-This event models updates in the status of a case. These are meant for
+This event models updates to the status of a case. These are meant for
 status changes not immediately within the brokers control.
 
 | Name            | C. | Type              | V. | Remark                          |
