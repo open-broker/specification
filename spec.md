@@ -430,3 +430,33 @@ This event pertains denials of unsecured loans for Swedish customers.
 | rejectionReason | 0..1 | Application | v0 | Contains the loan application   |
 | broker          | 1    | reverse-dns | v0 | Domain-name of the broker       |
 | brokerReference | 1    | string      | v0 | Per-broker unique, not globally |
+
+## PrivateUnsecuredLoanStatusUpdated
+
+This event models updates to the status of a case. These are meant for
+status changes not immediately within the brokers control.
+
+| Name            | C. | Type              | V. | Remark                          |
+|-----------------|----|-------------------|----|---------------------------------|
+| broker          | 1  | reverse-dns       | v0 | Domain-name of the broker       |
+| brokerReference | 1  | string            | v0 | Per-broker unique, not globally |
+| status          | 1  | ApplicationStatus | v0 | Status of the application       |
+
+ApplicationStatus
+
+| String value              | Remark                                   |
+|---------------------------|------------------------------------------|
+| CONTRACT_SENT_TO_CUSTOMER | A contract has been sent to the customer |
+| CONTRACT_SIGNED           | The contract has been signed             |
+
+## PrivateUnsecuredLoanDisbursed
+
+This event models updates in the status of a case. These are meant for
+status changes not immediately within the brokers control.
+
+| Name            | C. | Type        | V. | Remark                                                           |
+|-----------------|----|-------------|----|------------------------------------------------------------------|
+| broker          | 1  | reverse-dns | v0 | Domain-name of the broker                                        |
+| brokerReference | 1  | string      | v0 | Per-broker unique, not globally                                  |
+| amountDisbursed | 1  | number      | v0 | Amount disbursed                                                 |
+| amountBrokered  | 1  | number      | v0 | Amount disbursed exclusive of loans refinanced within the lender |
