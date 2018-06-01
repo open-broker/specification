@@ -185,6 +185,7 @@ Application
 | refinanceAmount | 0..1 | number         | v0 | N/o SEK which are refinanced        |
 | applicant       | 1    | Applicant      | v0 | Main applicant                      |
 | coApplicant     | 0..1 | Applicant      | v0 | co-Applicant                        |
+| existingLoans   | 0..* | ExistingLoan   | v0 |                                     |
 | loanPurpose     | 1    | LoanPurpose    | v0 | Primary purpose of getting the loan |
 | extensions      | 0..1 | ExtensionPoint | v0 |                                     |
 
@@ -260,6 +261,37 @@ AccountNo.
 | clearingNo | 1  | string | v0 |        |
 | accountNo  | 1  | string | v0 |        |
 
+ExistingLoan
+
+| Name             | C. | Type                       | Remark
+|------------------|----|----------------------------|--------|
+| loanAmmount      | 1  | Number                     | 
+| monthlyPayment   | 1  | Number                     | 
+| existingLoanType | 1  | ExistingLoanType           | 
+| shouldRefinance  | 1  | boolean                    | 
+| responsibility   | 1  | ExistingLoanResponsibility | @will
+
+
+ExistingLoanType
+
+| Name           | Remark
+|----------------|-----------------------------------------------|
+| CAR_LOAN       | A loan secured by a car                       |
+| CHECK_CREDIT   | @william                                      |
+| CREDIT_CARD    | An un-secured loan connected to a credit card |
+| MORTGAGE       | A loan secured by a house or a condo          |
+| STUDENT_LOAN   |                                               |
+| UNSECURED_LOAN |                                               |
+| OTHER          |                                               |
+
+ExistingLoanResponsibility
+
+| Name          | Remark |
+|---------------|--------|
+| MainApplicant |        |
+| CoApplicant   |        |
+| Shared        |        |
+
 EmploymentStatus.
 
 | String value  | Remark                                               |
@@ -275,9 +307,6 @@ EmploymentStatus.
 | STUDENT       | Signed up to a university or other higher education  |
 | UNEMPLOYED    |                                                      |
 | OTHER         |                                                      |
-
-
-
 
 HousingType
 
