@@ -16,17 +16,29 @@ while not compromising on the semantics.
 # Overview
 
 This specification defines a number of events that can occur in the
-broker-bank relationship, and how these events should be transferred
-between two systems.
+broker - service provider relationship, and how these events should be
+transferred between two systems.
 
-The standard defines the behaviour of two actors, the producer and the
-consumer, as defined in the CloudEvents specification. The producer
-creates events and the consumer reads events created by the
-producer. In order to ensure an engaging end user experience both parties
-will act in both roles as defined by this standard.
+The service provider is defined as the party providing a service,
+defined in this specification.
 
-Additionally behaviour in this specification is defined on three
-levels of operations.
+The broker is defined as the actor sending a tender for offers for a
+customer to the service provider. Such a tender may be sent to
+multiple service providers.
+
+The typical interaction with a broker may include two-way
+communication, that is the service provider sending events to the
+broker and vice versa. This means that both the service provider and
+broker will act as consumers and producers of the events. For the
+purposes of this standard the terms consumer and producer are defined
+as in the CloudEvents specification. The producer creates events and
+the consumer reads events created by the producer.
+
+All interactions between the service provider and the broker are
+communicated as well-formed events as defined in the CloudEvents
+specification. This separates concerns of transmission, parsing and
+semantics, thereby dividing the specification into levels of
+processing. These are:
 
 - Transport: Defines how messages are transferred between two parties, ensuring mutual authentication and secrecy.
 - Envelope: Defines meta-data and senders for events and handles dispatch based on message types.
@@ -150,13 +162,17 @@ written in lower-case.
 
 The constrained primitive types are
 
-| Name           | Primitive | Description                                               | Constraint type | Constraint               |
-|----------------|-----------|-----------------------------------------------------------|-----------------|--------------------------|
-| reverse-dns    | string    | Reverse domain name notation | regex                      | regex           | [dns-regex](#dns-regex)  |
-| decimal-number | string    | Decimal number protected from float-parsing in json layer | regex           | [decimal-regex](#decimal-regex) |
+| Name           | Primitive | Description                                               | Constraint type | Constraint                                            |
+|----------------|-----------|-----------------------------------------------------------|-----------------|-------------------------------------------------------|
+| reverse-dns    | string    | Reverse domain name notation                              | regex           | [dns-regex](#dns-regex)                               |
+| decimal-number | string    | Decimal number protected from float-parsing in json layer | regex           | [decimal-regex](#decimal-regex)                       |
+| e164           | string    | Phone number formatted according to the E.164             | regex           | [e164-regex](#e164-regex)                             |
+| country-code   | string    | Two letter, ISO 3166-1 alpha-2 country code               | regex           | [iso-3166-1-alpha-2-regex](#iso-3166-1-alpha-2-regex) |
 
-<b id="dns-regex">dns-regex:</b>  ^(([a-zA-Z0-9]|[a-zA-Z0-9][a-zA-Z0-9\-]*[a-zA-Z0-9])\.)*([A-Za-z0-9]|[A-Za-z0-9][A-Za-z0-9\-]*[A-Za-z0-9])$
-<b id="decimal-regex">decimal-regex:</b> ^[0-9]+(\.[0-9]+)?$
+- <b id="dns-regex">dns-regex:</b>  ^(([a-zA-Z0-9]|[a-zA-Z0-9][a-zA-Z0-9\-]*[a-zA-Z0-9])\.)*([A-Za-z0-9]|[A-Za-z0-9][A-Za-z0-9\-]*[A-Za-z0-9])$
+- <b id="decimal-regex">decimal-regex:</b> ^[0-9]+(\.[0-9]+)?$
+- <b id="e164-regex">e164-regex:</b> ^\+[1-9][0-9]{1,14}$
+- <b id="iso-3166-1-alpha-2-regex">iso-3166-1-alpha-2-regex:</b> ^[A-Z]{2}$
 
 The third kind of types are complex objects, these are written in
 `CamelCase` and defined as they are used in the specification.
@@ -221,8 +237,8 @@ Applicant
 | Name                        | C.   | Type             | V. | Remark                                                  |
 |-----------------------------|------|------------------|----|---------------------------------------------------------|
 | ssn                         | 1    | string           | v0 | Swedish Social Security Number, with century, 12 digits |
-| phone                       | 0..1 | string           | v0 | Phonenumber formatted as E.164                          |
-| secondaryPhone              | 0..* | string           | v0 | Additional phonenumbers formatted as E.164              |
+| phone                       | 0..1 | e164             | v0 | Primary phone number                                    |
+| secondaryPhone              | 0..* | e164             | v0 | Secondary phone numbers                                 |
 | emailAddress                | 0..1 | string           | v0 | Email address on the form local.part@host.tld           |
 | employmentStatus            | 1    | EmploymentStatus | v0 |                                                         |
 | employmentStatusSinceYear   | 1    | number           | v0 | Year since common era                                   |
@@ -232,15 +248,15 @@ Applicant
 | housingCostPerMonth         | 1    | number           | v0 | Cost relating to housing in SEK                         |
 | maritalStatus               | 1    | MaritalStatus    | v0 |                                                         |
 | employerName                | 0..1 | string           | v0 | Name of the primary employer                            |
-| employerPhone               | 0..1 | string           | v0 | PhoneNo to primary employer as  E.164                   |
+| employerPhone               | 0..1 | e164             | v0 | Phone number of employer                                |
 | extensions                  | 0..1 | ExtensionPoint   | v0 |                                                         |
 | childSupportReceivedMonthly | 0..1 | number           | v0 | 0 - to indicate not received, missing field unknown     |
 | childSupportPaidMonthly     | 0..1 | number           | v0 | 0 - to indicate not received, missing field unknown     |
 | housingCostMonthly          | 0..1 | number           | v0 |                                                         |
 | bankAccount                 | 0..1 | AccountNo        | v0 |                                                         |
-| citizenships                | 0..* | string           | v0 |                                                         |
-| countriesOfResidence        | 1..* | string           | v0 |                                                         |
-| taxResidentOf               | 1..* | string           | v0 |                                                         |
+| citizenships                | 0..* | country-code     | v0 |                                                         |
+| countriesOfResidence        | 1..* | country-code     | v0 |                                                         |
+| taxResidentOf               | 1..* | country-code     | v0 |                                                         |
 | tentativeAddress            | 0..* | Address          | v0 | Tentative address information                           |
 
 Address.
@@ -393,7 +409,7 @@ Offer
 
 LoanInsuranceOffer
 
-| Name           | C.   | Type       | V. | Remark 
+| Name           | C.   | Type       | V. | Remark
 |----------------|------|------------|----|---------
 | insuredAmount  | 1    | number     | v0 |
 | monthlyPremium | 1    | number     | v0 |
