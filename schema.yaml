@@ -1,0 +1,342 @@
+---
+type: object
+"$id": "https://open-broker.org/schema/v0/"
+"$schema": "http://json-schema.org/draft-07/schema#"
+definitions:
+  application:
+    type: object
+    required:
+      - loanAmount
+      - termMonths
+      - applicant
+      - loanPurpose
+    properties:
+      loanAmount:
+        type: integer
+        title: "Amount to borrow"
+        description: "The amount that the customer wishes to borrow"
+        minimum: 1
+        examples:
+        - 50000
+      termMonths:
+        type: integer
+        title: 'Number of monthly terms'
+        description: "The number 1-month terms that the applicant desires to pay off the loan over"
+        minimum: 1
+        examples:
+        - 3
+      refinanceAmount:
+        type: integer
+        title: "The amount being refinanced"
+        description: "Must be less than the loanAmount"
+        examples:
+          - 25000
+
+      applicant:
+        "$ref": "#/definitions/applicant"
+      coApplicant:
+        "$ref": "#/definitions/applicant"
+      existingLoans:
+        type: array
+        items: { "$ref": "#/definitions/ExistingLoan" }
+      loanPurpose:
+        type: string
+        title: "Purpose of the loan"
+        description: |
+          REFINANCE	refinancing existing debt
+          HOME_REMODELLING	Home remodelling or renovation
+          HEALTHCARE_EXPENSES	To finance health-care costs.
+          DIVORCE_PROCEEDINGS	To finance costs relating to a divorce.
+          HOME_DOWNPAYMENT	To finance a downpayment for a loan
+          EDUCATION	To finance education of some kind
+          TRAVEL	To finance a vacation or other travel expenses
+          CAR	To finance the purchase of a car or similar
+          OTHER	Purpose not fitting the above categories
+        default: OTHER
+        enum:
+          - REFINANCE
+          - HOME_REMODELLING
+          - HEALTHCARE_EXPENSES
+          - HOME_DOWNPAYMENT
+          - EDUCATION
+          - TRAVEL
+          - CAR
+          - OTHER
+  ExistingLoan:
+    type: object
+    required:
+      - loanAmount
+      - monthlyPayment
+      - existingLoanType
+      - shouldRefinance
+      - responsibility
+    properties:
+      loanAmount:
+        type: integer
+        minimum: 1
+      monthlyPayment:
+        type: integer
+        minimum: 1
+      shouldRefinance:
+        type: boolean
+      existingLoanType:
+        type: string
+        enum:
+          - CAR_LOAN
+          - CHECK_CREDIT
+          - CREDIT_CARD
+          - MORTGAGE
+          - STUDENT_LOAN
+          - UNSECURED_LOAN
+          - OTHER
+      responsibility:
+        type: string
+        enum:
+          - MainApplicant
+          - CoApplicant
+          - Shared
+  BankAccount:
+    type: object
+    properties:
+      clearingNo:
+        type: string
+        pattern: "^[1-9][0-9]{3}$"
+        minLength: 4
+        maxLength: 4
+      accountNo:
+        minLength: 1
+        type: string
+    required:
+      - clearingNo
+      - accountNo
+  countryCode:
+    type: string
+    minLength: 2
+    maxLength: 2
+    pattern: '[A-Z]{2}'
+  countryCodeArray:
+    type: array
+    uniqueItems: true
+    items:
+      '$ref': '#/definitions/countryCode'
+  Address:
+    type: object
+    required:
+      - firstName
+      - lastName
+      - address
+      - city
+      - postalCode
+    properties:
+      firstName:
+        type: string
+        minLength: 1
+      lastName:
+        type: string
+        minLength: 1
+      address:
+        type: string
+        minLength: 1
+      city:
+        type: string
+        minLength: 1
+      postalCode:
+        type: string
+        minLength: 1
+      careOf:
+        type: string
+        minLength: 1
+
+  applicant:
+    type: object
+    required:
+      - ssn
+      - employmentStatus
+      - employmentStatusSinceYear
+      - employmentStatusSinceMonth
+      - dependentChildren
+      - housingType
+      - housingCostPerMonth
+      - maritalStatus
+      - citizenships
+      - countriesOfResidence
+      - taxResidentOf
+    properties:
+      ssn:
+        type: string
+        title: '12-digit Social Security Number (sv. Personnr) with'
+        description: "a Swedish Social-security number on the 12-digit format. YYYYMMDD-XXXX "
+        pattern: "^[0-9]{12}$"
+        minLength: 12
+        maxLength: 12
+        examples:
+        - '195911057916'
+      phone:
+        type: string
+        title: "Phone number to the applicant"
+        pattern: '^\+[1-9][0-9]{1,14}$'
+        examples:
+        - "+467015114441"
+      secondaryPhone:
+        title: "List of alternate phone numbers"
+        type: array
+        items:
+          type: string
+          pattern: '^\+[1-9][0-9]{1,14}$'
+      emailAddress:
+        type: string
+        format: email
+        title: "Email address to the applicant"
+      employmentStatus:
+        type: string
+        title: 'The employment situatuib of the applicant'
+        enum:
+          - EARLY_RETIRED
+          - HOURLY
+          - OTHER
+          - RETIRED
+          - SELF_EMPLOYED
+          - STUDENT
+          - TEMPORARY
+          - TRIAL
+          - UNEMPLOYED
+          - FULL_TIME
+        description: |
+          EARLY_RETIRED
+          HOURLY	Formally permanently employed, hired by the hour
+          HOURLY	Works fewer than 40h per week
+          OTHER
+          RETIRED	Retired due to age
+          SELF_EMPLOYED
+          STUDENT	Signed up to a university or other higher education
+          TEMPORARY	Non-full time employment pertaining to a project
+          TRIAL	Trial employment sv. Provanställning
+          UNEMPLOYED
+          FULL_TIME
+
+      employmentStatusSinceYear:
+        "$id": "/properties/application/properties/applicant/properties/employmentStatusSinceYear"
+        type: integer
+        minimum: 1900
+        maximum: 3000
+        title: "Year in which the applicant entered into his or her current employment status"
+        examples:
+        - 2014
+      employmentStatusSinceMonth:
+        type: integer
+        title: "Month in which the applicant entered into his or her current employment status"
+        minimum: 1
+        maximum: 12
+        examples:
+        - 3
+      dependentChildren:
+        type: integer
+        title: 'Number of dependent children'
+        description: "Number of child dependents under the age of 18. If greater than 15 then 15 is sent."
+        default: 0
+        minimum: 0
+        maximum: 15
+      housingType:
+        type: string
+        title: "Housing type for the applicant"
+        description: |
+          The form of housing in which the applicant resides
+          RENTED
+          OWN_APARTMENT the applicant owns his or her apartment
+          OWN_HOUSE the applicant owns his or her house
+          LIVE_IN the applicant doesn\'t directly rent or own a house but is rather a lodger
+        enum:
+          - RENTED
+          - OWN_APARTMENT
+          - OWN_HOUSE
+          - LIVE_IN
+
+      housingCostPerMonth:
+        type: integer
+        title: 'Housing-related costs per month'
+        default: 0
+        minimum: 0
+        examples:
+        - 8000
+      maritalStatus:
+        "$id": "/properties/application/properties/applicant/properties/maritalStatus"
+        type: string
+        title: 'The Maritalstatus Schema '
+        default: ''
+        examples:
+        - MARRIED
+      employer:
+        type: string
+        title: 'The company name of the employer'
+        examples:
+        - ACME AB
+      employerPhone:
+        type: string
+        pattern: '^\+[1-9][0-9]{1,14}$'
+        examples:
+        - "+465069158975"
+      childSupportReceivedMonthly:
+        type: integer
+        minimum: 0
+        title: "Money received for child-support each month"
+      childSupportPaidMonthly:
+        type: integer
+        minimum: 0
+        title: "Money paid for child-support each month"
+      maritalStatus:
+        type: string
+        title: "The marital status of the applicant"
+        enum:
+          - SINGLE
+          - MARRIED
+          - COHABITING
+      bankAccount:
+        title: "Applicant's bank account"
+        '$ref': '#/definitions/BankAccount'
+      citizenships:
+        title: "Countries that the applicant is a citizen of"
+        '$ref': '#/definitions/countryCodeArray'
+      countriesOfResidence:
+        title: "Countries that the applicant is a resident of"
+        '$ref': '#/definitions/countryCodeArray'
+      taxResidentOf:
+        title: "Countries that the applicant is a resident of for tax-purposes"
+        '$ref': '#/definitions/countryCodeArray'
+      tentativeAddress:
+        title: "Address of the applicant for display purposes"
+        description:
+          "All actors are expected to perform proper due diligence in establishing the identity of the applicant"
+        '$ref': '#/definitions/Address'
+
+required:
+  - application
+  - dataProtectionContext
+properties:
+  broker:
+    type: "string"
+    title: 'Domain-name of the broker, in reverse order'
+    description: "Reversed DNS name for the broker, for example, example.com becomes com.example"
+    pattern: "^(([a-zA-Z0-9]|[a-zA-Z0-9][a-zA-Z0-9-][a-zA-Z0-9]).)([A-Za-z0-9]|[A-Za-z0-9][A-Za-z0-9-]*[A-Za-z0-9])"
+
+  brokerReference:
+    type: string
+    title: "Reference number for the broker"
+    description: "An arbitrary ID specified by the broker"
+
+  dataProtectionContext:
+    type: string
+    title: "The data-protection context of the application"
+    description: |
+      REAL -  Production data consisting concerning real data-subjects
+      FICTIONAL	- Fictional data, does not concern real data-subjects
+
+      Consumers MAY reject or refuse to process data sent in the REAL
+      data protection context if the consumer deems it cannot secure
+      the data being sent. Additionally consumers may reject FICTIONAL
+      data if processing may affect real persons, for example,
+      ordering a hard credit inquiry.
+    enum:
+      - "REAL"
+      - "FICTIONAL"
+  application:
+    "$ref": "#/definitions/application"
