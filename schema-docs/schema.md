@@ -1,23 +1,26 @@
 
-#  Schema
+# PrivateUnsecuredLoanApplicationCreated Schema
 
 ```
 https://open-broker.org/schema/v0/se/PrivateUnsecuredLoanApplicationCreated
 ```
+
+An event indicating the creation of an application for
+a private unsecure loan.
 
 
 | Abstract | Extensible | Status | Identifiable | Custom Properties | Additional Properties | Defined In |
 |----------|------------|--------|--------------|-------------------|-----------------------|------------|
 | Can be instantiated | Yes | Experimental | No | Forbidden | Forbidden | [schema.json](schema.json) |
 
-#  Properties
+# PrivateUnsecuredLoanApplicationCreated Properties
 
 | Property | Type | Required | Defined by |
 |----------|------|----------|------------|
-| [application](#application) | `object` | **Required** |  (this schema) |
-| [broker](#broker) | `string` | Optional |  (this schema) |
-| [brokerReference](#brokerreference) | `string` | Optional |  (this schema) |
-| [dataProtectionContext](#dataprotectioncontext) | `enum` | **Required** |  (this schema) |
+| [application](#application) | `object` | **Required** | PrivateUnsecuredLoanApplicationCreated (this schema) |
+| [broker](#broker) | `string` | Optional | PrivateUnsecuredLoanApplicationCreated (this schema) |
+| [brokerReference](#brokerreference) | `string` | Optional | PrivateUnsecuredLoanApplicationCreated (this schema) |
+| [dataProtectionContext](#dataprotectioncontext) | `enum` | **Required** | PrivateUnsecuredLoanApplicationCreated (this schema) |
 
 ## application
 
@@ -159,16 +162,7 @@ The amount that the customer wishes to borrow
 #### loanPurpose
 ##### Purpose of the loan
 
-REFINANCE	refinancing existing debt
-HOME_REMODELLING	Home remodelling or renovation
-HEALTHCARE_EXPENSES	To finance health-care costs.
-DIVORCE_PROCEEDINGS	To finance costs relating to a divorce.
-HOME_DOWNPAYMENT	To finance a downpayment for a loan
-EDUCATION	To finance education of some kind
-TRAVEL	To finance a vacation or other travel expenses
-CAR	To finance the purchase of a car or similar
-OTHER	Purpose not fitting the above categories
-
+undefined
 
 `loanPurpose`
 * is **required**
@@ -180,6 +174,15 @@ The value of this property **must** be equal to one of the [known values below](
 ##### loanPurpose Known Values
 | Value | Description |
 |-------|-------------|
+| `CAR` | To finance the purchase of a car or similar |
+| `DIVORCE_PROCEEDINGS` | To finance costs relating to a divorce. |
+| `EDUCATION` | To finance education of some kind |
+| `HEALTHCARE_EXPENSES` | To finance health-care costs. |
+| `HOME_DOWNPAYMENT` | To finance a downpayment for a loan |
+| `HOME_REMODELLING` | Home remodelling or renovation |
+| `OTHER` | Purpose not fitting the above categories |
+| `REFINANCE` | Refinancing existing debt |
+| `TRAVEL` | To finance a vacation or other travel expenses |
 
 
 
@@ -293,9 +296,6 @@ An arbitrary ID specified by the broker
 ## dataProtectionContext
 ### The data-protection context of the application
 
-REAL -  Production data consisting concerning real data-subjects
-FICTIONAL	- Fictional data, does not concern real data-subjects
-
 Consumers MAY reject or refuse to process data sent in the REAL
 data protection context if the consumer deems it cannot secure
 the data being sent. Additionally consumers may reject FICTIONAL
@@ -313,13 +313,13 @@ The value of this property **must** be equal to one of the [known values below](
 ### dataProtectionContext Known Values
 | Value | Description |
 |-------|-------------|
-| `REAL` |  |
-| `FICTIONAL` |  |
+| `FICTIONAL` | Fictional data, does not concern real data-subjects |
+| `REAL` | Production data consisting concerning real data-subjects |
 
 
 
 
-#  Definitions
+# PrivateUnsecuredLoanApplicationCreated Definitions
 
 | Property | Type | Group |
 |----------|------|-------|
@@ -681,20 +681,7 @@ All instances must conform to this regular expression
 
 
 ## employmentStatus
-### The employment situatuib of the applicant
-
-EARLY_RETIRED
-HOURLY	Formally permanently employed, hired by the hour
-HOURLY	Works fewer than 40h per week
-OTHER
-RETIRED	Retired due to age
-SELF_EMPLOYED
-STUDENT	Signed up to a university or other higher education
-TEMPORARY	Non-full time employment pertaining to a project
-TRIAL	Trial employment sv. Provanställning
-UNEMPLOYED
-FULL_TIME
-
+### The employment situation of the applicant
 
 `employmentStatus`
 * is optional
@@ -706,16 +693,16 @@ The value of this property **must** be equal to one of the [known values below](
 ### employmentStatus Known Values
 | Value | Description |
 |-------|-------------|
-| `EARLY_RETIRED` |  |
-| `HOURLY` |  |
-| `OTHER` |  |
-| `RETIRED` |  |
-| `SELF_EMPLOYED` |  |
-| `STUDENT` |  |
-| `TEMPORARY` |  |
-| `TRIAL` |  |
-| `UNEMPLOYED` |  |
-| `FULL_TIME` |  |
+| `EARLY_RETIRED` | Retried earlier before the usual retirement age |
+| `FULL_TIME` | Employed full-time |
+| `HOURLY` | Formally permanently employed, hired by the hour |
+| `OTHER` | An employment status not falling neatly in to any of the other categories |
+| `RETIRED` | Retired due to age |
+| `SELF_EMPLOYED` | The applicant is a sole proprietor or works for his or her own company |
+| `STUDENT` | Signed up to a university or other higher education |
+| `TEMPORARY` | Non-full time employment pertaining to a project |
+| `TRIAL` | Trial employment (sv. Provanställning) |
+| `UNEMPLOYED` | Not currently employed |
 
 
 
@@ -882,11 +869,6 @@ All items must be of the type:
 ### Housing type for the applicant
 
 The form of housing in which the applicant resides
-RENTED
-OWN_APARTMENT the applicant owns his or her apartment
-OWN_HOUSE the applicant owns his or her house
-LIVE_IN the applicant doesn\'t directly rent or own a house but is rather a lodger
-
 
 `housingType`
 * is optional
@@ -898,10 +880,10 @@ The value of this property **must** be equal to one of the [known values below](
 ### housingType Known Values
 | Value | Description |
 |-------|-------------|
-| `RENTED` |  |
-| `OWN_APARTMENT` |  |
-| `OWN_HOUSE` |  |
-| `LIVE_IN` |  |
+| `LIVE_IN` | the applicant doesn&#39;t directly rent or own a house but is rather a lodger |
+| `OWN_APARTMENT` | The applicant owns his or her apartment |
+| `OWN_HOUSE` | The applicant owns his or her house |
+| `RENTED` | The applicant rents his or her place of residence |
 
 
 
@@ -953,17 +935,6 @@ The amount that the customer wishes to borrow
 ## loanPurpose
 ### Purpose of the loan
 
-REFINANCE	refinancing existing debt
-HOME_REMODELLING	Home remodelling or renovation
-HEALTHCARE_EXPENSES	To finance health-care costs.
-DIVORCE_PROCEEDINGS	To finance costs relating to a divorce.
-HOME_DOWNPAYMENT	To finance a downpayment for a loan
-EDUCATION	To finance education of some kind
-TRAVEL	To finance a vacation or other travel expenses
-CAR	To finance the purchase of a car or similar
-OTHER	Purpose not fitting the above categories
-
-
 `loanPurpose`
 * is optional
 * type: `enum`
@@ -975,14 +946,15 @@ The value of this property **must** be equal to one of the [known values below](
 ### loanPurpose Known Values
 | Value | Description |
 |-------|-------------|
-| `REFINANCE` |  |
-| `HOME_REMODELLING` |  |
-| `HEALTHCARE_EXPENSES` |  |
-| `HOME_DOWNPAYMENT` |  |
-| `EDUCATION` |  |
-| `TRAVEL` |  |
-| `CAR` |  |
-| `OTHER` |  |
+| `CAR` | To finance the purchase of a car or similar |
+| `DIVORCE_PROCEEDINGS` | To finance costs relating to a divorce. |
+| `EDUCATION` | To finance education of some kind |
+| `HEALTHCARE_EXPENSES` | To finance health-care costs. |
+| `HOME_DOWNPAYMENT` | To finance a downpayment for a loan |
+| `HOME_REMODELLING` | Home remodelling or renovation |
+| `OTHER` | Purpose not fitting the above categories |
+| `REFINANCE` | Refinancing existing debt |
+| `TRAVEL` | To finance a vacation or other travel expenses |
 
 
 
@@ -1114,9 +1086,9 @@ The value of this property **must** be equal to one of the [known values below](
 ### responsibility Known Values
 | Value | Description |
 |-------|-------------|
-| `MainApplicant` |  |
-| `CoApplicant` |  |
-| `Shared` |  |
+| `CoApplicant` | The co-applicant is responsible for this loan |
+| `MainApplicant` | The main applicant is responsible for this loan |
+| `Shared` | The loan is a shared responsibility for the applicants |
 
 
 
