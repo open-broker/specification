@@ -4,6 +4,12 @@ additionalProperties: false
 "$id": "https://open-broker.org/schema/v0/"
 "$schema": "http://json-schema.org/draft-07/schema#"
 definitions:
+  ExtensionPoint:
+    title: "Extension data"
+    additionalProperties: false
+    patternProperties:
+      "^(([a-zA-Z0-9]|[a-zA-Z0-9][a-zA-Z0-9-][a-zA-Z0-9]).)([A-Za-z0-9]|[A-Za-z0-9][A-Za-z0-9-]*[A-Za-z0-9])$":
+        type: object
   application:
     type: object
     additionalProperties: false
@@ -33,7 +39,8 @@ definitions:
         description: "Must be less than the loanAmount"
         examples:
           - 25000
-
+      extensions:
+        '$ref': '#/definitions/ExtensionPoint'
       applicant:
         "$ref": "#/definitions/applicant"
       coApplicant:
