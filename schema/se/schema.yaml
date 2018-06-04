@@ -1,4 +1,3 @@
----
 type: object
 additionalProperties: false
 "$id": "https://open-broker.org/schema/v0/"
