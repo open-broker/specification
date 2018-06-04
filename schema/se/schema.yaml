@@ -1,7 +1,7 @@
 type: object
 additionalProperties: false
-"$id": "https://open-broker.org/schema/v0/"
-"$schema": "http://json-schema.org/draft-07/schema#"
+"$id": "https://open-broker.org/schema/v0/se/PrivateUnsecuredLoanApplicationCreated"
+"$schema": "http://json-schema.org/draft-06/schema#"
 definitions:
   ExtensionPoint:
     title: "Extension data"
@@ -40,13 +40,18 @@ definitions:
           - 25000
       extensions:
         '$ref': '#/definitions/ExtensionPoint'
+        "$linkVal": "ExtensionPoint"
       applicant:
         "$ref": "#/definitions/applicant"
+        "$linkVal": "applicant"
       coApplicant:
         "$ref": "#/definitions/applicant"
+        "$linkVal": "applicant"
       existingLoans:
         type: array
-        items: { "$ref": "#/definitions/ExistingLoan" }
+        items:
+          "$ref": "#/definitions/ExistingLoan"
+          "$linkVal": "ExistingLoan"
       loanPurpose:
         type: string
         title: "Purpose of the loan"
@@ -128,6 +133,7 @@ definitions:
     type: array
     uniqueItems: true
     items:
+      "$linkVal": "countryCode"
       '$ref': '#/definitions/countryCode'
   Address:
     type: object
@@ -304,20 +310,25 @@ definitions:
       bankAccount:
         title: "Applicant's bank account"
         '$ref': '#/definitions/BankAccount'
+        "$linkVal": "BankAccount"
       citizenships:
         title: "Countries that the applicant is a citizen of"
         '$ref': '#/definitions/countryCodeArray'
+        "$linkVal": "CountryCodeArray"
       countriesOfResidence:
         title: "Countries that the applicant is a resident of"
         '$ref': '#/definitions/countryCodeArray'
+        "$linkVal": "CountryCodeArray"
       taxResidentOf:
         title: "Countries that the applicant is a resident of for tax-purposes"
         '$ref': '#/definitions/countryCodeArray'
+        "$linkVal": "CountryCodeArray"
       tentativeAddress:
         title: "Address of the applicant for display purposes"
         description:
           "All actors are expected to perform proper due diligence in establishing the identity of the applicant"
         '$ref': '#/definitions/Address'
+        "$linkVal": "Address"
 
 required:
   - application
