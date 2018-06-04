@@ -2,7 +2,7 @@
 #  Schema
 
 ```
-https://open-broker.org/schema/v0/
+https://open-broker.org/schema/v0/se/PrivateUnsecuredLoanApplicationCreated
 ```
 
 
@@ -57,7 +57,7 @@ undefined
 ##### applicant Type
 
 
-* []() – `#/definitions/applicant`
+* [applicant]() – `#/definitions/applicant`
 
 
 
@@ -76,7 +76,7 @@ undefined
 ##### coApplicant Type
 
 
-* []() – `#/definitions/applicant`
+* [applicant]() – `#/definitions/applicant`
 
 
 
@@ -99,7 +99,7 @@ undefined
 Array type: `array`
 
 All items must be of the type:
-* []() – `#/definitions/ExistingLoan`
+* [ExistingLoan]() – `#/definitions/ExistingLoan`
 
 
 
@@ -121,7 +121,7 @@ undefined
 ##### extensions Type
 
 
-* []() – `#/definitions/ExtensionPoint`
+* [ExtensionPoint]() – `#/definitions/ExtensionPoint`
 
 
 
@@ -323,46 +323,46 @@ The value of this property **must** be equal to one of the [known values below](
 
 | Property | Type | Group |
 |----------|------|-------|
-| [accountNo](#accountno) | `string` | `https://open-broker.org/schema/v0/#/definitions/BankAccount` |
-| [address](#address) | `string` | `https://open-broker.org/schema/v0/#/definitions/Address` |
-| [applicant](#applicant) | reference | `https://open-broker.org/schema/v0/#/definitions/application` |
-| [bankAccount](#bankaccount) | reference | `https://open-broker.org/schema/v0/#/definitions/applicant` |
-| [careOf](#careof) | `string` | `https://open-broker.org/schema/v0/#/definitions/Address` |
-| [childSupportPaidMonthly](#childsupportpaidmonthly) | `integer` | `https://open-broker.org/schema/v0/#/definitions/applicant` |
-| [childSupportReceivedMonthly](#childsupportreceivedmonthly) | `integer` | `https://open-broker.org/schema/v0/#/definitions/applicant` |
-| [citizenships](#citizenships) | reference | `https://open-broker.org/schema/v0/#/definitions/applicant` |
-| [city](#city) | `string` | `https://open-broker.org/schema/v0/#/definitions/Address` |
-| [clearingNo](#clearingno) | `string` | `https://open-broker.org/schema/v0/#/definitions/BankAccount` |
-| [coApplicant](#coapplicant) | reference | `https://open-broker.org/schema/v0/#/definitions/application` |
-| [countriesOfResidence](#countriesofresidence) | reference | `https://open-broker.org/schema/v0/#/definitions/applicant` |
-| [dependentChildren](#dependentchildren) | `integer` | `https://open-broker.org/schema/v0/#/definitions/applicant` |
-| [emailAddress](#emailaddress) | `string` | `https://open-broker.org/schema/v0/#/definitions/applicant` |
-| [employer](#employer) | `string` | `https://open-broker.org/schema/v0/#/definitions/applicant` |
-| [employerPhone](#employerphone) | `string` | `https://open-broker.org/schema/v0/#/definitions/applicant` |
-| [employmentStatus](#employmentstatus) | `enum` | `https://open-broker.org/schema/v0/#/definitions/applicant` |
-| [employmentStatusSinceMonth](#employmentstatussincemonth) | `integer` | `https://open-broker.org/schema/v0/#/definitions/applicant` |
-| [employmentStatusSinceYear](#employmentstatussinceyear) | `integer` | `https://open-broker.org/schema/v0/#/definitions/applicant` |
-| [existingLoanType](#existingloantype) | `enum` | `https://open-broker.org/schema/v0/#/definitions/ExistingLoan` |
-| [existingLoans](#existingloans) | reference | `https://open-broker.org/schema/v0/#/definitions/application` |
-| [extensions](#extensions) | reference | `https://open-broker.org/schema/v0/#/definitions/application` |
-| [firstName](#firstname) | `string` | `https://open-broker.org/schema/v0/#/definitions/Address` |
-| [housingCostPerMonth](#housingcostpermonth) | `integer` | `https://open-broker.org/schema/v0/#/definitions/applicant` |
-| [housingType](#housingtype) | `enum` | `https://open-broker.org/schema/v0/#/definitions/applicant` |
-| [lastName](#lastname) | `string` | `https://open-broker.org/schema/v0/#/definitions/Address` |
-| [loanAmount](#loanamount) | `integer` | `https://open-broker.org/schema/v0/#/definitions/application` |
-| [loanPurpose](#loanpurpose) | `enum` | `https://open-broker.org/schema/v0/#/definitions/application` |
-| [maritalStatus](#maritalstatus) | `enum` | `https://open-broker.org/schema/v0/#/definitions/applicant` |
-| [monthlyPayment](#monthlypayment) | `integer` | `https://open-broker.org/schema/v0/#/definitions/ExistingLoan` |
-| [phone](#phone) | `string` | `https://open-broker.org/schema/v0/#/definitions/applicant` |
-| [postalCode](#postalcode) | `string` | `https://open-broker.org/schema/v0/#/definitions/Address` |
-| [refinanceAmount](#refinanceamount) | `integer` | `https://open-broker.org/schema/v0/#/definitions/application` |
-| [responsibility](#responsibility) | `enum` | `https://open-broker.org/schema/v0/#/definitions/ExistingLoan` |
-| [secondaryPhone](#secondaryphone) | `string[]` | `https://open-broker.org/schema/v0/#/definitions/applicant` |
-| [shouldRefinance](#shouldrefinance) | `boolean` | `https://open-broker.org/schema/v0/#/definitions/ExistingLoan` |
-| [ssn](#ssn) | `string` | `https://open-broker.org/schema/v0/#/definitions/applicant` |
-| [taxResidentOf](#taxresidentof) | reference | `https://open-broker.org/schema/v0/#/definitions/applicant` |
-| [tentativeAddress](#tentativeaddress) | reference | `https://open-broker.org/schema/v0/#/definitions/applicant` |
-| [termMonths](#termmonths) | `integer` | `https://open-broker.org/schema/v0/#/definitions/application` |
+| [accountNo](#accountno) | `string` | `https://open-broker.org/schema/v0/se/PrivateUnsecuredLoanApplicationCreated#/definitions/BankAccount` |
+| [address](#address) | `string` | `https://open-broker.org/schema/v0/se/PrivateUnsecuredLoanApplicationCreated#/definitions/Address` |
+| [applicant](#applicant) | applicant | `https://open-broker.org/schema/v0/se/PrivateUnsecuredLoanApplicationCreated#/definitions/application` |
+| [bankAccount](#bankaccount) | BankAccount | `https://open-broker.org/schema/v0/se/PrivateUnsecuredLoanApplicationCreated#/definitions/applicant` |
+| [careOf](#careof) | `string` | `https://open-broker.org/schema/v0/se/PrivateUnsecuredLoanApplicationCreated#/definitions/Address` |
+| [childSupportPaidMonthly](#childsupportpaidmonthly) | `integer` | `https://open-broker.org/schema/v0/se/PrivateUnsecuredLoanApplicationCreated#/definitions/applicant` |
+| [childSupportReceivedMonthly](#childsupportreceivedmonthly) | `integer` | `https://open-broker.org/schema/v0/se/PrivateUnsecuredLoanApplicationCreated#/definitions/applicant` |
+| [citizenships](#citizenships) | CountryCodeArray | `https://open-broker.org/schema/v0/se/PrivateUnsecuredLoanApplicationCreated#/definitions/applicant` |
+| [city](#city) | `string` | `https://open-broker.org/schema/v0/se/PrivateUnsecuredLoanApplicationCreated#/definitions/Address` |
+| [clearingNo](#clearingno) | `string` | `https://open-broker.org/schema/v0/se/PrivateUnsecuredLoanApplicationCreated#/definitions/BankAccount` |
+| [coApplicant](#coapplicant) | applicant | `https://open-broker.org/schema/v0/se/PrivateUnsecuredLoanApplicationCreated#/definitions/application` |
+| [countriesOfResidence](#countriesofresidence) | CountryCodeArray | `https://open-broker.org/schema/v0/se/PrivateUnsecuredLoanApplicationCreated#/definitions/applicant` |
+| [dependentChildren](#dependentchildren) | `integer` | `https://open-broker.org/schema/v0/se/PrivateUnsecuredLoanApplicationCreated#/definitions/applicant` |
+| [emailAddress](#emailaddress) | `string` | `https://open-broker.org/schema/v0/se/PrivateUnsecuredLoanApplicationCreated#/definitions/applicant` |
+| [employer](#employer) | `string` | `https://open-broker.org/schema/v0/se/PrivateUnsecuredLoanApplicationCreated#/definitions/applicant` |
+| [employerPhone](#employerphone) | `string` | `https://open-broker.org/schema/v0/se/PrivateUnsecuredLoanApplicationCreated#/definitions/applicant` |
+| [employmentStatus](#employmentstatus) | `enum` | `https://open-broker.org/schema/v0/se/PrivateUnsecuredLoanApplicationCreated#/definitions/applicant` |
+| [employmentStatusSinceMonth](#employmentstatussincemonth) | `integer` | `https://open-broker.org/schema/v0/se/PrivateUnsecuredLoanApplicationCreated#/definitions/applicant` |
+| [employmentStatusSinceYear](#employmentstatussinceyear) | `integer` | `https://open-broker.org/schema/v0/se/PrivateUnsecuredLoanApplicationCreated#/definitions/applicant` |
+| [existingLoanType](#existingloantype) | `enum` | `https://open-broker.org/schema/v0/se/PrivateUnsecuredLoanApplicationCreated#/definitions/ExistingLoan` |
+| [existingLoans](#existingloans) | ExistingLoan | `https://open-broker.org/schema/v0/se/PrivateUnsecuredLoanApplicationCreated#/definitions/application` |
+| [extensions](#extensions) | ExtensionPoint | `https://open-broker.org/schema/v0/se/PrivateUnsecuredLoanApplicationCreated#/definitions/application` |
+| [firstName](#firstname) | `string` | `https://open-broker.org/schema/v0/se/PrivateUnsecuredLoanApplicationCreated#/definitions/Address` |
+| [housingCostPerMonth](#housingcostpermonth) | `integer` | `https://open-broker.org/schema/v0/se/PrivateUnsecuredLoanApplicationCreated#/definitions/applicant` |
+| [housingType](#housingtype) | `enum` | `https://open-broker.org/schema/v0/se/PrivateUnsecuredLoanApplicationCreated#/definitions/applicant` |
+| [lastName](#lastname) | `string` | `https://open-broker.org/schema/v0/se/PrivateUnsecuredLoanApplicationCreated#/definitions/Address` |
+| [loanAmount](#loanamount) | `integer` | `https://open-broker.org/schema/v0/se/PrivateUnsecuredLoanApplicationCreated#/definitions/application` |
+| [loanPurpose](#loanpurpose) | `enum` | `https://open-broker.org/schema/v0/se/PrivateUnsecuredLoanApplicationCreated#/definitions/application` |
+| [maritalStatus](#maritalstatus) | `enum` | `https://open-broker.org/schema/v0/se/PrivateUnsecuredLoanApplicationCreated#/definitions/applicant` |
+| [monthlyPayment](#monthlypayment) | `integer` | `https://open-broker.org/schema/v0/se/PrivateUnsecuredLoanApplicationCreated#/definitions/ExistingLoan` |
+| [phone](#phone) | `string` | `https://open-broker.org/schema/v0/se/PrivateUnsecuredLoanApplicationCreated#/definitions/applicant` |
+| [postalCode](#postalcode) | `string` | `https://open-broker.org/schema/v0/se/PrivateUnsecuredLoanApplicationCreated#/definitions/Address` |
+| [refinanceAmount](#refinanceamount) | `integer` | `https://open-broker.org/schema/v0/se/PrivateUnsecuredLoanApplicationCreated#/definitions/application` |
+| [responsibility](#responsibility) | `enum` | `https://open-broker.org/schema/v0/se/PrivateUnsecuredLoanApplicationCreated#/definitions/ExistingLoan` |
+| [secondaryPhone](#secondaryphone) | `string[]` | `https://open-broker.org/schema/v0/se/PrivateUnsecuredLoanApplicationCreated#/definitions/applicant` |
+| [shouldRefinance](#shouldrefinance) | `boolean` | `https://open-broker.org/schema/v0/se/PrivateUnsecuredLoanApplicationCreated#/definitions/ExistingLoan` |
+| [ssn](#ssn) | `string` | `https://open-broker.org/schema/v0/se/PrivateUnsecuredLoanApplicationCreated#/definitions/applicant` |
+| [taxResidentOf](#taxresidentof) | CountryCodeArray | `https://open-broker.org/schema/v0/se/PrivateUnsecuredLoanApplicationCreated#/definitions/applicant` |
+| [tentativeAddress](#tentativeaddress) | Address | `https://open-broker.org/schema/v0/se/PrivateUnsecuredLoanApplicationCreated#/definitions/applicant` |
+| [termMonths](#termmonths) | `integer` | `https://open-broker.org/schema/v0/se/PrivateUnsecuredLoanApplicationCreated#/definitions/application` |
 
 ## accountNo
 
@@ -405,13 +405,13 @@ The value of this property **must** be equal to one of the [known values below](
 
 `applicant`
 * is optional
-* type: reference
+* type: applicant
 * defined in this schema
 
 ### applicant Type
 
 
-* []() – `#/definitions/applicant`
+* [applicant]() – `#/definitions/applicant`
 
 
 
@@ -422,13 +422,13 @@ The value of this property **must** be equal to one of the [known values below](
 
 `bankAccount`
 * is optional
-* type: reference
+* type: BankAccount
 * defined in this schema
 
 ### bankAccount Type
 
 
-* []() – `#/definitions/BankAccount`
+* [BankAccount]() – `#/definitions/BankAccount`
 
 
 
@@ -495,13 +495,13 @@ The value of this property **must** be equal to one of the [known values below](
 
 `citizenships`
 * is optional
-* type: reference
+* type: CountryCodeArray
 * defined in this schema
 
 ### citizenships Type
 
 
-* []() – `#/definitions/countryCodeArray`
+* [CountryCodeArray]() – `#/definitions/countryCodeArray`
 
 
 
@@ -555,13 +555,13 @@ All instances must conform to this regular expression
 
 `coApplicant`
 * is optional
-* type: reference
+* type: applicant
 * defined in this schema
 
 ### coApplicant Type
 
 
-* []() – `#/definitions/applicant`
+* [applicant]() – `#/definitions/applicant`
 
 
 
@@ -572,13 +572,13 @@ All instances must conform to this regular expression
 
 `countriesOfResidence`
 * is optional
-* type: reference
+* type: CountryCodeArray
 * defined in this schema
 
 ### countriesOfResidence Type
 
 
-* []() – `#/definitions/countryCodeArray`
+* [CountryCodeArray]() – `#/definitions/countryCodeArray`
 
 
 
@@ -799,17 +799,17 @@ The value of this property **must** be equal to one of the [known values below](
 
 `existingLoans`
 * is optional
-* type: reference
+* type: ExistingLoan
 
 * defined in this schema
 
 ### existingLoans Type
 
 
-Array type: reference
+Array type: ExistingLoan
 
 All items must be of the type:
-* []() – `#/definitions/ExistingLoan`
+* [ExistingLoan]() – `#/definitions/ExistingLoan`
 
 
 
@@ -823,13 +823,13 @@ All items must be of the type:
 
 `extensions`
 * is optional
-* type: reference
+* type: ExtensionPoint
 * defined in this schema
 
 ### extensions Type
 
 
-* []() – `#/definitions/ExtensionPoint`
+* [ExtensionPoint]() – `#/definitions/ExtensionPoint`
 
 
 
@@ -1208,13 +1208,13 @@ All instances must conform to this regular expression
 
 `taxResidentOf`
 * is optional
-* type: reference
+* type: CountryCodeArray
 * defined in this schema
 
 ### taxResidentOf Type
 
 
-* []() – `#/definitions/countryCodeArray`
+* [CountryCodeArray]() – `#/definitions/countryCodeArray`
 
 
 
@@ -1227,13 +1227,13 @@ All actors are expected to perform proper due diligence in establishing the iden
 
 `tentativeAddress`
 * is optional
-* type: reference
+* type: Address
 * defined in this schema
 
 ### tentativeAddress Type
 
 
-* []() – `#/definitions/Address`
+* [Address]() – `#/definitions/Address`
 
 
 

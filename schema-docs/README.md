@@ -6,5 +6,5 @@
 
 ## /
 
-* [](./schema.json.schema.md) – `https://open-broker.org/schema/v0/` (Unknown)
+* [](./schema.json.schema.md) – `https://open-broker.org/schema/v0/se/PrivateUnsecuredLoanApplicationCreated` (Unknown)
 
