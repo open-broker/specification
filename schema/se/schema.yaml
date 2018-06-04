@@ -45,20 +45,27 @@ definitions:
       extensions:
         '$ref': '#/definitions/ExtensionPoint'
         "$linkVal": "ExtensionPoint"
+        title: "Custom, vendor-specific extensions to the schema"
       applicant:
         "$ref": "#/definitions/applicant"
         "$linkVal": "applicant"
+        title: "Applicant"
+        description: "The primary applicant to the loan"
       coApplicant:
         "$ref": "#/definitions/applicant"
         "$linkVal": "applicant"
+        title: "Co-applicant"
+        description: "A secondary applicant for the loan, if any."
       existingLoans:
         type: array
+        title: "Information about existing loans relevant to the applicant"
         items:
           "$ref": "#/definitions/ExistingLoan"
           "$linkVal": "ExistingLoan"
       loanPurpose:
         type: string
         title: "Purpose of the loan"
+        description: "Categorical label for the purpose of the loan being applied for"
         default: OTHER
         "meta:enum":
           REFINANCE: Refinancing existing debt
