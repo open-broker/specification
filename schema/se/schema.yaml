@@ -106,7 +106,7 @@ definitions:
         type: boolean
       existingLoanType:
         type: string
-        "meta:emum":
+        "meta:enum":
           CAR_LOAN: A loan for a car or similar vehicle
           CHECK_CREDIT: A revolving credit, other than a credit-card.
           CREDIT_CARD: A credit-card
