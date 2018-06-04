@@ -50,8 +50,9 @@ a private unsecure loan.
 
 
 #### applicant
+##### Applicant
 
-undefined
+The primary applicant to the loan
 
 `applicant`
 * is **required**
@@ -69,8 +70,9 @@ undefined
 
 
 #### coApplicant
+##### Co-applicant
 
-undefined
+A secondary applicant for the loan, if any.
 
 `coApplicant`
 * is optional
@@ -88,6 +90,7 @@ undefined
 
 
 #### existingLoans
+##### Information about existing loans relevant to the applicant
 
 undefined
 
@@ -114,6 +117,7 @@ All items must be of the type:
 
 
 #### extensions
+##### Custom, vendor-specific extensions to the schema
 
 undefined
 
@@ -162,7 +166,7 @@ The amount that the customer wishes to borrow
 #### loanPurpose
 ##### Purpose of the loan
 
-undefined
+Categorical label for the purpose of the loan being applied for
 
 `loanPurpose`
 * is **required**
@@ -401,7 +405,9 @@ The value of this property **must** be equal to one of the [known values below](
 
 
 ## applicant
+### Applicant
 
+The primary applicant to the loan
 
 `applicant`
 * is optional
@@ -551,7 +557,9 @@ All instances must conform to this regular expression
 
 
 ## coApplicant
+### Co-applicant
 
+A secondary applicant for the loan, if any.
 
 `coApplicant`
 * is optional
@@ -782,7 +790,7 @@ The value of this property **must** be equal to one of the [known values below](
 
 
 ## existingLoans
-
+### Information about existing loans relevant to the applicant
 
 `existingLoans`
 * is optional
@@ -806,7 +814,7 @@ All items must be of the type:
 
 
 ## extensions
-
+### Custom, vendor-specific extensions to the schema
 
 `extensions`
 * is optional
@@ -934,6 +942,8 @@ The amount that the customer wishes to borrow
 
 ## loanPurpose
 ### Purpose of the loan
+
+Categorical label for the purpose of the loan being applied for
 
 `loanPurpose`
 * is optional
