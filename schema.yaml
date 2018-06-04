@@ -221,7 +221,6 @@ definitions:
           FULL_TIME
 
       employmentStatusSinceYear:
-        "$id": "/properties/application/properties/applicant/properties/employmentStatusSinceYear"
         type: integer
         minimum: 1900
         maximum: 3000
