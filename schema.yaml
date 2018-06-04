@@ -259,12 +259,12 @@ definitions:
         examples:
         - 8000
       maritalStatus:
-        "$id": "/properties/application/properties/applicant/properties/maritalStatus"
         type: string
-        title: 'The Maritalstatus Schema '
-        default: ''
-        examples:
-        - MARRIED
+        title: 'Marital status'
+        enum:
+          - SINGLE
+          - MARRIED
+          - COHABITING
       employer:
         type: string
         title: 'The company name of the employer'
