@@ -1,10 +1,12 @@
 ---
 type: object
+additionalProperties: false
 "$id": "https://open-broker.org/schema/v0/"
 "$schema": "http://json-schema.org/draft-07/schema#"
 definitions:
   application:
     type: object
+    additionalProperties: false
     required:
       - loanAmount
       - termMonths
@@ -64,6 +66,7 @@ definitions:
           - OTHER
   ExistingLoan:
     type: object
+    additionalProperties: false
     required:
       - loanAmount
       - monthlyPayment
@@ -97,6 +100,7 @@ definitions:
           - Shared
   BankAccount:
     type: object
+    additionalProperties: false
     properties:
       clearingNo:
         type: string
@@ -121,6 +125,7 @@ definitions:
       '$ref': '#/definitions/countryCode'
   Address:
     type: object
+    additionalProperties: false
     required:
       - firstName
       - lastName
@@ -148,6 +153,7 @@ definitions:
         minLength: 1
 
   applicant:
+    additionalProperties: false
     type: object
     required:
       - ssn
