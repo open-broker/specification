@@ -1,3 +1,7 @@
+title: PrivateUnsecuredLoanApplicationCreated
+description: |
+  An event indicating the creation of an application for
+  a private unsecure loan.
 type: object
 additionalProperties: false
 "$id": "https://open-broker.org/schema/v0/se/PrivateUnsecuredLoanApplicationCreated"
@@ -55,17 +59,17 @@ definitions:
       loanPurpose:
         type: string
         title: "Purpose of the loan"
-        description: |
-          REFINANCE	refinancing existing debt
-          HOME_REMODELLING	Home remodelling or renovation
-          HEALTHCARE_EXPENSES	To finance health-care costs.
-          DIVORCE_PROCEEDINGS	To finance costs relating to a divorce.
-          HOME_DOWNPAYMENT	To finance a downpayment for a loan
-          EDUCATION	To finance education of some kind
-          TRAVEL	To finance a vacation or other travel expenses
-          CAR	To finance the purchase of a car or similar
-          OTHER	Purpose not fitting the above categories
         default: OTHER
+        "meta:enum":
+          REFINANCE: Refinancing existing debt
+          HOME_REMODELLING: Home remodelling or renovation
+          HEALTHCARE_EXPENSES: To finance health-care costs.
+          DIVORCE_PROCEEDINGS: To finance costs relating to a divorce.
+          HOME_DOWNPAYMENT: To finance a downpayment for a loan
+          EDUCATION: To finance education of some kind
+          TRAVEL: To finance a vacation or other travel expenses
+          CAR: To finance the purchase of a car or similar
+          OTHER: Purpose not fitting the above categories
         enum:
           - REFINANCE
           - HOME_REMODELLING
@@ -95,6 +99,14 @@ definitions:
         type: boolean
       existingLoanType:
         type: string
+        "meta:emum":
+          CAR_LOAN: A loan for a car or similar vehicle
+          CHECK_CREDIT: A revolving credit, other than a credit-card.
+          CREDIT_CARD: A credit-card
+          MORTGAGE: A home mortgage
+          STUDENT_LOAN: A student loan
+          UNSECURED_LOAN: An unsecured loan, not falling into any of the other categories, for example a consumer loan.
+          OTHER: Any other debt not falling into any of the other categories.
         enum:
           - CAR_LOAN
           - CHECK_CREDIT
@@ -105,6 +117,10 @@ definitions:
           - OTHER
       responsibility:
         type: string
+        "meta:enum":
+          MainApplicant: The main applicant is responsible for this loan
+          CoApplicant: The co-applicant is responsible for this loan
+          Shared: The loan is a shared responsibility for the applicants
         enum:
           - MainApplicant
           - CoApplicant
@@ -207,7 +223,7 @@ definitions:
         title: "Email address to the applicant"
       employmentStatus:
         type: string
-        title: 'The employment situatuib of the applicant'
+        title: 'The employment situation of the applicant'
         enum:
           - EARLY_RETIRED
           - HOURLY
@@ -219,18 +235,17 @@ definitions:
           - TRIAL
           - UNEMPLOYED
           - FULL_TIME
-        description: |
-          EARLY_RETIRED
-          HOURLY	Formally permanently employed, hired by the hour
-          HOURLY	Works fewer than 40h per week
-          OTHER
-          RETIRED	Retired due to age
-          SELF_EMPLOYED
-          STUDENT	Signed up to a university or other higher education
-          TEMPORARY	Non-full time employment pertaining to a project
-          TRIAL	Trial employment sv. Provanställning
-          UNEMPLOYED
-          FULL_TIME
+        "meta:enum":
+          EARLY_RETIRED: Retried earlier before the usual retirement age
+          HOURLY: Formally permanently employed, hired by the hour
+          OTHER: An employment status not falling neatly in to any of the other categories
+          RETIRED: Retired due to age
+          SELF_EMPLOYED: The applicant is a sole proprietor or works for his or her own company
+          STUDENT: Signed up to a university or other higher education
+          TEMPORARY: Non-full time employment pertaining to a project
+          TRIAL: Trial employment (sv. Provanställning)
+          UNEMPLOYED: Not currently employed
+          FULL_TIME: Employed full-time
 
       employmentStatusSinceYear:
         type: integer
@@ -256,12 +271,12 @@ definitions:
       housingType:
         type: string
         title: "Housing type for the applicant"
-        description: |
-          The form of housing in which the applicant resides
-          RENTED
-          OWN_APARTMENT the applicant owns his or her apartment
-          OWN_HOUSE the applicant owns his or her house
-          LIVE_IN the applicant doesn\'t directly rent or own a house but is rather a lodger
+        description: The form of housing in which the applicant resides
+        "meta:enum":
+          RENTED: The applicant rents his or her place of residence
+          OWN_APARTMENT: The applicant owns his or her apartment
+          OWN_HOUSE: The applicant owns his or her house
+          LIVE_IN: "the applicant doesn't directly rent or own a house but is rather a lodger"
         enum:
           - RENTED
           - OWN_APARTMENT
@@ -275,13 +290,6 @@ definitions:
         minimum: 0
         examples:
         - 8000
-      maritalStatus:
-        type: string
-        title: 'Marital status'
-        enum:
-          - SINGLE
-          - MARRIED
-          - COHABITING
       employer:
         type: string
         title: 'The company name of the employer'
@@ -349,14 +357,14 @@ properties:
     type: string
     title: "The data-protection context of the application"
     description: |
-      REAL -  Production data consisting concerning real data-subjects
-      FICTIONAL	- Fictional data, does not concern real data-subjects
-
       Consumers MAY reject or refuse to process data sent in the REAL
       data protection context if the consumer deems it cannot secure
       the data being sent. Additionally consumers may reject FICTIONAL
       data if processing may affect real persons, for example,
       ordering a hard credit inquiry.
+    "meta:enum":
+      REAL: Production data consisting concerning real data-subjects
+      FICTIONAL: Fictional data, does not concern real data-subjects
     enum:
       - "REAL"
       - "FICTIONAL"
