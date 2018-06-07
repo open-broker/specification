@@ -169,7 +169,7 @@ The constrained primitive types are
 | e164           | string    | Phone number formatted according to the E.164             | regex           | [e164-regex](#e164-regex)                             |
 | country-code   | string    | Two letter, ISO 3166-1 alpha-2 country code               | regex           | [iso-3166-1-alpha-2-regex](#iso-3166-1-alpha-2-regex) |
 
-- <b id="dns-regex">dns-regex:</b>  ^(([a-zA-Z0-9]|[a-zA-Z0-9][a-zA-Z0-9\-]*[a-zA-Z0-9])\.)*([A-Za-z0-9]|[A-Za-z0-9][A-Za-z0-9\-]*[A-Za-z0-9])$
+- <b id="dns-regex">dns-regex:</b>  ^(([a-zA-Z0-9]|[a-zA-Z0-9][a-zA-Z0-9\-]\*[a-zA-Z0-9])\\.)\*([A-Za-z0-9]|[A-Za-z0-9][A-Za-z0-9\-]\*[A-Za-z0-9])$
 - <b id="decimal-regex">decimal-regex:</b> ^[0-9]+(\.[0-9]+)?$
 - <b id="e164-regex">e164-regex:</b> ^\+[1-9][0-9]{1,14}$
 - <b id="iso-3166-1-alpha-2-regex">iso-3166-1-alpha-2-regex:</b> ^[A-Z]{2}$
