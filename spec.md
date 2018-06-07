@@ -197,7 +197,7 @@ Application
 | Name            | C.   | Type           | V. | Remark                              |
 |-----------------|------|----------------|----|-------------------------------------|
 | loanAmount      | 1    | number         | v0 | Total N/o SEK applied for           |
-| termMonths      | 1    | number         | v0 | N/o desired years term for loan     |
+| termMonths      | 1    | number         | v0 | N/o desired months term for loan     |
 | refinanceAmount | 0..1 | number         | v0 | N/o SEK which are refinanced        |
 | applicant       | 1    | Applicant      | v0 | Main applicant                      |
 | coApplicant     | 0..1 | Applicant      | v0 | co-Applicant                        |
