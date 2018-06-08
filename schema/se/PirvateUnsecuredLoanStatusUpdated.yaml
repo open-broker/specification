@@ -1,0 +1,30 @@
+title: PrivateUnsecuredLoanStatusUpdated
+description: |
+  An event indicating an update to the status of a loan being brokered
+type: object
+additionalProperties: false
+"$id": "https://open-broker.org/schema/v0/se/PrivateUnsecuredLoanDisbursed
+"$schema": "http://json-schema.org/draft-06/schema#""
+required:
+  - broker
+  - brokerReference
+  - status
+properties:
+  broker:
+    type: "string"
+    title: 'Domain-name of the broker, in reverse order'
+    description: "Reversed DNS name for the broker, for example, example.com becomes com.example"
+    pattern: "^(([a-zA-Z0-9]|[a-zA-Z0-9][a-zA-Z0-9-][a-zA-Z0-9]).)([A-Za-z0-9]|[A-Za-z0-9][A-Za-z0-9-]*[A-Za-z0-9])"
+  brokerReference:
+    type: "string"
+    minLength: 1
+    title: "Reference number for the broker"
+  status:
+    type: "string"
+    title: "the new status of the application"
+    enum:
+      - CONTRACT_SENT_TO_CUSTOMER
+      - CONTRACT_SIGNED
+    "meta:enum":
+      CONTRACT_SENT_TO_CUSTOMER: A contract has been sent to the customer
+      CONTRACT_SIGNED: The contract has been signed
