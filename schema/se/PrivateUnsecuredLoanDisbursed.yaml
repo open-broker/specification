@@ -1,0 +1,34 @@
+title: PrivateUnsecuredLoanDisbursed
+description: |
+  An event indicating that a private unsecured loan has been
+  disbursed
+type: object
+additionalProperties: false
+"$id": "https://open-broker.org/schema/v0/se/PrivateUnsecuredLoanDisbursed
+"$schema": "http://json-schema.org/draft-06/schema#""
+properties:
+  broker:
+    type: "string"
+    title: 'Domain-name of the broker, in reverse order'
+    description: "Reversed DNS name for the broker, for example, example.com becomes com.example"
+    pattern: "^(([a-zA-Z0-9]|[a-zA-Z0-9][a-zA-Z0-9-][a-zA-Z0-9]).)([A-Za-z0-9]|[A-Za-z0-9][A-Za-z0-9-]*[A-Za-z0-9])"
+  brokerReference:
+    type: "string"
+    minLength: 1
+    title: "Reference number for the broker"
+  amountDisbursed:
+    type: "integer"
+    minimum: 0
+    title: "Amount disbursed"
+    description: |
+      The total amount disbursed to
+      the customer of the loan being brokered
+  amountBrokered:
+    type: "integer"
+    minimum: 0
+    title: |
+      Amount considered brokered by the lender
+    description: |
+      The amount the lender considers the broker to have
+      brokered. For example, the amount disbursed exclusive
+      of loans refinanced within the lender.
