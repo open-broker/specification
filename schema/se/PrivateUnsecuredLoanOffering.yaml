@@ -139,7 +139,7 @@ definitions:
           the offered interest and offered amount.
 
       loanInsuranceOffer:
-        ref: "#/definitions/LoanInsuranceOffer"
+        "$ref": "#/definitions/LoanInsuranceOffer"
 required:
   - broker
   - brokerReference
