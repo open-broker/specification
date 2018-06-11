@@ -28,7 +28,7 @@ definitions:
     type: object
     additionalProperties: false
     required:
-      - effectiveIntrestRate
+      - effectiveInterestRate
       - nominalInterestRate
       - minOfferedCredit
       - offeredCredit

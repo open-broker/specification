@@ -81,6 +81,7 @@ definitions:
           - REFINANCE
           - HOME_REMODELLING
           - HEALTHCARE_EXPENSES
+          - DIVORCE_PROCEEDINGS
           - HOME_DOWNPAYMENT
           - EDUCATION
           - TRAVEL
@@ -297,7 +298,7 @@ definitions:
         minimum: 0
         examples:
         - 8000
-      employer:
+      employerName:
         type: string
         title: 'The company name of the employer'
         examples:
