@@ -359,7 +359,7 @@ properties:
   brokerReference:
     type: string
     title: "Reference number for the broker"
-    description: "An arbitrary ID specified by the broker"
+    description: "An arbitrary ID specified by the broker, must be unique per broker"
 
   dataProtectionContext:
     type: string
