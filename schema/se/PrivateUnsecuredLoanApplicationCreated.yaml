@@ -1,0 +1,380 @@
+title: PrivateUnsecuredLoanApplicationCreated
+description: |
+  An event indicating the creation of an application for
+  a private unsecure loan.
+type: object
+additionalProperties: false
+"$id": "https://open-broker.org/schema/v0/se/PrivateUnsecuredLoanApplicationCreated"
+"$schema": "http://json-schema.org/draft-06/schema#"
+definitions:
+  ExtensionPoint:
+    title: "Extension data"
+    additionalProperties: false
+    patternProperties:
+      "^(([a-zA-Z0-9]|[a-zA-Z0-9][a-zA-Z0-9-][a-zA-Z0-9]).)([A-Za-z0-9]|[A-Za-z0-9][A-Za-z0-9-]*[A-Za-z0-9])$":
+        type: object
+  application:
+    type: object
+    additionalProperties: false
+    required:
+      - loanAmount
+      - termMonths
+      - applicant
+      - loanPurpose
+    properties:
+      loanAmount:
+        type: integer
+        title: "Amount to borrow"
+        description: "The amount that the customer wishes to borrow"
+        minimum: 1
+        examples:
+        - 50000
+      termMonths:
+        type: integer
+        title: 'Number of monthly terms'
+        description: "The number 1-month terms that the applicant desires to pay off the loan over"
+        minimum: 1
+        examples:
+        - 3
+      refinanceAmount:
+        type: integer
+        title: "The amount being refinanced"
+        description: "Must be less than the loanAmount"
+        examples:
+          - 25000
+      extensions:
+        '$ref': '#/definitions/ExtensionPoint'
+        "$linkVal": "ExtensionPoint"
+        title: "Custom, vendor-specific extensions to the schema"
+      applicant:
+        "$ref": "#/definitions/applicant"
+        "$linkVal": "applicant"
+        title: "Applicant"
+        description: "The primary applicant to the loan"
+      coApplicant:
+        "$ref": "#/definitions/applicant"
+        "$linkVal": "applicant"
+        title: "Co-applicant"
+        description: "A secondary applicant for the loan, if any."
+      existingLoans:
+        type: array
+        title: "Information about existing loans relevant to the applicant"
+        items:
+          "$ref": "#/definitions/ExistingLoan"
+          "$linkVal": "ExistingLoan"
+      loanPurpose:
+        type: string
+        title: "Purpose of the loan"
+        description: "Categorical label for the purpose of the loan being applied for"
+        default: OTHER
+        "meta:enum":
+          REFINANCE: Refinancing existing debt
+          HOME_REMODELLING: Home remodelling or renovation
+          HEALTHCARE_EXPENSES: To finance health-care costs.
+          DIVORCE_PROCEEDINGS: To finance costs relating to a divorce.
+          HOME_DOWNPAYMENT: To finance a downpayment for a loan
+          EDUCATION: To finance education of some kind
+          TRAVEL: To finance a vacation or other travel expenses
+          CAR: To finance the purchase of a car or similar
+          OTHER: Purpose not fitting the above categories
+        enum:
+          - REFINANCE
+          - HOME_REMODELLING
+          - HEALTHCARE_EXPENSES
+          - DIVORCE_PROCEEDINGS
+          - HOME_DOWNPAYMENT
+          - EDUCATION
+          - TRAVEL
+          - CAR
+          - OTHER
+  ExistingLoan:
+    type: object
+    additionalProperties: false
+    required:
+      - loanAmount
+      - monthlyPayment
+      - existingLoanType
+      - shouldRefinance
+      - responsibility
+    properties:
+      loanAmount:
+        type: integer
+        minimum: 1
+      monthlyPayment:
+        type: integer
+        minimum: 1
+      shouldRefinance:
+        type: boolean
+      existingLoanType:
+        type: string
+        "meta:enum":
+          CAR_LOAN: A loan for a car or similar vehicle
+          CHECK_CREDIT: A revolving credit, other than a credit-card.
+          CREDIT_CARD: A credit-card
+          MORTGAGE: A home mortgage
+          STUDENT_LOAN: A student loan
+          UNSECURED_LOAN: An unsecured loan, not falling into any of the other categories, for example a consumer loan.
+          OTHER: Any other debt not falling into any of the other categories.
+        enum:
+          - CAR_LOAN
+          - CHECK_CREDIT
+          - CREDIT_CARD
+          - MORTGAGE
+          - STUDENT_LOAN
+          - UNSECURED_LOAN
+          - OTHER
+      responsibility:
+        type: string
+        "meta:enum":
+          MainApplicant: The main applicant is responsible for this loan
+          CoApplicant: The co-applicant is responsible for this loan
+          Shared: The loan is a shared responsibility for the applicants
+        enum:
+          - MainApplicant
+          - CoApplicant
+          - Shared
+  BankAccount:
+    type: object
+    additionalProperties: false
+    properties:
+      clearingNo:
+        type: string
+        pattern: "^[1-9][0-9]{3}$"
+        minLength: 4
+        maxLength: 4
+      accountNo:
+        minLength: 1
+        type: string
+    required:
+      - clearingNo
+      - accountNo
+  countryCode:
+    type: string
+    minLength: 2
+    maxLength: 2
+    pattern: '[A-Z]{2}'
+  countryCodeArray:
+    type: array
+    uniqueItems: true
+    items:
+      "$linkVal": "countryCode"
+      '$ref': '#/definitions/countryCode'
+  Address:
+    type: object
+    additionalProperties: false
+    required:
+      - firstName
+      - lastName
+      - address
+      - city
+      - postalCode
+    properties:
+      firstName:
+        type: string
+        minLength: 1
+      lastName:
+        type: string
+        minLength: 1
+      address:
+        type: string
+        minLength: 1
+      city:
+        type: string
+        minLength: 1
+      postalCode:
+        type: string
+        minLength: 1
+      careOf:
+        type: string
+        minLength: 1
+
+  applicant:
+    additionalProperties: false
+    type: object
+    required:
+      - ssn
+      - employmentStatus
+      - employmentStatusSinceYear
+      - employmentStatusSinceMonth
+      - dependentChildren
+      - housingType
+      - housingCostPerMonth
+      - maritalStatus
+      - citizenships
+      - countriesOfResidence
+      - taxResidentOf
+    properties:
+      ssn:
+        type: string
+        title: '12-digit Social Security Number (sv. Personnr) with'
+        description: "a Swedish Social-security number on the 12-digit format. YYYYMMDD-XXXX "
+        pattern: "^[0-9]{12}$"
+        minLength: 12
+        maxLength: 12
+        examples:
+        - '195911057916'
+      phone:
+        type: string
+        title: "Phone number to the applicant"
+        pattern: '^\+[1-9][0-9]{1,14}$'
+        examples:
+        - "+467015114441"
+      secondaryPhone:
+        title: "List of alternate phone numbers"
+        type: array
+        items:
+          type: string
+          pattern: '^\+[1-9][0-9]{1,14}$'
+      emailAddress:
+        type: string
+        format: email
+        title: "Email address to the applicant"
+      employmentStatus:
+        type: string
+        title: 'The employment situation of the applicant'
+        enum:
+          - EARLY_RETIRED
+          - HOURLY
+          - OTHER
+          - RETIRED
+          - SELF_EMPLOYED
+          - STUDENT
+          - TEMPORARY
+          - TRIAL
+          - UNEMPLOYED
+          - FULL_TIME
+        "meta:enum":
+          EARLY_RETIRED: Retried earlier before the usual retirement age
+          HOURLY: Formally permanently employed, hired by the hour
+          OTHER: An employment status not falling neatly in to any of the other categories
+          RETIRED: Retired due to age
+          SELF_EMPLOYED: The applicant is a sole proprietor or works for his or her own company
+          STUDENT: Signed up to a university or other higher education
+          TEMPORARY: Non-full time employment pertaining to a project
+          TRIAL: Trial employment (sv. Provanställning)
+          UNEMPLOYED: Not currently employed
+          FULL_TIME: Employed full-time
+
+      employmentStatusSinceYear:
+        type: integer
+        minimum: 1900
+        maximum: 3000
+        title: "Year in which the applicant entered into his or her current employment status"
+        examples:
+        - 2014
+      employmentStatusSinceMonth:
+        type: integer
+        title: "Month in which the applicant entered into his or her current employment status"
+        minimum: 1
+        maximum: 12
+        examples:
+        - 3
+      dependentChildren:
+        type: integer
+        title: 'Number of dependent children'
+        description: "Number of child dependents under the age of 18. If greater than 15 then 15 is sent."
+        default: 0
+        minimum: 0
+        maximum: 15
+      housingType:
+        type: string
+        title: "Housing type for the applicant"
+        description: The form of housing in which the applicant resides
+        "meta:enum":
+          RENTED: The applicant rents his or her place of residence
+          OWN_APARTMENT: The applicant owns his or her apartment
+          OWN_HOUSE: The applicant owns his or her house
+          LIVE_IN: "the applicant doesn't directly rent or own a house but is rather a lodger"
+        enum:
+          - RENTED
+          - OWN_APARTMENT
+          - OWN_HOUSE
+          - LIVE_IN
+
+      housingCostPerMonth:
+        type: integer
+        title: 'Housing-related costs per month'
+        default: 0
+        minimum: 0
+        examples:
+        - 8000
+      employerName:
+        type: string
+        title: 'The company name of the employer'
+        examples:
+        - ACME AB
+      employerPhone:
+        type: string
+        pattern: '^\+[1-9][0-9]{1,14}$'
+        examples:
+        - "+465069158975"
+      childSupportReceivedMonthly:
+        type: integer
+        minimum: 0
+        title: "Money received for child-support each month"
+      childSupportPaidMonthly:
+        type: integer
+        minimum: 0
+        title: "Money paid for child-support each month"
+      maritalStatus:
+        type: string
+        title: "The marital status of the applicant"
+        enum:
+          - SINGLE
+          - MARRIED
+          - COHABITING
+      bankAccount:
+        title: "Applicant's bank account"
+        '$ref': '#/definitions/BankAccount'
+        "$linkVal": "BankAccount"
+      citizenships:
+        title: "Countries that the applicant is a citizen of"
+        '$ref': '#/definitions/countryCodeArray'
+        "$linkVal": "CountryCodeArray"
+      countriesOfResidence:
+        title: "Countries that the applicant is a resident of"
+        '$ref': '#/definitions/countryCodeArray'
+        "$linkVal": "CountryCodeArray"
+      taxResidentOf:
+        title: "Countries that the applicant is a resident of for tax-purposes"
+        '$ref': '#/definitions/countryCodeArray'
+        "$linkVal": "CountryCodeArray"
+      tentativeAddress:
+        title: "Address of the applicant for display purposes"
+        description:
+          "All actors are expected to perform proper due diligence in establishing the identity of the applicant"
+        '$ref': '#/definitions/Address'
+        "$linkVal": "Address"
+
+required:
+  - application
+  - dataProtectionContext
+properties:
+  broker:
+    type: "string"
+    title: 'Domain-name of the broker, in reverse order'
+    description: "Reversed DNS name for the broker, for example, example.com becomes com.example"
+    pattern: "^(([a-zA-Z0-9]|[a-zA-Z0-9][a-zA-Z0-9-][a-zA-Z0-9]).)([A-Za-z0-9]|[A-Za-z0-9][A-Za-z0-9-]*[A-Za-z0-9])"
+
+  brokerReference:
+    type: string
+    title: "Reference number for the broker"
+    description: "An arbitrary ID specified by the broker, must be unique per broker"
+
+  dataProtectionContext:
+    type: string
+    title: "The data-protection context of the application"
+    description: |
+      Consumers MAY reject or refuse to process data sent in the REAL
+      data protection context if the consumer deems it cannot secure
+      the data being sent. Additionally consumers may reject FICTIONAL
+      data if processing may affect real persons, for example,
+      ordering a hard credit inquiry.
+    "meta:enum":
+      REAL: Production data consisting concerning real data-subjects
+      FICTIONAL: Fictional data, does not concern real data-subjects
+    enum:
+      - "REAL"
+      - "FICTIONAL"
+  application:
+    "$ref": "#/definitions/application"

@@ -1,0 +1,158 @@
+title: PrivateUnsecuredLoanOffering
+description: |
+  An offer for a loan
+type: object
+additionalProperties: false
+"$id": "https://open-broker.org/schema/v0/se/PrivateUnsecuredLoanOffering"
+"$schema": "http://json-schema.org/draft-06/schema#"
+definitions:
+  LoanInsuranceOffer:
+    type: object
+    additionalProperties: false
+    required:
+      - insuredAmount
+      - monthlyPremium
+    properties:
+      insuredAmount:
+        type: integer
+        minimum: 1
+        title: The amount insured
+      monthlyPremium:
+        type: integer
+        minimum: 1
+        title: The monthly premium to be paid
+      descriptiveText:
+        type: string
+        title: A text to be displayed along with the offer.
+  Offer:
+    type: object
+    additionalProperties: false
+    required:
+      - effectiveInterestRate
+      - nominalInterestRate
+      - minOfferedCredit
+      - offeredCredit
+      - maxOfferedCredit
+      - mustRefinance
+      - arrangementFee
+      - termFee
+      - invoiceFee
+      - termMonths
+    properties:
+      effectiveInterestRate:
+        type: string
+        pattern: "^[0-9]+(.[0-9]+)?$"
+        title: Effective interest rate (APR)
+        description: |
+          The effective annual interest rate of the loan
+          formatted as a string so as to avoid problems
+          floating-point numbers.
+      nominalInterestRate:
+        type: string
+        pattern: "^[0-9]+(.[0-9]+)?$"
+        title: Nominal interest rate
+        description: |
+          The nominal annual interest rate of the loan
+          formatted as a string so as to avoid problems
+          floating-point numbers.
+      minOfferedCredit:
+        type: integer
+        minimum: 1
+        title: Minimum offered credit
+        description: |
+          The minimum amount for which the lender the lender is
+          willing to offer this interest rate for.
+
+          This value can be equal to both the minOfferedCredit and
+          offeredCredit. Indicating that this is the only possible
+          amount offered.
+      offeredCredit:
+        type: integer
+        minimum: 1
+        title: Offered credit
+        description: |
+          The amount the customer applied for or the highest number
+          the customer is approved for, if this number is lower than
+          what was originally applied for.
+
+          This value can be equal to both the minOfferedCredit and
+          offeredCredit. Indicating that this is the only possible
+          amount offered.
+
+      maxOfferedCredit:
+        type: integer
+        minimum: 1
+        title: Maximum offered credit
+        description: |
+          The largest loan that this customer is approved for under
+          the current interest rate.
+
+          This value can be equal to both the minOfferedCredit and
+          offeredCredit. Indicating that this is the only possible
+          amount offered.
+      mustRefinance:
+        type: integer
+        minimum: 0
+        title: Amount that must be refinanced
+        description: |
+          Amount the customer must use to refinance other loans.
+          Use zero to indicate that no refinancing is required.
+
+      arrangementFee:
+        type: integer
+        minimum: 0
+        title: Arrangement fee for the customer
+        description: |
+          An arrangement fee is a one-time fee taken by the customer
+          charged by the lender for setting up the loan. Use 0 to indicate
+          that no arrangement fee is charged.
+
+      termFee:
+        type: integer
+        minimum: 0
+        title: Fixed fee charged per term
+        description: |
+          Fixed fees to be paid along with amortisation and interest
+          every month. This fee must be included in the calculation of
+          effective interest. This field should be used for
+          unavoidable fees that the customer cannot be reduced by
+          choosing other billing arrangements.
+
+          0 indicates that there is no per-term fee.
+
+      invoiceFee:
+        type: integer
+        minimum: 0
+        title: Fee charged for particular invoicing solutions
+        descriptions: |
+          A fee that the customer can avoid by choosing a different
+          payment solutions such as automated transfers or electronic
+          invoices. This value should not be included in the
+          calculation of the APR.
+
+      termMonths:
+        type: integer
+        minimum: 1
+        title: Number of monthly terms
+        description: |
+          The number of month-terms required to payback the loan at
+          the offered interest and offered amount.
+
+      loanInsuranceOffer:
+        "$ref": "#/definitions/LoanInsuranceOffer"
+required:
+  - broker
+  - brokerReference
+  - offer
+properties:
+  broker:
+    type: "string"
+    title: 'Domain-name of the broker, in reverse order'
+    description: "Reversed DNS name for the broker, for example, example.com becomes com.example"
+    pattern: "^(([a-zA-Z0-9]|[a-zA-Z0-9][a-zA-Z0-9-][a-zA-Z0-9]).)([A-Za-z0-9]|[A-Za-z0-9][A-Za-z0-9-]*[A-Za-z0-9])"
+  brokerReference:
+    type: "string"
+    minLength: 1
+    title: "Reference number for the broker"
+  offer:
+    "$ref": "#/definitions/Offer"

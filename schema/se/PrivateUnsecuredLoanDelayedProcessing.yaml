@@ -1,0 +1,34 @@
+title: PrivateUnsecuredLoanDelayedProcessing
+description: |
+  An event indicating that the application was rejected
+type: object
+additionalProperties: false
+"$id": "https://open-broker.org/schema/v0/se/PrivateUnsecuredDelayedProcessing"
+"$schema": "http://json-schema.org/draft-06/schema#"
+required:
+  - broker
+  - brokerReference
+  - status
+properties:
+  broker:
+    type: "string"
+    title: 'Domain-name of the broker, in reverse order'
+    description: "Reversed DNS name for the broker, for example, example.com becomes com.example"
+    pattern: "^(([a-zA-Z0-9]|[a-zA-Z0-9][a-zA-Z0-9-][a-zA-Z0-9]).)([A-Za-z0-9]|[A-Za-z0-9][A-Za-z0-9-]*[A-Za-z0-9])"
+  brokerReference:
+    type: "string"
+    minLength: 1
+    title: "Reference number for the broker"
+  delayReason:
+    type: "string"
+    title: "the reason for the delay"
+    enum:
+      - MANUAL_PROCESSING
+      - HOLIDAY
+      - OPERATIONAL_ISSUES
+      - OTHER
+    "meta:enum":
+      MANUAL_PROCESSING: The application is being processed manually
+      HOLIDAY: The application will be processed later because of a holiday
+      OPERATIONAL_ISSUES: The service provider is experiencing operational issues and processing will be delayed.
+      OTHER: The application was delayed for some other reason

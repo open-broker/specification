@@ -92,14 +92,49 @@ in the present document.
 }
 ```
 
-# Events
+## Event Types
 
-The contents of the data attribute is the event. The definition of the
-event depends on the type of the event. The various types of events
-are specified in the following section.
+All events specified in this working-copy of the spec shall be in the
+namespace `org.open-broker.v0.COUNTRYCODE` where country-code is a two
+letter ISO-3166-1 code referring to the country in which the product
+is brokered. If this specification were to specify an event for
+services brokered within Sweden called `example` its event-type would
+be `org.open-broker.v0.SE.example`.
+
+# Event data
+
+The contents of the data attribute is the event data. The definition
+of the event depends on the type of the event. The various types of
+events are specified and documented in this specification.
 
 The events are to be formatted as JSON and to agree with a strict
 format. The root of each event must be a JSON-object.
+
+Each event-type provides a JSON-schema using which the event-data for
+a particular event may be validated using that schema.
+
+### Sweden
+#### Private unsecured loans
+
+Private unsecured loans also known as consumer loans is one of the
+products supported by the specification.
+
+The following events are defined for private unsecured loans:
+
+- Application created - [org.open-broker.v0.se.PrivateUnsecuredLoanApplicationCreated](schema-docs/PrivateUnsecuredLoanApplicationCreated.md)
+- Processing delayed - [org.open-broker.v0.se.PrivateUnsecuredLoanDelayedProcessing](schema-docs/PrivateUnsecuredLoanDelayedProcessing.md)
+- Loan offering - [org.open-broker.v0.se.PrivateUnsecuredLoanRejection](schema-docs/PrivateUnsecuredRejection.md)
+- Rejection - [org.open-broker.v0.se.PrivateUnsecuredLoanOffering](schema-docs/PrivateUnsecuredLoanRejection.md)
+- Status updated - [org.open-broker.v0.se.PrivateUnsecuredLoanStatusUpdated](schema-docs/PrivateUnsecuredLoanStatusUpdated.md)
+- Loan disbursed - [org.open-broker.v0.se.PrivateUnsecuredLoanDelayedProcessing](schema-docs/PrivateUnsecuredLoanDisbursed.md)
+
+An example of an event-flow between broker and service provider could look like this:
+
+1. Broker sends an application created event
+2. The service provider sends a processing delayed event indicating that the case will be processed manually.
+3. The service provider the sends a loan offering or a rejection event.
+4. The service provider sends a status updated event indicating that the customer has signed the documents
+5. The service provider sends a loan disbursed event indicating that the loan has been disbursed.
 
 ## Extensibility
 
@@ -111,6 +146,11 @@ reversed DNS name of organization adding the extension. For example,
 if `example.com` its extension would be identified by the key
 `com.example`. Organizations are free to use any sub-domain to
 distinguish extensions created within the organization.
+
+Extensions should be used sparingly to add functionality, and should
+only be required in special cases. If the functionality could be
+considered common it should instead be submitted as a proposal to this
+specification.
 
 The content of the extension MUST be a JSON-object containing a
 valid JSON subtree; it's structure defined by the extending
@@ -132,347 +172,3 @@ were added.
   }
 }
 ```
-
-# Defined Event Types
-
-All events specified in this working-copy of the spec shall be in
-namespace `org.open-broker.v0.COUNTRYCODE` where country-code is a two
-letter ISO-3166-1 code referring to the country in which the new loan
-is requested. If this specification were to specify an event for
-services brokered within Sweden called `example` its event-type would
-be `org.open-broker.v0.SE.example`.
-
-- Name: the name of the field in the JSON format
-- Cardinality (C.): `0..1` indicates an optional field. `1` indicates a
-  required field. `0..*` indicates a list of at least zero elements.
-  `1..*` indicates a list of atleast one element. `1..2` indicates a
-  list of one or two elements.
-- Type: As defined in the field types section below.
-- Version (V.): The first version of the spec that it was included in.
-
-## Field types
-
-There are three kinds of types considered in this specification. The
-first kind of types include the primitive types defined in JSON,
-`string`, `number` and `boolean`, these are written in lower-case.
-
-The second kind of types are constrained primitives and are
-constrained versions of the primitive types. The constrained types are
-written in lower-case.
-
-The constrained primitive types are
-
-| Name           | Primitive | Description                                               | Constraint type | Constraint                                            |
-|----------------|-----------|-----------------------------------------------------------|-----------------|-------------------------------------------------------|
-| reverse-dns    | string    | Reverse domain name notation                              | regex           | [dns-regex](#dns-regex)                               |
-| decimal-number | string    | Decimal number protected from float-parsing in json layer | regex           | [decimal-regex](#decimal-regex)                       |
-| e164           | string    | Phone number formatted according to the E.164             | regex           | [e164-regex](#e164-regex)                             |
-| country-code   | string    | Two letter, ISO 3166-1 alpha-2 country code               | regex           | [iso-3166-1-alpha-2-regex](#iso-3166-1-alpha-2-regex) |
-
-- <b id="dns-regex">dns-regex:</b>  ^(([a-zA-Z0-9]|[a-zA-Z0-9][a-zA-Z0-9\-]\*[a-zA-Z0-9])\\.)\*([A-Za-z0-9]|[A-Za-z0-9][A-Za-z0-9\-]\*[A-Za-z0-9])$
-- <b id="decimal-regex">decimal-regex:</b> ^[0-9]+(\.[0-9]+)?$
-- <b id="e164-regex">e164-regex:</b> ^\+[1-9][0-9]{1,14}$
-- <b id="iso-3166-1-alpha-2-regex">iso-3166-1-alpha-2-regex:</b> ^[A-Z]{2}$
-
-The third kind of types are complex objects, these are written in
-`CamelCase` and defined as they are used in the specification.
-
-
-## PrivateUnsecuredLoanApplicationCreated
-
-This event pertains to the application or tender for offer for Swedish
-unsecured loan customers.
-
-Event (root element)
-
-| Name                  | C.   | Type                      | V. | Remark                                   |
-|-----------------------|------|---------------------------|----|------------------------------------------|
-| application           | 1    | Application               | v0 | Contains the loan application            |
-| broker                | 0..1 | reverse-dns               | v0 | Domain-name of the broker                |
-| brokerReference       | 0..1 | string                    | v0 | Per-broker unique, not globally          |
-| dataProtectionContext | 1    | DataProtectionContext | v0 | Sets data-protection rules for the event |
-
-Application
-
-| Name            | C.   | Type           | V. | Remark                              |
-|-----------------|------|----------------|----|-------------------------------------|
-| loanAmount      | 1    | number         | v0 | Total N/o SEK applied for           |
-| termMonths      | 1    | number         | v0 | N/o desired months term for loan     |
-| refinanceAmount | 0..1 | number         | v0 | N/o SEK which are refinanced        |
-| applicant       | 1    | Applicant      | v0 | Main applicant                      |
-| coApplicant     | 0..1 | Applicant      | v0 | co-Applicant                        |
-| existingLoans   | 0..* | ExistingLoan   | v0 |                                     |
-| loanPurpose     | 1    | LoanPurpose    | v0 | Primary purpose of getting the loan |
-| extensions      | 0..1 | ExtensionPoint | v0 |                                     |
-
-DataProtectionContext
-
-| String value | Remark                                                   |
-|--------------|----------------------------------------------------------|
-| REAL         | Production data consisting concerning real data-subjects |
-| FICTIONAL    | Fictional data, does not concern real data-subjects      |
-
-Consumers MAY reject or refuse to process data sent in the `REAL` data
-protection context if the consumer deems it cannot secure the data
-being sent. Additionally consumers may reject `FICTIONAL` data if
-processing may affect real persons, for example, ordering a hard credit
-inquiry.
-
-LoanPurpose
-
-| String value        | Remark                                         |
-|---------------------|------------------------------------------------|
-| REFINANCE           | refinancing existing debt                      |
-| HOME_REMODELLING    | Home remodelling or renovation                 |
-| HEALTHCARE_EXPENSES | To finance health-care costs.                  |
-| DIVORCE_PROCEEDINGS | To finance costs relating to a divorce.        |
-| HOME_DOWNPAYMENT    | To finance a downpayment for a loan            |
-| EDUCATION           | To finance education of some kind              |
-| TRAVEL              | To finance a vacation or other travel expenses |
-| CAR                 | To finance the purchase of a car or similar    |
-| OTHER               | Purpose not fitting the above categories       |
-
-Applicant
-
-| Name                        | C.   | Type             | V. | Remark                                                  |
-|-----------------------------|------|------------------|----|---------------------------------------------------------|
-| ssn                         | 1    | string           | v0 | Swedish Social Security Number, with century, 12 digits |
-| phone                       | 0..1 | e164             | v0 | Primary phone number                                    |
-| secondaryPhone              | 0..* | e164             | v0 | Secondary phone numbers                                 |
-| emailAddress                | 0..1 | string           | v0 | Email address on the form local.part@host.tld           |
-| employmentStatus            | 1    | EmploymentStatus | v0 |                                                         |
-| employmentStatusSinceYear   | 1    | number           | v0 | Year since common era                                   |
-| employmentStatusSinceMonth  | 1    | number           | v0 | Number beteween 1 and 12                                |
-| dependentChildren           | 1    | number           | v0 | Range may be truncated by receiving party               |
-| housingType                 | 1    | HousingType      | v0 |                                                         |
-| housingCostPerMonth         | 1    | number           | v0 | Cost relating to housing in SEK                         |
-| maritalStatus               | 1    | MaritalStatus    | v0 |                                                         |
-| employerName                | 0..1 | string           | v0 | Name of the primary employer                            |
-| employerPhone               | 0..1 | e164             | v0 | Phone number of employer                                |
-| extensions                  | 0..1 | ExtensionPoint   | v0 |                                                         |
-| childSupportReceivedMonthly | 0..1 | number           | v0 | 0 - to indicate not received, missing field unknown     |
-| childSupportPaidMonthly     | 0..1 | number           | v0 | 0 - to indicate not received, missing field unknown     |
-| housingCostMonthly          | 0..1 | number           | v0 |                                                         |
-| bankAccount                 | 0..1 | AccountNo        | v0 |                                                         |
-| citizenships                | 0..* | country-code     | v0 |                                                         |
-| countriesOfResidence        | 1..* | country-code     | v0 |                                                         |
-| taxResidentOf               | 1..* | country-code     | v0 |                                                         |
-| tentativeAddress            | 0..* | Address          | v0 | Tentative address information                           |
-
-Address.
-
-| Name       | C. | Type   | V. | Remark |
-|------------|----|--------|----|--------|
-| firstName  | 1  | String | v0 |        |
-| lastName   | 1  | String | v0 |        |
-| address    | 1  | String | v0 |        |
-| city       | 1  | String | v0 |        |
-| postalCode | 1  | String | v0 |        |
-| careOf     | 1  | String | v0 |        |
-
-AccountNo.
-
-| Name       | C. | Type   | V. | Remark |
-|------------|----|--------|----|--------|
-| clearingNo | 1  | string | v0 |        |
-| accountNo  | 1  | string | v0 |        |
-
-ExistingLoan
-
-| Name             | C. | Type                       | Remark
-|------------------|----|----------------------------|--------|
-| loanAmmount      | 1  | Number                     | 
-| monthlyPayment   | 1  | Number                     | 
-| existingLoanType | 1  | ExistingLoanType           | 
-| shouldRefinance  | 1  | boolean                    | 
-| responsibility   | 1  | ExistingLoanResponsibility | @will
-
-
-ExistingLoanType
-
-| Name           | Remark
-|----------------|-----------------------------------------------|
-| CAR_LOAN       | A loan secured by a car                       |
-| CHECK_CREDIT   | @william                                      |
-| CREDIT_CARD    | An un-secured loan connected to a credit card |
-| MORTGAGE       | A loan secured by a house or a condo          |
-| STUDENT_LOAN   |                                               |
-| UNSECURED_LOAN |                                               |
-| OTHER          |                                               |
-
-ExistingLoanResponsibility
-
-| Name          | Remark |
-|---------------|--------|
-| MainApplicant |        |
-| CoApplicant   |        |
-| Shared        |        |
-
-EmploymentStatus.
-
-| String value  | Remark                                               |
-|---------------|------------------------------------------------------|
-| FULL_TIME     |                                                      |
-| TRIAL         | Trial employment sv. Provanställning                 |
-| RETIRED       | Retired due to age                                   |
-| HOURLY        | Works fewer than 40h per week                        |
-| TEMPORARY     | Non-full time employment pertaining to a project     |
-| SELF_EMPLOYED |                                                      |
-| HOURLY        | Formally permanently employed, hired by the hour     |
-| EARLY_RETIRED |                                                      |
-| STUDENT       | Signed up to a university or other higher education  |
-| UNEMPLOYED    |                                                      |
-| OTHER         |                                                      |
-
-HousingType
-
-| String value  | Remark |
-|---------------|--------|
-| RENTED        |        |
-| OWN_APARTMENT |        |
-| OWN_HOUSE     |        |
-| LIVE_IN       |        |
-
-MaritalStatus
-
-| String value | Remark |
-|--------------|--------|
-| SINGLE       |        |
-| MARRIED      |        |
-| COHABITING   |        |
-
-
-# A complete example
-
-``` json
-{
-  "cloudEventsVersion": "0.1",
-  "eventType": "org.open-broker.v0.se.PrivateUnsecuredLoanApplication",
-  "eventTypeVersion": "v0",
-  "source": "broker.example/applications",
-  "eventID": "60170DB35282F2",
-  "eventTime": "2018-04-05T17:31:00Z",
-  "contentType": "application/json",
-  "data": {
-    "application": {
-      "loanAmount": 50000,
-      "termYears": 3,
-      "applicant": {
-        "ssn": "195911057916",
-        "phone": "+467015114441",
-        "secondaryPhone": ["+465062718282"],
-        "employmentStatus": "FULL_TIME",
-        "employmentStatusSinceYear": 2014,
-        "employmentStatusSinceMonth": 3,
-        "dependentChildren": 0,
-        "housingType": "OWN_HOUSE",
-        "housingCostPerMonth": 8000,
-        "maritalStatus": "MARRIED",
-        "employer": "ACME AB",
-        "employerPhone": "+465069158975"
-      }
-    }
-  }
-}
-```
-
-
-## PrivateUnsecuredLoanOffering
-
-This event pertains to offers for unsecured loans for Swedish customers.
-
-Event (root element)
-
-| Name            | C.   | Type        | V. | Remark                          |
-|-----------------|------|-------------|----|---------------------------------|
-| offer           | 1    | Application | v0 | Contains the offer for loan     |
-| broker          | 1    | reverse-dns | v0 | Domain-name of the broker       |
-| brokerReference | 1    | string      | v0 | Per-broker unique, not globally |
-
-Offer
-
-| Name                  | C.   | Type               | V. | Remark                                                                         |
-|-----------------------|------|--------------------|----|--------------------------------------------------------------------------------|
-| effectiveInterestRate | 1    | decimal-number     | v0 | A number formatted as a string to reduce risk of rounding error                |
-| nominalInterestRate   | 1    | decimal-number     | v0 | A number formatted as a string to reduce risk of rounding error                |
-| minOfferedCredit      | 1    | number             | v0 | The smallest amount that can be offered at the current nominal interest rate * |
-| offeredCredit         | 1    | number             | v0 | Offered amount, this is the value that the APR is based on.                    |
-| maxOfferedCredit      | 1    | number             | v0 | The largest amount that can be offered at the current nominal interest rate *  |
-| mustRefinance         | 1    | number             | v0 | Amount the customer must use to refinance other loans                          |
-| arrangementFee        | 1    | number             | v0 | The initial payment for establishment of the loan                              |
-| termFee               | 1    | number             | v0 | Fixed fees to be paid along with amortisation and interest every month         |
-| termMonths            | 1    | number             | v0 | The offered term of the loan expressed as months                               |
-| loanInsuranceOffer    | 0..1 | LoanInsuranceOffer | v0 | If any optional insurance is offered along with the loan                       |
-
- ** If there is no leeway in the offer the min amount and the max amount should be set to the offeredCredit value
-
-
-LoanInsuranceOffer
-
-| Name           | C.   | Type       | V. | Remark
-|----------------|------|------------|----|---------
-| insuredAmount  | 1    | number     | v0 |
-| monthlyPremium | 1    | number     | v0 |
-| descriptiveText| 0..1 | string     | v0 |
-
-
-
-## PrivateUnsecuredDelayedProcessing
-
-This event signifies that the processing of a request will take longer time than usual
-This is usually due to manual processing of the application.
-This event is not needed but might be provided as a courtesy.
-
-| Name            | C.   | Type        | V. | Remark                          |
-|-----------------|------|-------------|----|---------------------------------|
-| delayReason     | 0..1 | DelayReason | v0 | Contains the loan application   |
-| broker          | 1    | reverse-dns | v0 | Domain-name of the broker       |
-| brokerReference | 1    | string      | v0 | Per-broker unique, not globally |
-
-DelayReason
-
-| String value      | Remark |
-|--------------------|--------|
-| MANUAL_PROCESSING  |        |
-| HOLIDAY            |        |
-| OPERATIONAL_ISSUES |        |
-
-## PrivateUnsecuredLoanRejection
-
-This event pertains denials of unsecured loans for Swedish customers.
-
-| Name            | C.   | Type        | V. | Remark                          |
-|-----------------|------|-------------|----|---------------------------------|
-| rejectionReason | 0..1 | Application | v0 | Contains the loan application   |
-| broker          | 1    | reverse-dns | v0 | Domain-name of the broker       |
-| brokerReference | 1    | string      | v0 | Per-broker unique, not globally |
-
-## PrivateUnsecuredLoanStatusUpdated
-
-This event models updates to the status of a case. These are meant for
-status changes not immediately within the brokers control.
-
-| Name            | C. | Type              | V. | Remark                          |
-|-----------------|----|-------------------|----|---------------------------------|
-| broker          | 1  | reverse-dns       | v0 | Domain-name of the broker       |
-| brokerReference | 1  | string            | v0 | Per-broker unique, not globally |
-| status          | 1  | ApplicationStatus | v0 | Status of the application       |
-
-ApplicationStatus
-
-| String value              | Remark                                   |
-|---------------------------|------------------------------------------|
-| CONTRACT_SENT_TO_CUSTOMER | A contract has been sent to the customer |
-| CONTRACT_SIGNED           | The contract has been signed             |
-
-## PrivateUnsecuredLoanDisbursed
-
-This event models updates in the status of a case. These are meant for
-status changes not immediately within the brokers control.
-
-| Name            | C. | Type        | V. | Remark                                                           |
-|-----------------|----|-------------|----|------------------------------------------------------------------|
-| broker          | 1  | reverse-dns | v0 | Domain-name of the broker                                        |
-| brokerReference | 1  | string      | v0 | Per-broker unique, not globally                                  |
-| amountDisbursed | 1  | number      | v0 | Amount disbursed                                                 |
-| amountBrokered  | 1  | number      | v0 | Amount disbursed exclusive of loans refinanced within the lender |

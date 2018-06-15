@@ -1,0 +1,20 @@
+title: PrivateUnsecuredLoanRejection
+description: |
+  An event indicating that the application was rejected
+type: object
+additionalProperties: false
+"$id": "https://open-broker.org/schema/v0/se/PrivateUnsecuredLoanRejection"
+"$schema": "http://json-schema.org/draft-06/schema#"
+required:
+  - broker
+  - brokerReference
+properties:
+  broker:
+    type: "string"
+    title: 'Domain-name of the broker, in reverse order'
+    description: "Reversed DNS name for the broker, for example, example.com becomes com.example"
+    pattern: "^(([a-zA-Z0-9]|[a-zA-Z0-9][a-zA-Z0-9-][a-zA-Z0-9]).)([A-Za-z0-9]|[A-Za-z0-9][A-Za-z0-9-]*[A-Za-z0-9])"
+  brokerReference:
+    type: "string"
+    minLength: 1
+    title: "Reference number for the broker"
