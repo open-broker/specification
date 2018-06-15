@@ -41,7 +41,7 @@ semantics.
 
 Events MUST be transmitted according to the [CloudEvents webhook specification](https://github.com/cloudevents/spec/blob/master/http-webhook.md).
 
-The payload of the bodies transfered using CloudEvents MUST be a valid body according to the [CloudEvents json format](https://github.com/cloudevents/spec/blob/master/http-webhook.md)
+The payload of the bodies transfered using CloudEvents MUST be a valid body according to the [CloudEvents json format](https://github.com/cloudevents/spec/blob/master/json-format.md)
 
 ```
 {
