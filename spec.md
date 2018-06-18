@@ -37,44 +37,11 @@ the consumer reads events created by the producer.
 All interactions between the service provider and the broker are
 communicated as well-formed events as defined in the CloudEvents
 specification. This separates concerns of transmission, parsing and
-semantics, thereby dividing the specification into levels of
-processing. These are:
+semantics.
 
-- Transport: Defines how messages are transferred between two parties, ensuring mutual authentication and secrecy.
-- Envelope: Defines meta-data and senders for events and handles dispatch based on message types.
-- Message: Defines the semantic content of the messages themselves.
+Events MUST be transmitted according to the [CloudEvents webhook specification](https://github.com/cloudevents/spec/blob/master/http-webhook.md).
 
-# Transport
-
-For transport over the network messages should be sent as HTTP
-requests. Transport must be conducted over an encrypted channel such
-as TLS, and the identity of the receiver must be authenticated.
-
-The HTTP-request should use the `POST` method and may performed to a
-URL decided by consumer and publisher.
-
-Publisher authentication is provided by sending an authorization token
-as a bearer token using the authorization header in the HTTP
-protocol. To illustrate, `Authorization: Bearer [Base64 encoded
-token]`. The bearer token may take two formats, either a valid JWT
-token signed by an agreed third party, or an arbitrary secret agreed
-by the publisher and consumer.
-
-Example HTTP Request headers
-
-```
-POST /open-broker HTTP/1.1
-Content-Type: application/json
-Authorization: Bearer Tm90ZVRoaXNJc0FuRXhhbXBsZVRva2VuRgo=
-```
-
-# Envelopes
-
-The events specified in this document are to be sent using the
-CloudEvents format. Implementations should use the JSON-format.
-
-As the CloudEvents format is specified elsewhere we simply refer to it
-in the present document.
+The payload of the bodies transfered using CloudEvents MUST be a valid body according to the [CloudEvents json format](https://github.com/cloudevents/spec/blob/master/json-format.md)
 
 ```
 {
