@@ -24,11 +24,11 @@ properties:
     title: "the reason for the delay"
     enum:
       - MANUAL_PROCESSING
-      - HOLIDAY
+      - BANK_HOLIDAY
       - OPERATIONAL_ISSUES
       - OTHER
     "meta:enum":
       MANUAL_PROCESSING: The application is being processed manually
-      HOLIDAY: The application will be processed later because of a holiday
+      BANK_HOLIDAY: The application will be processed later because of a holiday
       OPERATIONAL_ISSUES: The service provider is experiencing operational issues and processing will be delayed.
       OTHER: The application was delayed for some other reason
