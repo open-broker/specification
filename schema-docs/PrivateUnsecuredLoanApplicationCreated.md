@@ -12,14 +12,18 @@ a private unsecure loan.
 | Abstract | Extensible | Status | Identifiable | Custom Properties | Additional Properties | Defined In |
 |----------|------------|--------|--------------|-------------------|-----------------------|------------|
 | Can be instantiated | Yes | Experimental | No | Forbidden | Forbidden | [PrivateUnsecuredLoanApplicationCreated.json](PrivateUnsecuredLoanApplicationCreated.json) |
+## Schema Hierarchy
+
+* PrivateUnsecuredLoanApplicationCreated `https://open-broker.org/schema/v0/se/PrivateUnsecuredLoanApplicationCreated`
+  * [reference](reference.md) `https://open-broker.org/schema/v0/se/reference`
+
 
 # PrivateUnsecuredLoanApplicationCreated Properties
 
 | Property | Type | Required | Defined by |
 |----------|------|----------|------------|
 | [application](#application) | `object` | **Required** | PrivateUnsecuredLoanApplicationCreated (this schema) |
-| [broker](#broker) | `string` | Optional | PrivateUnsecuredLoanApplicationCreated (this schema) |
-| [brokerReference](#brokerreference) | `string` | Optional | PrivateUnsecuredLoanApplicationCreated (this schema) |
+| [brokerReference](#brokerreference) | reference | **Required** | PrivateUnsecuredLoanApplicationCreated (this schema) |
 | [dataProtectionContext](#dataprotectioncontext) | `enum` | **Required** | PrivateUnsecuredLoanApplicationCreated (this schema) |
 
 ## application
@@ -250,48 +254,18 @@ The number 1-month terms that the applicant desires to pay off the loan over
 
 
 
-## broker
-### Domain-name of the broker, in reverse order
-
-Reversed DNS name for the broker, for example, example.com becomes com.example
-
-`broker`
-* is optional
-* type: `string`
-* defined in this schema
-
-### broker Type
-
-
-`string`
-
-
-All instances must conform to this regular expression 
-(test examples [here](https://regexr.com/?expression=%5E((%5Ba-zA-Z0-9%5D%7C%5Ba-zA-Z0-9%5D%5Ba-zA-Z0-9-%5D%5Ba-zA-Z0-9%5D).)(%5BA-Za-z0-9%5D%7C%5BA-Za-z0-9%5D%5BA-Za-z0-9-%5D*%5BA-Za-z0-9%5D))):
-```regex
-^(([a-zA-Z0-9]|[a-zA-Z0-9][a-zA-Z0-9-][a-zA-Z0-9]).)([A-Za-z0-9]|[A-Za-z0-9][A-Za-z0-9-]*[A-Za-z0-9])
-```
-
-
-
-
-
-
 ## brokerReference
-### Reference number for the broker
-
-An arbitrary ID specified by the broker
+### A reference-id used by the broker
 
 `brokerReference`
-* is optional
-* type: `string`
+* is **required**
+* type: reference
 * defined in this schema
 
 ### brokerReference Type
 
 
-`string`
-
+* [reference](reference.md) – `https://open-broker.org/schema/v0/se/reference`
 
 
 
@@ -341,7 +315,7 @@ The value of this property **must** be equal to one of the [known values below](
 | [countriesOfResidence](#countriesofresidence) | CountryCodeArray | `https://open-broker.org/schema/v0/se/PrivateUnsecuredLoanApplicationCreated#/definitions/applicant` |
 | [dependentChildren](#dependentchildren) | `integer` | `https://open-broker.org/schema/v0/se/PrivateUnsecuredLoanApplicationCreated#/definitions/applicant` |
 | [emailAddress](#emailaddress) | `string` | `https://open-broker.org/schema/v0/se/PrivateUnsecuredLoanApplicationCreated#/definitions/applicant` |
-| [employer](#employer) | `string` | `https://open-broker.org/schema/v0/se/PrivateUnsecuredLoanApplicationCreated#/definitions/applicant` |
+| [employerName](#employername) | `string` | `https://open-broker.org/schema/v0/se/PrivateUnsecuredLoanApplicationCreated#/definitions/applicant` |
 | [employerPhone](#employerphone) | `string` | `https://open-broker.org/schema/v0/se/PrivateUnsecuredLoanApplicationCreated#/definitions/applicant` |
 | [employmentStatus](#employmentstatus) | `enum` | `https://open-broker.org/schema/v0/se/PrivateUnsecuredLoanApplicationCreated#/definitions/applicant` |
 | [employmentStatusSinceMonth](#employmentstatussincemonth) | `integer` | `https://open-broker.org/schema/v0/se/PrivateUnsecuredLoanApplicationCreated#/definitions/applicant` |
@@ -633,15 +607,15 @@ Number of child dependents under the age of 18. If greater than 15 then 15 is se
 
 
 
-## employer
+## employerName
 ### The company name of the employer
 
-`employer`
+`employerName`
 * is optional
 * type: `string`
 * defined in this schema
 
-### employer Type
+### employerName Type
 
 
 `string`
@@ -650,7 +624,7 @@ Number of child dependents under the age of 18. If greater than 15 then 15 is se
 
 
 
-### employer Example
+### employerName Example
 
 ```json
 "ACME AB"
