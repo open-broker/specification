@@ -18,3 +18,4 @@ YAMLTOJSON < schema/se/PrivateUnsecuredLoanStatusUpdated.yaml > schema/se/Privat
 YAMLTOJSON < schema/se/PrivateUnsecuredLoanRejection.yaml > schema/se/PrivateUnsecuredLoanRejection.json
 YAMLTOJSON < schema/se/PrivateUnsecuredLoanDelayedProcessing.yaml > schema/se/PrivateUnsecuredLoanDelayedProcessing.json
 YAMLTOJSON < schema/se/PrivateUnsecuredLoanOffering.yaml > schema/se/PrivateUnsecuredLoanOffering.json
+YAMLTOJSON < schema/se/reference.yaml > schema/se/reference.json

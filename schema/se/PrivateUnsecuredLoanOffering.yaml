@@ -141,18 +141,11 @@ definitions:
       loanInsuranceOffer:
         "$ref": "#/definitions/LoanInsuranceOffer"
 required:
-  - broker
   - brokerReference
   - offer
 properties:
-  broker:
-    type: "string"
-    title: 'Domain-name of the broker, in reverse order'
-    description: "Reversed DNS name for the broker, for example, example.com becomes com.example"
-    pattern: "^(([a-zA-Z0-9]|[a-zA-Z0-9][a-zA-Z0-9-][a-zA-Z0-9]).)([A-Za-z0-9]|[A-Za-z0-9][A-Za-z0-9-]*[A-Za-z0-9])"
   brokerReference:
-    type: "string"
-    minLength: 1
-    title: "Reference number for the broker"
+    title: "A reference-id used by the broker"
+    "$ref": "https://open-broker.org/schema/v0/se/reference"
   offer:
     "$ref": "#/definitions/Offer"

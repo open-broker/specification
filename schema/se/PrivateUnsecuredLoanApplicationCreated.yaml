@@ -349,18 +349,11 @@ definitions:
 required:
   - application
   - dataProtectionContext
+  - brokerReference
 properties:
-  broker:
-    type: "string"
-    title: 'Domain-name of the broker, in reverse order'
-    description: "Reversed DNS name for the broker, for example, example.com becomes com.example"
-    pattern: "^(([a-zA-Z0-9]|[a-zA-Z0-9][a-zA-Z0-9-][a-zA-Z0-9]).)([A-Za-z0-9]|[A-Za-z0-9][A-Za-z0-9-]*[A-Za-z0-9])"
-
   brokerReference:
-    type: string
-    title: "Reference number for the broker"
-    description: "An arbitrary ID specified by the broker, must be unique per broker"
-
+    title: "A reference-id used by the broker"
+    "$ref": "https://open-broker.org/schema/v0/se/reference"
   dataProtectionContext:
     type: string
     title: "The data-protection context of the application"
