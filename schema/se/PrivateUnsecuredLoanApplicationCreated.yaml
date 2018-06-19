@@ -308,6 +308,10 @@ definitions:
         pattern: '^\+[1-9][0-9]{1,14}$'
         examples:
         - "+465069158975"
+      monthlyIncome:
+        type: integer
+        minimum: 0
+        title: The monthly pre-tax income of the applicant
       childSupportReceivedMonthly:
         type: integer
         minimum: 0
