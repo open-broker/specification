@@ -12,6 +12,11 @@ disbursed
 | Abstract | Extensible | Status | Identifiable | Custom Properties | Additional Properties | Defined In |
 |----------|------------|--------|--------------|-------------------|-----------------------|------------|
 | Can be instantiated | No | Experimental | No | Forbidden | Forbidden | [PrivateUnsecuredLoanDisbursed.json](PrivateUnsecuredLoanDisbursed.json) |
+## Schema Hierarchy
+
+* PrivateUnsecuredLoanDisbursed `https://open-broker.org/schema/v0/se/PrivateUnsecuredLoanDisbursed`
+  * [reference](reference.md) `https://open-broker.org/schema/v0/se/reference`
+
 
 # PrivateUnsecuredLoanDisbursed Properties
 
@@ -19,8 +24,7 @@ disbursed
 |----------|------|----------|------------|
 | [amountBrokered](#amountbrokered) | `integer` | **Required** | PrivateUnsecuredLoanDisbursed (this schema) |
 | [amountDisbursed](#amountdisbursed) | `integer` | **Required** | PrivateUnsecuredLoanDisbursed (this schema) |
-| [broker](#broker) | `string` | **Required** | PrivateUnsecuredLoanDisbursed (this schema) |
-| [brokerReference](#brokerreference) | `string` | **Required** | PrivateUnsecuredLoanDisbursed (this schema) |
+| [brokerReference](#brokerreference) | reference | **Required** | PrivateUnsecuredLoanDisbursed (this schema) |
 
 ## amountBrokered
 ### Amount considered brokered by the lender
@@ -69,46 +73,18 @@ the customer of the loan being brokered
 
 
 
-## broker
-### Domain-name of the broker, in reverse order
-
-Reversed DNS name for the broker, for example, example.com becomes com.example
-
-`broker`
-* is **required**
-* type: `string`
-* defined in this schema
-
-### broker Type
-
-
-`string`
-
-
-All instances must conform to this regular expression 
-(test examples [here](https://regexr.com/?expression=%5E((%5Ba-zA-Z0-9%5D%7C%5Ba-zA-Z0-9%5D%5Ba-zA-Z0-9-%5D%5Ba-zA-Z0-9%5D).)(%5BA-Za-z0-9%5D%7C%5BA-Za-z0-9%5D%5BA-Za-z0-9-%5D*%5BA-Za-z0-9%5D))):
-```regex
-^(([a-zA-Z0-9]|[a-zA-Z0-9][a-zA-Z0-9-][a-zA-Z0-9]).)([A-Za-z0-9]|[A-Za-z0-9][A-Za-z0-9-]*[A-Za-z0-9])
-```
-
-
-
-
-
-
 ## brokerReference
-### Reference number for the broker
+### A reference-id used by the broker
 
 `brokerReference`
 * is **required**
-* type: `string`
+* type: reference
 * defined in this schema
 
 ### brokerReference Type
 
 
-`string`
-* minimum length: 1 characters
+* [reference](reference.md) – `https://open-broker.org/schema/v0/se/reference`
 
 
 

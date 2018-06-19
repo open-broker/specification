@@ -12,4 +12,5 @@
 * [PrivateUnsecuredLoanOffering](./PrivateUnsecuredLoanOffering.json.schema.md) – `https://open-broker.org/schema/v0/se/PrivateUnsecuredLoanOffering` (Unknown)
 * [PrivateUnsecuredLoanRejection](./PrivateUnsecuredLoanRejection.json.schema.md) – `https://open-broker.org/schema/v0/se/PrivateUnsecuredLoanRejection` (Unknown)
 * [PrivateUnsecuredLoanStatusUpdated](./PrivateUnsecuredLoanStatusUpdated.json.schema.md) – `https://open-broker.org/schema/v0/se/PrivateUnsecuredLoanStatusUpdated` (Unknown)
+* [reference](./reference.json.schema.md) – `https://open-broker.org/schema/v0/se/reference` (Unknown)
 
