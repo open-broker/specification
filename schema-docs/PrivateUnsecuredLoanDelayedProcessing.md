@@ -54,7 +54,7 @@ The value of this property **must** be equal to one of the [known values below](
 ### delayReason Known Values
 | Value | Description |
 |-------|-------------|
-| `HOLIDAY` | The application will be processed later because of a holiday |
+| `BANK_HOLIDAY` | The application will be processed later because of a holiday |
 | `MANUAL_PROCESSING` | The application is being processed manually |
 | `OPERATIONAL_ISSUES` | The service provider is experiencing operational issues and processing will be delayed. |
 | `OTHER` | The application was delayed for some other reason |
