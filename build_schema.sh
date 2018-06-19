@@ -21,3 +21,4 @@ YAMLTOJSON < schema/se/PrivateUnsecuredLoanOffering.yaml > schema/se/PrivateUnse
 YAMLTOJSON < schema/se/reference.yaml > schema/se/reference.json
 YAMLTOJSON < schema/se/BankAccount.yaml > schema/se/BankAccount.json
 YAMLTOJSON < schema/se/PrivateUnsecuredLoanOfferAccepted.yaml > schema/se/PrivateUnsecuredLoanOfferAccepted.json
+YAMLTOJSON < schema/se/PrivateUnsecuredLoanOfferRejected.yaml > schema/se/PrivateUnsecuredLoanOfferRejected.json
