@@ -79,6 +79,14 @@ definitions:
           offeredCredit. Indicating that this is the only possible
           amount offered.
 
+      monthlyCost:
+        type: integer
+        minimum: 1
+        title: Average monthly cost
+        description: |
+          The average monthly cost of the loan given `offeredCredit`,
+          `termMonths` and `effectiveInterestRate`.
+
       maxOfferedCredit:
         type: integer
         minimum: 1
