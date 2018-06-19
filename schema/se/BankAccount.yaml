@@ -1,0 +1,27 @@
+"$id": "https://open-broker.org/schema/v0/se/BankAccount"
+"$schema": "http://json-schema.org/draft-06/schema#"
+type: object
+additionalProperties: false
+title: A Swedish Bank Account with a clearing number
+description: |
+  A Swedish bank account consisting of a clearing number and an
+  account number.
+required:
+    - clearingNo
+    - accountNo
+properties:
+  clearingNo:
+    title: Clearing number identifying the bank & branch.
+    description: |
+      The clearing number, also known as the sort code identifies, the
+      bank along with the branch.
+    type: string
+    pattern: "^[1-9][0-9]{3}$"
+    minLength: 4
+    maxLength: 4
+  accountNo:
+    title: Account Number
+    description: |
+      The account number within the bank (+ branch) identified by the clearingNo.
+    minLength: 1
+    type: string

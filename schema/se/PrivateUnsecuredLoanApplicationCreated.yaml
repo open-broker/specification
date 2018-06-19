@@ -133,21 +133,6 @@ definitions:
           - MainApplicant
           - CoApplicant
           - Shared
-  BankAccount:
-    type: object
-    additionalProperties: false
-    properties:
-      clearingNo:
-        type: string
-        pattern: "^[1-9][0-9]{3}$"
-        minLength: 4
-        maxLength: 4
-      accountNo:
-        minLength: 1
-        type: string
-    required:
-      - clearingNo
-      - accountNo
   countryCode:
     type: string
     minLength: 2
@@ -329,8 +314,7 @@ definitions:
           - COHABITING
       bankAccount:
         title: "Applicant's bank account"
-        '$ref': '#/definitions/BankAccount'
-        "$linkVal": "BankAccount"
+        '$ref': 'https://open-broker.org/schema/v0/se/BankAccount'
       citizenships:
         title: "Countries that the applicant is a citizen of"
         '$ref': '#/definitions/countryCodeArray'

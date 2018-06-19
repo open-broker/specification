@@ -19,3 +19,5 @@ YAMLTOJSON < schema/se/PrivateUnsecuredLoanRejection.yaml > schema/se/PrivateUns
 YAMLTOJSON < schema/se/PrivateUnsecuredLoanDelayedProcessing.yaml > schema/se/PrivateUnsecuredLoanDelayedProcessing.json
 YAMLTOJSON < schema/se/PrivateUnsecuredLoanOffering.yaml > schema/se/PrivateUnsecuredLoanOffering.json
 YAMLTOJSON < schema/se/reference.yaml > schema/se/reference.json
+YAMLTOJSON < schema/se/BankAccount.yaml > schema/se/BankAccount.json
+YAMLTOJSON < schema/se/PrivateUnsecuredLoanOfferAccepted.yaml > schema/se/PrivateUnsecuredLoanOfferAccepted.json
