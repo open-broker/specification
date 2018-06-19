@@ -22,6 +22,7 @@ An offer for a loan
 | Property | Type | Required | Defined by |
 |----------|------|----------|------------|
 | [brokerReference](#brokerreference) | reference | **Required** | PrivateUnsecuredLoanOffering (this schema) |
+| [loanInsuranceOffer](#loaninsuranceoffer) | `object` | Optional | PrivateUnsecuredLoanOffering (this schema) |
 | [offer](#offer) | `object` | **Required** | PrivateUnsecuredLoanOffering (this schema) |
 
 ## brokerReference
@@ -36,6 +37,96 @@ An offer for a loan
 
 
 * [reference](reference.md) – `https://open-broker.org/schema/v0/se/reference`
+
+
+
+
+
+## loanInsuranceOffer
+
+
+`loanInsuranceOffer`
+* is optional
+* type: `object`
+* defined in this schema
+
+### loanInsuranceOffer Type
+
+
+`object` with following properties:
+
+
+| Property | Type | Required |
+|----------|------|----------|
+| `descriptiveText`| string | Optional |
+| `insuredAmount`| integer | **Required** |
+| `monthlyPremium`| integer | **Required** |
+
+
+
+#### descriptiveText
+##### A text to be displayed along with the offer.
+
+undefined
+
+`descriptiveText`
+* is optional
+* type: `string`
+
+##### descriptiveText Type
+
+
+`string`
+
+
+
+
+
+
+
+
+#### insuredAmount
+##### The amount insured
+
+undefined
+
+`insuredAmount`
+* is **required**
+* type: `integer`
+
+##### insuredAmount Type
+
+
+`integer`
+* minimum value: `1`
+
+
+
+
+
+
+
+
+#### monthlyPremium
+##### The monthly premium to be paid
+
+undefined
+
+`monthlyPremium`
+* is **required**
+* type: `integer`
+
+##### monthlyPremium Type
+
+
+`integer`
+* minimum value: `1`
+
+
+
+
+
+
 
 
 
@@ -60,7 +151,6 @@ An offer for a loan
 | `arrangementFee`| integer | **Required** |
 | `effectiveInterestRate`| string | **Required** |
 | `invoiceFee`| integer | **Required** |
-| `loanInsuranceOffer`|  | Optional |
 | `maxOfferedCredit`| integer | **Required** |
 | `minOfferedCredit`| integer | **Required** |
 | `mustRefinance`| integer | **Required** |
@@ -142,25 +232,6 @@ undefined
 `integer`
 * minimum value: `0`
 
-
-
-
-
-
-
-
-#### loanInsuranceOffer
-
-undefined
-
-`loanInsuranceOffer`
-* is optional
-* type: `undefined`
-
-##### loanInsuranceOffer Type
-
-
-* []() – `#/definitions/LoanInsuranceOffer`
 
 
 
@@ -373,7 +444,6 @@ the offered interest and offered amount.
 | [effectiveInterestRate](#effectiveinterestrate) | `string` | `https://open-broker.org/schema/v0/se/PrivateUnsecuredLoanOffering#/definitions/Offer` |
 | [insuredAmount](#insuredamount) | `integer` | `https://open-broker.org/schema/v0/se/PrivateUnsecuredLoanOffering#/definitions/LoanInsuranceOffer` |
 | [invoiceFee](#invoicefee) | `integer` | `https://open-broker.org/schema/v0/se/PrivateUnsecuredLoanOffering#/definitions/Offer` |
-| [loanInsuranceOffer](#loaninsuranceoffer) | reference | `https://open-broker.org/schema/v0/se/PrivateUnsecuredLoanOffering#/definitions/Offer` |
 | [maxOfferedCredit](#maxofferedcredit) | `integer` | `https://open-broker.org/schema/v0/se/PrivateUnsecuredLoanOffering#/definitions/Offer` |
 | [minOfferedCredit](#minofferedcredit) | `integer` | `https://open-broker.org/schema/v0/se/PrivateUnsecuredLoanOffering#/definitions/Offer` |
 | [monthlyPremium](#monthlypremium) | `integer` | `https://open-broker.org/schema/v0/se/PrivateUnsecuredLoanOffering#/definitions/LoanInsuranceOffer` |
@@ -488,23 +558,6 @@ All instances must conform to this regular expression
 `integer`
 * minimum value: `0`
 
-
-
-
-
-
-## loanInsuranceOffer
-
-
-`loanInsuranceOffer`
-* is optional
-* type: reference
-* defined in this schema
-
-### loanInsuranceOffer Type
-
-
-* []() – `#/definitions/LoanInsuranceOffer`
 
 
 
