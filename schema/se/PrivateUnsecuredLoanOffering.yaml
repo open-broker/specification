@@ -137,9 +137,6 @@ definitions:
         description: |
           The number of month-terms required to payback the loan at
           the offered interest and offered amount.
-
-      loanInsuranceOffer:
-        "$ref": "#/definitions/LoanInsuranceOffer"
 required:
   - brokerReference
   - offer
@@ -149,3 +146,5 @@ properties:
     "$ref": "https://open-broker.org/schema/v0/se/reference"
   offer:
     "$ref": "#/definitions/Offer"
+  loanInsuranceOffer:
+    "$ref": "#/definitions/LoanInsuranceOffer"
