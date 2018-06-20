@@ -22,6 +22,9 @@ properties:
   accountNo:
     title: Account Number
     description: |
-      The account number within the bank (+ branch) identified by the clearingNo.
+      The account number within the bank identified by the
+      clearingNo. Specified using digits only.
     minLength: 1
+    maxLength: 11
     type: string
+    pattern: "^[0-9]{1,11}$"
