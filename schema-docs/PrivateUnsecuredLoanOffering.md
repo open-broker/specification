@@ -24,9 +24,10 @@ An offer for a loan
 | [brokerReference](#brokerreference) | reference | **Required** | PrivateUnsecuredLoanOffering (this schema) |
 | [loanInsuranceOffer](#loaninsuranceoffer) | `object` | Optional | PrivateUnsecuredLoanOffering (this schema) |
 | [offer](#offer) | `object` | **Required** | PrivateUnsecuredLoanOffering (this schema) |
+| [providerOfferReference](#providerofferreference) | reference | Optional | PrivateUnsecuredLoanOffering (this schema) |
 
 ## brokerReference
-### A reference-id used by the broker
+### The reference used by the broker for the application resulting in this offer
 
 `brokerReference`
 * is **required**
@@ -153,6 +154,7 @@ undefined
 | `invoiceFee`| integer | **Required** |
 | `maxOfferedCredit`| integer | **Required** |
 | `minOfferedCredit`| integer | **Required** |
+| `monthlyCost`| integer | Optional |
 | `mustRefinance`| integer | **Required** |
 | `nominalInterestRate`| string | **Required** |
 | `offeredCredit`| integer | **Required** |
@@ -283,6 +285,30 @@ amount offered.
 * type: `integer`
 
 ##### minOfferedCredit Type
+
+
+`integer`
+* minimum value: `1`
+
+
+
+
+
+
+
+
+#### monthlyCost
+##### Average monthly cost
+
+The average monthly cost of the loan given `offeredCredit`,
+`termMonths` and `effectiveInterestRate`.
+
+
+`monthlyCost`
+* is optional
+* type: `integer`
+
+##### monthlyCost Type
 
 
 `integer`
@@ -435,6 +461,23 @@ the offered interest and offered amount.
 
 
 
+## providerOfferReference
+### The reference used by the service provider for referring to this offer
+
+`providerOfferReference`
+* is optional
+* type: reference
+* defined in this schema
+
+### providerOfferReference Type
+
+
+* [reference](reference.md) – `https://open-broker.org/schema/v0/se/reference`
+
+
+
+
+
 # PrivateUnsecuredLoanOffering Definitions
 
 | Property | Type | Group |
@@ -446,6 +489,7 @@ the offered interest and offered amount.
 | [invoiceFee](#invoicefee) | `integer` | `https://open-broker.org/schema/v0/se/PrivateUnsecuredLoanOffering#/definitions/Offer` |
 | [maxOfferedCredit](#maxofferedcredit) | `integer` | `https://open-broker.org/schema/v0/se/PrivateUnsecuredLoanOffering#/definitions/Offer` |
 | [minOfferedCredit](#minofferedcredit) | `integer` | `https://open-broker.org/schema/v0/se/PrivateUnsecuredLoanOffering#/definitions/Offer` |
+| [monthlyCost](#monthlycost) | `integer` | `https://open-broker.org/schema/v0/se/PrivateUnsecuredLoanOffering#/definitions/Offer` |
 | [monthlyPremium](#monthlypremium) | `integer` | `https://open-broker.org/schema/v0/se/PrivateUnsecuredLoanOffering#/definitions/LoanInsuranceOffer` |
 | [mustRefinance](#mustrefinance) | `integer` | `https://open-broker.org/schema/v0/se/PrivateUnsecuredLoanOffering#/definitions/Offer` |
 | [nominalInterestRate](#nominalinterestrate) | `string` | `https://open-broker.org/schema/v0/se/PrivateUnsecuredLoanOffering#/definitions/Offer` |
@@ -607,6 +651,29 @@ amount offered.
 * defined in this schema
 
 ### minOfferedCredit Type
+
+
+`integer`
+* minimum value: `1`
+
+
+
+
+
+
+## monthlyCost
+### Average monthly cost
+
+The average monthly cost of the loan given `offeredCredit`,
+`termMonths` and `effectiveInterestRate`.
+
+
+`monthlyCost`
+* is optional
+* type: `integer`
+* defined in this schema
+
+### monthlyCost Type
 
 
 `integer`

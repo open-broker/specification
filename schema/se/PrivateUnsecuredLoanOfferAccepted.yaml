@@ -1,0 +1,33 @@
+title: PrivateUnsecuredLoanOfferAccepted
+description: |
+  An event indicating an update to the status of a loan being brokered
+type: object
+additionalProperties: false
+"$id": "https://open-broker.org/schema/v0/se/PrivateUnsecuredLoanOfferAccepted"
+"$schema": "http://json-schema.org/draft-06/schema#"
+required:
+  - providerOfferReference
+properties:
+  providerOfferReference:
+    title: "The reference used for the offer being accepted"
+    "$ref": "https://open-broker.org/schema/v0/se/reference"
+
+  bankAccount:
+    title: "The bank acccount to pay out the money to"
+    description: |
+      The broker may include an updated bank account for the
+      applicant. The service provider may ignore this updated field if
+      not unsupported.
+    '$ref': 'https://open-broker.org/schema/v0/se/BankAccount'
+
+  requestedCredit:
+    type: integer
+    minimum: 0
+    title:
+      Amount of credit wanted by the customer
+    description: |
+      The amount of credit requested by the user. A service-provider
+      use this value to set the size of the actual loan within the
+      bounds set in the loan offer. If this field is missing or
+      outside the bounds set in the loan offer service-providers
+      should use the `offeredCredit` value.

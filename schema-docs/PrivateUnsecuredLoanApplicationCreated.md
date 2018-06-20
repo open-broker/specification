@@ -301,16 +301,14 @@ The value of this property **must** be equal to one of the [known values below](
 
 | Property | Type | Group |
 |----------|------|-------|
-| [accountNo](#accountno) | `string` | `https://open-broker.org/schema/v0/se/PrivateUnsecuredLoanApplicationCreated#/definitions/BankAccount` |
 | [address](#address) | `string` | `https://open-broker.org/schema/v0/se/PrivateUnsecuredLoanApplicationCreated#/definitions/Address` |
 | [applicant](#applicant) | applicant | `https://open-broker.org/schema/v0/se/PrivateUnsecuredLoanApplicationCreated#/definitions/application` |
-| [bankAccount](#bankaccount) | BankAccount | `https://open-broker.org/schema/v0/se/PrivateUnsecuredLoanApplicationCreated#/definitions/applicant` |
+| [bankAccount](#bankaccount) | reference | `https://open-broker.org/schema/v0/se/PrivateUnsecuredLoanApplicationCreated#/definitions/applicant` |
 | [careOf](#careof) | `string` | `https://open-broker.org/schema/v0/se/PrivateUnsecuredLoanApplicationCreated#/definitions/Address` |
 | [childSupportPaidMonthly](#childsupportpaidmonthly) | `integer` | `https://open-broker.org/schema/v0/se/PrivateUnsecuredLoanApplicationCreated#/definitions/applicant` |
 | [childSupportReceivedMonthly](#childsupportreceivedmonthly) | `integer` | `https://open-broker.org/schema/v0/se/PrivateUnsecuredLoanApplicationCreated#/definitions/applicant` |
 | [citizenships](#citizenships) | CountryCodeArray | `https://open-broker.org/schema/v0/se/PrivateUnsecuredLoanApplicationCreated#/definitions/applicant` |
 | [city](#city) | `string` | `https://open-broker.org/schema/v0/se/PrivateUnsecuredLoanApplicationCreated#/definitions/Address` |
-| [clearingNo](#clearingno) | `string` | `https://open-broker.org/schema/v0/se/PrivateUnsecuredLoanApplicationCreated#/definitions/BankAccount` |
 | [coApplicant](#coapplicant) | applicant | `https://open-broker.org/schema/v0/se/PrivateUnsecuredLoanApplicationCreated#/definitions/application` |
 | [countriesOfResidence](#countriesofresidence) | CountryCodeArray | `https://open-broker.org/schema/v0/se/PrivateUnsecuredLoanApplicationCreated#/definitions/applicant` |
 | [dependentChildren](#dependentchildren) | `integer` | `https://open-broker.org/schema/v0/se/PrivateUnsecuredLoanApplicationCreated#/definitions/applicant` |
@@ -330,6 +328,7 @@ The value of this property **must** be equal to one of the [known values below](
 | [loanAmount](#loanamount) | `integer` | `https://open-broker.org/schema/v0/se/PrivateUnsecuredLoanApplicationCreated#/definitions/application` |
 | [loanPurpose](#loanpurpose) | `enum` | `https://open-broker.org/schema/v0/se/PrivateUnsecuredLoanApplicationCreated#/definitions/application` |
 | [maritalStatus](#maritalstatus) | `enum` | `https://open-broker.org/schema/v0/se/PrivateUnsecuredLoanApplicationCreated#/definitions/applicant` |
+| [monthlyIncome](#monthlyincome) | `integer` | `https://open-broker.org/schema/v0/se/PrivateUnsecuredLoanApplicationCreated#/definitions/applicant` |
 | [monthlyPayment](#monthlypayment) | `integer` | `https://open-broker.org/schema/v0/se/PrivateUnsecuredLoanApplicationCreated#/definitions/ExistingLoan` |
 | [phone](#phone) | `string` | `https://open-broker.org/schema/v0/se/PrivateUnsecuredLoanApplicationCreated#/definitions/applicant` |
 | [postalCode](#postalcode) | `string` | `https://open-broker.org/schema/v0/se/PrivateUnsecuredLoanApplicationCreated#/definitions/Address` |
@@ -341,24 +340,6 @@ The value of this property **must** be equal to one of the [known values below](
 | [taxResidentOf](#taxresidentof) | CountryCodeArray | `https://open-broker.org/schema/v0/se/PrivateUnsecuredLoanApplicationCreated#/definitions/applicant` |
 | [tentativeAddress](#tentativeaddress) | Address | `https://open-broker.org/schema/v0/se/PrivateUnsecuredLoanApplicationCreated#/definitions/applicant` |
 | [termMonths](#termmonths) | `integer` | `https://open-broker.org/schema/v0/se/PrivateUnsecuredLoanApplicationCreated#/definitions/application` |
-
-## accountNo
-
-
-`accountNo`
-* is optional
-* type: `string`
-* defined in this schema
-
-### accountNo Type
-
-
-`string`
-* minimum length: 1 characters
-
-
-
-
 
 ## address
 
@@ -402,13 +383,13 @@ The primary applicant to the loan
 
 `bankAccount`
 * is optional
-* type: BankAccount
+* type: reference
 * defined in this schema
 
 ### bankAccount Type
 
 
-* [BankAccount]() – `#/definitions/BankAccount`
+* []() – `https://open-broker.org/schema/v0/se/BankAccount`
 
 
 
@@ -500,31 +481,6 @@ The primary applicant to the loan
 
 `string`
 * minimum length: 1 characters
-
-
-
-
-
-## clearingNo
-
-
-`clearingNo`
-* is optional
-* type: `string`
-* defined in this schema
-
-### clearingNo Type
-
-
-`string`
-* minimum length: 4 characters
-* maximum length: 4 characters
-All instances must conform to this regular expression 
-(test examples [here](https://regexr.com/?expression=%5E%5B1-9%5D%5B0-9%5D%7B3%7D%24)):
-```regex
-^[1-9][0-9]{3}$
-```
-
 
 
 
@@ -959,6 +915,25 @@ The value of this property **must** be equal to one of the [known values below](
 | `SINGLE` |  |
 | `MARRIED` |  |
 | `COHABITING` |  |
+
+
+
+
+## monthlyIncome
+### The monthly pre-tax income of the applicant
+
+`monthlyIncome`
+* is optional
+* type: `integer`
+* defined in this schema
+
+### monthlyIncome Type
+
+
+`integer`
+* minimum value: `0`
+
+
 
 
 
