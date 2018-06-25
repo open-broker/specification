@@ -211,6 +211,7 @@ All instances must conform to this regular expression
 ```regex
 ^[0-9]+(.[0-9]+)?$
 ```
+where an effective interest rate of 15% would be written as `0.15`, and 100% is equal to `1.0`.
 
 
 
@@ -368,7 +369,7 @@ All instances must conform to this regular expression
 ```regex
 ^[0-9]+(.[0-9]+)?$
 ```
-
+where an effective interest rate of 15% would be written as `0.15`, and 100% is equal to `1.0`.
 
 
 
@@ -563,7 +564,7 @@ All instances must conform to this regular expression
 ```regex
 ^[0-9]+(.[0-9]+)?$
 ```
-
+where an effective interest rate of 15% would be written as `0.15`, and 100% is equal to `1.0`.
 
 
 
@@ -750,7 +751,7 @@ All instances must conform to this regular expression
 ```regex
 ^[0-9]+(.[0-9]+)?$
 ```
-
+where an effective interest rate of 15% would be written as `0.15`, and 100% is equal to `1.0`.
 
 
 
