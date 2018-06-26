@@ -60,10 +60,10 @@ definitions:
         minimum: 1
         title: Minimum offered credit
         description: |
-          The minimum amount for which the lender the lender is
+          The minimum amount for which the lender is
           willing to offer this interest rate for.
 
-          This value can be equal to both the minOfferedCredit and
+          This value can be equal to both the maxOfferedCredit and
           offeredCredit. Indicating that this is the only possible
           amount offered.
       offeredCredit:
@@ -76,7 +76,7 @@ definitions:
           what was originally applied for.
 
           This value can be equal to both the minOfferedCredit and
-          offeredCredit. Indicating that this is the only possible
+          maxOfferedCredit. Indicating that this is the only possible
           amount offered.
 
       monthlyCost:
