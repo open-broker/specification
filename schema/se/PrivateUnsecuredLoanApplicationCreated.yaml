@@ -39,7 +39,7 @@ definitions:
       refinanceAmount:
         type: integer
         title: "The amount being refinanced"
-        description: "Must be less than the loanAmount"
+        description: "Must be less than or equal to the loanAmount"
         examples:
           - 25000
       extensions:
