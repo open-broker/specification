@@ -1,13 +1,13 @@
 title: PrivateUnsecuredLoanDelayedProcessing
 description: |
-  An event indicating that the application was rejected
+  An event indicating that processing of the application is delayed
 type: object
 additionalProperties: false
 "$id": "https://open-broker.org/schema/v0/se/PrivateUnsecuredDelayedProcessing"
 "$schema": "http://json-schema.org/draft-06/schema#"
 required:
   - brokerReference
-  - status
+  - delayReason
 properties:
   brokerReference:
     title: "A reference-id used by the broker"
