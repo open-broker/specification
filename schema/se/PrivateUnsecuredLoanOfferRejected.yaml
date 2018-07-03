@@ -7,8 +7,8 @@ additionalProperties: false
 "$id": "https://open-broker.org/schema/v0/se/PrivateUnsecuredLoanOfferRejected"
 "$schema": "http://json-schema.org/draft-06/schema#"
 required:
-  - providerOfferReference
+  - brokerReference
 properties:
-  providerOfferReference:
+  brokerReference:
     title: "The reference used for the offer being rejected"
     "$ref": "https://open-broker.org/schema/v0/se/reference"
