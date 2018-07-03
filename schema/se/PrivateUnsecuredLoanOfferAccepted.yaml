@@ -1,6 +1,7 @@
 title: PrivateUnsecuredLoanOfferAccepted
 description: |
-  An event indicating an update to the status of a loan being brokered
+  An event indicating that an offer has been accepted by the customer or the broker
+  on behalf of the customer
 type: object
 additionalProperties: false
 "$id": "https://open-broker.org/schema/v0/se/PrivateUnsecuredLoanOfferAccepted"
