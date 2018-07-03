@@ -152,9 +152,6 @@ properties:
   brokerReference:
     title: "The reference used by the broker for the application resulting in this offer"
     "$ref": "https://open-broker.org/schema/v0/se/reference"
-  providerOfferReference:
-    title: "The reference used by the service provider for referring to this offer"
-    "$ref": "https://open-broker.org/schema/v0/se/reference"
 
   offer:
     "$ref": "#/definitions/Offer"
