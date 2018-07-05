@@ -22,17 +22,17 @@ has been rejected.
 
 | Property | Type | Required | Defined by |
 |----------|------|----------|------------|
-| [providerOfferReference](#providerofferreference) | reference | **Required** | PrivateUnsecuredLoanOfferRejected (this schema) |
+| [brokerReference](#brokerreference) | reference | **Required** | PrivateUnsecuredLoanOfferRejected (this schema) |
 
-## providerOfferReference
+## brokerReference
 ### The reference used for the offer being rejected
 
-`providerOfferReference`
+`brokerReference`
 * is **required**
 * type: reference
 * defined in this schema
 
-### providerOfferReference Type
+### brokerReference Type
 
 
 * [reference](reference.md) – `https://open-broker.org/schema/v0/se/reference`

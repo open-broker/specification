@@ -5,7 +5,8 @@
 https://open-broker.org/schema/v0/se/PrivateUnsecuredLoanOfferAccepted
 ```
 
-An event indicating an update to the status of a loan being brokered
+An event indicating that an offer has been accepted by the customer or the broker
+on behalf of the customer
 
 
 | Abstract | Extensible | Status | Identifiable | Custom Properties | Additional Properties | Defined In |
@@ -23,7 +24,7 @@ An event indicating an update to the status of a loan being brokered
 | Property | Type | Required | Defined by |
 |----------|------|----------|------------|
 | [bankAccount](#bankaccount) | A Swedish Bank Account with a clearing number | Optional | PrivateUnsecuredLoanOfferAccepted (this schema) |
-| [providerOfferReference](#providerofferreference) | reference | **Required** | PrivateUnsecuredLoanOfferAccepted (this schema) |
+| [brokerReference](#brokerreference) | reference | **Required** | PrivateUnsecuredLoanOfferAccepted (this schema) |
 | [requestedCredit](#requestedcredit) | `integer` | Optional | PrivateUnsecuredLoanOfferAccepted (this schema) |
 
 ## bankAccount
@@ -48,15 +49,15 @@ not unsupported.
 
 
 
-## providerOfferReference
+## brokerReference
 ### The reference used for the offer being accepted
 
-`providerOfferReference`
+`brokerReference`
 * is **required**
 * type: reference
 * defined in this schema
 
-### providerOfferReference Type
+### brokerReference Type
 
 
 * [reference](reference.md) – `https://open-broker.org/schema/v0/se/reference`

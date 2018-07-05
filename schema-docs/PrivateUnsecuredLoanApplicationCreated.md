@@ -200,7 +200,7 @@ The value of this property **must** be equal to one of the [known values below](
 #### refinanceAmount
 ##### The amount being refinanced
 
-Must be less than the loanAmount
+Must be less than or equal to the loanAmount
 
 `refinanceAmount`
 * is optional
@@ -1009,7 +1009,7 @@ All instances must conform to this regular expression
 ## refinanceAmount
 ### The amount being refinanced
 
-Must be less than the loanAmount
+Must be less than or equal to the loanAmount
 
 `refinanceAmount`
 * is optional

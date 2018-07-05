@@ -5,7 +5,7 @@
 https://open-broker.org/schema/v0/se/PrivateUnsecuredDelayedProcessing
 ```
 
-An event indicating that the application was rejected
+An event indicating that processing of the application is delayed
 
 
 | Abstract | Extensible | Status | Identifiable | Custom Properties | Additional Properties | Defined In |
@@ -22,7 +22,7 @@ An event indicating that the application was rejected
 | Property | Type | Required | Defined by |
 |----------|------|----------|------------|
 | [brokerReference](#brokerreference) | reference | **Required** | PrivateUnsecuredLoanDelayedProcessing (this schema) |
-| [delayReason](#delayreason) | `enum` | Optional | PrivateUnsecuredLoanDelayedProcessing (this schema) |
+| [delayReason](#delayreason) | `enum` | **Required** | PrivateUnsecuredLoanDelayedProcessing (this schema) |
 
 ## brokerReference
 ### A reference-id used by the broker
@@ -45,7 +45,7 @@ An event indicating that the application was rejected
 ### the reason for the delay
 
 `delayReason`
-* is optional
+* is **required**
 * type: `enum`
 * defined in this schema
 

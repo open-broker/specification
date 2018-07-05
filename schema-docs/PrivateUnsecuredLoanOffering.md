@@ -24,7 +24,6 @@ An offer for a loan
 | [brokerReference](#brokerreference) | reference | **Required** | PrivateUnsecuredLoanOffering (this schema) |
 | [loanInsuranceOffer](#loaninsuranceoffer) | `object` | Optional | PrivateUnsecuredLoanOffering (this schema) |
 | [offer](#offer) | `object` | **Required** | PrivateUnsecuredLoanOffering (this schema) |
-| [providerOfferReference](#providerofferreference) | reference | Optional | PrivateUnsecuredLoanOffering (this schema) |
 
 ## brokerReference
 ### The reference used by the broker for the application resulting in this offer
@@ -211,7 +210,6 @@ All instances must conform to this regular expression
 ```regex
 ^[0-9]+(.[0-9]+)?$
 ```
-where an effective interest rate of 15% would be written as `0.15`, and 100% is equal to `1.0`.
 
 
 
@@ -273,10 +271,10 @@ amount offered.
 #### minOfferedCredit
 ##### Minimum offered credit
 
-The minimum amount for which the lender the lender is
+The minimum amount for which the lender is
 willing to offer this interest rate for.
 
-This value can be equal to both the minOfferedCredit and
+This value can be equal to both the maxOfferedCredit and
 offeredCredit. Indicating that this is the only possible
 amount offered.
 
@@ -369,7 +367,7 @@ All instances must conform to this regular expression
 ```regex
 ^[0-9]+(.[0-9]+)?$
 ```
-where an effective interest rate of 15% would be written as `0.15`, and 100% is equal to `1.0`.
+
 
 
 
@@ -385,7 +383,7 @@ the customer is approved for, if this number is lower than
 what was originally applied for.
 
 This value can be equal to both the minOfferedCredit and
-offeredCredit. Indicating that this is the only possible
+maxOfferedCredit. Indicating that this is the only possible
 amount offered.
 
 
@@ -457,23 +455,6 @@ the offered interest and offered amount.
 
 
 
-
-
-
-
-
-## providerOfferReference
-### The reference used by the service provider for referring to this offer
-
-`providerOfferReference`
-* is optional
-* type: reference
-* defined in this schema
-
-### providerOfferReference Type
-
-
-* [reference](reference.md) – `https://open-broker.org/schema/v0/se/reference`
 
 
 
@@ -564,7 +545,7 @@ All instances must conform to this regular expression
 ```regex
 ^[0-9]+(.[0-9]+)?$
 ```
-where an effective interest rate of 15% would be written as `0.15`, and 100% is equal to `1.0`.
+
 
 
 
@@ -638,10 +619,10 @@ amount offered.
 ## minOfferedCredit
 ### Minimum offered credit
 
-The minimum amount for which the lender the lender is
+The minimum amount for which the lender is
 willing to offer this interest rate for.
 
-This value can be equal to both the minOfferedCredit and
+This value can be equal to both the maxOfferedCredit and
 offeredCredit. Indicating that this is the only possible
 amount offered.
 
@@ -751,7 +732,7 @@ All instances must conform to this regular expression
 ```regex
 ^[0-9]+(.[0-9]+)?$
 ```
-where an effective interest rate of 15% would be written as `0.15`, and 100% is equal to `1.0`.
+
 
 
 
@@ -765,7 +746,7 @@ the customer is approved for, if this number is lower than
 what was originally applied for.
 
 This value can be equal to both the minOfferedCredit and
-offeredCredit. Indicating that this is the only possible
+maxOfferedCredit. Indicating that this is the only possible
 amount offered.
 
 

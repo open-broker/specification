@@ -23,7 +23,8 @@ account number.
 ## accountNo
 ### Account Number
 
-The account number within the bank (+ branch) identified by the clearingNo.
+The account number within the bank identified by the
+clearingNo. Specified using digits only.
 
 
 `accountNo`
@@ -36,6 +37,13 @@ The account number within the bank (+ branch) identified by the clearingNo.
 
 `string`
 * minimum length: 1 characters
+* maximum length: 11 characters
+All instances must conform to this regular expression 
+(test examples [here](https://regexr.com/?expression=%5E%5B0-9%5D%7B1%2C11%7D%24)):
+```regex
+^[0-9]{1,11}$
+```
+
 
 
 
