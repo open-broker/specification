@@ -255,6 +255,16 @@ definitions:
         maximum: 12
         examples:
         - 3
+      employerName:
+        type: string
+        title: 'The company name of the employer'
+        examples:
+        - ACME AB
+      employerPhone:
+        type: string
+        pattern: '^\+[1-9][0-9]{1,14}$'
+        examples:
+        - "+465069158975"
       dependentChildren:
         type: integer
         title: 'Number of dependent children'
@@ -262,6 +272,14 @@ definitions:
         default: 0
         minimum: 0
         maximum: 15
+      childSupportReceivedMonthly:
+        type: integer
+        minimum: 0
+        title: "Money received for child-support each month"
+      childSupportPaidMonthly:
+        type: integer
+        minimum: 0
+        title: "Money paid for child-support each month"
       housingType:
         type: string
         title: "Housing type for the applicant"
@@ -284,28 +302,10 @@ definitions:
         minimum: 0
         examples:
         - 8000
-      employerName:
-        type: string
-        title: 'The company name of the employer'
-        examples:
-        - ACME AB
-      employerPhone:
-        type: string
-        pattern: '^\+[1-9][0-9]{1,14}$'
-        examples:
-        - "+465069158975"
       monthlyIncome:
         type: integer
         minimum: 0
         title: The monthly pre-tax income of the applicant
-      childSupportReceivedMonthly:
-        type: integer
-        minimum: 0
-        title: "Money received for child-support each month"
-      childSupportPaidMonthly:
-        type: integer
-        minimum: 0
-        title: "Money paid for child-support each month"
       maritalStatus:
         type: string
         title: "The marital status of the applicant"
