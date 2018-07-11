@@ -149,9 +149,15 @@ definitions:
       
       amortisationType:
         type: string
+        title: "Type of amortisation plan"
+        description: "Decides in which manner the loan is amortized"
         "meta:enum":
-          ANNUITY: WHAT AM I?
-          FIXED_LINE: AND WHAT AM I?
+          ANNUITY: |
+            The monthly sum that is payed by the customer is fixed, and the amount that is amortized is gradually increased
+            since the the amount to cover the interest rate each month decreases which each amortisation.
+          FIXED_LINE: |
+            The amount paid for amortisation each month is fixed, while the interest rate will be lower over time, meaning
+            that the total monhlty cost for the loan will decrease over time.            
         enum:
           - ANNUITY
           - FIXED_LINE
