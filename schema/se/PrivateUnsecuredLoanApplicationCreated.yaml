@@ -126,13 +126,13 @@ definitions:
       responsibility:
         type: string
         "meta:enum":
-          MainApplicant: The main applicant is responsible for this loan
-          CoApplicant: The co-applicant is responsible for this loan
-          Shared: The loan is a shared responsibility for the applicants
+          MAIN_APPLICANT: The main applicant is responsible for this loan
+          CO_APPLICANT: The co-applicant is responsible for this loan
+          SHARED: The loan is a shared responsibility for the applicants
         enum:
-          - MainApplicant
-          - CoApplicant
-          - Shared
+          - MAIN_APPLICANT
+          - CO_APPLICANT
+          - SHARED
   countryCode:
     type: string
     minLength: 2
