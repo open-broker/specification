@@ -38,6 +38,7 @@ definitions:
       - termFee
       - invoiceFee
       - termMonths
+      - amortisationType
     properties:
       effectiveInterestRate:
         type: string
@@ -145,6 +146,15 @@ definitions:
         description: |
           The number of month-terms required to payback the loan at
           the offered interest and offered amount.
+      
+      amortisationType:
+        type: string
+        "meta:enum":
+          ANNUITY: WHAT AM I?
+          FIXED_LINE: AND WHAT AM I?
+        enum:
+          - ANNUITY
+          - FIXED_LINE
 required:
   - brokerReference
   - offer
