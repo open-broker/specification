@@ -155,12 +155,12 @@ definitions:
           ANNUITY: |
             The monthly sum that is payed by the customer is fixed, and the amount that is amortized is gradually increased
             since the the amount to cover the interest rate each month decreases which each amortization.
-          FIXED_LINE: |
-            The amount paid for amortization each month is fixed, while the interest rate will be lower over time, meaning
-            that the total monthly cost for the loan will decrease over time.            
+          STRAIGHT_LINE: |
+            The amount paid for amortization each month is fixed, while the interest payment will be lower over time, meaning
+            that the total monthly cost for the loan will decrease over time.
         enum:
           - ANNUITY
-          - FIXED_LINE
+          - STRAIGHT_LINE
 required:
   - brokerReference
   - offer
