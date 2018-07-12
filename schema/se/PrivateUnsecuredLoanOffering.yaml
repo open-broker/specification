@@ -38,6 +38,7 @@ definitions:
       - termFee
       - invoiceFee
       - termMonths
+      - amortizationType
     properties:
       effectiveInterestRate:
         type: string
@@ -145,6 +146,21 @@ definitions:
         description: |
           The number of month-terms required to payback the loan at
           the offered interest and offered amount.
+      
+      amortizationType:
+        type: string
+        title: "Type of amortization plan"
+        description: "Decides in which manner the loan is amortized"
+        "meta:enum":
+          ANNUITY: |
+            The monthly sum that is payed by the customer is fixed, and the amount that is amortized is gradually increased
+            since the the amount to cover the interest rate each month decreases which each amortization.
+          STRAIGHT_LINE: |
+            The amount paid for amortization each month is fixed, while the interest payment will be lower over time, meaning
+            that the total monthly cost for the loan will decrease over time.
+        enum:
+          - ANNUITY
+          - STRAIGHT_LINE
 required:
   - brokerReference
   - offer
