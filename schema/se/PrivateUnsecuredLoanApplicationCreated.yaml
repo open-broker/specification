@@ -280,6 +280,12 @@ definitions:
         type: integer
         minimum: 0
         title: "Money paid for child-support each month"
+      creditNote:
+        type: boolean
+        title: "Applicant has a credit note"
+        description: |
+          Indicate whether an applicant has a credit note or not, due to a failure to 
+          pay an outstanding bill.
       housingType:
         type: string
         title: "Housing type for the applicant"
