@@ -280,6 +280,12 @@ definitions:
         type: integer
         minimum: 0
         title: "Money paid for child-support each month"
+      paymentRemark:
+        type: boolean
+        title: "Applicant has a payment remark"
+        description: |
+          Indicate whether an applicant has a payment remark or not, due to a failure to 
+          pay an outstanding bill.
       housingType:
         type: string
         title: "Housing type for the applicant"
