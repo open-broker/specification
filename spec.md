@@ -88,14 +88,14 @@ products supported by the specification.
 
 The following events are defined for private unsecured loans:
 
-- Application created - [org.open-broker.v0.se.PrivateUnsecuredLoanApplicationCreated](schema/se/PrivateUnsecuredLoanApplicationCreated.yaml)
-- Processing delayed - [org.open-broker.v0.se.PrivateUnsecuredLoanDelayedProcessing](schema/se/PrivateUnsecuredLoanDelayedProcessing.yaml)
-- Loan offering - [org.open-broker.v0.se.PrivateUnsecuredLoanRejection](schema/se/PrivateUnsecuredLoanRejection.yaml)
+- Application created - [org.open-broker.v0.se.PrivateUnsecuredLoanApplicationCreated](schema/PrivateUnsecuredLoanApplicationCreated.yaml)
+- Processing delayed - [org.open-broker.v0.se.PrivateUnsecuredLoanDelayedProcessing](schema/PrivateUnsecuredLoanDelayedProcessing.yaml)
+- Loan offering - [org.open-broker.v0.se.PrivateUnsecuredLoanRejection](schema/PrivateUnsecuredLoanRejection.yaml)
 - Rejection - [org.open-broker.v0.se.PrivateUnsecuredLoanOffering](schema/se/PrivateUnsecuredLoanRejection.yaml)
-- Status updated - [org.open-broker.v0.se.PrivateUnsecuredLoanStatusUpdated](schema/se/PrivateUnsecuredLoanStatusUpdated.yaml)
-- Loan disbursed - [org.open-broker.v0.se.PrivateUnsecuredLoanDelayedProcessing](schema/se/PrivateUnsecuredLoanDisbursed.yaml)
-- Offer accepted - [org.open-broker.v0.se.PrivateUnsecuredLoanOfferAccepted](schema/se/PrivateUnsecuredLoanOfferAccepted.yaml)
-- Offer rejected - [org.open-broker.v0.se.PrivateUnsecuredLoanOfferRejected](schema/se/PrivateUnsecuredLoanOfferRejected.yaml)
+- Status updated - [org.open-broker.v0.se.PrivateUnsecuredLoanStatusUpdated](schema/PrivateUnsecuredLoanStatusUpdated.yaml)
+- Loan disbursed - [org.open-broker.v0.se.PrivateUnsecuredLoanDelayedProcessing](schema/PrivateUnsecuredLoanDisbursed.yaml)
+- Offer accepted - [org.open-broker.v0.se.PrivateUnsecuredLoanOfferAccepted](schema/PrivateUnsecuredLoanOfferAccepted.yaml)
+- Offer rejected - [org.open-broker.v0.se.PrivateUnsecuredLoanOfferRejected](schema/PrivateUnsecuredLoanOfferRejected.yaml)
 
 An example of an event-flow between broker and service provider could look like this:
 
