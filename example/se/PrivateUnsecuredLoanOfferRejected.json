@@ -10,9 +10,9 @@
   },
   "contentType" : "application/json",
   "data": {
-    "brokerReference": {
-      "id": "14-0e2375ac997e17a54c1106a7e120fcf3b18a59de923bf4b5d14a61aea93a2a6a",
-      "issuer": "io.klira"
+    "brokerReference":{
+      "issuer":"se.sverker",
+      "id":"2-147625e89efdea1c9ddaa96d29592920c485dd2e153f4f4ca49beb81e3"
     }
   }
 }

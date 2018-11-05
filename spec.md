@@ -88,14 +88,14 @@ products supported by the specification.
 
 The following events are defined for private unsecured loans:
 
-- Application created - [org.open-broker.v0.se.PrivateUnsecuredLoanApplicationCreated](schema-docs/PrivateUnsecuredLoanApplicationCreated.md)
-- Processing delayed - [org.open-broker.v0.se.PrivateUnsecuredLoanDelayedProcessing](schema-docs/PrivateUnsecuredLoanDelayedProcessing.md)
-- Loan offering - [org.open-broker.v0.se.PrivateUnsecuredLoanRejection](schema-docs/PrivateUnsecuredRejection.md)
-- Rejection - [org.open-broker.v0.se.PrivateUnsecuredLoanOffering](schema-docs/PrivateUnsecuredLoanRejection.md)
-- Status updated - [org.open-broker.v0.se.PrivateUnsecuredLoanStatusUpdated](schema-docs/PrivateUnsecuredLoanStatusUpdated.md)
-- Loan disbursed - [org.open-broker.v0.se.PrivateUnsecuredLoanDelayedProcessing](schema-docs/PrivateUnsecuredLoanDisbursed.md)
-- Offer accepted - [org.open-broker.v0.se.PrivateUnsecuredLoanOfferAccepted](schema-docs/PrivateUnsecuredLoanOfferAccepted.md)
-- Offer rejected - [org.open-broker.v0.se.PrivateUnsecuredLoanOfferRejected](schema-docs/PrivateUnsecuredLoanOfferRejected.md)
+- Application created - [org.open-broker.v0.se.PrivateUnsecuredLoanApplicationCreated](schema/se/PrivateUnsecuredLoanApplicationCreated.yaml)
+- Processing delayed - [org.open-broker.v0.se.PrivateUnsecuredLoanDelayedProcessing](schema/se/PrivateUnsecuredLoanDelayedProcessing.yaml)
+- Loan offering - [org.open-broker.v0.se.PrivateUnsecuredLoanRejection](schema/se/PrivateUnsecuredLoanRejection.yaml)
+- Rejection - [org.open-broker.v0.se.PrivateUnsecuredLoanOffering](schema/se/PrivateUnsecuredLoanRejection.yaml)
+- Status updated - [org.open-broker.v0.se.PrivateUnsecuredLoanStatusUpdated](schema/se/PrivateUnsecuredLoanStatusUpdated.yaml)
+- Loan disbursed - [org.open-broker.v0.se.PrivateUnsecuredLoanDelayedProcessing](schema/se/PrivateUnsecuredLoanDisbursed.yaml)
+- Offer accepted - [org.open-broker.v0.se.PrivateUnsecuredLoanOfferAccepted](schema/se/PrivateUnsecuredLoanOfferAccepted.yaml)
+- Offer rejected - [org.open-broker.v0.se.PrivateUnsecuredLoanOfferRejected](schema/se/PrivateUnsecuredLoanOfferRejected.yaml)
 
 An example of an event-flow between broker and service provider could look like this:
 

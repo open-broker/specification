@@ -5,17 +5,17 @@
     "source" : "/mycontext",
     "eventID" : "C234-1234-1234",
     "eventTime" : "2018-04-05T17:31:00Z",
-    "extensions" : {
-      "comExampleExtension" : "value"
-    },
+	"extensions":{
+		"destination":"bank:bankname-se"
+	},
     "contentType" : "application/json",
     "data": {
 		"application": {
 			"applicant": {
-				"ssn": "198712167249",
-				"phone": "+46705431052",
+				"ssn": "19911216XXXX",
+				"phone": "+4670543100",
 				"secondaryPhone": [],
-				"emailAddress": "anton@zensum.se",
+				"emailAddress": "anton@sum.se",
 				"employmentStatus": "FULL_TIME",
 				"employmentStatusSinceYear": 2017,
 				"employmentStatusSinceMonth": 2,
@@ -75,9 +75,9 @@
 			"refinanceAmount": 0,
 			"termMonths": 24
 		},
-		"brokerReference": {
-			"issuer": "io.klira",
-			"id": "1"
+		"brokerReference":{
+			"issuer":"se.sverker",
+			"id":"2-147625e89efdea1c9ddaa96d29592920c485dd2e153f4f4ca49beb81e3"
 		},
 		"dataProtectionContext": "FICTIONAL"
 	}

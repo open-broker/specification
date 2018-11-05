@@ -11,9 +11,9 @@
   "contentType" : "application/json",
   "data": {
     "delayReason": "MANUAL_PROCESSING",
-    "brokerReference": {
-      "issuer": "io.klira",
-      "id": "1"
+    "brokerReference":{
+      "issuer":"se.sverker",
+      "id":"2-147625e89efdea1c9ddaa96d29592920c485dd2e153f4f4ca49beb81e3"
     }
   }
 }
