@@ -14,9 +14,9 @@
       "monthlyPremium": 123
     },
     "offer": {
-      "arrangementFee":0,
+      "arrangementFee": 0,
       "amortizationType":"ANNUITY", 
-      "descriptiveText": "Take this loan sucker",
+      "descriptiveText": "Private unsecured loan",
       "effectiveInterestRate": "34.5",
       "nominalInterestRate": "34.5",
       "invoiceFee": 233,
