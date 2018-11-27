@@ -16,9 +16,9 @@
       "monthlyPremium": 123
     },
     "offer": {
-      "arrangementFee":0,
+      "arrangementFee": 0,
       "amortizationType":"ANNUITY", 
-      "descriptiveText": "Take this loan sucker",
+      "descriptiveText": "Private unsecured loan",
       "effectiveInterestRate": "34.5",
       "nominalInterestRate": "34.5",
       "invoiceFee": 233,
@@ -26,7 +26,6 @@
       "minOfferedCredit": 1234,
       "monthlyCost": 123,
       "mustRefinance": 234,
-      "nominalInterestRate": "sdfs",
       "offeredCredit": 123456,
       "termFee": 1234,
       "termMonths": 70
