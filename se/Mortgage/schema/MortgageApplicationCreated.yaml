@@ -129,6 +129,28 @@ definitions:
           - MAIN_APPLICANT
           - CO_APPLICANT
           - SHARED
+  Savings:
+    type: object
+    additionalProperties: false
+    required:
+      - value
+      - assetType
+    properties:
+      value:
+        type: integer
+        minimum: 1
+      assetType:
+        type: string
+        "meta:enum":
+          CASH: Savings on a bank account
+          MUTUAL_FUNDS: Savings in mutual funds
+          STOCKS: Savings in stocks
+          OTHER: Other financial assets
+        enum:
+          - CASH
+          - MUTUAL_FUNDS
+          - STOCKS
+          - OTHER
   countryCode:
     type: string
     minLength: 2
@@ -185,6 +207,7 @@ definitions:
       - citizenships
       - countriesOfResidence
       - taxResidentOf
+      - savings
     properties:
       ssn:
         type: string
@@ -330,6 +353,12 @@ definitions:
         title: "Countries that the applicant is a resident of for tax-purposes"
         '$ref': '#/definitions/countryCodeArray'
         "$linkVal": "CountryCodeArray"
+      savings:
+        title: |
+          Any savings that the applicant has in form of cash, stocks, funds
+          or other financial assets.
+        '$ref': '#/definitions/savings'
+        "$linkVal": "Savings"
       tentativeAddress:
         title: "Address of the applicant for display purposes"
         description:
