@@ -10,13 +10,18 @@ description: |
 
 type: object
 additionalProperties: false
+required:
+  - issuer
+  - id
 properties:
   issuer:
-    type: "string"
+    type: string
     title: 'Domain-name of the issuer of the reference, in reverse order'
     description: "Reversed DNS name for the broker, for example, example.com becomes com.example"
     pattern: "^(([a-zA-Z0-9]|[a-zA-Z0-9][a-zA-Z0-9-][a-zA-Z0-9]).)([A-Za-z0-9]|[A-Za-z0-9][A-Za-z0-9-]*[A-Za-z0-9])"
   id:
     type: string
     title: "Reference number for the broker"
-    description: "An arbitrary reference string that is unique"
+    description: |
+      An arbitrary reference string that is unique in the given namespace for
+      the issuer.
