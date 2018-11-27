@@ -348,7 +348,7 @@ required:
 properties:
   brokerReference:
     title: "A reference-id used by the broker"
-    "$ref": "https://open-broker.org/schema/v0/se/reference"
+    "$ref": "https://open-broker.org/schema/v0/se/Reference"
   dataProtectionContext:
     type: string
     title: "The data-protection context of the application"
