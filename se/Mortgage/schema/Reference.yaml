@@ -2,22 +2,33 @@
 "$schema": "http://json-schema.org/draft-06/schema#"
 title: reference
 description: |
-  A reference used for identification of an event. Consisting of two
-  parts an issuer domain name of the form `com.example`, and an
-  arbitrary id string. The values, taken together must be unique.
-
-  In other words, the issuing organization can issue an ID once only.
+  A reference used for identification of an event. Consisting of three
+  parts;
+   - an "issuer" domain name of the form `com.example` identifying the issuer
+  of the reference (the broker)
+   - an "issued for" domain name of the form `com.example` identifying the
+  entity that the reference was issued for (the lender)
+  - an arbitrary id string.
+  The values, taken together must be unique. In other words,
+  the issuing organization can issue an ID once only.
 
 type: object
 additionalProperties: false
 required:
   - issuer
+  - issuedFor
   - id
 properties:
   issuer:
     type: string
     title: 'Domain-name of the issuer of the reference, in reverse order'
     description: "Reversed DNS name for the broker, for example, example.com becomes com.example"
+    pattern: "^(([a-zA-Z0-9]|[a-zA-Z0-9][a-zA-Z0-9-][a-zA-Z0-9]).)([A-Za-z0-9]|[A-Za-z0-9][A-Za-z0-9-]*[A-Za-z0-9])"
+  issuedFor:
+    type: string
+    title: 'Domain-name of the lender that the reference is issued for,
+     in reverse order'
+    description: "Reversed DNS name for the lender, for example, example.com becomes com.example"
     pattern: "^(([a-zA-Z0-9]|[a-zA-Z0-9][a-zA-Z0-9-][a-zA-Z0-9]).)([A-Za-z0-9]|[A-Za-z0-9][A-Za-z0-9-]*[A-Za-z0-9])"
   id:
     type: string
