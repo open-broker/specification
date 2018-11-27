@@ -28,20 +28,20 @@ definitions:
         description: "The amount that the customer wishes to borrow"
         minimum: 1
         examples:
-        - 50000
+          - 2300000
       termMonths:
         type: integer
         title: 'Number of monthly terms'
         description: "The number 1-month terms that the applicant desires to pay off the loan over"
         minimum: 1
         examples:
-        - 3
+          - 240
       refinanceAmount:
         type: integer
         title: "The amount being refinanced"
         description: "Must be less than or equal to the loanAmount"
         examples:
-          - 25000
+          - 800000
       extensions:
         '$ref': '#/definitions/ExtensionPoint'
         "$linkVal": "ExtensionPoint"
