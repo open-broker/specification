@@ -207,7 +207,6 @@ definitions:
       - citizenships
       - countriesOfResidence
       - taxResidentOf
-      - savings
     properties:
       ssn:
         type: string
