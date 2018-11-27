@@ -68,25 +68,19 @@ definitions:
         description: "Categorical label for the purpose of the loan being applied for"
         default: OTHER
         "meta:enum":
-          REFINANCE: Refinancing existing debt
-          HOME_REMODELLING: Home remodelling or renovation
-          HEALTHCARE_EXPENSES: To finance health-care costs.
-          DIVORCE_PROCEEDINGS: To finance costs relating to a divorce.
-          HOME_DOWNPAYMENT: To finance a downpayment for a loan
-          EDUCATION: To finance education of some kind
-          TRAVEL: To finance a vacation or other travel expenses
-          CAR: To finance the purchase of a car or similar
-          OTHER: Purpose not fitting the above categories
+          REFINANCE: Refinancing existing debt, without any intention of moving
+          HOME_REMODELLING: Home remodelling or renovation of a currently owned property
+          NEW_MORTGAGE: |
+            To finance the acquisition of a new property while not selling any
+            currently onwed property.
+          MOVING: |
+            To finance the acquisition of a new property while also selling
+            and moving out of a currently owned property.
         enum:
           - REFINANCE
           - HOME_REMODELLING
-          - HEALTHCARE_EXPENSES
-          - DIVORCE_PROCEEDINGS
-          - HOME_DOWNPAYMENT
-          - EDUCATION
-          - TRAVEL
-          - CAR
-          - OTHER
+          - NEW_MORTGAGE
+          - MOVING
   ExistingLoan:
     type: object
     additionalProperties: false
