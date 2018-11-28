@@ -1,0 +1,73 @@
+"$id": "https://open-broker.org/se/Mortgage/schema/definitions/Application"
+"$schema": "http://json-schema.org/draft-06/schema#"
+
+application:
+  type: object
+  additionalProperties: false
+  required:
+    - loanAmount
+    - termMonths
+    - applicant
+    - loanPurpose
+  properties:
+    loanAmount:
+      type: integer
+      title: "Amount to borrow"
+      description: "The amount that the customer wishes to borrow"
+      minimum: 1
+      examples:
+        - 2300000
+    termMonths:
+      type: integer
+      title: 'Number of monthly terms'
+      description: "The number 1-month terms that the applicant desires to pay off the loan over"
+      minimum: 1
+      examples:
+        - 240
+    refinanceAmount:
+      type: integer
+      title: "The amount being refinanced"
+      description: "Must be less than or equal to the loanAmount"
+      examples:
+        - 800000
+    extensions:
+      '$ref': '#/definitions/ExtensionPoint'
+      "$linkVal": "ExtensionPoint"
+      title: "Custom, vendor-specific extensions to the schema"
+    applicant:
+      "$ref": "#/definitions/applicant"
+      "$linkVal": "applicant"
+      title: "Applicant"
+      description: "The primary applicant to the loan"
+    coApplicant:
+      "$ref": "#/definitions/applicant"
+      "$linkVal": "applicant"
+      title: "Co-applicant"
+      description: "A secondary applicant for the loan, if any."
+    existingLoans:
+      type: array
+      title: "Information about existing loans relevant to the applicant"
+      items:
+        "$ref": "#/definitions/ExistingLoan"
+        "$linkVal": "ExistingLoan"
+    loanPurpose:
+      type: string
+      title: "Purpose of the loan"
+      description: "Categorical label for the purpose of the loan being applied for"
+      default: OTHER
+      "meta:enum":
+        REFINANCE: |
+          Refinancing existing debt, without any intention of moving or
+          acquiring any new property.
+        HOME_REMODELLING: Home remodelling or renovation of a currently owned property
+        NEW_MORTGAGE: |
+          To finance the acquisition of a new property while not selling any
+          currently onwed property.
+        MOVING: |
+          To finance the acquisition of a new property while also selling
+          and moving out of a currently owned property.
+      enum:
+        - REFINANCE
+        - HOME_REMODELLING
+        - NEW_MORTGAGE
+        - MOVING
