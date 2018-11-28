@@ -1,11 +1,11 @@
+"$id": "https://open-broker.org/se/Mortgage/schema"
+"$schema": "http://json-schema.org/draft-07/schema#"
 title: MortgageApplicationCreated
 description: |
   An event indicating the creation of an application for
   a mortgage.
 type: object
 additionalProperties: false
-"$id": "https://open-broker.org/schema/v0/se/MortgageApplicationCreated"
-"$schema": "http://json-schema.org/draft-06/schema#"
 definitions:
   ExtensionPoint:
     title: "Extension data"
