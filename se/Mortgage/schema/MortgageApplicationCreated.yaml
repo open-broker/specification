@@ -129,28 +129,6 @@ definitions:
           - MAIN_APPLICANT
           - CO_APPLICANT
           - SHARED
-  Savings:
-    type: object
-    additionalProperties: false
-    required:
-      - value
-      - assetType
-    properties:
-      value:
-        type: integer
-        minimum: 1
-      assetType:
-        type: string
-        "meta:enum":
-          CASH: Savings on a bank account
-          MUTUAL_FUNDS: Savings in mutual funds
-          STOCKS: Savings in stocks
-          OTHER: Other financial assets
-        enum:
-          - CASH
-          - MUTUAL_FUNDS
-          - STOCKS
-          - OTHER
   countryCode:
     type: string
     minLength: 2
@@ -298,6 +276,22 @@ definitions:
         type: integer
         minimum: 0
         title: "Money paid for child-support each month"
+      savingsCash:
+        type: integer
+        minimum: 0
+        title: Savings on a bank account
+      savingsMutualFunds:
+        type: integer
+        minimum: 0
+        title: Savings in mutual funds
+      savingsStocks:
+        type: integer
+        minimum: 0
+        title: Savings in stocks
+      savingsOther:
+        type: integer
+        minimum: 0
+        title: Savings in other financial assets
       paymentRemark:
         type: boolean
         title: "Applicant has a payment remark"
@@ -352,12 +346,6 @@ definitions:
         title: "Countries that the applicant is a resident of for tax-purposes"
         '$ref': '#/definitions/countryCodeArray'
         "$linkVal": "CountryCodeArray"
-      savings:
-        title: |
-          Any savings that the applicant has in form of cash, stocks, funds
-          or other financial assets.
-        '$ref': '#/definitions/savings'
-        "$linkVal": "Savings"
       tentativeAddress:
         title: "Address of the applicant for display purposes"
         description:
