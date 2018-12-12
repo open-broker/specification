@@ -14,46 +14,6 @@ definitions:
       "^(([a-zA-Z0-9]|[a-zA-Z0-9][a-zA-Z0-9-][a-zA-Z0-9]).)([A-Za-z0-9]|[A-Za-z0-9][A-Za-z0-9-]*[A-Za-z0-9])$":
         type: object
 
-  countryCode:
-    type: string
-    minLength: 2
-    maxLength: 2
-    pattern: '[A-Z]{2}'
-  countryCodeArray:
-    type: array
-    uniqueItems: true
-    items:
-      "$linkVal": "countryCode"
-      '$ref': '#/definitions/countryCode'
-  Address:
-    type: object
-    additionalProperties: false
-    required:
-      - firstName
-      - lastName
-      - address
-      - city
-      - postalCode
-    properties:
-      firstName:
-        type: string
-        minLength: 1
-      lastName:
-        type: string
-        minLength: 1
-      address:
-        type: string
-        minLength: 1
-      city:
-        type: string
-        minLength: 1
-      postalCode:
-        type: string
-        minLength: 1
-      careOf:
-        type: string
-        minLength: 1
-
 required:
   - application
   - dataProtectionContext
@@ -61,8 +21,8 @@ required:
 properties:
   brokerReference:
     title: "A reference-id used by the broker"
-    "$ref": "https://open-broker.org/schema/v0/se/Reference"
+    "$ref": "https://open-broker.org/se/Mortgage/schema/definitions/Reference"
   dataProtectionContext:
     "$ref": "https://open-broker.org/se/Mortgage/schema/definitions/DataProtectionContext"
   application:
-    "$ref": "#/definitions/application"
+    "$ref": "https://open-broker.org/se/Mortgage/schema/definitions/Application"
