@@ -1,0 +1,23 @@
+title: PrivateUnsecuredLoanStatusUpdated
+description: |
+  An event indicating an update to the status of a loan being brokered
+type: object
+additionalProperties: false
+"$id": "https://open-broker.org/schema/v0/no/PrivateUnsecuredLoanStatusUpdated"
+"$schema": "http://json-schema.org/draft-0/schema#"
+required:
+  - brokerReference
+  - status
+properties:
+  brokerReference:
+    title: "A reference-id used by the broker"
+    "$ref": "https://open-broker.org/schema/v0/no/reference"
+  status:
+    type: "string"
+    title: "the new status of the application"
+    enum:
+      - CONTRACT_SENT_TO_CUSTOMER
+      - CONTRACT_SIGNED
+    "meta:enum":
+      CONTRACT_SENT_TO_CUSTOMER: A contract has been sent to the customer
+CONTRACT_SIGNED: The contract has been signed
