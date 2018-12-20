@@ -5,7 +5,7 @@ description: |
 type: object
 additionalProperties: false
 "$id": "https://open-broker.org/schema/v0/no/PrivateUnsecuredLoanDisbursed"
-"$schema": "http://json-schema.org/draft-0/schema#"
+"$schema": "http://json-schema.org/draft-06/schema#"
 required:
   - brokerReference
   - amountDisbursed

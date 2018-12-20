@@ -1,11 +1,11 @@
 title: PrivateUnsecuredLoanApplicationCreated
 description: |
   An event indicating the creation of an application for
-  a private unsecure loan.
+  a private unsecured loan.
 type: object
 additionalProperties: false
 "$id": "https://open-broker.org/schema/v0/no/PrivateUnsecuredLoanApplicationCreated"
-"$schema": "http://json-schema.org/draft-0/schema#"
+"$schema": "http://json-schema.org/draft-06/schema#"
 definitions:
   ExtensionPoint:
     title: "Extension data"
@@ -142,7 +142,7 @@ definitions:
     items:
       "$linkVal": "countryCode"
       '$ref': '#/definitions/countryCode'
-  Address:
+  address:
     type: object
     additionalProperties: false
     required:
@@ -219,6 +219,7 @@ definitions:
         enum:
           - DOMESTIC
           - EARLY_RETIRED
+          - HOURLY
           - OTHER
           - PRIVATE_SECTOR
           - PUBLIC_SECTOR
@@ -227,10 +228,12 @@ definitions:
           - SELF_EMPLOYED
           - STUDENT
           - TEMPORARY
+          - TRIAL
           - UNEMPLOYED
         "meta:enum":
           DOMESTIC: Managing the home without employment 
-          EARLY_RETIRED: Retried earlier before the usual retirement age (no. Ufor)
+          EARLY_RETIRED: Retired earlier before the usual retirement age (no. Ufor)
+          HOURLY: Formally permanently employed, hired by the hour
           OTHER: An employment status not falling neatly in to any of the other categories
           PRIVATE_SECTOR: Employed full-time in the private sector
           PUBLIC_SECTOR: Employed full-time in the public sector
@@ -238,7 +241,8 @@ definitions:
           RETIRED: Retired due to age
           SELF_EMPLOYED: The applicant is a sole proprietor or works for his or her own company
           STUDENT: Signed up to a university or other higher education
-          TEMPORARY: Non-full time employment pertaining to a limited time period (no. Midlertidig ansettelse)
+          TEMPORARY: Employment pertaining to a limited time period (no. Midlertidig ansatt)
+          TRIAL: Trial employment (no. Proveansatt)
           UNEMPLOYED: Not currently employed
       employmentStatusSinceYear:
         type: integer
@@ -349,7 +353,7 @@ definitions:
       maritalStatus:
         type: string
         title: "The marital status of the applicant"
-        "meta:enum"
+        "meta:enum":
           COHABITING: no. Samboer
           DIVORCED: no. Skilt
           MARRIED: no. Gift or Partnerskap
@@ -386,7 +390,7 @@ definitions:
       education:
         type: string
         title: "The highest education level of the applicant"
-        "meta:enum"
+        "meta:enum":
           PRIMARY_SCHOOL: "Completed the obligatory first stage of formal education (no. Grunnskole)"
           SECONDARY_SCHOOL: "Completed the formal education preparing for higher studies (no. Gymnasium)"
           UNIVERSITY_SHORT: "Completed 1-3 years of higher education"
