@@ -11,7 +11,7 @@
   "contentType" : "application/json",
   "data": {
     "brokerReference":{
-      "issuer":"se.sverker",
+      "issuer":"com.example",
       "id":"2-147625e89efdea1c9ddaa96d29592920c485dd2e153f4f4ca49beb81e3"
     },
 	"amountBrokered": 12356,

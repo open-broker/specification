@@ -12,10 +12,10 @@
     "data": {
 		"application": {
 			"applicant": {
-				"ssn": "19911216XXXX",
-				"phone": "+4670543100",
+				"ssn": "199112163456",
+				"phone": "+46704543100",
 				"secondaryPhone": [],
-				"emailAddress": "anton@sum.se",
+				"emailAddress": "customer@example.com",
 				"employmentStatus": "FULL_TIME",
 				"employmentStatusSinceYear": 2017,
 				"employmentStatusSinceMonth": 2,
@@ -49,7 +49,44 @@
 					"city": "Helsingborg"
 				}
 			},
-			"coApplicant": null,
+			"coApplicant": {
+				"ssn": "196112164329",
+				"phone": "+46705543100",
+				"secondaryPhone": [],
+				"emailAddress": "customer@example.com",
+				"employmentStatus": "FULL_TIME",
+				"employmentStatusSinceYear": 2017,
+				"employmentStatusSinceMonth": 2,
+				"dependentChildren": 0,
+				"housingType": "RENTED",
+				"housingCostPerMonth": 3000,
+				"employerName": "Zensum AB",
+				"employerPhone": "+46811122233",
+				"monthlyIncome": 14000,
+				"childSupportReceivedMonthly": null,
+				"childSupportPaidMonthly": null,
+				"maritalStatus": "COHABITING",
+				"bankAccount": {
+					"clearingNo": "8888",
+					"accountNo": "00000003"
+				},
+				"citizenships": [
+					"SE"
+				],
+				"countriesOfResidence": [
+					"SE"
+				],
+				"taxResidentOf": [
+					"SE"
+				],
+				"tentativeAddress": {
+					"firstName": "Lisa",
+					"lastName": "Strömberg",
+					"address": "Hultom 264",
+					"postalCode": "25258",
+					"city": "Helsingborg"
+				}
+			},
 			"existingLoans": [
 				{
 					"loanAmount": 4000,
@@ -76,7 +113,7 @@
 			"termMonths": 24
 		},
 		"brokerReference":{
-			"issuer":"se.sverker",
+			"issuer":"com.example",
 			"id":"2-147625e89efdea1c9ddaa96d29592920c485dd2e153f4f4ca49beb81e3"
 		},
 		"dataProtectionContext": "FICTIONAL"
