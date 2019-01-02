@@ -1,12 +1,11 @@
 title: PrivateUnsecuredLoanOffering
-description: |
-  An offer for a loan
+description: An offer for a loan
 type: object
 additionalProperties: false
-"$id": "https://open-broker.org/schema/v0/no/PrivateUnsecuredLoanOffering"
-"$schema": "http://json-schema.org/draft-06/schema#"
+'$id': 'https://open-broker.org/schema/v0/no/PrivateUnsecuredLoanOffering'
+'$schema': 'http://json-schema.org/draft-06/schema#'
 definitions:
-  LoanInsuranceOffer:
+  loanInsuranceOffer:
     type: object
     additionalProperties: false
     required:
@@ -24,7 +23,7 @@ definitions:
       descriptiveText:
         type: string
         title: A text to be displayed along with the offer.
-  Offer:
+  offer:
     type: object
     additionalProperties: false
     required:
@@ -128,7 +127,7 @@ definitions:
         type: integer
         minimum: 0
         title: Fee charged for particular invoicing solutions
-        descriptions: |
+        description: |
           A fee that the customer can avoid by choosing a different
           payment solutions such as automated transfers or electronic
           invoices. This value should not be included in the
@@ -139,13 +138,12 @@ definitions:
         title: Number of monthly terms
         description: |
           The number of month-terms required to payback the loan at
-          the offered interest and offered amount.
-      
+          the offered interest and offered amount. 
       amortizationType:
         type: string
-        title: "Type of amortization plan"
-        description: "Decides in which manner the loan is amortized"
-        "meta:enum":
+        title: Type of amortization plan
+        description: Decides in which manner the loan is amortized
+        'meta:enum':
           ANNUITY: |
             The monthly sum that is payed by the customer is fixed, and the amount that is amortized is gradually increased
             since the the amount to cover the interest rate each month decreases which each amortization.
@@ -160,10 +158,9 @@ required:
   - offer
 properties:
   brokerReference:
-    title: "The reference used by the broker for the application resulting in this offer"
-    "$ref": "https://open-broker.org/schema/v0/no/reference"
-
+    title: The reference used by the broker for the application resulting in this offer
+    '$ref': 'https://open-broker.org/schema/v0/no/reference'
   offer:
-    "$ref": "#/definitions/Offer"
+    '$ref': '#/definitions/offer'
   loanInsuranceOffer:
-  "$ref": "#/definitions/LoanInsuranceOffer"
+    '$ref': '#/definitions/loanInsuranceOffer'

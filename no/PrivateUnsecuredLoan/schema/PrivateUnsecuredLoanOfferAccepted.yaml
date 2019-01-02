@@ -4,23 +4,21 @@ description: |
   on behalf of the customer
 type: object
 additionalProperties: false
-"$id": "https://open-broker.org/schema/v0/no/PrivateUnsecuredLoanOfferAccepted"
-"$schema": "http://json-schema.org/draft-06/schema#"
+'$id': 'https://open-broker.org/schema/v0/no/PrivateUnsecuredLoanOfferAccepted'
+'$schema': 'http://json-schema.org/draft-06/schema#'
 required:
   - brokerReference
 properties:
   brokerReference:
-    title: "The reference used for the offer being accepted"
-    "$ref": "https://open-broker.org/schema/v0/no/reference"
-
+    title: The reference used for the offer being accepted
+    '$ref': 'https://open-broker.org/schema/v0/no/reference'
   bankAccount:
-    title: "The bank acccount to pay out the money to"
+    title: The bank acccount to pay out the money to
     description: |
       The broker may include an updated bank account for the
       applicant. The service provider may ignore this updated field if
       not supported.
     '$ref': 'https://open-broker.org/schema/v0/no/BankAccount'
-
   requestedCredit:
     type: integer
     minimum: 0
