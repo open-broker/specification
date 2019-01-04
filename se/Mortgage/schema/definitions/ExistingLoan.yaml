@@ -6,13 +6,13 @@ ExistingLoan:
   additionalProperties: false
   required:
     - loanAmount
-    - monthlyPayment
+    - monthlyCost
     - existingLoanType
   properties:
     loanAmount:
       type: integer
       minimum: 1
-    monthlyPayment:
+    monthlyCost:
       type: integer
       minimum: 1
     existingLoanType:
