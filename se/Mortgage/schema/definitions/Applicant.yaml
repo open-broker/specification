@@ -93,11 +93,6 @@ properties:
     title: 'The company name of the employer'
     examples:
       - ACME AB
-  employerPhone:
-    type: string
-    pattern: '^\+[1-9][0-9]{1,14}$'
-    examples:
-      - "+465069158975"
   dependentChildren:
     type: integer
     title: 'Number of dependent children'
