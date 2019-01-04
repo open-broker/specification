@@ -50,24 +50,3 @@ application:
       items:
         "$ref": "#/definitions/ExistingLoan"
         "$linkVal": "ExistingLoan"
-    loanPurpose:
-      type: string
-      title: "Purpose of the loan"
-      description: "Categorical label for the purpose of the loan being applied for"
-      default: OTHER
-      "meta:enum":
-        REFINANCE: |
-          Refinancing existing debt, without any intention of moving or
-          acquiring any new property.
-        HOME_REMODELLING: Home remodelling or renovation of a currently owned property
-        NEW_MORTGAGE: |
-          To finance the acquisition of a new property while not selling any
-          currently onwed property.
-        MOVING: |
-          To finance the acquisition of a new property while also selling
-          and moving out of a currently owned property.
-      enum:
-        - REFINANCE
-        - HOME_REMODELLING
-        - NEW_MORTGAGE
-        - MOVING
