@@ -21,7 +21,6 @@ ExistingLoan:
         CAR_LOAN: A loan for a car or similar vehicle
         CHECK_CREDIT: A revolving credit, other than a credit-card.
         CREDIT_CARD: A credit-card
-        MORTGAGE: A home mortgage
         STUDENT_LOAN: A student loan
         UNSECURED_LOAN: An unsecured loan, not falling into any of the other categories, for example a consumer loan.
         OTHER: Any other debt not falling into any of the other categories.
@@ -29,7 +28,6 @@ ExistingLoan:
         - CAR_LOAN
         - CHECK_CREDIT
         - CREDIT_CARD
-        - MORTGAGE
         - STUDENT_LOAN
         - UNSECURED_LOAN
         - OTHER
