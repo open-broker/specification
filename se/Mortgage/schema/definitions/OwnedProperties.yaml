@@ -4,9 +4,44 @@
 title: Owned Properties array
 description: A list of owned houses, apartments or cottages
 type: array
-
 items:
   anyOf:
-    - type: House
-    - type: Apartment
-    - type: Cottage
+    - type: house
+    - type: apartment
+    - type: cottage
+
+definitions:
+  house:
+    required:
+      - assessedValue
+      - sqaureMeters
+      - existingMortgage
+      - upkeep
+      - partOfOwnership
+    properties:
+      assessedValue:
+        type: integer
+        min: 0
+        description: The estimated value of the house, in SEK
+      sqaureMeters:
+        type: integer
+        min: 0
+        description: The number of square meters of the house (excluding plot)
+      existingMortgage:
+        type: integer
+        min: 0
+        description: How mortgaged the house is, in SEK
+      upkeep:
+        type: integer
+        min: 0
+        description: |
+          Monthly cost for operational and maintenenance of the house
+          in SEK
+      partOfOwnership:
+        type: integer
+        min: 1
+        max: 100
+        description: |
+          How much the applicant(s) own of the house, in percent. If there is 
+          more than one applicant, then this value should reflect the total stake
+          for all applicants combined. 
