@@ -42,6 +42,33 @@ definitions:
         min: 1
         max: 100
         description: |
-          How much the applicant(s) own of the house, in percent. If there is 
+          How much the applicant(s) own of the house, in percent. If there is
           more than one applicant, then this value should reflect the total stake
-          for all applicants combined. 
+          for all applicants combined.
+  
+  apartment:
+    required:
+      - assessedValue
+      - sqaureMeters
+      - existingMortgage
+      - monthlyFee
+      - partOfOwnership
+    properties:
+      assessedValue:
+        type: integer
+        min: 0
+        description: The estimated value of the apartment, in SEK
+      sqaureMeters:
+        type: integer
+        min: 0
+        description: The number of square meters of the apartment
+      existingMortgage:
+        type: integer
+        min: 0
+        description: How mortgaged the apartment is, in SEK
+      monthlyFee:
+        type: integer
+        min: 0
+        description: |
+          The monthly fee to the condominium compound that the
+          apartment belongs to
