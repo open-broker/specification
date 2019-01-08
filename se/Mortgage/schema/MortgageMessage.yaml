@@ -1,0 +1,34 @@
+title: MortgageMessage
+description: |
+  A human-readable message from a bank to a broker that should convey
+  important information about the application process for an application
+type: object
+additionalProperties: false
+"$id": "https://open-broker.org/se/Mortgage/schema/MortgageMessage"
+"$schema": "http://json-schema.org/draft-07/schema#"
+required:
+  - brokerReference
+  - message
+  - actionRequired
+properties:
+  brokerReference:
+    title: "A reference-id used by the broker"
+    "$ref": "https://open-broker.org/se/Mortgage/schema/definitions/Reference"
+  message:
+    type: "string"
+    title: "A text message"
+    description: |
+      A message that is meant for a human to read, and possibly act upon.
+      The content of the message is not meant for any automated data
+      processing system.
+      examples: [
+        "The application will be processed manually",
+        "Copy of driver's license for applicant is requested"
+      ]
+  actionRequired:
+    type: boolean
+    title: An action is required
+    description: |
+      Indicates whether an action is required by the broker, such as
+      when a document is required from the customer or other complementary
+      data is needed by the bank
