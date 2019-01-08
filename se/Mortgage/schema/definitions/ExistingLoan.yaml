@@ -1,5 +1,5 @@
 "$id": "https://open-broker.org/se/Mortgage/schema/definitions/ExistingLoan"
-"$schema": "http://json-schema.org/draft-06/schema#"
+"$schema": "http://json-schema.org/draft-07/schema#"
 
 ExistingLoan:
   type: object
