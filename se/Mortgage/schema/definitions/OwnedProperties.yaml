@@ -8,10 +8,11 @@ items:
   anyOf:
     - type: house
     - type: apartment
-    - type: cottage
 
 definitions:
   house:
+    additionalProperties: false
+    description: A house or cottage that the applicant(s) own
     required:
       - assessedValue
       - sqaureMeters
@@ -47,6 +48,10 @@ definitions:
           for all applicants combined.
   
   apartment:
+    additionalProperties: false
+    description: |
+      An apartment that the applicant(s) own that is a part of
+      a condominium compound
     required:
       - assessedValue
       - sqaureMeters
