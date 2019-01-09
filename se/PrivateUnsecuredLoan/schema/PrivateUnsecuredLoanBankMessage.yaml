@@ -2,7 +2,9 @@ title: PrivateUnsecuredLoanBankMessage
 description: |
   A human-readable message from a bank to a broker,
   that should convey important information about the application
-  process for an application
+  process for an application.  This message type is unidirectional,
+  and can only be used for sending a message from a bank to a
+  broker, and not the other way around.
 type: object
 additionalProperties: false
 "$id": "https://open-broker.org/se/PrivateUnsecuredLoan/schema/PrivateUnsecuredLoanBankMessage"
