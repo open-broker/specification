@@ -1,10 +1,11 @@
-title: MortgageMessage
+title: MortgageBankMessage
 description: |
-  A human-readable message from a bank to a broker that should convey
-  important information about the application process for an application
+  A human-readable message from a bank to a broker,
+  that should convey important information about the application
+  process for an application
 type: object
 additionalProperties: false
-"$id": "https://open-broker.org/se/Mortgage/schema/MortgageMessage"
+"$id": "https://open-broker.org/se/Mortgage/schema/MortgageBankMessage"
 "$schema": "http://json-schema.org/draft-07/schema#"
 required:
   - brokerReference
@@ -31,4 +32,4 @@ properties:
     description: |
       Indicates whether an action is required by the broker, such as
       when a document is required from the customer or other complementary
-      data is needed by the bank
+      data is needed by a party

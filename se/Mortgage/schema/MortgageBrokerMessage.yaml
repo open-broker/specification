@@ -1,0 +1,27 @@
+title: MortgageBrokerMessage
+description: |
+  A human-readable message from a broker to a bank,
+  that should convey important information about the application
+  process for an application
+type: object
+additionalProperties: false
+"$id": "https://open-broker.org/se/Mortgage/schema/MortgageBrokerMessage"
+"$schema": "http://json-schema.org/draft-07/schema#"
+required:
+  - brokerReference
+  - message
+properties:
+  brokerReference:
+    title: "A reference-id used by the broker"
+    "$ref": "https://open-broker.org/se/Mortgage/schema/definitions/Reference"
+  message:
+    type: "string"
+    title: "A text message"
+    description: |
+      A message that is meant for a human to read, and possibly act upon.
+      The content of the message is unstructured and not meant for any
+      automated data processing system.
+      examples: [
+        "If possible, change offer to 250 000 over 5 years",
+        "Applicant will return to full working capacity after two months of maternity leave"
+      ]
