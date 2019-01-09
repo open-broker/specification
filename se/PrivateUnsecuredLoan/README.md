@@ -14,6 +14,8 @@ The following events are defined for private unsecured loans:
 - Loan disbursed - [org.open-broker.v0.se.PrivateUnsecuredLoanDelayedProcessing](schema-docs/PrivateUnsecuredLoanDisbursed.md)
 - Offer accepted - [org.open-broker.v0.se.PrivateUnsecuredLoanOfferAccepted](schema-docs/PrivateUnsecuredLoanOfferAccepted.md)
 - Offer rejected - [org.open-broker.v0.se.PrivateUnsecuredLoanOfferRejected](schema-docs/PrivateUnsecuredLoanOfferRejected.md)
+- Bank Message - [org.open-broker.v0.se.PrivateUnsecuredLoanBankMessage](schema/PrivateUnsecuredLoanBankMessage.yaml)
+- Broker Message - [org.open-broker.v0.se.PrivateUnsecuredLoanBrokerMessage](schema/PrivateUnsecuredLoanBrokerMessage.yaml)
 
 An example of an event-flow between broker and service provider could look like this:
 
