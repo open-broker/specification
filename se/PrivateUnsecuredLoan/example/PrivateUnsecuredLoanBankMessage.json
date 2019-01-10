@@ -1,0 +1,17 @@
+{
+  "cloudEventsVersion" : "0.1",
+  "eventType" : "org.open-broker.v0.se.PrivateUnsecuredLoanBankMessage",
+  "eventTypeVersion" : "v0",
+  "source" : "/bank",
+  "eventID" : "4572D-S82KK2-1104J",
+  "eventTime" : "2018-08-05T13:12:00Z",
+  "contentType" : "application/json",
+  "data": {
+    "brokerReference": {
+      "id": "14-0e2375ac997e17a54c1106a7e120fcf3b18a59de923bf4b5d14a61aea93a2a6a",
+      "issuer": "io.klira"
+    },
+    "message": "Copy of identification for applicant is required",
+    "actionRequired": true
+  }
+}
