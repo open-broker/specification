@@ -12,9 +12,7 @@ The following events are defined for private unsecured loans:
 - Offer accepted - [org.open-broker.v0.se.PrivateUnsecuredLoanOfferAccepted](schema-docs/PrivateUnsecuredLoanOfferAccepted.md)
 - Offer rejected - [org.open-broker.v0.se.PrivateUnsecuredLoanOfferRejected](schema-docs/PrivateUnsecuredLoanOfferRejected.md)
 - Status updated - [org.open-broker.v0.se.PrivateUnsecuredLoanStatusUpdated](schema-docs/PrivateUnsecuredLoanStatusUpdated.md)
-- Loan disbursed - [org.open-broker.v0.se.PrivateUnsecuredLoanDelayedProcessing](schema-docs/PrivateUnsecuredLoanDisbursed.md)
-- Service provider message - [org.open-broker.v0.se.PrivateUnsecuredLoanServiceProviderMessage](schema/PrivateUnsecuredLoanServiceProviderMessage.yaml)
-- Broker message - [org.open-broker.v0.se.PrivateUnsecuredLoanBrokerMessage](schema/PrivateUnsecuredLoanBrokerMessage.yaml)
+- Loan disbursed - [org.open-broker.v0.se.PrivateUnsecuredLoanDelayedProcessing](schema-docs/PrivateUnsecuredLoanDisbursed
 
 An example of an event-flow between broker and service provider could look like this:
 
@@ -45,7 +43,6 @@ a broker to a service provider _or_ from a service provider to a broker, but nev
 - Application created
 - Offer accepted
 - Offer rejected
-- Broker message
 
 #### Events from Service Provider to Broker
 - Processing delayed
@@ -53,4 +50,3 @@ a broker to a service provider _or_ from a service provider to a broker, but nev
 - Rejection
 - Status updated
 - Loan disbursed
-- Service provider message
