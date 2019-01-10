@@ -13,7 +13,7 @@ The following events are defined for private unsecured loans:
 - Offer rejected - [org.open-broker.v0.se.PrivateUnsecuredLoanOfferRejected](schema-docs/PrivateUnsecuredLoanOfferRejected.md)
 - Status updated - [org.open-broker.v0.se.PrivateUnsecuredLoanStatusUpdated](schema-docs/PrivateUnsecuredLoanStatusUpdated.md)
 - Loan disbursed - [org.open-broker.v0.se.PrivateUnsecuredLoanDelayedProcessing](schema-docs/PrivateUnsecuredLoanDisbursed.md)
-- Bank message - [org.open-broker.v0.se.PrivateUnsecuredLoanBankMessage](schema/PrivateUnsecuredLoanBankMessage.yaml)
+- Service provider message - [org.open-broker.v0.se.PrivateUnsecuredLoanServiceProviderMessage](schema/PrivateUnsecuredLoanServiceProviderMessage.yaml)
 - Broker message - [org.open-broker.v0.se.PrivateUnsecuredLoanBrokerMessage](schema/PrivateUnsecuredLoanBrokerMessage.yaml)
 
 An example of an event-flow between broker and service provider could look like this:
@@ -39,18 +39,18 @@ Customer rejects the service provider's offer.
 
 ### Direction of Events
 Each event type can only be sent in one direction. In other words, each _event type_ can only be sent from
-a broker to a bank _or_ from a bank to a broker, but never both ways.
+a broker to a service provider _or_ from a service provider to a broker, but never both ways.
 
-#### Events from Broker to Bank
+#### Events from Broker to Service Provider
 - Application created
 - Offer accepted
 - Offer rejected
 - Broker message
 
-#### Events from Bank to Broker
+#### Events from Service Provider to Broker
 - Processing delayed
 - Loan offering
 - Rejection
 - Status updated
 - Loan disbursed
-- Bank message
+- Service provider message
