@@ -1,6 +1,6 @@
 {
   "cloudEventsVersion" : "0.1",
-  "eventType" : "org.open-broker.v0.se.PrivateUnsecuredLoanBankMessage",
+  "eventType" : "org.open-broker.v0.se.PrivateUnsecuredLoanServiceProviderMessage",
   "eventTypeVersion" : "v0",
   "source" : "/bank",
   "eventID" : "4572D-S82KK2-1104J",
