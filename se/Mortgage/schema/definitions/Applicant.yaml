@@ -181,5 +181,7 @@ properties:
     '$ref': 'https://open-broker.org/se/Mortgage/schema/definitions/CountryCodeArray'
   tentativeAddress:
     title: "Address of the applicant for display purposes"
-    description: "All actors are expected to perform proper due diligence in establishing the identity of the applicant"
+    description: |
+      "A tentative addess of the applicant. All actors are expected to perform proper
+      due diligence in establishing the identity of the applicant."
     '$ref': 'https://open-broker.org/se/Mortgage/schema/definitions/Address'

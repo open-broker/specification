@@ -8,7 +8,7 @@ application:
     - loanAmount
     - termMonths
     - applicant
-    - loanPurpose
+    - propertyAddress
   properties:
     loanAmount:
       type: integer
@@ -24,12 +24,10 @@ application:
       minimum: 1
       examples:
         - 240
-    refinanceAmount:
-      type: integer
-      title: "The amount being refinanced"
-      description: "Must be less than or equal to the loanAmount"
-      examples:
-        - 800000
+    propertyAddress:
+      '$ref': '#/definitions/PropertyAddress'
+      "$linkVal": "PropertyAddress"
+      title: The address of the property which should be refinanced
     extensions:
       '$ref': '#/definitions/ExtensionPoint'
       "$linkVal": "ExtensionPoint"
