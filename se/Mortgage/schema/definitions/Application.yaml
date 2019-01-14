@@ -9,6 +9,7 @@ application:
     - termMonths
     - applicant
     - propertyAddress
+    - refinancingProperty
   properties:
     loanAmount:
       type: integer
@@ -24,6 +25,8 @@ application:
       minimum: 1
       examples:
         - 240
+    refinancingProperty:
+    
     propertyAddress:
       '$ref': '#/definitions/PropertyAddress'
       "$linkVal": "PropertyAddress"
