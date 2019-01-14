@@ -18,6 +18,7 @@ properties:
     minLength: 1
   postalCode:
     type: string
+    pattern: "\\d{5}"
     minLength: 5
     maxLength: 5
   apartmentCode:
