@@ -5,28 +5,14 @@ application:
   type: object
   additionalProperties: false
   required:
-    - loanAmount
-    - termMonths
     - applicant
     - propertyAddress
     - refinancingProperty
   properties:
-    loanAmount:
-      type: integer
-      title: "Amount to borrow"
-      description: "The amount that the customer wishes to borrow"
-      minimum: 1
-      examples:
-        - 2300000
-    termMonths:
-      type: integer
-      title: 'Number of monthly terms'
-      description: "The number 1-month terms that the applicant desires to pay off the loan over"
-      minimum: 1
-      examples:
-        - 240
     refinancingProperty:
-    
+      '$ref': '#/definitions/OwnedProperty'
+      "$linkVal": "OwnedProperty"
+      title: The property that should be refinanced
     propertyAddress:
       '$ref': '#/definitions/PropertyAddress'
       "$linkVal": "PropertyAddress"
@@ -51,3 +37,13 @@ application:
       items:
         "$ref": "#/definitions/ExistingLoan"
         "$linkVal": "ExistingLoan"
+    ownedProperties:
+      type: array
+      title: Properties owned by the applicant(s)
+      description: |
+        Any currently owned real-estate property owned by the applicant(s),
+        either owned together or individually. The property that is being
+        refinanced ("refinancingProperty") should not be included.
+      items:
+        '$ref': '#/definitions/PropertyAddress'
+        "$linkVal": "PropertyAddress"
