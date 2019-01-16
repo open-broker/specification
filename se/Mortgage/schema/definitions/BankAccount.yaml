@@ -17,7 +17,7 @@ properties:
       The clearing number, also known as the sort code identifies, the
       bank along with the branch. The clearing number only allows for four
       digits. In the event of a clearing numbers with a fifth digit, the last
-      digit should be remove and put first in the account number instead.
+      digit should be removed and put first in the account number instead.
     type: string
     pattern: "^[1-9][0-9]{3}$"
     minLength: 4
