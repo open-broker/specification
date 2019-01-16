@@ -14,6 +14,7 @@ required:
   - employmentStatusSinceYear
   - employmentStatusSinceMonth
   - dependentChildren
+  - paymentRemarks
   - housingType
   - housingCostPerMonth
   - monthlyIncome
@@ -128,12 +129,12 @@ properties:
     minimum: 0
     default: 0
     title: Savings in other financial assets
-  paymentRemark:
-    type: boolean
-    title: "Applicant has a payment remark"
+  paymentRemarks:
+    type: integer
+    title: "The number of payment remarks for the applicant"
     description: |
-      Indicate whether an applicant has a payment remark or not, due to a failure to
-      pay an outstanding bill.
+      Indicate how many payment remarks, if any, an applicant has, due to a failure to
+      pay an outstanding bill
   housingType:
     type: string
     title: "Housing type for the applicant"
