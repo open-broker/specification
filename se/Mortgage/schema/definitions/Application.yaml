@@ -45,5 +45,5 @@ application:
         either owned together or individually. The property that is being
         refinanced ("refinancingProperty") should not be included.
       items:
-        '$ref': '#/definitions/PropertyAddress'
-        "$linkVal": "PropertyAddress"
+        '$ref': '#/definitions/OwnedProperty'
+        "$linkVal": "OwnedProperty"
