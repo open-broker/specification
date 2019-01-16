@@ -167,9 +167,6 @@ properties:
       - SINGLE
       - MARRIED
       - COHABITING
-  bankAccount:
-    title: "Applicant's bank account"
-    '$ref': 'https://open-broker.org/se/Mortgage/schema/definitions/BankAccount'
   citizenships:
     title: "Countries that the applicant is a citizen of"
     '$ref': 'https://open-broker.org/se/Mortgage/schema/definitions/CountryCodeArray'
