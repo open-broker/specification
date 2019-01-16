@@ -23,4 +23,4 @@ properties:
     maxLength: 5
   apartmentCode:
     type: string
-    pattern: "^[0-9]{4}$"
+    pattern: "^\\d{4}$"
