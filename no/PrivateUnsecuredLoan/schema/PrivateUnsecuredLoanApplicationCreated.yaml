@@ -89,7 +89,6 @@ definitions:
       - loanAmount
       - monthlyPayment
       - existingLoanType
-      - shouldRefinance
       - responsibility
       - lender
     properties:
@@ -99,8 +98,6 @@ definitions:
       monthlyPayment:
         type: integer
         minimum: 1
-      shouldRefinance:
-        type: boolean
       refinanceAmount:
         type: integer
       existingLoanType:
