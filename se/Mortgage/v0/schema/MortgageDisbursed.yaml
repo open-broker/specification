@@ -1,10 +1,12 @@
+"$id": "https://open-broker.org/se/Mortgage/v0/schema/MortgageDisbursed"
+"$schema": "http://json-schema.org/draft-07/schema#"
+
 title: MortgageDisbursed
 description: |
   An event indicating that a mortgage has been disbursed
 type: object
 additionalProperties: false
-"$id": "https://open-broker.org/schema/v0/se/MortgageDisbursed"
-"$schema": "http://json-schema.org/draft-07/schema#"
+
 required:
   - brokerReference
   - amountDisbursed
@@ -13,7 +15,7 @@ required:
 properties:
   brokerReference:
     title: "A reference-id used by the broker"
-    "$ref": "https://open-broker.org/schema/v0/se/Reference"
+    "$ref": "definitions/Reference#/reference"
 
   amountDisbursed:
     type: "integer"

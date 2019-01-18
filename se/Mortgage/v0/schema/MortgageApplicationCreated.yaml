@@ -1,28 +1,22 @@
-"$id": "https://open-broker.org/se/Mortgage/schema"
+"$id": "https://open-broker.org/se/Mortgage/v0/schema/MortgageApplicationCreated"
 "$schema": "http://json-schema.org/draft-07/schema#"
+
 title: MortgageApplicationCreated
 description: |
   An event indicating the creation of an application for
   a mortgage.
 type: object
 additionalProperties: false
-definitions:
-  ExtensionPoint:
-    title: "Extension data"
-    additionalProperties: false
-    patternProperties:
-      "^(([a-zA-Z0-9]|[a-zA-Z0-9][a-zA-Z0-9-][a-zA-Z0-9]).)([A-Za-z0-9]|[A-Za-z0-9][A-Za-z0-9-]*[A-Za-z0-9])$":
-        type: object
-
 required:
   - application
   - dataProtectionContext
   - brokerReference
+
 properties:
   brokerReference:
     title: "A reference-id used by the broker"
-    "$ref": "https://open-broker.org/se/Mortgage/schema/definitions/Reference"
+    "$ref": "definitions/Reference#/reference"
   dataProtectionContext:
-    "$ref": "https://open-broker.org/se/Mortgage/schema/definitions/DataProtectionContext"
+    "$ref": "definitions/DataProtectionContext/DataProtectionContext"
   application:
     "$ref": "https://open-broker.org/se/Mortgage/schema/definitions/Application"

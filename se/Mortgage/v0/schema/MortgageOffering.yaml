@@ -1,3 +1,6 @@
+"$id": "https://open-broker.org/se/Mortgage/v0/schema/MortgageOffering"
+"$schema": "http://json-schema.org/draft-07/schema#"
+
 title: MortgageOffering
 description: An offer for a mortgage
 type: object
@@ -5,12 +8,11 @@ additionalProperties: false
 required:
   - brokerReference
   - offer
-"$id": "https://open-broker.org/schema/v0/se/MortgageOffering"
-"$schema": "http://json-schema.org/draft-07/schema#"
+
 properties:
   brokerReference:
     title: "The reference used by the broker for the application resulting in this offer"
-    "$ref": "https://open-broker.org/schema/v0/se/Reference"
+    "$ref": "definitions/Reference#/reference"
   offer:
     "$ref": "#/definitions/Offer"
 

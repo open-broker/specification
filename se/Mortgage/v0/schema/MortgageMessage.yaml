@@ -1,3 +1,6 @@
+"$id": "https://open-broker.org/se/Mortgage/v0/schema/MortgageMessage"
+"$schema": "http://json-schema.org/draft-07/schema#"
+
 title: MortgageMessage
 description: |
   A human-readable message from a service provider to a broker,
@@ -5,8 +8,7 @@ description: |
   process for an application
 type: object
 additionalProperties: false
-"$id": "https://open-broker.org/se/Mortgage/schema/MortgageMessage"
-"$schema": "http://json-schema.org/draft-07/schema#"
+
 required:
   - brokerReference
   - message
@@ -14,7 +16,7 @@ required:
 properties:
   brokerReference:
     title: "A reference-id used by the broker"
-    "$ref": "https://open-broker.org/se/Mortgage/schema/definitions/Reference"
+    "$ref": "definitions/Reference#/reference"
   message:
     type: "string"
     title: "A text message"

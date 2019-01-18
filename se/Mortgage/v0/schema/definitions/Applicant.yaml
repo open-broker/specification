@@ -1,10 +1,10 @@
-"$id": "https://open-broker.org/se/Mortgage/schema"
+"$id": "https://open-broker.org/se/Mortgage/v0/schema/definitions/Applicant"
 "$schema": "http://json-schema.org/draft-07/schema#"
+
 title: Applicant
 description: |
   Describe the attributes of an applicant, such as housing situation,
   employment details, financial information, marital status and citizenships.
-
 
 type: object
 additionalProperties: false
@@ -170,16 +170,16 @@ properties:
       - COHABITING
   citizenships:
     title: "Countries that the applicant is a citizen of"
-    '$ref': 'https://open-broker.org/se/Mortgage/schema/definitions/CountryCodeArray'
+    '$ref': 'https://open-broker.org/se/Mortgage/v0/schema/definitions/CountryCodeArray'
   countriesOfResidence:
     title: "Countries that the applicant is a resident of"
-    '$ref': 'https://open-broker.org/se/Mortgage/schema/definitions/CountryCodeArray'
+    '$ref': 'https://open-broker.org/se/Mortgage/v0/schema/definitions/CountryCodeArray'
   taxResidentOf:
     title: "Countries that the applicant is a resident of for tax-purposes"
-    '$ref': 'https://open-broker.org/se/Mortgage/schema/definitions/CountryCodeArray'
+    '$ref': 'https://open-broker.org/se/Mortgage/v0/schema/definitions/CountryCodeArray'
   tentativeAddress:
     title: "Address of the applicant for display purposes"
     description: |
       "A tentative addess of the applicant. All actors are expected to perform proper
       due diligence in establishing the identity of the applicant."
-    '$ref': 'https://open-broker.org/se/Mortgage/schema/definitions/Address'
+    '$ref': 'https://open-broker.org/se/Mortgage/v0/schema/definitions/Address'

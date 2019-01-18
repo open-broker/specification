@@ -1,5 +1,6 @@
-"$id": "https://open-broker.org/se/Mortgage/schema"
+"$id": "https://open-broker.org/se/Mortgage/v0/schema/definitions/PropertyAddress"
 "$schema": "http://json-schema.org/draft-07/schema#"
+
 title: PropertyAddress
 description: An address for a real-estate property
 type: object

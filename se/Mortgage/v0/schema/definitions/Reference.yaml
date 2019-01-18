@@ -1,5 +1,6 @@
-"$id": "https://open-broker.org/schema/v0/se/Reference"
+"$id": "https://open-broker.org/se/Mortgage/v0/schema/definitions/Reference"
 "$schema": "http://json-schema.org/draft-07/schema#"
+
 title: reference
 description: |
   A reference used for identification of an event. Consisting of two

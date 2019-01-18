@@ -1,6 +1,7 @@
-"$id": "https://open-broker.org/se/Mortgage/schema"
+"$id": "https://open-broker.org/se/Mortgage/v0/schema/definitions/CountryCodeArray"
 "$schema": "http://json-schema.org/draft-07/schema#"
-title: Country code array
+
+title: CountryCodeArray
 description: ISO-3166-1 abbreviation for a country
 type: array
 uniqueItems: true
