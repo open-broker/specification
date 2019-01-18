@@ -129,6 +129,7 @@ definitions:
           - SHARED
       lender:
         type: string
+        minLength: 1
   countryCode:
     type: string
     minLength: 2
