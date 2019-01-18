@@ -100,6 +100,7 @@ definitions:
         minimum: 1
       refinanceAmount:
         type: integer
+        minimum: 0
       existingLoanType:
         type: string
         'meta:enum':
