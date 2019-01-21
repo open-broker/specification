@@ -10,7 +10,6 @@ additionalProperties: false
 required:
   - brokerReference
   - amountDisbursed
-  - amountBrokered
   - date
 properties:
   brokerReference:
@@ -23,17 +22,7 @@ properties:
     title: "Amount disbursed"
     description: |
       The total amount disbursed to
-      the customer of the loan being brokered
-
-  amountBrokered:
-    type: "integer"
-    minimum: 0
-    title: |
-      Amount considered brokered by the lender
-    description: |
-      The amount the lender considers the broker to have
-      brokered. For example, the amount disbursed exclusive
-      of loans refinanced within the lender.
+      the customer of the loan being brokered.
 
   date:
     type: string
