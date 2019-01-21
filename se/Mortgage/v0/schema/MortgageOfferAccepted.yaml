@@ -23,15 +23,3 @@ properties:
       applicant. The service provider may ignore this updated field if
       not unsupported.
     "$ref": "definitions/BankAccount#/BankAccount"
-
-  requestedCredit:
-    type: integer
-    minimum: 0
-    title:
-      Amount of credit wanted by the customer
-    description: |
-      The amount of credit requested by the user. A service-provider
-      use this value to set the size of the actual loan within the
-      bounds set in the loan offer. If this field is missing or
-      outside the bounds set in the loan offer service-providers
-      should use the `offeredCredit` value.
