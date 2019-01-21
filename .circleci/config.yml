@@ -11,4 +11,4 @@ jobs:
           chmod a+x yaml2json
           mv yaml2json /usr/bin/
           .circleci/yaml2json.sh se/Mortgage/v0/schema
-          .circleci/yaml2json.sh se/Mortgage/v0/schema/defintions
+          .circleci/yaml2json.sh se/Mortgage/v0/schema/definitions
