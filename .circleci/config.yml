@@ -1,6 +1,6 @@
 version: 2
 jobs:
-  validateSchema:
+  build:
     docker:
       - image: alpine:3.8
     steps:
