@@ -10,5 +10,5 @@ jobs:
           wget https://github.com/bronze1man/yaml2json/releases/download/v1.3/yaml2json_linux_amd64 -O yaml2json -T 60 -w 10
           chmod a+x yaml2json
           mv yaml2json /usr/bin/
-          ./yaml2json.sh ../se/Mortgage/v0/schema
-          ./yaml2json.sh ../se/Mortgage/v0/schema/defintions
+          .circleci/yaml2json.sh se/Mortgage/v0/schema
+          .circleci/yaml2json.sh se/Mortgage/v0/schema/defintions
