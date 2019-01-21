@@ -1,5 +1,4 @@
-### Sweden
-#### Private unsecured loans
+## Private Unsecured Loans - Sweden
 
 Private unsecured loans also known as consumer loans is one of the
 products supported by the specification.
@@ -10,10 +9,10 @@ The following events are defined for private unsecured loans:
 - Processing delayed - [org.open-broker.v0.se.PrivateUnsecuredLoanDelayedProcessing](schema-docs/PrivateUnsecuredLoanDelayedProcessing.md)
 - Loan offering - [org.open-broker.v0.se.PrivateUnsecuredLoanOffering](schema-docs/PrivateUnsecuredLoanOffering.md)
 - Rejection - [org.open-broker.v0.se.PrivateUnsecuredLoanRejection](schema-docs/PrivateUnsecuredLoanRejection.md)
-- Status updated - [org.open-broker.v0.se.PrivateUnsecuredLoanStatusUpdated](schema-docs/PrivateUnsecuredLoanStatusUpdated.md)
-- Loan disbursed - [org.open-broker.v0.se.PrivateUnsecuredLoanDelayedProcessing](schema-docs/PrivateUnsecuredLoanDisbursed.md)
 - Offer accepted - [org.open-broker.v0.se.PrivateUnsecuredLoanOfferAccepted](schema-docs/PrivateUnsecuredLoanOfferAccepted.md)
 - Offer rejected - [org.open-broker.v0.se.PrivateUnsecuredLoanOfferRejected](schema-docs/PrivateUnsecuredLoanOfferRejected.md)
+- Status updated - [org.open-broker.v0.se.PrivateUnsecuredLoanStatusUpdated](schema-docs/PrivateUnsecuredLoanStatusUpdated.md)
+- Loan disbursed - [org.open-broker.v0.se.PrivateUnsecuredLoanDelayedProcessing](schema-docs/PrivateUnsecuredLoanDisbursed
 
 An example of an event-flow between broker and service provider could look like this:
 
@@ -35,3 +34,19 @@ Service provider denies the application:
 Customer rejects the service provider's offer.
 
 - 4.a. The broker sends an offer rejected event
+
+### Direction of Events
+Each event type can only be sent in one direction. In other words, each _event type_ can only be sent from
+a broker to a service provider _or_ from a service provider to a broker, but never both ways.
+
+#### Events from Broker to Service Provider
+- Application created
+- Offer accepted
+- Offer rejected
+
+#### Events from Service Provider to Broker
+- Processing delayed
+- Loan offering
+- Rejection
+- Status updated
+- Loan disbursed
