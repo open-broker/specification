@@ -10,7 +10,7 @@ jobs:
   convert:
     executor: schema-context
     steps:
-      - run: ls -Fahl /tmp/circle-*
+      - run: ls -RFahl /tmp/
       - run: mkdir json
       - run: |
           apk add git wget
