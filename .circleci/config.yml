@@ -24,7 +24,7 @@ jobs:
           .circleci/yaml2json.sh se/Mortgage/v0/schema /tmp/json
           .circleci/yaml2json.sh se/Mortgage/v0/schema/definitions /tmp/json
       - persist_to_workspace:
-          root: json
+          root: /tmp/workspace/json
           paths:
             - .
 
@@ -33,8 +33,8 @@ jobs:
     executor: schema-context
     steps:
       - attach_workspace:
-          at: /tmp/json
-      - run: cd /tmp/json && ls -Fahl
+          at: /tmp/workspace
+      - run: cd /tmp/workspace/json && ls -Fahl
       - run: apk add npm
       - run: npm install -g ajv-cli
       - run: echo "WIP, do validation here"
