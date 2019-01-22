@@ -15,8 +15,8 @@ jobs:
       - checkout
       - run: |
           mkdir /tmp/workspace/json
-          yaml_json.sh se/Mortgage/v0/schema /tmp/workspace/json
-          yaml_json.sh se/Mortgage/v0/schema/definitions /tmp/workspace/json
+          .circleci/yaml2json.sh se/Mortgage/v0/schema /tmp/workspace/json
+          .circleci/yaml2json.sh se/Mortgage/v0/schema/definitions /tmp/workspace/json/
       - persist_to_workspace:
           root: /tmp/workspace
           paths:
@@ -30,7 +30,7 @@ jobs:
           at: /tmp/workspace
       - run: |
           cd /tmp/workspace/json && ls -Fahl
-          ajv compile -s se/Mortgage/v0/schema/schema.json
+          ajv compile -s /se/Mortgage/v0/schema/schema.json
 
 workflows:
   version: 2.1
