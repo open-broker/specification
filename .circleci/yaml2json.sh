@@ -7,6 +7,6 @@ for f in $FILES
 do
 	NEW_NAME=$(echo $f|cut -d '.' -f 1)
 	NEW_NAME="$NEW_NAME.json"
-	echo -e "\t$f -> "$2/$NEW_NAME" 
+	echo -e "\t$f -> $2/$NEW_NAME" 
 	yaml2json < $f > "$2/$NEW_NAME"
 done
