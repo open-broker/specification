@@ -13,12 +13,3 @@ properties:
   brokerReference:
     title: "A reference-id used by the broker"
     "$ref": "definitions/Reference#/reference"
-  medium:
-    type: "string"
-    title: "medium used for sending the contract"
-    enum:
-      - PHYSICAL_MAIL
-      - ELECTRONIC_MAIL
-    "meta:enum":
-      PHYSICAL_MAIL: The contract was sent with a physical letter
-      ELECTRONIC_MAIL: The contract was sent with electronic mail
