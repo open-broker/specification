@@ -4,7 +4,6 @@ executors:
   schema-context:
     docker:
       - image: circleci/openjdk
-      #- image: alpine:3.8
     working_directory: ~/workdir
 
 jobs:
@@ -35,7 +34,7 @@ jobs:
       - attach_workspace:
           at: /tmp/workspace
       - run: cd /tmp/workspace/json && ls -Fahl
-      - run: apk add npm
+      #- run: apk add npm
       - run: npm install -g ajv-cli
       - run: echo "WIP, do validation here"
 
