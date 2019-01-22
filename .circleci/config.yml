@@ -17,7 +17,7 @@ jobs:
       - run: |
           wget https://github.com/bronze1man/yaml2json/releases/download/v1.3/yaml2json_linux_amd64 -O yaml2json -T 60 -w 10
           chmod -v a+x yaml2json
-          mv -v yaml2json /usr/bin/
+          sudo mv -v yaml2json /usr/bin/
           pwd
           ls -Fahl
           mkdir /tmp/workspace/json
