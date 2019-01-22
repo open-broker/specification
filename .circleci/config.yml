@@ -3,7 +3,8 @@ version: 2.1
 executors:
   schema-context:
     docker:
-      - image: alpine:3.8
+      - image: circleci/openjdk
+      #- image: alpine:3.8
     working_directory: ~/workdir
 
 jobs:
