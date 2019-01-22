@@ -10,10 +10,7 @@ jobs:
   convert:
     executor: schema-context
     steps:
-      - run: ls -Fahl /
-      - run: ls -Fahl /home
-      - run: ls -Fahl /tmp
-      - run: ls -Fahl /media
+      - run: ls -Fahl /tmp/circle-*
       - run: mkdir json
       - run: |
           apk add git wget
