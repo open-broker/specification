@@ -4,7 +4,7 @@ executors:
   schema-context:
     docker:
       - image: alpine:3.8
-    working_directory: ~/
+    working_directory: /
 
 jobs:
   convert:
