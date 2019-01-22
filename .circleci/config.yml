@@ -21,8 +21,8 @@ jobs:
           mv -v yaml2json /usr/bin/
           pwd
           ls -Fahl
-          .circleci/yaml2json.sh se/Mortgage/v0/schema son
-          .circleci/yaml2json.sh se/Mortgage/v0/schema/definitions json
+          .circleci/yaml2json.sh se/Mortgage/v0/schema /tmp/json
+          .circleci/yaml2json.sh se/Mortgage/v0/schema/definitions /tmp/json
       - persist_to_workspace:
           root: json
           paths:
