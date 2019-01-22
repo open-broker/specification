@@ -3,7 +3,7 @@ version: 2.1
 executors:
   schema-context:
     docker:
-      - image: circleci/openjdk
+      - image: mantono/alpine-yaml-json
     working_directory: ~/workdir
 
 jobs:
@@ -14,11 +14,6 @@ jobs:
           at: /tmp/workspace
       - checkout
       - run: |
-          wget https://github.com/bronze1man/yaml2json/releases/download/v1.3/yaml2json_linux_amd64 -O yaml2json -T 60 -w 10
-          chmod -v a+x yaml2json
-          sudo mv -v yaml2json /usr/bin/
-          pwd
-          ls -Fahl
           mkdir /tmp/workspace/json
           .circleci/yaml2json.sh se/Mortgage/v0/schema /tmp/workspace/json
           .circleci/yaml2json.sh se/Mortgage/v0/schema/definitions /tmp/workspace/json
@@ -34,8 +29,6 @@ jobs:
       - attach_workspace:
           at: /tmp/workspace
       - run: cd /tmp/workspace/json && ls -Fahl
-      #- run: apk add npm
-      - run: npm install -g ajv-cli
       - run: echo "WIP, do validation here"
 
 workflows:
