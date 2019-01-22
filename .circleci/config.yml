@@ -14,8 +14,9 @@ jobs:
       - run: |
           apk add git wget
           wget https://github.com/bronze1man/yaml2json/releases/download/v1.3/yaml2json_linux_amd64 -O yaml2json -T 60 -w 10
-          chmod a+x yaml2json
-          mv yaml2json /usr/bin/
+          chmod -v a+x yaml2json
+          mv -v yaml2json /usr/bin/
+          pwd
           .circleci/yaml2json.sh se/Mortgage/v0/schema ~/json
           .circleci/yaml2json.sh se/Mortgage/v0/schema/definitions ~/json
       - persist_to_workspace:
