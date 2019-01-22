@@ -6,6 +6,7 @@ executors:
       - image: alpine:3.8
     working_directory: /tmp
 
+jobs:
   convert:
     executor: schema-context
     steps:
