@@ -1,5 +1,27 @@
-version: 2
+version: 2.1
+
+executors:
+  schema-context:
+    docker:
+      - image: alpine:3.8
+    working_directory: /tmp
+
 jobs:
+  setup:
+    executor: schema-context
+    steps:
+      - run: |
+          apk add git
+          apk add wget
+          wget https://github.com/bronze1man/yaml2json/releases/download/v1.3/yaml2json_linux_amd64 -O yaml2json -T 60 -w 10
+          chmod a+x yaml2json
+          apk add npm
+          npm install -g ajv-cli
+
+  convert: // Convert to JSON
+
+  validate: // Validate Schema
+
   build:
     docker:
       - image: alpine:3.8
