@@ -15,8 +15,8 @@ jobs:
       - checkout
       - run: |
           mkdir /tmp/workspace/json
-          .circleci/yaml2json.sh se/Mortgage/v0/schema /tmp/workspace/json
-          .circleci/yaml2json.sh se/Mortgage/v0/schema/definitions /tmp/workspace/json
+          yaml_json.sh se/Mortgage/v0/schema /tmp/workspace/json
+          yaml_json.sh se/Mortgage/v0/schema/definitions /tmp/workspace/json
       - persist_to_workspace:
           root: /tmp/workspace
           paths:
@@ -28,8 +28,9 @@ jobs:
     steps:
       - attach_workspace:
           at: /tmp/workspace
-      - run: cd /tmp/workspace/json && ls -Fahl
-      - run: echo "WIP, do validation here"
+      - run: |
+          cd /tmp/workspace/json && ls -Fahl
+          ajv-cli compile se/Mortgage/v0/schema/schema.json
 
 workflows:
   version: 2.1
