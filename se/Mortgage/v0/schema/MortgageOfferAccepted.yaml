@@ -18,8 +18,5 @@ properties:
 
   bankAccount:
     title: "The bank account to pay out the money to"
-    description: |
-      The broker may include an updated bank account for the
-      applicant. The service provider may ignore this updated field if
-      not unsupported.
+    description: The broker must include an bank account for the applicant
     "$ref": "definitions/BankAccount#/BankAccount"
