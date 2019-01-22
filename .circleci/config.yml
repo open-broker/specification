@@ -13,20 +13,14 @@ jobs:
       - attach_workspace:
           at: /tmp/workspace
       - checkout
-      - run: pwd && ls -Fahl .
-      - run: ls -Fahl /
-      - run: ls -Fahl /home
-      - run: ls -Fahl /tmp
-      - run: ls -Fahl /media
-      - run: mkdir json
       - run: |
+          mkdir /tmp/json
           apk add git wget
           wget https://github.com/bronze1man/yaml2json/releases/download/v1.3/yaml2json_linux_amd64 -O yaml2json -T 60 -w 10
           chmod -v a+x yaml2json
           mv -v yaml2json /usr/bin/
-          cd
-          ls -Fahl /home
           pwd
+          ls -Fahl
           .circleci/yaml2json.sh se/Mortgage/v0/schema son
           .circleci/yaml2json.sh se/Mortgage/v0/schema/definitions json
       - persist_to_workspace:
