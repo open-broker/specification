@@ -3,36 +3,34 @@ version: 2.1
 executors:
   schema-context:
     docker:
-      - image: alpine:3.8
-    working_directory: /tmp
+      - image: mantono/alpine-yaml-json
+    working_directory: ~/workdir
 
 jobs:
   convert:
     executor: schema-context
     steps:
-      - run: mkdir ~/json
+      - attach_workspace:
+          at: /tmp/workspace
+      - checkout
       - run: |
-          apk add git wget
-          wget https://github.com/bronze1man/yaml2json/releases/download/v1.3/yaml2json_linux_amd64 -O yaml2json -T 60 -w 10
-          chmod a+x yaml2json
-          mv yaml2json /usr/bin/
-          .circleci/yaml2json.sh se/Mortgage/v0/schema ~/json
-          .circleci/yaml2json.sh se/Mortgage/v0/schema/definitions ~/json
+          mkdir /tmp/workspace/json
+          .circleci/yaml2json.sh se/Mortgage/v0/schema /tmp/workspace/json
+          .circleci/yaml2json.sh se/Mortgage/v0/schema/definitions /tmp/workspace/json/
       - persist_to_workspace:
-          root: json
+          root: /tmp/workspace
           paths:
-            - .
+            - json
 
 
   validate:
     executor: schema-context
     steps:
       - attach_workspace:
-          at: /tmp/json
-      - run: cd /tmp/json && ls -Fahl
-      - run: apk add npm
-      - run: npm install -g ajv-cli
-      - run: echo "WIP, do validation here"
+          at: /tmp/workspace
+      - run: |
+          cd /tmp/workspace/json
+          ajv compile -s se/Mortgage/v0/schema/schema.json
 
 workflows:
   version: 2.1
