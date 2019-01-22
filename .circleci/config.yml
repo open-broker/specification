@@ -6,31 +6,39 @@ executors:
       - image: alpine:3.8
     working_directory: /tmp
 
-jobs:
-  setup:
+  convert:
     executor: schema-context
     steps:
+      - run: mkdir ~/json
       - run: |
-          apk add git
-          apk add wget
-          wget https://github.com/bronze1man/yaml2json/releases/download/v1.3/yaml2json_linux_amd64 -O yaml2json -T 60 -w 10
-          chmod a+x yaml2json
-          apk add npm
-          npm install -g ajv-cli
-
-  convert: // Convert to JSON
-
-  validate: // Validate Schema
-
-  build:
-    docker:
-      - image: alpine:3.8
-    steps:
-      - checkout
-      - run: |
-          apk add wget
+          apk add git wget
           wget https://github.com/bronze1man/yaml2json/releases/download/v1.3/yaml2json_linux_amd64 -O yaml2json -T 60 -w 10
           chmod a+x yaml2json
           mv yaml2json /usr/bin/
-          .circleci/yaml2json.sh se/Mortgage/v0/schema
-          .circleci/yaml2json.sh se/Mortgage/v0/schema/definitions
+          .circleci/yaml2json.sh se/Mortgage/v0/schema ~/json
+          .circleci/yaml2json.sh se/Mortgage/v0/schema/definitions ~/json
+      - persist_to_workspace:
+          root: json
+          paths:
+            - .
+
+
+  validate:
+    executor: schema-context
+    steps:
+      - attach_workspace:
+          at: /tmp/json
+      - run: cd /tmp/json && ls -Fahl
+      - run: apk add npm
+      - run: npm install -g ajv-cli
+      - run: echo "WIP, do validation here"
+
+workflows:
+  version: 2.1
+
+  schema:
+    jobs:
+      - convert
+      - validate:
+          requires:
+            - convert
