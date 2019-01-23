@@ -11,7 +11,6 @@ required:
   - propertyType
   - assessedValue
   - sqaureMeters
-  - existingMortgage
   - monthlyCost
   - partOfOwnership
 properties:
@@ -43,16 +42,33 @@ properties:
     min: 0
     description: The number of square meters of the property (excluding plot)
   existingMortgage:
-    type: integer
-    min: 0
-    description: How mortgaged the property is, in SEK
+    type: object
+    additionalProperties: false
+    required:
+      - monthlyLoanCoast
+      - loanAmount
+    properties:
+      monthlyLoanCoast:
+        type: integer
+        title: Montlhy cost for mortgage
+        description: |
+          The monthly cost for the mortgage, including interest rate, term fee,
+          invoice fee and any amortization, in SEK.
+        min: 1
+      loanAmount:
+        type: integer
+        title: Loan amount for the mortgage
+        description: |
+          The total, remaining, amount of the mortgage for this property, in SEK
+        min: 1
   monthlyCost:
     type: integer
     min: 0
     description: |
       The sum of all montlhy costs associated with the property, such as
       upkeep or a monthly fee to a condominium compound if the property
-      is an apartment
+      is an apartment, in SEK. This does not include any costs related to a mortgage
+      connected to the property, if such exists.
   partOfOwnership:
     type: integer
     min: 1

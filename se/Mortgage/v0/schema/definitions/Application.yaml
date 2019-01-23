@@ -27,7 +27,7 @@ properties:
     "$linkVal": "PropertyAddress"
     title: The address of the property which should be refinanced
   extensions:
-    '$ref': '#/definitions/ExtensionPoint'
+    '$ref': 'ExtensionPoint'
     "$linkVal": "ExtensionPoint"
     title: "Custom, vendor-specific extensions to the schema"
   applicant:
