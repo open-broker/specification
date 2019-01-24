@@ -11,8 +11,6 @@ The design allows for middlewares and is suitable for microservice
 architectures. Additionally, a design goal is ease of implementation
 while not compromising on the semantics.
 
-**Current Status:** Under development
-
 # Overview
 
 This specification defines a number of events that can occur in the
