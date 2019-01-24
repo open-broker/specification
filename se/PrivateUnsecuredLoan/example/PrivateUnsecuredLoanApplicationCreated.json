@@ -55,7 +55,7 @@
 					"loanAmount": 4000,
 					"monthlyPayment": 22,
 					"shouldRefinance": true,
-					"bankName": "Bank name",
+					"lenderName": "Lender name",
 					"existingLoanType": "CAR_LOAN",
 					"responsibility": "SHARED"
 				},
@@ -63,7 +63,7 @@
 					"loanAmount": 15000,
 					"monthlyPayment": 56,
 					"shouldRefinance": false,
-					"bankName": "Bank name",
+					"lenderName": "Lender name",
 					"existingLoanType": "STUDENT_LOAN",
 					"responsibility": "MAIN_APPLICANT"
 				}
