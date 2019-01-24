@@ -18,16 +18,16 @@ properties:
     title: "A reference-id used by the broker"
     "$ref": "definitions/Reference#/reference"
   message:
-    type: "string"
+    type: string
     title: "A text message"
     description: |
       A message that is meant for a human to read, and possibly act upon.
       The content of the message is not meant for any automated data
       processing system.
-      examples: [
-        "The application will be processed manually",
-        "Copy of driver's license for applicant is requested"
-      ]
+    examples: [
+      "The application will be processed manually",
+      "Copy of driver's license for applicant is requested"
+    ]
   actionRequired:
     type: boolean
     title: An action is required
