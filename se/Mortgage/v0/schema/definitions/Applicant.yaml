@@ -26,8 +26,8 @@ required:
 properties:
   ssn:
     type: string
-    title: '12-digit Social Security Number (sv. Personnr) with'
-    description: "a Swedish Social-security number on the 12-digit format YYYYMMDDXXXX "
+    title: '12-digit Social Security Number (sv. Personnr)'
+    description: "A Swedish Social-security number on the 12-digit format YYYYMMDDXXXX"
     pattern: "^[0-9]{12}$"
     minLength: 12
     maxLength: 12

@@ -1,4 +1,4 @@
-"$id": "https://open-broker.org/se/Mortgage/v0/schema/MortgageContractSent"
+"$id": "https://open-broker.org/se/Mortgage/v0/schema/MortgageContractSigned"
 "$schema": "http://json-schema.org/draft-07/schema#"
 
 title: MortgageContractSigned

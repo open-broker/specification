@@ -2,7 +2,7 @@
 "$schema": "http://json-schema.org/draft-07/schema#"
 
 title: ExistingLoan
-description: Any exissting loan that an applicant has
+description: Any existing loan that an applicant has
 type: object
 additionalProperties: false
 required:
