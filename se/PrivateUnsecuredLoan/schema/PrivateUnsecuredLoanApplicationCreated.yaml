@@ -123,6 +123,9 @@ definitions:
           - STUDENT_LOAN
           - UNSECURED_LOAN
           - OTHER
+      lenderName:
+        type: string
+        title: "Name of the lender"
       responsibility:
         type: string
         "meta:enum":
