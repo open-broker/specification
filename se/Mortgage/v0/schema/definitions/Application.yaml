@@ -46,36 +46,6 @@ properties:
     items:
       "$ref": "ExistingLoan"
       "$linkVal": "ExistingLoan"
-  extraIncomes:
-    type: array
-    title: "Extra monthly incomes"
-    description: |
-      Extra incomes that the applicant(s) receive on a monthly basis, besides
-      salaries from an employment. Any other significant income that is received
-      at less regular intervals can be included if it is recomputed to a monthly
-      basis, such as a yearly or quarterly stock dividend.
-    items:
-      type: object
-      title: "Source of income"
-      required:
-        - amount
-        - incomeSource
-      properties:
-        amount:
-          type: integer
-          min: 1
-
-        incomeSource:
-          type: string
-          enum:
-            - CHILD_SUPPORT // Barnbidrag
-            - CHILD_BENEFIT // Underhåll - är "alimony" bättre?
-            - STUDENT_GRANT // Studiebidrag (grant är ju mer stipendie, är STUDENT_BENEFIT bättre?)
-            - HOUSING_BENEFIT // Bostadsbidrag
-            - WELFARE // Socialbidrag
-            - DIVIDEND // Utdelning
-            - PENSION
-            - OTHER
   ownedProperties:
     type: array
     title: Properties owned by the applicant(s)
