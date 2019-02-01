@@ -14,3 +14,8 @@ properties:
   brokerReference:
     title: "A reference-id used by the broker"
     "$ref": "definitions/Reference#/reference"
+  rejectReason:
+    title: Reason for rejection
+    description: |
+      An optional reason for why the application was rejected
+    type: String
