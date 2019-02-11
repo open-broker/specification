@@ -19,4 +19,4 @@ properties:
   dataProtectionContext:
     "$ref": "definitions/DataProtectionContext/DataProtectionContext"
   application:
-    "$ref": "https://open-broker.org/se/Mortgage/schema/definitions/Application"
+    "$ref": "definitions/Application/application"

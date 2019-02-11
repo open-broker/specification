@@ -53,7 +53,7 @@ properties:
       The sum of all montlhy costs associated with the property, such as
       upkeep or a monthly fee to a condominium compound if the property
       is an apartment
-  partOfOwnership:
+  ownershipShare:
     type: integer
     min: 1
     max: 100
