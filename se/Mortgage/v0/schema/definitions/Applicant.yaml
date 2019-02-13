@@ -16,7 +16,7 @@ required:
   - dependentChildren
   - paymentRemarks
   - housingType
-  - housingCostPerMonth
+  - monthlyRent
   - monthlyIncome
   - maritalStatus
   - citizenships
@@ -187,9 +187,14 @@ properties:
       - OWN_HOUSE
       - LIVE_IN
 
-  housingCostPerMonth:
+  monthlyRent:
     type: integer
-    title: 'Housing-related costs per month'
+    title: Rent paid each month
+    description: |
+      The total amount of rent in SEK paid each month. If the applicant is
+      paying rent for several properties, then this value is the sum of the
+      rent for all those properties. If the apllicant is not paying rent for
+      any property then this value is 0.
     default: 0
     minimum: 0
     examples:
