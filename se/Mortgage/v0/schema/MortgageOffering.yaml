@@ -56,7 +56,7 @@ definitions:
         title: Average monthly cost
         description: |
           The average monthly cost of the loan given `offeredCredit`,
-          `termYears` and `effectiveInterestRate`.
+          `termYears` and `effectiveInterestRate` in SEK.
 
       arrangementFee:
         type: integer
