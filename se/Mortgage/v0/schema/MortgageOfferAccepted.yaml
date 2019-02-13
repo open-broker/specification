@@ -18,5 +18,5 @@ properties:
 
   bankAccount:
     title: "The bank account to pay out the money to"
-    description: The broker must include an bank account for the applicant
+    description: The broker must include a bank account for the applicant
     "$ref": "definitions/BankAccount#/BankAccount"
