@@ -7,11 +7,11 @@ type: object
 additionalProperties: false
 
 required:
-  - address
+  - streetAddress
   - city
   - postalCode
 properties:
-  address:
+  streetAddress:
     type: string
     minLength: 1
   city:
