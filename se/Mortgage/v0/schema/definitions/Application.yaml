@@ -6,7 +6,6 @@ type: object
 additionalProperties: false
 required:
   - applicant
-  - propertyAddress
   - refinancingProperty
 
 definitions:
