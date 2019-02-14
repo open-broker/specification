@@ -1,18 +1,26 @@
-"$id": "https://open-broker.org/se/Mortgage/v0/schema/definitions/OwnedProperty"
+"$id": "https://open-broker.org/se/Mortgage/v0/schema/definitions/RefinancingProperty"
 "$schema": "http://json-schema.org/draft-07/schema#"
 
 title: OwnedProperty
 description: |
   An owned real-estate property, such as an apartment, house or
-  cottage that the applicant(s) own
+  cottage that the applicant(s) own and want to refinance the 
+  mortgage for
 type: object
 additionalProperties: false
 required:
+  - propertyAddress
   - propertyType
+  - assessedValue
+  - sqaureMeters
   - existingMortgage
   - monthlyCost
   - ownershipShare
 properties:
+  propertyAddress:
+    '$ref': 'PropertyAddress'
+    "$linkVal": "PropertyAddress"
+    title: The address of the property which should be refinanced
   propertyType:
     type: string
     title: The property type
@@ -32,6 +40,14 @@ properties:
       OTHER: |
         Some other form of real-estate property that does not belong
         to any of the above categories
+  assessedValue:
+    type: integer
+    min: 0
+    description: The estimated value of the property, in SEK
+  sqaureMeters:
+    type: integer
+    min: 0
+    description: The number of square meters of the property (excluding plot)
   existingMortgage:
     type: integer
     min: 0
@@ -51,3 +67,13 @@ properties:
       How much the applicant(s) own of the house, in percent. If there is
       more than one applicant, then this value should reflect the total stake
       for all applicants combined.
+  rooms:
+    type: integer
+    min: 1
+    description: The number of rooms the property has
+  balcony:
+    type: boolean
+    description: If the property has at least one balcony
+  elevator:
+    type: boolean
+    description: If there property has an elevator
