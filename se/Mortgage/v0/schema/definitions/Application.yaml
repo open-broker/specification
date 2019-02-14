@@ -41,6 +41,10 @@ properties:
     items:
       "$ref": "ExistingLoan"
       "$linkVal": "ExistingLoan"
+  adultsInHousehold:
+    type: integer
+    description: The number of adults living in the household of the main applicant
+    min: 1
   ownedProperties:
     type: array
     title: Properties owned by the applicant(s)
