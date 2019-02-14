@@ -1,0 +1,19 @@
+{
+    "cloudEventsVersion" : "0.1",
+    "eventType" : "org.open-broker.v0.se.MortgageApplicationRejected",
+    "eventTypeVersion" : "v0",
+    "source" : "/mycontext",
+    "eventID" : "DJHASI-AMNKJ0KJ-54",
+    "eventTime" : "2018-04-05T17:39:00Z",
+    "extensions" : {
+      "comExampleExtension" : "value"
+    },
+    "contentType" : "application/json",
+    "data": {
+        "brokerReference": {
+			"issuer": "io.klira",
+			"id": "XXLTZ1"
+        },
+        "rejectReason": "No e-mail was provided in application"
+    }
+}
