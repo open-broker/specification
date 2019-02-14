@@ -19,8 +19,8 @@ definitions:
 
 properties:
   refinancingProperty:
-    '$ref': 'OwnedProperty'
-    "$linkVal": "OwnedProperty"
+    '$ref': 'RefinancingProperty'
+    "$linkVal": "RefinancingProperty"
     title: The property that should be refinanced
   extensions:
     '$ref': '#/definitions/ExtensionPoint'

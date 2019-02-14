@@ -1,7 +1,7 @@
 "$id": "https://open-broker.org/se/Mortgage/v0/schema/definitions/RefinancingProperty"
 "$schema": "http://json-schema.org/draft-07/schema#"
 
-title: OwnedProperty
+title: RefinancingProperty
 description: |
   An owned real-estate property, such as an apartment, house or
   cottage that the applicant(s) own and want to refinance the 
