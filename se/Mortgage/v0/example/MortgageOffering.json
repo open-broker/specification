@@ -18,7 +18,8 @@
             "invoiceFee": 10,
             "monthlyCost": 4900,
             "termYears": 50,
-            "expires": "2018-05-05"
+            "expires": "2018-05-05",
+            "comment": "Only valil under condition X and Y"
         },
         "brokerReference": {
           "issuer": "io.klira",
