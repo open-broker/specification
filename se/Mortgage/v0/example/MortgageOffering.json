@@ -21,8 +21,8 @@
             "expires": "2018-05-05"
         },
         "brokerReference": {
-			"issuer": "io.klira",
-			"id": "XTZ1"
-		}
+          "issuer": "io.klira",
+          "id": "XTZ1"
+        }
     }
 }
