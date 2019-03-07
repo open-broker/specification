@@ -108,3 +108,15 @@ definitions:
           "2014-11-23",
           "2023-06-02"
         ]
+
+      comment:
+        type: string
+        title: "A note or comment about the offer"
+        description: |
+          An optional human-readable comment about the offer, presenting
+          extra information about the offer, such as if it is only valid
+          under certain conditions or it is mandated that the customer
+          present necessary means of identification or other document.
+        examples: [
+          "Copy of driver's license for applicant is requested"
+        ]
