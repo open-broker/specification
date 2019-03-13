@@ -9,6 +9,7 @@ description: |
 type: object
 additionalProperties: false
 required:
+  - interestRate
   - propertyAddress
   - propertyType
   - assessedValue
@@ -40,6 +41,17 @@ properties:
       OTHER: |
         Some other form of real-estate property that does not belong
         to any of the above categories
+  interestRate:
+    type: string
+    title: Interest rate on mortgage
+    description: |
+    The current nominal interest rate formatted as a decimal, where 0.15
+    is equal to 15%, 0.0315 is equal to 3.15% and 1.0 is equal to 100%
+    pattern: ^\d\.\d+$
+    examples: [
+      "0.0315",
+      "0.078"
+    ]
   assessedValue:
     type: integer
     min: 0
