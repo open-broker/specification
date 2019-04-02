@@ -98,6 +98,71 @@ properties:
     default: 0
     minimum: 0
     maximum: 15
+  childSupportPaid:
+    type: integer
+    minimum: 0
+    default: 0
+    title: "Money paid for child-support each monthh in SEK"
+  childSupportReceived:
+    type: integer
+    minimum: 0
+    default: 0
+    title: "Money received for child-support each monthh in SEK"
+  childBenefitReceived:
+    type: integer
+    minimum: 0
+    default: 0
+    title: "Money received for child benefit each monthh in SEK"
+  studentBenefitReceived:
+    type: integer
+    minimum: 0
+    default: 0
+    title: "Money received for student benefit each month in SEK"
+  housingBenefitReceived:
+    type: integer
+    minimum: 0
+    default: 0
+    title: "Money received for housing benefit each month in SEK"
+  welfareReceived:
+    type: integer
+    minimum: 0
+    default: 0
+    title: "Money received for housing benefit each month in SEK"
+  pensionReceived:
+    type: integer
+    minimum: 0
+    default: 0
+    title: "Pension received each month in SEK"
+  dividendReceived:
+    type: integer
+    minimum: 0
+    default: 0
+    title: "Dividend received from stocks or bonds on yearly basis in SEK"
+  otherReceived:
+    type: integer
+    minimum: 0
+    default: 0
+    title: "Any other regular income in SEK"
+  savingsCash:
+    type: integer
+    minimum: 0
+    default: 0
+    title: Savings on a bank account
+  savingsMutualFunds:
+    type: integer
+    minimum: 0
+    default: 0
+    title: Savings in mutual funds
+  savingsStocks:
+    type: integer
+    minimum: 0
+    default: 0
+    title: Savings in stocks
+  savingsOther:
+    type: integer
+    minimum: 0
+    default: 0
+    title: Savings in other financial assets
   paymentRemark:
     type: boolean
     title: "If applicant has a payment remark"
