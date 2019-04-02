@@ -166,11 +166,11 @@ properties:
     minimum: 0
     default: 0
     title: Savings in other financial assets
-  paymentRemarks:
-    type: integer
-    title: "The number of payment remarks for the applicant"
+  paymentRemark:
+    type: boolean
+    title: "If applicant has a payment remark"
     description: |
-      Indicate how many payment remarks, if any, an applicant has, due to a failure to
+      Indicate if the applicant has any payment remarks, due to a failure to
       pay an outstanding bill
   housingType:
     type: string
