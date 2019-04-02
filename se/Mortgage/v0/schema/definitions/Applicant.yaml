@@ -4,7 +4,7 @@
 title: Applicant
 description: |
   Describe the attributes of an applicant, such as housing situation,
-  employment details, financial information, marital status and citizenships.
+  employment details, financial information, marital status and citizenship.
 
 type: object
 additionalProperties: false
@@ -19,9 +19,6 @@ required:
   - monthlyRent
   - monthlyIncome
   - maritalStatus
-  - citizenships
-  - countriesOfResidence
-  - taxResidentOf
 
 properties:
   ssn:
