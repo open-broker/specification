@@ -1,0 +1,31 @@
+title: PrivateUnsecuredLoanDisbursed
+description: |
+  An event indicating that a private unsecured loan has been
+  disbursed
+type: object
+additionalProperties: false
+'$id': 'https://open-broker.org/schema/v0/no/PrivateUnsecuredLoanDisbursed'
+'$schema': 'http://json-schema.org/draft-06/schema#'
+required:
+  - brokerReference
+  - amountDisbursed
+  - amountBrokered
+properties:
+  brokerReference:
+    title: A reference-id used by the broker
+    '$ref': 'https://open-broker.org/schema/v0/no/reference'
+  amountDisbursed:
+    type: integer
+    minimum: 0
+    title: Amount disbursed
+    description: |
+      The total amount disbursed to
+      the customer of the loan being brokered
+  amountBrokered:
+    type: integer
+    minimum: 0
+    title: Amount considered brokered by the lender
+    description: |
+      The amount the lender considers the broker to have
+      brokered. For example, the amount disbursed exclusive
+      of loans refinanced within the lender.

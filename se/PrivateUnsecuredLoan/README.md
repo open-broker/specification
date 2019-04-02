@@ -5,14 +5,14 @@ products supported by the specification.
 
 The following events are defined for private unsecured loans:
 
-- Application created - [org.open-broker.v0.se.PrivateUnsecuredLoanApplicationCreated](schema-docs/PrivateUnsecuredLoanApplicationCreated.md)
-- Processing delayed - [org.open-broker.v0.se.PrivateUnsecuredLoanDelayedProcessing](schema-docs/PrivateUnsecuredLoanDelayedProcessing.md)
-- Loan offering - [org.open-broker.v0.se.PrivateUnsecuredLoanOffering](schema-docs/PrivateUnsecuredLoanOffering.md)
-- Rejection - [org.open-broker.v0.se.PrivateUnsecuredLoanRejection](schema-docs/PrivateUnsecuredLoanRejection.md)
-- Offer accepted - [org.open-broker.v0.se.PrivateUnsecuredLoanOfferAccepted](schema-docs/PrivateUnsecuredLoanOfferAccepted.md)
-- Offer rejected - [org.open-broker.v0.se.PrivateUnsecuredLoanOfferRejected](schema-docs/PrivateUnsecuredLoanOfferRejected.md)
-- Status updated - [org.open-broker.v0.se.PrivateUnsecuredLoanStatusUpdated](schema-docs/PrivateUnsecuredLoanStatusUpdated.md)
-- Loan disbursed - [org.open-broker.v0.se.PrivateUnsecuredLoanDelayedProcessing](schema-docs/PrivateUnsecuredLoanDisbursed
+- Application created - [org.open-broker.v0.se.PrivateUnsecuredLoanApplicationCreated](schema/PrivateUnsecuredLoanApplicationCreated.md)
+- Processing delayed - [org.open-broker.v0.se.PrivateUnsecuredLoanDelayedProcessing](schema/PrivateUnsecuredLoanDelayedProcessing.md)
+- Loan offering - [org.open-broker.v0.se.PrivateUnsecuredLoanOffering](schema/PrivateUnsecuredLoanOffering.md)
+- Rejection - [org.open-broker.v0.se.PrivateUnsecuredLoanRejection](schema/PrivateUnsecuredLoanRejection.md)
+- Offer accepted - [org.open-broker.v0.se.PrivateUnsecuredLoanOfferAccepted](schema/PrivateUnsecuredLoanOfferAccepted.md)
+- Offer rejected - [org.open-broker.v0.se.PrivateUnsecuredLoanOfferRejected](schema/PrivateUnsecuredLoanOfferRejected.md)
+- Status updated - [org.open-broker.v0.se.PrivateUnsecuredLoanStatusUpdated](schema/PrivateUnsecuredLoanStatusUpdated.md)
+- Loan disbursed - [org.open-broker.v0.se.PrivateUnsecuredLoanDelayedProcessing](schema/PrivateUnsecuredLoanDisbursed
 
 An example of an event-flow between broker and service provider could look like this:
 
