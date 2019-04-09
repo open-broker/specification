@@ -1,0 +1,12 @@
+title: MortgageRejection
+description: An event indicating that the application was rejected
+type: object
+additionalProperties: false
+'$id': 'https://open-broker.org/schema/v0/no/MortgageRejection'
+'$schema': 'http://json-schema.org/draft-06/schema#'
+required:
+  - brokerReference
+properties:
+  brokerReference:
+    title: A reference-id used by the broker
+    '$ref': 'https://open-broker.org/schema/v0/no/reference'
