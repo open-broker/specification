@@ -15,10 +15,11 @@ properties:
   bankAccount:
     title: The bank acccount to pay out the money to
     description: |
-      The broker may include an updated bank account for the
+      The broker may include a bank account for the
       applicant. The service provider may ignore this updated field if
       not supported.
-    '$ref': 'https://open-broker.org/schema/v0/no/BankAccount'
+    type: string
+    pattern: '^\\d{11}$''
   requestedCredit:
     type: integer
     minimum: 0
