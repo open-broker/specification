@@ -366,8 +366,11 @@ definitions:
           - SINGLE
           - WIDOW_OR_WIDOWER
       bankAccount:
-        title: Applicant's bank account
-        '$ref': 'https://open-broker.org/schema/v0/no/BankAccount'
+        type: string
+        title: Applicant's bank account number
+        pattern: '^[0-9]{11}$'
+        minLength: 11
+        maxLength: 11
       citizenships:
         title: Countries that the applicant is a citizen of
         '$ref': '#/definitions/countryCodeArray'
