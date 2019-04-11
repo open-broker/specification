@@ -33,10 +33,11 @@ definitions:
         title: Effective interest rate (APR)
         description: |
           The effective annual interest rate of the loan
-          formatted as a string so as to avoid problems
+          formatted as a string so as to avoid problems with
           floating-point numbers. An effective interest rate
           of 15% would be written as `0.15`, and 100% is
-          equal to `1.0`.
+          equal to `1.0`. The effective interest rate takes
+          arrangementFee, termFee and termYears into account.
 
       nominalInterestRate:
         type: string
@@ -44,7 +45,7 @@ definitions:
         title: Nominal interest rate
         description: |
           The nominal annual interest rate of the loan
-          formatted as a string so as to avoid problems
+          formatted as a string so as to avoid problems with
           floating-point numbers. An nominal interest rate
           of 15% would be written as `0.15`, and 100% is
           equal to `1.0`.
