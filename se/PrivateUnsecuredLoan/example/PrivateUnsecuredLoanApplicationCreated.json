@@ -74,7 +74,7 @@
 			},
 			"loanAmount": 20000,
 			"loanPurpose": "OTHER",
-			"refinanceAmount": 0,
+			"refinanceAmount": 4000,
 			"termMonths": 24
 		},
 		"brokerReference": {
