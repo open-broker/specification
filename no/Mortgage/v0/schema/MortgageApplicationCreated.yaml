@@ -183,9 +183,7 @@ definitions:
       - monthlyGrossIncome
       - monthlyNetIncome
       - maritalStatus
-      - citizenships
-      - countriesOfResidence
-      - taxResidentOf
+      - norweigianCitizen
     properties:
       ssn:
         type: string
@@ -364,25 +362,9 @@ definitions:
           - MARRIED
           - SINGLE
           - WIDOW_OR_WIDOWER
-      citizenships:
-        title: Countries that the applicant is a citizen of
-        '$ref': '#/definitions/countryCodeArray'
-        '$linkVal': countryCodeArray
-      livedInCountrySinceYear:
-        type: integer
-        minimum: 1900
-        maximum: 3000
-        title: Year in which the applicant started living in the country
-        examples:
-        - 2010
-      countriesOfResidence:
-        title: Countries that the applicant is a resident of
-        '$ref': '#/definitions/countryCodeArray'
-        '$linkVal': countryCodeArray
-      taxResidentOf:
-        title: Countries that the applicant is a resident of for tax-purposes
-        '$ref': '#/definitions/countryCodeArray'
-        '$linkVal': countryCodeArray
+      norweigianCitizen:
+        type: boolean
+        title: The applicant is a citizen of Norway
       education:
         type: string
         title: The highest education level of the applicant
