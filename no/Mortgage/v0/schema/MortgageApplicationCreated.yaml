@@ -263,7 +263,7 @@ definitions:
       - monthlyGrossIncome
       - monthlyNetIncome
       - maritalStatus
-      - norweigianCitizen
+      - norwegianCitizen
     properties:
       ssn:
         type: string
