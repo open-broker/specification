@@ -294,7 +294,7 @@ definitions:
         type: string
         title: The employment situation of the applicant
         'meta:enum':
-          DOMESTIC: Managing the home without employment 
+          DOMESTIC: Managing the home without employment
           EARLY_RETIRED: Retired earlier before the usual retirement age (no. Ufor)
           HOURLY: Formally permanently employed, hired by the hour
           OTHER: An employment status not falling neatly in to any of the other categories
@@ -349,7 +349,7 @@ definitions:
         type: integer
         title: Number of dependent children
         description: |
-          Number of child dependents under the age of 18. 
+          Number of child dependents under the age of 18.
           If greater than 15 then 15 is sent.
         default: 0
         minimum: 0
@@ -374,7 +374,7 @@ definitions:
         type: boolean
         title: Applicant has a payment remark
         description: |
-          Indicate whether an applicant has a payment remark or not, due to a failure to 
+          Indicate whether an applicant has a payment remark or not, due to a failure to
           pay an outstanding bill.
       housingType:
         type: string
@@ -442,9 +442,10 @@ definitions:
           - MARRIED
           - SINGLE
           - WIDOW_OR_WIDOWER
-      norweigianCitizen:
+      norwegianCitizen:
         type: boolean
-        title: The applicant is a citizen of Norway
+        title: Norwegian Citizen
+        description: The applicant has a citizenship in Norway
       education:
         type: string
         title: The highest education level of the applicant
