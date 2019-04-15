@@ -108,7 +108,6 @@ definitions:
             OTHER: |
               Some other form of real-estate property that does not belong
               to any of the above categories
-              assessedValue
         squareMeters:
           type: integer
           min: 0
