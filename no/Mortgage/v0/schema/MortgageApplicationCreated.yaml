@@ -161,6 +161,12 @@ definitions:
           - REFINANCE_CONSUMER_LOANS
           - REFINANCE_MORTGAGE
           - OTHER
+      comment:
+        type: string
+        title: "A note or comment about the application"
+        description: |
+          An optional human-readable comment about the application, presenting
+          extra information about the application, such as cause to today's situation.
   existingLoan:
     type: object
     required:
