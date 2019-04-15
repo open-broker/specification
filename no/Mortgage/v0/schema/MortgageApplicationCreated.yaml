@@ -254,6 +254,7 @@ definitions:
     type: object
     required:
       - ssn
+      - emailAddress
       - employmentStatus
       - employmentStatusSinceYear
       - employmentStatusSinceMonth
