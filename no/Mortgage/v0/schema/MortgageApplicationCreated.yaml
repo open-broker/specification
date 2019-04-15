@@ -98,13 +98,14 @@ definitions:
             - APARTMENT_COOPERATIVE
             - OTHER
           "meta:enum":
-            HOUSE: An ordinary house with a plot
-            TERRACED_HOUSE: A house that is built adjacent to other houses
+            HOUSE: An ordinary house with a plot (no "hus")
+            TERRACED_HOUSE: A house that is built adjacent to other houses (no "rekkehus")
             VACATION_HOME: |
               A house built for recreational living that may or may not
-              be fit as a permanent resident
-            APARTMENT_COOPERATIVE: An apartment that belongs to condominium compound
-            APARTMENT_SELF_OWNED: An apartment that is owned directly by the applicant
+              be fit as a permanent resident (no "fritidsbolig")
+            APARTMENT_COOPERATIVE: |
+              An apartment that belongs to condominium compound (no "andel i borettslag")
+            APARTMENT_SELF_OWNED: An apartment that is owned directly by the applicant (no "leilighet")
             OTHER: |
               Some other form of real-estate property that does not belong
               to any of the above categories
