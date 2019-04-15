@@ -131,17 +131,6 @@ definitions:
       lender:
         type: string
         minLength: 1
-  countryCode:
-    type: string
-    minLength: 2
-    maxLength: 2
-    pattern: '[A-Z]{2}'
-  countryCodeArray:
-    type: array
-    uniqueItems: true
-    items:
-      '$ref': '#/definitions/countryCode'
-      '$linkVal': countryCode
   address:
     type: object
     additionalProperties: false
