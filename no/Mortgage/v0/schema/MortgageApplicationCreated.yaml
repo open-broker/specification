@@ -42,6 +42,91 @@ definitions:
         description: Must be less than or equal to the loanAmount
         examples:
           - 25000
+      refinancingProperty:
+        required:
+         - interestRate
+         - propertyAddress
+         - propertyType
+         - assessedValue
+         - squareMeters
+         - existingMortgage
+         - monthlyCost
+         - defaulted
+        interestRate:
+          type: string
+          title: Interest rate on mortgage
+          description: |
+            The current nominal interest rate formatted as a decimal, where 0.15
+            is equal to 15%, 0.0315 is equal to 3.15% and 1.0 is equal to 100%
+          pattern: "^\\d\\.\\d+$"
+          examples: [
+            "0.0315",
+            "0.078"
+          ]
+        assessedValue:
+          type: integer
+          min: 0
+          description: The estimated value of the property, in NOK
+        propertyAddress:
+          title: Property address
+          description: An address for a real-estate property
+          type: object
+          additionalProperties: false
+          required:
+            - streetAddress
+            - city
+            - postalCode
+          properties:
+            streetAddress:
+              type: string
+              minLength: 1
+            city:
+              type: string
+              minLength: 1
+            postalCode:
+              type: string
+              description: A valid postal code, with exactly four digits
+              pattern: "\\d{4}"
+        propertyType:
+          type: string
+          title: The property type
+          enum:
+            - HOUSE
+            - TERRACED_HOUSE
+            - VACATION_HOME
+            - APARTMENT_SELF_OWNED
+            - APARTMENT_COOPERATIVE
+            - OTHER
+          "meta:enum":
+            HOUSE: An ordinary house with a plot
+            TERRACED_HOUSE: A house that is built adjacent to other houses
+            VACATION_HOME: |
+              A house built for recreational living that may or may not
+              be fit as a permanent resident
+            APARTMENT_COOPERATIVE: An apartment that belongs to condominium compound
+            APARTMENT_SELF_OWNED: An apartment that is owned directly by the applicant
+            OTHER: |
+              Some other form of real-estate property that does not belong
+              to any of the above categories
+              assessedValue
+        squareMeters:
+          type: integer
+          min: 0
+          description: The number of square meters of the property (excluding any plot)
+        existingMortgage:
+          type: integer
+          min: 0
+          description: How mortgaged the property is, in NOK
+        monthlyCost:
+          type: integer
+          min: 0
+          description: |
+            The sum of all montlhy costs associated with the property, such as
+            upkeep or a monthly fee to a condominium compound if the property
+            is an apartment
+        defaulted:
+          type: boolean
+          title: Loan has defaulted
       extensions:
         '$ref': '#/definitions/extensionPoint'
         '$linkVal': extensionPoint
