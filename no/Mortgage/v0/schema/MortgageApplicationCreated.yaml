@@ -88,6 +88,7 @@ definitions:
     required:
       - loanAmount
       - monthlyPayment
+      - refinanceAmount
       - existingLoanType
       - responsibility
       - lender
