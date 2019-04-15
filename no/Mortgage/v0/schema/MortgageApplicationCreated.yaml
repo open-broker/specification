@@ -92,6 +92,7 @@ definitions:
       - existingLoanType
       - responsibility
       - lender
+      - defaulted
     properties:
       loanAmount:
         type: integer
@@ -131,6 +132,9 @@ definitions:
       lender:
         type: string
         minLength: 1
+      defaulted:
+        type: boolean
+        title: Loan has defaulted
   address:
     type: object
     additionalProperties: false
