@@ -151,22 +151,15 @@ definitions:
         type: string
         title: Purpose of the loan
         description: Categorical label for the purpose of the loan being applied for
-        default: OTHER
         'meta:enum':
-          REFINANCE: Refinancing existing debt
+          REFINANCE_CONSUMER_LOANS: |
+            Refinancing of private unsecured loans with the existing mortgage
+          REFINANCE_MORTGAGE: Refinancing of an existing mortgage
           HOME_REMODELLING: Home remodelling or renovation
-          HEALTHCARE_EXPENSES: To finance health-care costs.
-          EDUCATION: To finance education of some kind
-          TRAVEL: To finance a vacation or other travel expenses
-          CAR: To finance the purchase of a car or similar
           OTHER: Purpose not fitting the above categories
         enum:
-          - REFINANCE
-          - HOME_REMODELLING
-          - HEALTHCARE_EXPENSES
-          - EDUCATION
-          - TRAVEL
-          - CAR
+          - REFINANCE_CONSUMER_LOANS
+          - REFINANCE_MORTGAGE
           - OTHER
   existingLoan:
     type: object
