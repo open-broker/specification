@@ -27,7 +27,7 @@ jobs:
           at: /tmp/workspace
       - run: |
           cd /tmp/workspace/json
-          ajv compile -s no/Mortgage/v0/schema/schema.json
+          ajv compile -s no/Mortgage/v0/schema.json
 
 workflows:
   version: 2.1
