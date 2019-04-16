@@ -13,9 +13,7 @@ jobs:
       - attach_workspace:
           at: /tmp/workspace
       - checkout
-      - run: |
-          mkdir /tmp/workspace/json
-          .circleci/yaml2json.sh no/Mortgage/v0/schema /tmp/workspace/json
+      - run: .circleci/yaml2json.sh no/Mortgage/v0
       - persist_to_workspace:
           root: /tmp/workspace
           paths:
