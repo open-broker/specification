@@ -1,0 +1,42 @@
+version: 2.1
+
+executors:
+  schema-context:
+    docker:
+      - image: mantono/alpine-yaml-json
+    working_directory: ~/workdir
+
+jobs:
+  convert:
+    executor: schema-context
+    steps:
+      - attach_workspace:
+          at: /tmp/workspace
+      - checkout
+      - run: |
+          mkdir /tmp/workspace/json
+          .circleci/yaml2json.sh no/Mortgage/v0/schema /tmp/workspace/json
+      - persist_to_workspace:
+          root: /tmp/workspace
+          paths:
+            - json
+
+
+  validate:
+    executor: schema-context
+    steps:
+      - attach_workspace:
+          at: /tmp/workspace
+      - run: |
+          cd /tmp/workspace/json
+          ajv compile -s no/Mortgage/v0/schema/schema.json
+
+workflows:
+  version: 2.1
+
+  schema:
+    jobs:
+      - convert
+      - validate:
+          requires:
+            - convert
