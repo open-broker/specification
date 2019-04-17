@@ -36,10 +36,11 @@ jobs:
       - attach_workspace:
           at: /tmp/workspace
       - checkout
-      - run: cd /tmp/workspace/json
       - run:
           name: no/Mortgage/v0
-          command: ./test_examples.sh no/Mortgage/v0
+          command: |
+            cd ~/workdir &&
+            .circleci/test_examples.sh no/Mortgage/v0
 
 workflows:
   version: 2.1
