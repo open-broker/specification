@@ -21,16 +21,14 @@ jobs:
           paths:
             - json
 
-
   validate:
     executor: schema-context
     steps:
       - attach_workspace:
           at: /tmp/workspace
-      - run: cd /tmp/workspace/json 
       - run:
           name: no/Mortgage/v0
-          command: ajv compile -s no/Mortgage/v0/schema.json
+          command: ajv compile -s /tmp/workspace/json/no/Mortgage/v0/schema.json
 
   test:
     executor: schema-context
@@ -52,3 +50,6 @@ workflows:
       - validate:
           requires:
             - convert
+      - test:
+          requires:
+            - validate
