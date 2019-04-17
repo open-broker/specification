@@ -37,6 +37,7 @@ jobs:
     steps:
       - attach_workspace:
           at: /tmp/workspace
+      - checkout
       - run: cd /tmp/workspace/json
       - run:
           name: no/Mortgage/v0
