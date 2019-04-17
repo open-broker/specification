@@ -45,6 +45,7 @@ definitions:
           - termMonths
           - applicant
           - loanPurpose
+          - refinancingProperty
         properties:
           loanAmount:
             type: integer
