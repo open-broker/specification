@@ -13,7 +13,9 @@ jobs:
       - attach_workspace:
           at: /tmp/workspace
       - checkout
-      - run: .circleci/yaml2json.sh no/Mortgage/v0
+      - run:
+          name: no/Mortgage/v0
+          command: .circleci/yaml2json.sh no/Mortgage/v0
       - persist_to_workspace:
           root: /tmp/workspace
           paths:
@@ -25,9 +27,20 @@ jobs:
     steps:
       - attach_workspace:
           at: /tmp/workspace
-      - run: |
-          cd /tmp/workspace/json
-          ajv compile -s no/Mortgage/v0/schema.json
+      - run: cd /tmp/workspace/json 
+      - run:
+          name: no/Mortgage/v0
+          command: ajv compile -s no/Mortgage/v0/schema.json
+
+  test:
+    executor: schema-context
+    steps:
+      - attach_workspace:
+          at: /tmp/workspace
+      - run: cd /tmp/workspace/json
+      - run:
+          name: no/Mortgage/v0
+          command: ./test_examples.sh no/Mortgage/v0
 
 workflows:
   version: 2.1
