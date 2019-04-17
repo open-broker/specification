@@ -577,16 +577,6 @@ definitions:
               floating-point numbers. An nominal interest rate
               of 15% would be written as `0.15`, and 100% is
               equal to `1.0`.
-          minOfferedCredit:
-            type: integer
-            minimum: 1
-            title: Minimum offered credit
-            description: |
-              The minimum amount for which the lender is
-              willing to offer this interest rate for.
-              This value can be equal to both the maxOfferedCredit and
-              offeredCredit. Indicating that this is the only possible
-              amount offered.
           offeredCredit:
             type: integer
             minimum: 1
@@ -595,9 +585,6 @@ definitions:
               The amount the customer applied for or the highest number
               the customer is approved for, if this number is lower than
               what was originally applied for.
-              This value can be equal to both the minOfferedCredit and
-              maxOfferedCredit. Indicating that this is the only possible
-              amount offered.
           monthlyCost:
             type: integer
             minimum: 1
@@ -605,16 +592,6 @@ definitions:
             description: |
               The average monthly cost of the loan given `offeredCredit`,
               `termMonths` and `effectiveInterestRate`.
-          maxOfferedCredit:
-            type: integer
-            minimum: 1
-            title: Maximum offered credit
-            description: |
-              The largest loan that this customer is approved for under
-              the current interest rate.
-              This value can be equal to both the minOfferedCredit and
-              offeredCredit. Indicating that this is the only possible
-              amount offered.
           mustRefinance:
             type: integer
             minimum: 0
