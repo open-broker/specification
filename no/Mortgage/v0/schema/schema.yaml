@@ -541,24 +541,6 @@ definitions:
     additionalProperties: false
     '$id': 'MortgageOffering'
     definitions:
-      loanInsuranceOffer:
-        type: object
-        additionalProperties: false
-        required:
-          - insuredAmount
-          - monthlyPremium
-        properties:
-          insuredAmount:
-            type: integer
-            minimum: 1
-            title: The amount insured
-          monthlyPremium:
-            type: integer
-            minimum: 1
-            title: The monthly premium to be paid
-          descriptiveText:
-            type: string
-            title: A text to be displayed along with the offer.
       offer:
         type: object
         additionalProperties: false
@@ -698,8 +680,6 @@ definitions:
         $ref: 'http://open-broker.org/no/Mortgage/v0/schema#/definitions/reference'
       offer:
         '$ref': '#/definitions/offer'
-      loanInsuranceOffer:
-        '$ref': '#/definitions/loanInsuranceOffer'
 
   MortgageOfferAccepted:
     title: MortgageOfferAccepted
