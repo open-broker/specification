@@ -151,11 +151,12 @@ definitions:
             condominiumCompoundDebt:
               type: integer
               min: 0
-              title: Debt for condominium compound
+              title: Debt to the condominium compound
               description: |
-                The total debt the condominium compound has, if the property belongs
-                to a condominium compound. This value should be given if the property
-                is of an other property type than APARTMENT_COOPERATIVE.
+                The debt to the condominium compound that belongs to the property,
+                if the property belongs to a condominium compound.
+                This value should not be given if the property
+                is of another property type than APARTMENT_COOPERATIVE.
             defaulted:
               type: boolean
               title: Loan has defaulted
