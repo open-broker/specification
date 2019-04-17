@@ -148,6 +148,14 @@ definitions:
                 The sum of all montlhy costs associated with the property, such as
                 upkeep or a monthly fee to a condominium compound if the property
                 is an apartment
+            condominiumCompoundDebt:
+              type: integer
+              min: 0
+              title: Debt for condominium compound
+              description: |
+                The total debt the condominium compound has, if the property belongs
+                to a condominium compound. This value should be given if the property
+                is of an other property type than APARTMENT_COOPERATIVE.
             defaulted:
               type: boolean
               title: Loan has defaulted
