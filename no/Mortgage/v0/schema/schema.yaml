@@ -184,6 +184,7 @@ definitions:
             enum:
               - REFINANCE_CONSUMER_LOANS
               - REFINANCE_MORTGAGE
+              - HOME_REMODELLING
               - OTHER
           comment:
             type: string
