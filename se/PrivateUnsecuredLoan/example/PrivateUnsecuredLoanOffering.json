@@ -17,10 +17,10 @@
     },
     "offer": {
       "arrangementFee": 0,
-      "amortizationType":"ANNUITY", 
+      "amortizationType": "ANNUITY",
       "descriptiveText": "Private unsecured loan",
-      "effectiveInterestRate": "34.5",
-      "nominalInterestRate": "34.5",
+      "effectiveInterestRate": "0.0345",
+      "nominalInterestRate": "0.0345",
       "invoiceFee": 233,
       "maxOfferedCredit": 12345,
       "minOfferedCredit": 1234,
