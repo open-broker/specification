@@ -1,18 +1,30 @@
 {
-  "brokerReference": {
-    "id": "14-0e2375ac997e17a54c1106a7e120fcf3b18a59de923bf4b5d14a61aea93a2a6a",
-    "issuer": "io.klira"
+  "cloudEventsVersion": "0.1",
+  "eventType": "org.open-broker.v0.se.MortgageOffering",
+  "eventTypeVersion": "v0",
+  "source": "/mycontext",
+  "eventID": "C234-1234-1234",
+  "eventTime": "2018-04-05T17:31:00Z",
+  "extensions": {
+    "comExampleExtension": "value"
   },
-  "offer": {
-    "arrangementFee": 0,
-    "amortizationType":"ANNUITY",
-    "effectiveInterestRate": "0.0345",
-    "nominalInterestRate": "0.0345",
-    "invoiceFee": 233,
-    "monthlyCost": 123,
-    "mustRefinance": 234,
-    "offeredCredit": 123456,
-    "termFee": 1234,
-    "termMonths": 70
+  "contentType": "application/json",
+  "data": {
+    "brokerReference": {
+      "id": "14-0e2375ac997e17a54c1106a7e120fcf3b18a59de923bf4b5d14a61aea93a2a6a",
+      "issuer": "io.klira"
+    },
+    "offer": {
+      "arrangementFee": 0,
+      "amortizationType": "ANNUITY",
+      "effectiveInterestRate": "0.0345",
+      "nominalInterestRate": "0.0345",
+      "invoiceFee": 233,
+      "monthlyCost": 123,
+      "mustRefinance": 234,
+      "offeredCredit": 123456,
+      "termFee": 1234,
+      "termMonths": 70
+    }
   }
 }
