@@ -7,21 +7,42 @@
     "application": {
         "applicant": {
             "ssn": "12345678901",
-            "emailAddress": "kia@protonmail.com",
+            "phone": "+44123456789",
+            "secondaryPhone": [
+                "+44456789123",
+                "+44678912340"
+            ],
+            "emailAddress": "espen@protonmail.com",
             "dependentChildren": 3,
             "employmentStatus": "PUBLIC_SECTOR",
             "employmentStatusSinceMonth": 3,
             "employmentStatusSinceYear": 2016,
+            "employerName": "Company Inc",
+            "employerPhone": "+444526327908",
+            "childSupportReceivedMonthly": 900,
+            "rentReceivedMonthly": 2000,
+            "otherIncomeReceivedMonthly": 400,
+            "childSupportPaidMonthly": 0,
+            "paymentRemark": false,
             "housingCostPerMonth": 800,
             "housingType": "OWN_APARTMENT",
             "maritalStatus": "MARRIED",
             "monthlyGrossIncome": 23000,
             "monthlyNetIncome": 20000,
-            "norwegianCitizen": true
+            "norwegianCitizen": true,
+            "education": "UNIVERSITY_LONG",
+            "tentativeAddress": {
+                "firstName": "Espen",
+                "lastName": "Knutsen",
+                "address": "Lang vei 42",
+                "city": "Narvik",
+                "postalCode": "1234",
+                "careOf": "Hans"
+            }
         },
         "coApplicant": {
             "ssn": "12345678902",
-            "emailAddress": "arne@pm.me",
+            "emailAddress": "erlend@pm.me",
             "dependentChildren": 2,
             "employmentStatus": "DOMESTIC",
             "employmentStatusSinceMonth": 5,
@@ -31,8 +52,46 @@
             "maritalStatus": "MARRIED",
             "monthlyGrossIncome": 43000,
             "monthlyNetIncome": 24000,
-            "norwegianCitizen": true
+            "norwegianCitizen": true,
+            "paymentRemark": false,
+            "education": "SECONDARY_SCHOOL",
+            "tentativeAddress": {
+                "firstName": "Erlend",
+                "lastName": "Loe",
+                "address": "Svingete vei 1",
+                "city": "Oslo",
+                "postalCode": "0232"
+            }
         },
+        "existingLoans": [
+            {
+                "loanAmount": 45000,
+                "monthlyPayment": 1400,
+                "refinanceAmount": 45000,
+                "existingLoanType": "CREDIT_CARD",
+                "responsibility": "MAIN_APPLICANT",
+                "lender": "XYZ Bank",
+                "defaulted": false
+            },
+            {
+                "loanAmount": 122000,
+                "monthlyPayment": 1700,
+                "refinanceAmount": 80000,
+                "existingLoanType": "CAR_LOAN",
+                "responsibility": "SHARED",
+                "lender": "ABC Bank",
+                "defaulted": false
+            },
+            {
+                "loanAmount": 890000,
+                "monthlyPayment": 3200,
+                "refinanceAmount": 0,
+                "existingLoanType": "MORTGAGE",
+                "responsibility": "CO_APPLICANT",
+                "lender": "ABC Bank",
+                "defaulted": false
+            }
+        ],
         "loanAmount": 2500000,
         "loanPurpose": "REFINANCE_CONSUMER_LOANS",
         "termMonths": 240,
@@ -51,6 +110,7 @@
             "monthlyCost": 6700,
             "condominiumCompoundDebt": null,
             "defaulted": false
-        }
+        },
+        "comment": "Co applicant will retire within six months"
     }
 }
