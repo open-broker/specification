@@ -293,6 +293,7 @@ definitions:
           - employmentStatusSinceYear
           - employmentStatusSinceMonth
           - dependentChildren
+          - paymentRemark
           - housingType
           - housingCostPerMonth
           - monthlyGrossIncome
