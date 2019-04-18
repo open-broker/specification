@@ -162,6 +162,10 @@ definitions:
             defaulted:
               type: boolean
               title: Loan has defaulted
+              description: |
+                The loan has defaulted because the responsible party of the loan
+                has failed required payments to the lender. This often implies that
+                the loan has been sent to a collection agency.
           extensions:
             '$ref': '#/definitions/extensionPoint'
             '$linkVal': extensionPoint
@@ -255,6 +259,10 @@ definitions:
           defaulted:
             type: boolean
             title: Loan has defaulted
+            description: |
+              The loan has defaulted because the responsible party of the loan
+              has failed required payments to the lender. This often implies that
+              the loan has been sent to a collection agency.
       address:
         type: object
         additionalProperties: false
