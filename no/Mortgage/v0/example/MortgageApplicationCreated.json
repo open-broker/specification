@@ -18,10 +18,10 @@
         "application": {
             "applicant": {
                 "ssn": "12345678901",
-                "phone": "+44123456789",
+                "phone": "+47123456789",
                 "secondaryPhone": [
-                    "+44456789123",
-                    "+44678912340"
+                    "+47456789123",
+                    "+47678912340"
                 ],
                 "emailAddress": "espen@protonmail.com",
                 "dependentChildren": 3,
@@ -29,7 +29,7 @@
                 "employmentStatusSinceMonth": 3,
                 "employmentStatusSinceYear": 2016,
                 "employerName": "Company Inc",
-                "employerPhone": "+444526327908",
+                "employerPhone": "+474526327908",
                 "childSupportReceivedMonthly": 900,
                 "rentReceivedMonthly": 2000,
                 "otherIncomeReceivedMonthly": 400,
