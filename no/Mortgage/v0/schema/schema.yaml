@@ -675,7 +675,7 @@ definitions:
           applicant. The service provider may ignore this updated field if
           not supported.
         type: string
-        pattern: '^\\d{11}$'
+        pattern: '^\d{11}$'
       requestedCredit:
         type: integer
         minimum: 0
