@@ -45,6 +45,7 @@ definitions:
           - termMonths
           - applicant
           - loanPurpose
+          - refinanceAmount
           - refinancingProperty
         properties:
           loanAmount:
