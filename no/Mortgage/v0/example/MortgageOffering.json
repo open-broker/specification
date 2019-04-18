@@ -1,0 +1,18 @@
+{
+  "brokerReference": {
+    "id": "14-0e2375ac997e17a54c1106a7e120fcf3b18a59de923bf4b5d14a61aea93a2a6a",
+    "issuer": "io.klira"
+  },
+  "offer": {
+    "arrangementFee": 0,
+    "amortizationType":"ANNUITY",
+    "effectiveInterestRate": "34.5",
+    "nominalInterestRate": "34.5",
+    "invoiceFee": 233,
+    "monthlyCost": 123,
+    "mustRefinance": 234,
+    "offeredCredit": 123456,
+    "termFee": 1234,
+    "termMonths": 70
+  }
+}
