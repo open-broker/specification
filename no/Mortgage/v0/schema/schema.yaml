@@ -278,7 +278,7 @@ definitions:
             minLength: 1
           postalCode:
             type: string
-            pattern: '^\\d{4}$'
+            pattern: "^\\d{4}$"
             description: A valid postal code, with exactly four digits
           careOf:
             type: string
