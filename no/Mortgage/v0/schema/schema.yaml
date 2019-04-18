@@ -432,20 +432,6 @@ definitions:
               - OWN_HOUSE
               - PARENTS
               - RENTED
-          housingSinceYear:
-            type: integer
-            minimum: 1900
-            maximum: 3000
-            title: Year in which the applicant entered into his or her current housing
-            examples:
-            - 2010
-          housingSinceMonth:
-            type: integer
-            title: Month in which the applicant entered into his or her current housing
-            minimum: 1
-            maximum: 12
-            examples:
-            - 12
           housingCostPerMonth:
             type: integer
             title: Housing-related costs per month
@@ -527,6 +513,7 @@ definitions:
           - FICTIONAL
       application:
         '$ref': '#/definitions/application'
+
   MortgageApplicationRejection:
     title: Application rejection
     description: An event indicating that the application was rejected
