@@ -1,14 +1,14 @@
 {
-    "cloudEventsVersion" : "0.1",
-    "eventType" : "org.open-broker.v0.no.MortgageApplicationCreated",
-    "eventTypeVersion" : "v0",
-    "source" : "/mycontext",
-    "eventID" : "C234-12D4-1234",
-    "eventTime" : "2019-04-05T17:31:00Z",
-    "extensions" : {
-      "comExampleExtension" : "value"
+    "cloudEventsVersion": "0.1",
+    "eventType": "org.open-broker.v0.no.MortgageApplicationCreated",
+    "eventTypeVersion": "v0",
+    "source": "/mycontext",
+    "eventID": "C234-12D4-1234",
+    "eventTime": "2019-04-05T17:31:00Z",
+    "extensions": {
+        "comExampleExtension": "value"
     },
-    "contentType" : "application/json",
+    "contentType": "application/json",
     "data": {
         "brokerReference": {
             "issuer": "io.klira",
