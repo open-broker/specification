@@ -1,0 +1,18 @@
+{
+  "cloudEventsVersion" : "0.1",
+  "eventType" : "org.open-broker.v0.se.MortgageOfferRejected",
+  "eventTypeVersion" : "v0",
+  "source" : "/mycontext",
+  "eventID" : "C234-1234-1234",
+  "eventTime" : "2018-04-05T17:31:00Z",
+  "extensions" : {
+    "comExampleExtension" : "value"
+  },
+  "contentType" : "application/json",
+  "data": {
+    "brokerReference": {
+      "id": "14-0e2375ac997e17a54c1106a7e120fcf3b18a59de923bf4b5d14a61aea93a2a6a",
+      "issuer": "io.klira"
+    }
+  }
+}
