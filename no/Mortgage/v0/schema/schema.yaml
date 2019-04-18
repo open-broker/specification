@@ -545,9 +545,7 @@ definitions:
         required:
           - effectiveInterestRate
           - nominalInterestRate
-          - minOfferedCredit
           - offeredCredit
-          - maxOfferedCredit
           - mustRefinance
           - arrangementFee
           - termFee
@@ -631,7 +629,7 @@ definitions:
             title: Number of monthly terms
             description: |
               The number of month-terms required to payback the loan at
-              the offered interest and offered amount. 
+              the offered interest and offered amount.
           amortizationType:
             type: string
             title: Type of amortization plan
