@@ -6,8 +6,8 @@
   "offer": {
     "arrangementFee": 0,
     "amortizationType":"ANNUITY",
-    "effectiveInterestRate": "34.5",
-    "nominalInterestRate": "34.5",
+    "effectiveInterestRate": "0.0345",
+    "nominalInterestRate": "0.0345",
     "invoiceFee": 233,
     "monthlyCost": 123,
     "mustRefinance": 234,
