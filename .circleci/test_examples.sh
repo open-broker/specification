@@ -23,5 +23,6 @@ FILES=$(/bin/ls -1 $EXAMPLES|grep -E '.json')
 cd $EXAMPLES || exit 2
 for f in $FILES
 do
-	ajv test -s "$DIR/$1/schema.json" -d $f --valid
+    jq .data $f > /tmp/$f
+    ajv test -s "$DIR/$1/schema.json" -d /tmp/$f --valid
 done
