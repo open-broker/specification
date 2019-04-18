@@ -287,27 +287,8 @@ definitions:
         type: boolean
         title: "Applicant has a payment remark"
         description: |
-          Indicate whether an applicant has a payment remark or not, due to a failure to
+          Indicate whether an applicant has a payment remark or not, due to a failure to 
           pay an outstanding bill.
-      propertyType:
-        type: string
-        title: The property type
-        enum:
-        - HOUSE
-        - TERRACED_HOUSE
-        - VACATION_HOME
-        - APARTMENT
-        - OTHER
-        "meta:enum":
-          HOUSE: An ordinary house with a plot
-          TERRACED_HOUSE: A house that is built adjacent to other houses
-          VACATION_HOME: |
-            A house built for recreational living that may or may not
-            be fit as a permanent resident
-          APARTMENT: An apartment that belongs to condominium compound
-          OTHER: |
-            Some other form of real-estate property that does not belong
-            to any of the above categories
       housingType:
         type: string
         title: "Housing type for the applicant"
