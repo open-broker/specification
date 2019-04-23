@@ -24,7 +24,7 @@
       "mustRefinance": 234,
       "offeredCredit": 123456,
       "termFee": 1234,
-      "termMonths": 70
+      "termYears": 25
     }
   }
 }

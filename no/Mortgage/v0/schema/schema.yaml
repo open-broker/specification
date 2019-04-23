@@ -559,7 +559,6 @@ definitions:
           - arrangementFee
           - termFee
           - invoiceFee
-          - termMonths
           - amortizationType
         properties:
           effectiveInterestRate:
@@ -596,7 +595,7 @@ definitions:
             title: Average monthly cost
             description: |
               The average monthly cost of the loan given `offeredCredit`,
-              `termMonths` and `effectiveInterestRate`.
+              `termYears` and `effectiveInterestRate`.
           mustRefinance:
             type: integer
             minimum: 0
@@ -632,12 +631,12 @@ definitions:
               payment solutions such as automated transfers or electronic
               invoices. This value should not be included in the
               calculation of the APR.
-          termMonths:
+          termYears:
             type: integer
             minimum: 1
-            title: Number of monthly terms
+            title: Number of yearly terms
             description: |
-              The number of month-terms required to payback the loan at
+              The number of year-terms required to payback the loan at
               the offered interest and offered amount.
           amortizationType:
             type: string
