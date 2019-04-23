@@ -105,7 +105,7 @@
             ],
             "loanAmount": 2500000,
             "loanPurpose": "REFINANCE_CONSUMER_LOANS",
-            "termMonths": 240,
+            "termYears": 30,
             "refinanceAmount": 2500000,
             "refinancingProperty": {
                 "interestRate": "0.067",

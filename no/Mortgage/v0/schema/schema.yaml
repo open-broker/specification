@@ -42,7 +42,7 @@ definitions:
         additionalProperties: false
         required:
           - loanAmount
-          - termMonths
+          - termYears
           - applicant
           - loanPurpose
           - refinanceAmount
@@ -55,13 +55,13 @@ definitions:
             minimum: 1
             examples:
               - 50000
-          termMonths:
+          termYears:
             type: integer
-            title: Number of monthly terms
-            description: The number 1-month terms that the applicant desires to pay off the loan over
+            title: Number of yearly terms
+            description: The number year terms that the applicant desires to pay off the loan over
             minimum: 1
             examples:
-              - 24
+              - 30
           refinanceAmount:
             type: integer
             title: The amount being refinanced
