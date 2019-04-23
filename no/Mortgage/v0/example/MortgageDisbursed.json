@@ -1,0 +1,17 @@
+{
+    "cloudEventsVersion": "0.1",
+    "eventType": "org.open-broker.v0.no.MortgageDisbursed",
+    "source": "/mycontext",
+    "eventID": "r6RDiSnc0w5zh9pilH3S8WrcXwkmXTGc",
+    "eventTime": "2019-04-19T23:11:14Z",
+    "contentType": "application/json",
+        "data": {
+        "brokerReference": {
+            "issuer": "io.klira",
+            "id": "au092.9a9s8dA.0OxZkaak"
+        },
+        "amountDisbursed": 670000,
+        "amountBrokered": 450000,
+        "date": "2019-04-22"
+    }
+}

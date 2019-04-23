@@ -1,0 +1,128 @@
+{
+    "cloudEventsVersion": "0.1",
+    "eventType": "org.open-broker.v0.no.MortgageApplicationCreated",
+    "eventTypeVersion": "v0",
+    "source": "/mycontext",
+    "eventID": "C234-12D4-1234",
+    "eventTime": "2019-04-05T17:31:00Z",
+    "extensions": {
+        "comExampleExtension": "value"
+    },
+    "contentType": "application/json",
+    "data": {
+        "brokerReference": {
+            "issuer": "io.klira",
+            "id": "hc8awe-ja8oJOJ8-ha0Xa2P"
+        },
+        "dataProtectionContext": "FICTIONAL",
+        "application": {
+            "applicant": {
+                "ssn": "12345678901",
+                "phone": "+47123456789",
+                "secondaryPhone": [
+                    "+47456789123",
+                    "+47678912340"
+                ],
+                "emailAddress": "espen@protonmail.com",
+                "dependentChildren": 3,
+                "employmentStatus": "PUBLIC_SECTOR",
+                "employmentStatusSinceMonth": 3,
+                "employmentStatusSinceYear": 2016,
+                "employerName": "Company Inc",
+                "employerPhone": "+474526327908",
+                "childSupportReceivedMonthly": 900,
+                "rentReceivedMonthly": 2000,
+                "otherIncomeReceivedMonthly": 400,
+                "childSupportPaidMonthly": 0,
+                "paymentRemark": false,
+                "housingCostPerMonth": 800,
+                "housingType": "OWN_APARTMENT",
+                "maritalStatus": "MARRIED",
+                "monthlyGrossIncome": 23000,
+                "monthlyNetIncome": 20000,
+                "norwegianCitizen": true,
+                "education": "UNIVERSITY_LONG",
+                "tentativeAddress": {
+                    "firstName": "Espen",
+                    "lastName": "Knutsen",
+                    "address": "Lang vei 42",
+                    "city": "Narvik",
+                    "postalCode": "1234",
+                    "careOf": "Hans"
+                }
+            },
+            "coApplicant": {
+                "ssn": "12345678902",
+                "emailAddress": "erlend@pm.me",
+                "dependentChildren": 2,
+                "employmentStatus": "DOMESTIC",
+                "employmentStatusSinceMonth": 5,
+                "employmentStatusSinceYear": 2012,
+                "housingCostPerMonth": 1200,
+                "housingType": "RENTED",
+                "maritalStatus": "MARRIED",
+                "monthlyGrossIncome": 43000,
+                "monthlyNetIncome": 24000,
+                "norwegianCitizen": true,
+                "paymentRemark": false,
+                "education": "SECONDARY_SCHOOL",
+                "tentativeAddress": {
+                    "firstName": "Erlend",
+                    "lastName": "Loe",
+                    "address": "Svingete vei 1",
+                    "city": "Oslo",
+                    "postalCode": "0232"
+                }
+            },
+            "existingLoans": [
+                {
+                    "loanAmount": 45000,
+                    "monthlyPayment": 1400,
+                    "refinanceAmount": 45000,
+                    "existingLoanType": "CREDIT_CARD",
+                    "responsibility": "MAIN_APPLICANT",
+                    "lender": "XYZ Bank",
+                    "defaulted": false
+                },
+                {
+                    "loanAmount": 122000,
+                    "monthlyPayment": 1700,
+                    "refinanceAmount": 80000,
+                    "existingLoanType": "CAR_LOAN",
+                    "responsibility": "SHARED",
+                    "lender": "ABC Bank",
+                    "defaulted": false
+                },
+                {
+                    "loanAmount": 890000,
+                    "monthlyPayment": 3200,
+                    "refinanceAmount": 0,
+                    "existingLoanType": "MORTGAGE",
+                    "responsibility": "CO_APPLICANT",
+                    "lender": "ABC Bank",
+                    "defaulted": false
+                }
+            ],
+            "loanAmount": 2500000,
+            "loanPurpose": "REFINANCE_CONSUMER_LOANS",
+            "termYears": 30,
+            "refinanceAmount": 2500000,
+            "refinancingProperty": {
+                "interestRate": "0.067",
+                "assessedValue": "3300000",
+                "propertyAddress": {
+                    "streetAddress": "Nobels gate 16",
+                    "city": "Oslo",
+                    "postalCode": "0244"
+                },
+                "propertyType": "APARTMENT_SELF_OWNED",
+                "squareMeters": 196,
+                "existingMortgage": 2500000,
+                "monthlyCost": 6700,
+                "condominiumCompoundDebt": null,
+                "defaulted": false
+            },
+            "comment": "Co applicant will retire within six months"
+        }
+    }
+}
