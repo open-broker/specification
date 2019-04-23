@@ -13,24 +13,40 @@ jobs:
       - attach_workspace:
           at: /tmp/workspace
       - checkout
-      - run: |
-          mkdir /tmp/workspace/json
-          .circleci/yaml2json.sh se/Mortgage/v0/schema /tmp/workspace/json
-          .circleci/yaml2json.sh se/Mortgage/v0/schema/definitions /tmp/workspace/json/
+      - run:
+          name: se/Mortgage/v0
+          command: .circleci/yaml2json.sh se/Mortgage/v0
+      - run:
+          name: no/Mortgage/v0
+          command: .circleci/yaml2json.sh no/Mortgage/v0
       - persist_to_workspace:
           root: /tmp/workspace
           paths:
             - json
-
 
   validate:
     executor: schema-context
     steps:
       - attach_workspace:
           at: /tmp/workspace
-      - run: |
-          cd /tmp/workspace/json
-          ajv compile -s se/Mortgage/v0/schema/schema.json
+      - run:
+          name: se/Mortgage/v0
+          command: ajv compile -s /tmp/workspace/json/se/Mortgage/v0/schema.json
+      - run:
+          name: no/Mortgage/v0
+          command: ajv compile -s /tmp/workspace/json/no/Mortgage/v0/schema.json
+
+  test:
+    executor: schema-context
+    steps:
+      - attach_workspace:
+          at: /tmp/workspace
+      - checkout
+      - run:
+          name: no/Mortgage/v0
+          command: |
+            cd ~/workdir &&
+            .circleci/test_examples.sh no/Mortgage/v0
 
 workflows:
   version: 2.1
@@ -41,3 +57,6 @@ workflows:
       - validate:
           requires:
             - convert
+      - test:
+          requires:
+            - validate

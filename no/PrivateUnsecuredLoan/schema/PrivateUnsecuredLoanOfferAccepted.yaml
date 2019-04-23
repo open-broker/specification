@@ -13,12 +13,15 @@ properties:
     title: The reference used for the offer being accepted
     '$ref': 'https://open-broker.org/schema/v0/no/reference'
   bankAccount:
+    type: string
     title: The bank acccount to pay out the money to
     description: |
       The broker may include an updated bank account for the
       applicant. The service provider may ignore this updated field if
       not supported.
-    '$ref': 'https://open-broker.org/schema/v0/no/BankAccount'
+    pattern: '^[0-9]{11}$'
+    minLength: 11
+    maxLength: 11
   requestedCredit:
     type: integer
     minimum: 0
