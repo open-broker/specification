@@ -6,23 +6,23 @@
 if ! which ajv; then
     echo -n "ajv is not installed, install it with "
     echo "'npm -g install ajv' to run this script"
-    exit 3
+    exit 1
 fi
 
 DIR="/tmp/workspace/json"
-cd $1 || exit
+cd $1 || exit 2
 EXAMPLES="example"
 if [ "$(ls -A $EXAMPLES)" ]; then
     echo "Found examples"
 else
     echo "Found no examples in $EXAMPLES"
-    exit 1
+    exit 3
 fi
 
 FILES=$(/bin/ls -1 $EXAMPLES|grep -E '.json')
-cd $EXAMPLES || exit 2
+cd $EXAMPLES || exit 4
 for f in $FILES
 do
-    jq .data $f > /tmp/$f
-    ajv test -s "$DIR/$1/schema.json" -d /tmp/$f --valid
+    jq .data $f > /tmp/$f || exit 5
+    ajv test -s "$DIR/$1/schema.json" -d /tmp/$f --valid || exit 5
 done
