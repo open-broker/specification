@@ -17,7 +17,8 @@ required:
   - paymentRemarks
   - housingType
   - monthlyRent
-  - monthlyIncome
+  - monthlyGrossIncome
+  - monthlyNetIncome
   - maritalStatus
 
 properties:
@@ -196,10 +197,14 @@ properties:
     minimum: 0
     examples:
       - 8000
-  monthlyIncome:
+  monthlyGrossIncome:
     type: integer
     minimum: 0
     title: The monthly pre-tax income of the applicant
+  monthlyNetIncome:
+    type: integer
+    minimum: 0
+    title: The monthly post-tax income of the applicant
   maritalStatus:
     type: string
     title: "The marital status of the applicant"
