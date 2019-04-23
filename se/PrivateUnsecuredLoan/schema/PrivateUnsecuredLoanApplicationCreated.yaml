@@ -93,8 +93,9 @@ definitions:
     required:
       - loanAmount
       - monthlyPayment
-      - existingLoanType
       - shouldRefinance
+      - existingLoanType
+      - lenderName
       - responsibility
     properties:
       loanAmount:
