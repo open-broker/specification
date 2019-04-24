@@ -9,6 +9,7 @@ required:
   - loanAmount
   - monthlyCost
   - existingLoanType
+  - responsibility
 
 properties:
   loanAmount:
@@ -33,3 +34,13 @@ properties:
       - STUDENT_LOAN
       - UNSECURED_LOAN
       - OTHER
+  responsibility:
+    type: string
+    "meta:enum":
+       MAIN_APPLICANT: The main applicant is responsible for this loan
+       CO_APPLICANT: The co-applicant is responsible for this loan
+       SHARED: The loan is a shared responsibility for the applicants
+     enum:
+       - MAIN_APPLICANT
+       - CO_APPLICANT
+       - SHARED

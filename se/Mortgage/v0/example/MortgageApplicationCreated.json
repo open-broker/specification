@@ -78,12 +78,14 @@
 				{
 					"loanAmount": 4000,
 					"monthlyCost": 37,
-					"existingLoanType": "CAR_LOAN"
+					"existingLoanType": "CAR_LOAN",
+					"responsibility": "MAIN_APPLICANT"
 				},
 				{
 					"loanAmount": 87000,
 					"monthlyCost": 400,
 					"existingLoanType": "STUDENT_LOAN"
+					"responsibility": "MAIN_APPLICANT"
 				}
 			],
 			"ownedProperties": [
