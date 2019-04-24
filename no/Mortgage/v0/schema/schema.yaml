@@ -780,7 +780,7 @@ definitions:
         description: An indicator showing whether the provided message requires an action.
 
 type: object
-oneOf:
+anyOf:
 - $ref: 'MortgageApplicationCreated'
 - $ref: 'MortgageApplicationRejection'
 - $ref: 'MortgageOffering'
