@@ -1,0 +1,54 @@
+{
+    "cloudEventsVersion": "0.1",
+    "eventType": "org.open-broker.v0.no.MortgageApplicationCreated",
+    "eventTypeVersion": "v0",
+    "source": "/mycontext",
+    "eventID": "C234-12D4-1234",
+    "eventTime": "2019-04-05T17:31:00Z",
+    "extensions": {
+        "comExampleExtension": "value"
+    },
+    "contentType": "application/json",
+    "data": {
+        "brokerReference": {
+            "issuer": "io.klira",
+            "id": "hc8awe-ja8oJOJ8-ha0Xa2P"
+        },
+        "dataProtectionContext": "FICTIONAL",
+        "application": {
+            "applicant": {
+                "ssn": "12345678901",
+                "emailAddress": "espen@protonmail.com",
+                "dependentChildren": 3,
+                "employmentStatus": "PUBLIC_SECTOR",
+                "employmentStatusSinceMonth": 3,
+                "employmentStatusSinceYear": 2016,
+                "paymentRemark": false,
+                "housingCostPerMonth": 800,
+                "housingType": "OWN_APARTMENT",
+                "maritalStatus": "MARRIED",
+                "monthlyGrossIncome": 23000,
+                "monthlyNetIncome": 20000,
+                "norwegianCitizen": true
+            },
+            "loanAmount": 2500000,
+            "loanPurpose": "REFINANCE_CONSUMER_LOANS",
+            "termYears": 30,
+            "refinanceAmount": 2500000,
+            "refinancingProperty": {
+                "interestRate": "0.067",
+                "assessedValue": "3300000",
+                "propertyAddress": {
+                    "streetAddress": "Nobels gate 16",
+                    "city": "Oslo",
+                    "postalCode": "0244"
+                },
+                "propertyType": "APARTMENT_SELF_OWNED",
+                "squareMeters": 196,
+                "existingMortgage": 2500000,
+                "monthlyCost": 6700,
+                "defaulted": false
+            }
+        }
+    }
+}
