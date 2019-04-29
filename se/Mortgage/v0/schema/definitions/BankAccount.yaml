@@ -20,7 +20,7 @@ properties:
       digits. In the event of a clearing numbers with a fifth digit, the last
       digit should be removed and put first in the account number instead.
     type: string
-    pattern: "^[1-9][0-9]{3}$"
+    pattern: '^[1-9][0-9]{3}$'
     minLength: 4
     maxLength: 4
   accountNo:
@@ -31,4 +31,4 @@ properties:
     minLength: 7
     maxLength: 11
     type: string
-    pattern: "^[0-9]{1,11}$"
+    pattern: '^[0-9]{1,11}$'

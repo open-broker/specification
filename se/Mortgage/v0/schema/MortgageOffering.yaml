@@ -29,7 +29,7 @@ definitions:
     properties:
       effectiveInterestRate:
         type: string
-        pattern: "^[0-9]+(\\.[0-9]+)?$"
+        pattern: '^[0-9]+(\.[0-9]+)?$'
         title: Effective interest rate (APR)
         description: |
           The effective annual interest rate of the loan
@@ -41,7 +41,7 @@ definitions:
 
       nominalInterestRate:
         type: string
-        pattern: "^[0-9]+(\\.[0-9]+)?$"
+        pattern: '^[0-9]+(\.[0-9]+)?$'
         title: Nominal interest rate
         description: |
           The nominal annual interest rate of the loan
@@ -100,7 +100,7 @@ definitions:
 
       expires:
         type: string
-        pattern: "\\d{4}-\\d{2}-\\d{2}"
+        pattern: '\d{4}-\d{2}-\d{2}'
         title: Expiry date for offer
         description: |
           A date after which the offer is no longer valid, formatted

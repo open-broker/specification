@@ -47,7 +47,7 @@ properties:
     description: |
       The current nominal interest rate formatted as a decimal, where 0.15
       is equal to 15%, 0.0315 is equal to 3.15% and 1.0 is equal to 100%
-    pattern: "^\\d\\.\\d+$"
+    pattern: '^\d\.\d+$'
     examples: [
       "0.0315",
       "0.078"
