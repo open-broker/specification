@@ -84,7 +84,7 @@
 				{
 					"loanAmount": 87000,
 					"monthlyCost": 400,
-					"existingLoanType": "STUDENT_LOAN"
+					"existingLoanType": "STUDENT_LOAN",
 					"responsibility": "MAIN_APPLICANT"
 				}
 			],
