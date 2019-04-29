@@ -1,0 +1,224 @@
+"$id": "https://open-broker.org/se/Mortgage/v0/schema/definitions/Applicant"
+"$schema": "http://json-schema.org/draft-07/schema#"
+
+title: Applicant
+description: |
+  Describe the attributes of an applicant, such as housing situation,
+  employment details, financial information, marital status and citizenship.
+
+type: object
+additionalProperties: false
+required:
+  - ssn
+  - employmentStatus
+  - employmentStatusSinceYear
+  - employmentStatusSinceMonth
+  - dependentChildren
+  - paymentRemarks
+  - housingType
+  - monthlyRent
+  - monthlyGrossIncome
+  - monthlyNetIncome
+  - maritalStatus
+
+properties:
+  ssn:
+    type: string
+    title: '12-digit Social Security Number (sv. Personnr)'
+    description: "A Swedish Social-security number on the 12-digit format YYYYMMDDXXXX"
+    pattern: '^[0-9]{12}$'
+    minLength: 12
+    maxLength: 12
+    examples:
+      - '195911057916'
+  phone:
+    type: string
+    title: "Phone number to the applicant"
+    pattern: '^\+[1-9][0-9]{1,14}$'
+    examples:
+      - "+467015114441"
+  secondaryPhone:
+    title: "List of alternate phone numbers"
+    type: array
+    items:
+      type: string
+      pattern: '^\+[1-9][0-9]{1,14}$'
+  emailAddress:
+    type: string
+    format: email
+    title: "Email address to the applicant"
+  employmentStatus:
+    type: string
+    title: 'The employment situation of the applicant'
+    enum:
+      - EARLY_RETIRED
+      - HOURLY
+      - OTHER
+      - RETIRED
+      - SELF_EMPLOYED
+      - STUDENT
+      - TEMPORARY
+      - TRIAL
+      - UNEMPLOYED
+      - FULL_TIME
+    "meta:enum":
+      EARLY_RETIRED: Retired earlier before the usual retirement age
+      HOURLY: Formally permanently employed, hired by the hour
+      OTHER: An employment status not falling neatly in to any of the other categories
+      RETIRED: Retired due to age
+      SELF_EMPLOYED: The applicant is a sole proprietor or works for his or her own company
+      STUDENT: Signed up to a university or other higher education
+      TEMPORARY: Non-full time employment pertaining to a project
+      TRIAL: Trial employment (sv. Provanställning)
+      UNEMPLOYED: Not currently employed
+      FULL_TIME: Employed full-time
+
+  employmentStatusSinceYear:
+    type: integer
+    minimum: 1900
+    maximum: 3000
+    title: "Year in which the applicant entered into his or her current employment status"
+    examples:
+      - 2014
+  employmentStatusSinceMonth:
+    type: integer
+    title: "Month in which the applicant entered into his or her current employment status"
+    minimum: 1
+    maximum: 12
+    examples:
+      - 3
+  employerName:
+    type: string
+    title: 'The company name of the employer'
+    examples:
+      - ACME AB
+  dependentChildren:
+    type: integer
+    title: 'Number of dependent children'
+    description: "Number of child dependents under the age of 18. If greater than 15 then 15 is sent."
+    default: 0
+    minimum: 0
+    maximum: 15
+  childSupportPaid:
+    type: integer
+    minimum: 0
+    default: 0
+    title: "Money paid for child-support each monthh in SEK"
+  childSupportReceived:
+    type: integer
+    minimum: 0
+    default: 0
+    title: "Money received for child-support each monthh in SEK"
+  childBenefitReceived:
+    type: integer
+    minimum: 0
+    default: 0
+    title: "Money received for child benefit each monthh in SEK"
+  studentBenefitReceived:
+    type: integer
+    minimum: 0
+    default: 0
+    title: "Money received for student benefit each month in SEK"
+  housingBenefitReceived:
+    type: integer
+    minimum: 0
+    default: 0
+    title: "Money received for housing benefit each month in SEK"
+  welfareReceived:
+    type: integer
+    minimum: 0
+    default: 0
+    title: "Money received for housing benefit each month in SEK"
+  pensionReceived:
+    type: integer
+    minimum: 0
+    default: 0
+    title: "Pension received each month in SEK"
+  dividendReceived:
+    type: integer
+    minimum: 0
+    default: 0
+    title: "Dividend received from stocks or bonds on yearly basis in SEK"
+  otherReceived:
+    type: integer
+    minimum: 0
+    default: 0
+    title: "Any other regular income in SEK"
+  savingsCash:
+    type: integer
+    minimum: 0
+    default: 0
+    title: Savings on a bank account
+  savingsMutualFunds:
+    type: integer
+    minimum: 0
+    default: 0
+    title: Savings in mutual funds
+  savingsStocks:
+    type: integer
+    minimum: 0
+    default: 0
+    title: Savings in stocks
+  savingsOther:
+    type: integer
+    minimum: 0
+    default: 0
+    title: Savings in other financial assets
+  paymentRemark:
+    type: boolean
+    title: "If applicant has a payment remark"
+    description: |
+      Indicate if the applicant has any payment remarks, due to a failure to
+      pay an outstanding bill
+  housingType:
+    type: string
+    title: "Housing type for the applicant"
+    description: The form of housing in which the applicant resides
+    "meta:enum":
+      RENTED: The applicant rents his or her place of residence
+      OWN_APARTMENT: The applicant owns his or her apartment
+      OWN_HOUSE: The applicant owns his or her house
+      LIVE_IN: The applicant doesn't directly rent or own a house but is rather a lodger
+    enum:
+      - RENTED
+      - OWN_APARTMENT
+      - OWN_HOUSE
+      - LIVE_IN
+
+  monthlyRent:
+    type: integer
+    title: Rent paid each month
+    description: |
+      The total amount of rent in SEK paid each month. If the applicant is
+      paying rent for several properties, then this value is the sum of the
+      rent for all those properties. If the apllicant is not paying rent for
+      any property then this value is 0.
+    default: 0
+    minimum: 0
+    examples:
+      - 8000
+  monthlyGrossIncome:
+    type: integer
+    minimum: 0
+    title: The monthly pre-tax income of the applicant
+  monthlyNetIncome:
+    type: integer
+    minimum: 0
+    title: The monthly post-tax income of the applicant
+  maritalStatus:
+    type: string
+    title: "The marital status of the applicant"
+    enum:
+      - SINGLE
+      - MARRIED
+      - COHABITING
+  swedishCitizen:
+    title: Swedish Citizen
+    description: The applicant has a citizenship in Sweden
+    type: boolean
+  tentativeAddress:
+    title: "Address of the applicant for display purposes"
+    description: |
+      "A tentative addess of the applicant. All actors are expected to perform proper
+      due diligence in establishing the identity of the applicant."
+    '$ref': 'https://open-broker.org/se/Mortgage/v0/schema/definitions/Address'

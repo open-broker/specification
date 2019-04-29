@@ -1,0 +1,15 @@
+"$id": "https://open-broker.org/se/Mortgage/v0/schema/MortgageContractSent"
+"$schema": "http://json-schema.org/draft-07/schema#"
+
+title: MortgageContractSent
+description: |
+  An event indicating that a contract was sent to the customer
+type: object
+additionalProperties: false
+
+required:
+  - brokerReference
+properties:
+  brokerReference:
+    title: "A reference-id used by the broker"
+    "$ref": "definitions/Reference#/reference"

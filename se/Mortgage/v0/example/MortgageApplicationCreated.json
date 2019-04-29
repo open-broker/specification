@@ -1,0 +1,116 @@
+{
+    "cloudEventsVersion" : "0.1",
+    "eventType" : "org.open-broker.v0.se.MortgageApplicationCreated",
+    "eventTypeVersion" : "v0",
+    "source" : "/mycontext",
+    "eventID" : "C234-1234-12fr2334",
+    "eventTime" : "2018-04-05T17:31:00Z",
+    "extensions" : {
+        "comExampleExtension" : "value"
+    },
+    "contentType" : "application/json",
+    "data": {
+        "application": {
+            "refinancingProperty": {
+                "propertyType": "HOUSE",
+                "assessedValue": 3400000,
+                "squareMeters": 127,
+                "existingMortgage": 1200000,
+                "monthlyCost": 400,
+                "ownershipShare": 100,
+                "balcony": false,
+                "rooms": 8,
+                "elevator": true
+            },
+            "propertyAddress": {
+                "address": "Tegelbruksvägen 5",
+                "postalCode": "12632",
+                "city": "Hägersten",
+                "apartmentCode": "1501"
+            },
+            "applicant": {
+                "ssn": "198712167249",
+                "phone": "+46705431052",
+                "secondaryPhone": [],
+                "emailAddress": "anton@zensum.se",
+                "employmentStatus": "FULL_TIME",
+                "employmentStatusSinceYear": 2017,
+                "employmentStatusSinceMonth": 2,
+                "dependentChildren": 3,
+                "childSupportPaid": 0,
+                "childSupportReceived": 700,
+                "childBenefitReceived": 1600,
+                "studenBenefitReceived": 0,
+                "hosingBenefitReceived": 1300,
+                "welfareReceived": 0,
+                "pensionReceived": 0,
+                "dividendReceived": 4300,
+                "otherReceived": 0,
+                "savingsCash": 67000,
+                "savingsMutualFunds": 86000,
+                "savingsStocks": 122300,
+                "savingsOther": 0,
+                "paymentRemarks": 0,
+                "housingType": "RENTED",
+                "housingCostPerMonth": 3000,
+                "employerName": "Zensum AB",
+                "employerPhone": "+46811122233",
+                "monthlyGrossIncome": 31000,
+                "monthlyNetIncome": 26730,
+                "childSupportReceivedMonthly": null,
+                "childSupportPaidMonthly": null,
+                "maritalStatus": "COHABITING",
+                "bankAccount": {
+                    "clearingNo": "5491",
+                    "accountNo": "00000003"
+                },
+                "swedishCitizen": true,
+                "tentativeAddress": {
+                    "firstName": "Christin",
+                    "lastName": "Strömberg",
+                    "address": "Hultom 264",
+                    "postalCode": "25258",
+                    "city": "Helsingborg"
+                }
+            },
+            "coApplicant": null,
+            "existingLoans": [
+                {
+                    "loanAmount": 4000,
+                    "monthlyCost": 37,
+                    "existingLoanType": "CAR_LOAN",
+                    "responsibility": "MAIN_APPLICANT"
+                },
+                {
+                    "loanAmount": 87000,
+                    "monthlyCost": 400,
+                    "existingLoanType": "STUDENT_LOAN",
+                    "responsibility": "MAIN_APPLICANT"
+                }
+            ],
+            "ownedProperties": [
+                {
+                    "propertyType": "VACATION_HOME",
+                    "existingMortgage": 1300000,
+                    "monthlyCost": 200,
+                    "ownershipShare": 80
+                },
+                {
+                    "propertyType": "APARTMENT",
+                    "existingMortgage": 1800000,
+                    "monthlyCost": 2300,
+                    "ownershipShare": 100
+                }
+            ],
+            "extensions": {
+                    "io.klira.someExtensionProperty": 42,
+                "io.klira.someOtherExtensionProperty": 10000
+            }
+        },
+        "brokerReference": {
+            "issuer": "io.klira",
+            "id": "XTZ1"
+        },
+        "dataProtectionContext": "FICTIONAL"
+    }
+}

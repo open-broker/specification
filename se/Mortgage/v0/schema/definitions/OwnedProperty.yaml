@@ -1,0 +1,53 @@
+"$id": "https://open-broker.org/se/Mortgage/v0/schema/definitions/OwnedProperty"
+"$schema": "http://json-schema.org/draft-07/schema#"
+
+title: OwnedProperty
+description: |
+  An owned real-estate property, such as an apartment, house or
+  cottage that the applicant(s) own
+type: object
+additionalProperties: false
+required:
+  - propertyType
+  - existingMortgage
+  - monthlyCost
+  - ownershipShare
+properties:
+  propertyType:
+    type: string
+    title: The property type
+    enum:
+      - HOUSE
+      - TERRACED_HOUSE
+      - VACATION_HOME
+      - APARTMENT
+      - OTHER
+    "meta:enum":
+      HOUSE: An ordinary house with a plot
+      TERRACED_HOUSE: A house that is built adjacent to other houses
+      VACATION_HOME: |
+        A house built for recreational living that may or may not
+        be fit as a permanent resident
+      APARTMENT: An apartment that belongs to condominium compound
+      OTHER: |
+        Some other form of real-estate property that does not belong
+        to any of the above categories
+  existingMortgage:
+    type: integer
+    min: 0
+    description: How mortgaged the property is, in SEK
+  monthlyCost:
+    type: integer
+    min: 0
+    description: |
+      The sum of all montlhy costs associated with the property, such as
+      upkeep or a monthly fee to a condominium compound if the property
+      is an apartment
+  ownershipShare:
+    type: integer
+    min: 1
+    max: 100
+    description: |
+      How much the applicant(s) own of the house, in percent. If there is
+      more than one applicant, then this value should reflect the total stake
+      for all applicants combined.

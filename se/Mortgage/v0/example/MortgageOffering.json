@@ -1,0 +1,29 @@
+{
+    "cloudEventsVersion" : "0.1",
+    "eventType" : "org.open-broker.v0.se.MortgageOffering",
+    "eventTypeVersion" : "v0",
+    "source" : "/mycontext",
+    "eventID" : "DJHASI-AMNKJ0KJ-56",
+    "eventTime" : "2018-04-05T17:41:00Z",
+    "extensions" : {
+      "comExampleExtension" : "value"
+    },
+    "contentType" : "application/json",
+    "data": {
+        "offer": {
+            "effectiveInterestRate": "0.063",
+            "nominalInterestRate": "0.052",
+            "arrangementFee": 800,
+            "termFee": 20,
+            "invoiceFee": 10,
+            "monthlyCost": 4900,
+            "termYears": 50,
+            "expires": "2018-05-05",
+            "comment": "Only valil under condition X and Y"
+        },
+        "brokerReference": {
+          "issuer": "io.klira",
+          "id": "XTZ1"
+        }
+    }
+}

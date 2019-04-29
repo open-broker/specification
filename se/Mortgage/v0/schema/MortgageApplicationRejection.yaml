@@ -1,0 +1,21 @@
+"$id": "https://open-broker.org/se/Mortgage/v0/schema/MortgageApplicationRejection"
+"$schema": "http://json-schema.org/draft-07/schema#"
+
+title: MortgageApplicationRejection
+description: |
+  An event indicating that the application was rejected
+type: object
+additionalProperties: false
+
+required:
+  - brokerReference
+
+properties:
+  brokerReference:
+    title: "A reference-id used by the broker"
+    "$ref": "definitions/Reference#/reference"
+  rejectReason:
+    title: Reason for rejection
+    description: |
+      An optional reason for why the application was rejected
+    type: String

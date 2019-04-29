@@ -2,4 +2,5 @@
 !*.yaml
 !*.yml
 !*.json
+!definitions
 !.gitignore

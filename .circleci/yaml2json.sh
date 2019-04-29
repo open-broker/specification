@@ -1,5 +1,4 @@
 #!/usr/bin/env sh
-FILES=$(/bin/ls -1 $1|grep -E '.ya?ml')
 DIR="/tmp/workspace/json"
 cd $1 || exit
 mkdir -p $DIR/$1

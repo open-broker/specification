@@ -1,0 +1,35 @@
+"$id": "https://open-broker.org/se/Mortgage/v0/schema/definitions/Address"
+"$schema": "http://json-schema.org/draft-07/schema#"
+
+title: Address
+description: An address for a physical person
+type: object
+additionalProperties: false
+
+required:
+  - firstName
+  - lastName
+  - address
+  - city
+  - postalCode
+properties:
+  firstName:
+    type: string
+    minLength: 1
+  lastName:
+    type: string
+    minLength: 1
+  address:
+    type: string
+    minLength: 1
+  city:
+    type: string
+    minLength: 1
+  postalCode:
+    type: string
+    pattern: '\d{5}'
+    minLength: 5
+    maxLength: 5
+  careOf:
+    type: string
+    minLength: 1

@@ -1,0 +1,46 @@
+"$id": "https://open-broker.org/se/Mortgage/v0/schema/definitions/ExistingLoan"
+"$schema": "http://json-schema.org/draft-07/schema#"
+
+title: ExistingLoan
+description: Any existing loan that an applicant has
+type: object
+additionalProperties: false
+required:
+  - loanAmount
+  - monthlyCost
+  - existingLoanType
+  - responsibility
+
+properties:
+  loanAmount:
+    type: integer
+    minimum: 1
+  monthlyCost:
+    type: integer
+    minimum: 1
+  existingLoanType:
+    type: string
+    "meta:enum":
+      CAR_LOAN: A loan for a car or similar vehicle
+      CHECK_CREDIT: A revolving credit, other than a credit-card.
+      CREDIT_CARD: A credit-card
+      STUDENT_LOAN: A student loan
+      UNSECURED_LOAN: An unsecured loan, not falling into any of the other categories, for example a consumer loan.
+      OTHER: Any other debt not falling into any of the other categories.
+    enum:
+      - CAR_LOAN
+      - CHECK_CREDIT
+      - CREDIT_CARD
+      - STUDENT_LOAN
+      - UNSECURED_LOAN
+      - OTHER
+  responsibility:
+    type: string
+    "meta:enum":
+       MAIN_APPLICANT: The main applicant is responsible for this loan
+       CO_APPLICANT: The co-applicant is responsible for this loan
+       SHARED: The loan is a shared responsibility for the applicants
+    enum:
+      - MAIN_APPLICANT
+      - CO_APPLICANT
+      - SHARED
