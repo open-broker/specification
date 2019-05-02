@@ -20,7 +20,7 @@ definitions:
         pattern: "^[a-zA-Z0-9]+\\.(([a-zA-Z0-9_-])|([a-zA-Z0-9_-]\\.[a-zA-Z0-9_-]))+$"
       id:
         type: string
-        title: "Reference number for the broker"
+        title: "Reference identifier from the issuer"
         description: "An arbitrary reference string that is unique"
   MortgageApplicationCreated:
     title: Application created
@@ -659,6 +659,9 @@ definitions:
       brokerReference:
         title: The reference used by the broker for the application resulting in this offer
         $ref: 'http://open-broker.org/no/Mortgage/v0/schema#/definitions/reference'
+      offerId:
+        title: A reference used for identifying this particular offer
+        $ref: 'http://open-broker.org/no/Mortgage/v0/schema#/definitions/reference'
       offer:
         '$ref': '#/definitions/offer'
 
@@ -676,6 +679,9 @@ definitions:
       brokerReference:
         title: The reference used for the offer being accepted
         $ref: 'http://open-broker.org/no/Mortgage/v0/schema#/definitions/reference'
+      offerId:
+        title: A reference used for identifying the offer being accepted
+        $ref: 'http://open-broker.org/no/Mortgage/v0/schema#/definitions/reference'  
       bankAccount:
         title: The bank acccount to pay out the money to
         description: |
@@ -709,6 +715,9 @@ definitions:
     properties:
       brokerReference:
         title: The reference used for the offer being rejected
+        $ref: 'http://open-broker.org/no/Mortgage/v0/schema#/definitions/reference'
+      offerId:
+        title: A reference used for identifying the offer being rejected
         $ref: 'http://open-broker.org/no/Mortgage/v0/schema#/definitions/reference'
 
   MortgageDisbursed:

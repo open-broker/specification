@@ -13,6 +13,10 @@
     "brokerReference": {
       "id": "14-0e2375ac997e17a54c1106a7e120fcf3b18a59de923bf4b5d14a61aea93a2a6a",
       "issuer": "io.klira"
+    },
+    "offerId": {
+      "id": "a9j8s0e2X5Aac9",
+      "issuer": "org.service-provider"
     }
   }
 }

@@ -12,3 +12,6 @@ properties:
   brokerReference:
     title: The reference used for the offer being rejected
     '$ref': 'https://open-broker.org/schema/v0/no/reference'
+  offerId:
+    title: A reference used for identifying the offer being rejected
+    $ref: 'http://open-broker.org/no/PrivateUnsecuredLoan/v0/schema#/definitions/reference'
