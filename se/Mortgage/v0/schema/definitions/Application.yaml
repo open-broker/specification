@@ -1,0 +1,57 @@
+"$id": "https://open-broker.org/se/Mortgage/v0/schema/definitions/Application"
+"$schema": "http://json-schema.org/draft-07/schema#"
+
+title: Application
+type: object
+additionalProperties: false
+required:
+  - applicant
+  - refinancingProperty
+
+definitions:
+  ExtensionPoint:
+    title: "Extension data"
+    additionalProperties: false
+    patternProperties:
+      '^(([a-zA-Z0-9]|[a-zA-Z0-9][a-zA-Z0-9-][a-zA-Z0-9]).)([A-Za-z0-9]|[A-Za-z0-9][A-Za-z0-9-]*[A-Za-z0-9])$':
+        type: object
+
+properties:
+  refinancingProperty:
+    '$ref': 'RefinancingProperty'
+    "$linkVal": "RefinancingProperty"
+    title: The property that should be refinanced
+  extensions:
+    '$ref': '#/definitions/ExtensionPoint'
+    "$linkVal": "ExtensionPoint"
+    title: "Custom, vendor-specific extensions to the schema"
+  applicant:
+    "$ref": "Applicant"
+    "$linkVal": "applicant"
+    title: "Applicant"
+    description: "The primary applicant to the loan"
+  coApplicant:
+    "$ref": "Applicant"
+    "$linkVal": "applicant"
+    title: "Co-applicant"
+    description: "A secondary applicant for the loan, if any."
+  existingLoans:
+    type: array
+    title: "Information about existing loans relevant to the applicant"
+    items:
+      "$ref": "ExistingLoan"
+      "$linkVal": "ExistingLoan"
+  adultsInHousehold:
+    type: integer
+    description: The number of adults living in the household of the main applicant
+    min: 1
+  ownedProperties:
+    type: array
+    title: Properties owned by the applicant(s)
+    description: |
+      Any currently owned real-estate property owned by the applicant(s),
+      either owned together or individually. The property that is being
+      refinanced ("refinancingProperty") should not be included.
+    items:
+      '$ref': 'OwnedProperty'
+      "$linkVal": "OwnedProperty"

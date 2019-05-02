@@ -1,0 +1,21 @@
+"$id": "https://open-broker.org/se/Mortgage/v0/schema/MortgageOfferAccepted"
+"$schema": "http://json-schema.org/draft-07/schema#"
+
+title: MortgageOfferAccepted
+description: |
+  An event indicating that an offer has been accepted by the customer or
+  the broker on behalf of the customer
+type: object
+additionalProperties: false
+
+required:
+  - brokerReference
+properties:
+  brokerReference:
+    title: "The reference used for the offer being accepted"
+    "$ref": "definitions/Reference#/reference"
+
+  bankAccount:
+    title: "The bank account to pay out the money to"
+    description: The broker may include a bank account for the applicant
+    "$ref": "definitions/BankAccount#/BankAccount"

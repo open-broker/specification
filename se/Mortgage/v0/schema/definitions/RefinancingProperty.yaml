@@ -1,0 +1,91 @@
+"$id": "https://open-broker.org/se/Mortgage/v0/schema/definitions/RefinancingProperty"
+"$schema": "http://json-schema.org/draft-07/schema#"
+
+title: RefinancingProperty
+description: |
+  An owned real-estate property, such as an apartment, house or
+  cottage that the applicant(s) own and want to refinance the 
+  mortgage for
+type: object
+additionalProperties: false
+required:
+  - interestRate
+  - propertyAddress
+  - propertyType
+  - assessedValue
+  - squareMeters
+  - existingMortgage
+  - monthlyCost
+  - ownershipShare
+properties:
+  propertyAddress:
+    '$ref': 'PropertyAddress'
+    "$linkVal": "PropertyAddress"
+    title: The address of the property which should be refinanced
+  propertyType:
+    type: string
+    title: The property type
+    enum:
+      - HOUSE
+      - TERRACED_HOUSE
+      - VACATION_HOME
+      - APARTMENT
+      - OTHER
+    "meta:enum":
+      HOUSE: An ordinary house with a plot
+      TERRACED_HOUSE: A house that is built adjacent to other houses
+      VACATION_HOME: |
+        A house built for recreational living that may or may not
+        be fit as a permanent resident
+      APARTMENT: An apartment that belongs to condominium compound
+      OTHER: |
+        Some other form of real-estate property that does not belong
+        to any of the above categories
+  interestRate:
+    type: string
+    title: Interest rate on mortgage
+    description: |
+      The current nominal interest rate formatted as a decimal, where 0.15
+      is equal to 15%, 0.0315 is equal to 3.15% and 1.0 is equal to 100%
+    pattern: '^\d\.\d+$'
+    examples: [
+      "0.0315",
+      "0.078"
+    ]
+  assessedValue:
+    type: integer
+    min: 0
+    description: The estimated value of the property, in SEK
+  squareMeters:
+    type: integer
+    min: 0
+    description: The number of square meters of the property (excluding plot)
+  existingMortgage:
+    type: integer
+    min: 0
+    description: How mortgaged the property is, in SEK
+  monthlyCost:
+    type: integer
+    min: 0
+    description: |
+      The sum of all montlhy costs associated with the property, such as
+      upkeep or a monthly fee to a condominium compound if the property
+      is an apartment
+  ownershipShare:
+    type: integer
+    min: 1
+    max: 100
+    description: |
+      How much the applicant(s) own of the house, in percent. If there is
+      more than one applicant, then this value should reflect the total stake
+      for all applicants combined.
+  rooms:
+    type: integer
+    min: 1
+    description: The number of rooms the property has
+  balcony:
+    type: boolean
+    description: If the property has at least one balcony
+  elevator:
+    type: boolean
+    description: If there property has an elevator

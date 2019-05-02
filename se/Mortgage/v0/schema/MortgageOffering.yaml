@@ -1,0 +1,123 @@
+"$id": "https://open-broker.org/se/Mortgage/v0/schema/MortgageOffering"
+"$schema": "http://json-schema.org/draft-07/schema#"
+
+title: MortgageOffering
+description: An offer for a mortgage
+type: object
+additionalProperties: false
+required:
+  - brokerReference
+  - offer
+
+properties:
+  brokerReference:
+    title: "The reference used by the broker for the application resulting in this offer"
+    "$ref": "definitions/Reference#/reference"
+  offer:
+    "$ref": "#/definitions/Offer"
+
+definitions:
+  Offer:
+    type: object
+    additionalProperties: false
+    required:
+      - nominalInterestRate
+      - arrangementFee
+      - termFee
+      - invoiceFee
+
+    properties:
+      effectiveInterestRate:
+        type: string
+        pattern: '^[0-9]+(\.[0-9]+)?$'
+        title: Effective interest rate (APR)
+        description: |
+          The effective annual interest rate of the loan
+          formatted as a string so as to avoid problems with
+          floating-point numbers. An effective interest rate
+          of 15% would be written as `0.15`, and 100% is
+          equal to `1.0`. The effective interest rate takes
+          arrangementFee, termFee and termYears into account.
+
+      nominalInterestRate:
+        type: string
+        pattern: '^[0-9]+(\.[0-9]+)?$'
+        title: Nominal interest rate
+        description: |
+          The nominal annual interest rate of the loan
+          formatted as a string so as to avoid problems with
+          floating-point numbers. An nominal interest rate
+          of 15% would be written as `0.15`, and 100% is
+          equal to `1.0`.
+
+      monthlyCost:
+        type: integer
+        minimum: 1
+        title: Average monthly cost
+        description: |
+          The average monthly cost of the loan given `offeredCredit`,
+          `termYears` and `effectiveInterestRate` in SEK.
+
+      arrangementFee:
+        type: integer
+        minimum: 0
+        title: Arrangement fee for the customer
+        description: |
+          An arrangement fee is a one-time fee taken by the customer
+          charged by the lender for setting up the loan. Use 0 to indicate
+          that no arrangement fee is charged.
+
+      termFee:
+        type: integer
+        minimum: 0
+        title: Fixed fee charged per term
+        description: |
+          Fixed fees to be paid along with amortisation and interest
+          every month. This fee must be included in the calculation of
+          effective interest. This field should be used for
+          unavoidable fees that the customer cannot be reduced by
+          choosing other billing arrangements.
+
+          0 indicates that there is no per-term fee.
+
+      invoiceFee:
+        type: integer
+        minimum: 0
+        title: Fee charged for particular invoicing solutions
+        description: |
+          A fee that the customer can avoid by choosing a different
+          payment solutions such as automated transfers or electronic
+          invoices. This value should not be included in the
+          calculation of the APR.
+
+      termYears:
+        type: integer
+        minimum: 1
+        title: Number of yearly terms
+        description: |
+          The number of year-terms required to payback the loan at
+          the offered interest and the given amount.
+
+      expires:
+        type: string
+        pattern: '\d{4}-\d{2}-\d{2}'
+        title: Expiry date for offer
+        description: |
+          A date after which the offer is no longer valid, formatted
+          as a ISO-8601 date, in the extended format YYYY-MM-DD
+        examples: [
+          "2014-11-23",
+          "2023-06-02"
+        ]
+
+      comment:
+        type: string
+        title: "A note or comment about the offer"
+        description: |
+          An optional human-readable comment about the offer, presenting
+          extra information about the offer, such as if it is only valid
+          under certain conditions or it is mandated that the customer
+          present necessary means of identification or other document.
+        examples: [
+          "Copy of driver's license for applicant is requested"
+        ]

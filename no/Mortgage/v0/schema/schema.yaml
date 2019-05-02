@@ -85,10 +85,9 @@ definitions:
                 The current nominal interest rate formatted as a decimal, where 0.15
                 is equal to 15%, 0.0315 is equal to 3.15% and 1.0 is equal to 100%
               pattern: "^\\d\\.\\d+$"
-              examples: [
-                "0.0315",
-                "0.078"
-              ]
+              examples:
+                - "0.0315"
+                - "0.078"
             assessedValue:
               type: integer
               min: 0
@@ -759,10 +758,9 @@ definitions:
         description: |
           The date for which the loan was disbursed, formatted
           as a ISO-8601 date, in the extended format YYYY-MM-DD
-        examples: [
-          "2014-11-23",
-          "2023-06-02"
-        ]
+        examples:
+          - "2014-11-23"
+          - "2023-06-02"
 
   MortgageMessage:
     title: MortgageMessage
@@ -776,7 +774,7 @@ definitions:
     required:
       - brokerReference
       - message
-      - requriesAction
+      - requiresAction
     properties:
       brokerReference:
         title: A reference-id used by the broker
@@ -791,7 +789,7 @@ definitions:
         description: An indicator showing whether the provided message requires an action.
 
 type: object
-oneOf:
+anyOf:
 - $ref: 'MortgageApplicationCreated'
 - $ref: 'MortgageApplicationRejection'
 - $ref: 'MortgageOffering'

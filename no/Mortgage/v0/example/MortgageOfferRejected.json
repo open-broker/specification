@@ -1,6 +1,6 @@
 {
   "cloudEventsVersion" : "0.1",
-  "eventType" : "org.open-broker.v0.se.MortgageOfferRejected",
+  "eventType" : "org.open-broker.v0.no.MortgageOfferRejected",
   "eventTypeVersion" : "v0",
   "source" : "/mycontext",
   "eventID" : "C234-1234-1234",

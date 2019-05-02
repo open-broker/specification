@@ -1,0 +1,16 @@
+"$id": "https://open-broker.org/se/Mortgage/v0/schema/MortgageOfferRejected"
+"$schema": "http://json-schema.org/draft-07/schema#"
+
+title: MortgageOfferRejected
+description: |
+  An event that may be sent by the broker to indicate that the offer
+  has been rejected by the customer
+type: object
+additionalProperties: false
+
+required:
+  - brokerReference
+properties:
+  brokerReference:
+    title: "The reference used for the offer being rejected"
+    "$ref": "definitions/Reference#/reference"

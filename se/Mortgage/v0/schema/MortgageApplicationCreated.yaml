@@ -1,0 +1,22 @@
+"$id": "https://open-broker.org/se/Mortgage/v0/schema/MortgageApplicationCreated"
+"$schema": "http://json-schema.org/draft-07/schema#"
+
+title: MortgageApplicationCreated
+description: |
+  An event indicating the creation of an application for
+  a mortgage.
+type: object
+additionalProperties: false
+required:
+  - application
+  - dataProtectionContext
+  - brokerReference
+
+properties:
+  brokerReference:
+    title: "A reference-id used by the broker"
+    "$ref": "definitions/Reference#/reference"
+  dataProtectionContext:
+    "$ref": "definitions/DataProtectionContext/DataProtectionContext"
+  application:
+    "$ref": "definitions/Application/application"
