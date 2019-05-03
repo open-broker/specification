@@ -11,3 +11,6 @@ properties:
   brokerReference:
     title: "A reference-id used by the broker"
     "$ref": "https://open-broker.org/schema/v0/se/reference"
+  offerId:
+    title: A reference used for identifying this particular offer
+    "$ref": "https://open-broker.org/schema/v0/se/reference"

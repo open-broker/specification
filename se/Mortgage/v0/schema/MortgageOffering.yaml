@@ -13,6 +13,9 @@ properties:
   brokerReference:
     title: "The reference used by the broker for the application resulting in this offer"
     "$ref": "definitions/Reference#/reference"
+  offerId:
+    title: A reference used for identifying this particular offer
+    $ref: 'http://open-broker.org/se/Mortgage/v0/schema#/definitions/reference'
   offer:
     "$ref": "#/definitions/Offer"
 

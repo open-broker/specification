@@ -14,3 +14,6 @@ properties:
   brokerReference:
     title: "The reference used for the offer being rejected"
     "$ref": "definitions/Reference#/reference"
+  offerId:
+    title: A reference used for identifying this particular offer
+    "$ref": "defintions/Reference#/reference"
