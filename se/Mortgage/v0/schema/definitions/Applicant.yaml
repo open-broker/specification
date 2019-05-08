@@ -14,7 +14,7 @@ required:
   - employmentStatusSinceYear
   - employmentStatusSinceMonth
   - dependentChildren
-  - paymentRemarks
+  - paymentRemark
   - housingType
   - monthlyRent
   - monthlyGrossIncome
