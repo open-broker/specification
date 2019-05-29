@@ -34,9 +34,18 @@
             "loanAmount": 2500000,
             "loanPurpose": "REFINANCE_CONSUMER_LOANS",
             "termYears": 30,
-            "refinanceAmount": 2500000,
+            "existingLoans": [
+                {
+                    "loanAmount": 2500000,
+                    "monthlyPayment": 4500,
+                    "refinanceAmount": 250000,
+                    "existingLoanType": "MORTGAGE",
+                    "responsibility": "SHARED",
+                    "lender": "Santander",
+                    "defaulted": false
+                }
+            ],
             "refinancingProperty": {
-                "interestRate": "0.067",
                 "assessedValue": "3300000",
                 "propertyAddress": {
                     "streetAddress": "Nobels gate 16",
@@ -45,9 +54,7 @@
                 },
                 "propertyType": "APARTMENT_SELF_OWNED",
                 "squareMeters": 196,
-                "existingMortgage": 2500000,
-                "monthlyCost": 6700,
-                "defaulted": false
+                "monthlyCost": 6700
             }
         }
     }
