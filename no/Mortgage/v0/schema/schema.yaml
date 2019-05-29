@@ -213,7 +213,6 @@ definitions:
               - MORTGAGE
               - STUDENT_LOAN
               - UNSECURED_LOAN
-              - MORTGAGE
               - OTHER
           responsibility:
             type: string
