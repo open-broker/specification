@@ -26,6 +26,7 @@ properties:
       CREDIT_CARD: A credit-card
       STUDENT_LOAN: A student loan
       UNSECURED_LOAN: An unsecured loan, not falling into any of the other categories, for example a consumer loan.
+      MORTGAGE: A mortgage, where a house or other property is security for the loan
       OTHER: Any other debt not falling into any of the other categories.
     enum:
       - CAR_LOAN
@@ -33,6 +34,7 @@ properties:
       - CREDIT_CARD
       - STUDENT_LOAN
       - UNSECURED_LOAN
+      - MORTGAGE
       - OTHER
   responsibility:
     type: string
