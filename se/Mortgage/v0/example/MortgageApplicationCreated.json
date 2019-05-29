@@ -103,7 +103,7 @@
                 }
             ],
             "extensions": {
-                    "io.klira.someExtensionProperty": 42,
+                "io.klira.someExtensionProperty": 42,
                 "io.klira.someOtherExtensionProperty": 10000
             }
         },
