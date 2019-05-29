@@ -50,7 +50,7 @@
                 "savingsMutualFunds": 86000,
                 "savingsStocks": 122300,
                 "savingsOther": 0,
-                "paymentRemarks": 0,
+                "paymentRemark": false,
                 "housingType": "RENTED",
                 "housingCostPerMonth": 3000,
                 "employerName": "Zensum AB",
