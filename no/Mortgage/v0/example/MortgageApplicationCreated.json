@@ -33,7 +33,6 @@
                 "childSupportReceivedMonthly": 900,
                 "rentReceivedMonthly": 2000,
                 "otherIncomeReceivedMonthly": 400,
-                "childSupportPaidMonthly": 0,
                 "paymentRemark": false,
                 "housingCostPerMonth": 800,
                 "housingType": "OWN_APARTMENT",

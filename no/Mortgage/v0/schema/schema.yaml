@@ -410,10 +410,6 @@ definitions:
             type: integer
             minimum: 0
             title: Money received each month for categories outside child-support and rent
-          childSupportPaidMonthly:
-            type: integer
-            minimum: 0
-            title: Money paid for child-support each month
           paymentRemark:
             type: boolean
             title: Applicant has a payment remark
