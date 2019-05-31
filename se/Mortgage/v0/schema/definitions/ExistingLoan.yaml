@@ -2,7 +2,9 @@
 "$schema": "http://json-schema.org/draft-07/schema#"
 
 title: ExistingLoan
-description: Any existing loan that an applicant has
+description: |
+  Any existing loan that an applicant has, not including the mortgage
+  that will be refinanced
 type: object
 additionalProperties: false
 required:
