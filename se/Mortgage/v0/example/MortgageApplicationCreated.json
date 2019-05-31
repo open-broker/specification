@@ -86,18 +86,28 @@
                     "monthlyCost": 400,
                     "existingLoanType": "STUDENT_LOAN",
                     "responsibility": "MAIN_APPLICANT"
+                },
+                {
+                    "loanAmount": 1800000,
+                    "monthlyCost": 1700,
+                    "existingLoanType": "MORTGAGE",
+                    "responsibility": "MAIN_APPLICANT"
+                },
+                {
+                    "loanAmount": 300000,
+                    "monthlyCost": 700,
+                    "existingLoanType": "MORTGAGE",
+                    "responsibility": "MAIN_APPLICANT"
                 }
             ],
             "ownedProperties": [
                 {
                     "propertyType": "VACATION_HOME",
-                    "existingMortgage": 1300000,
                     "monthlyCost": 200,
                     "ownershipShare": 80
                 },
                 {
                     "propertyType": "APARTMENT",
-                    "existingMortgage": 1800000,
                     "monthlyCost": 2300,
                     "ownershipShare": 100
                 }

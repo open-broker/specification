@@ -9,7 +9,6 @@ type: object
 additionalProperties: false
 required:
   - propertyType
-  - existingMortgage
   - monthlyCost
   - ownershipShare
 properties:
@@ -32,10 +31,6 @@ properties:
       OTHER: |
         Some other form of real-estate property that does not belong
         to any of the above categories
-  existingMortgage:
-    type: integer
-    min: 0
-    description: How mortgaged the property is, in SEK
   monthlyCost:
     type: integer
     min: 0
