@@ -33,7 +33,6 @@
                 "childSupportReceivedMonthly": 900,
                 "rentReceivedMonthly": 2000,
                 "otherIncomeReceivedMonthly": 400,
-                "childSupportPaidMonthly": 0,
                 "paymentRemark": false,
                 "housingCostPerMonth": 800,
                 "housingType": "OWN_APARTMENT",
@@ -101,14 +100,21 @@
                     "responsibility": "CO_APPLICANT",
                     "lender": "ABC Bank",
                     "defaulted": false
+                },
+                {
+                    "loanAmount": 2500000,
+                    "monthlyPayment": 4500,
+                    "refinanceAmount": 250000,
+                    "existingLoanType": "MORTGAGE",
+                    "responsibility": "SHARED",
+                    "lender": "Santander",
+                    "defaulted": false
                 }
             ],
-            "loanAmount": 2500000,
+            "loanAmount": 2800000,
             "loanPurpose": "REFINANCE_CONSUMER_LOANS",
             "termYears": 30,
-            "refinanceAmount": 2500000,
             "refinancingProperty": {
-                "interestRate": "0.067",
                 "assessedValue": "3300000",
                 "propertyAddress": {
                     "streetAddress": "Nobels gate 16",
@@ -117,10 +123,8 @@
                 },
                 "propertyType": "APARTMENT_SELF_OWNED",
                 "squareMeters": 196,
-                "existingMortgage": 2500000,
                 "monthlyCost": 6700,
-                "condominiumCompoundDebt": null,
-                "defaulted": false
+                "condominiumCompoundDebt": null
             },
             "comment": "Co applicant will retire within six months"
         }

@@ -45,13 +45,15 @@ definitions:
           - termYears
           - applicant
           - loanPurpose
-          - refinanceAmount
           - refinancingProperty
         properties:
           loanAmount:
             type: integer
             title: Amount to borrow
-            description: The amount that the customer wishes to borrow
+            description: |
+              The amount that the customer wishes to borrow, including loans that
+              are refinanced. This value must be equal to or greater than the sum
+              of the refinancing amount for all existing loans.
             minimum: 1
             examples:
               - 50000
@@ -62,32 +64,13 @@ definitions:
             minimum: 1
             examples:
               - 30
-          refinanceAmount:
-            type: integer
-            title: The amount being refinanced
-            description: Must be less than or equal to the loanAmount
-            examples:
-              - 25000
           refinancingProperty:
             required:
-            - interestRate
             - assessedValue
             - propertyAddress
             - propertyType
             - squareMeters
-            - existingMortgage
             - monthlyCost
-            - defaulted
-            interestRate:
-              type: string
-              title: Interest rate on mortgage
-              description: |
-                The current nominal interest rate formatted as a decimal, where 0.15
-                is equal to 15%, 0.0315 is equal to 3.15% and 1.0 is equal to 100%
-              pattern: "^\\d\\.\\d+$"
-              examples:
-                - "0.0315"
-                - "0.078"
             assessedValue:
               type: integer
               min: 0
@@ -138,10 +121,6 @@ definitions:
               type: integer
               min: 0
               description: The number of square meters of the property (excluding any plot)
-            existingMortgage:
-              type: integer
-              min: 0
-              description: How mortgaged the property is, in NOK
             monthlyCost:
               type: integer
               min: 0
@@ -158,13 +137,6 @@ definitions:
                 if the property belongs to a condominium compound.
                 This value should not be given if the property
                 is of another property type than APARTMENT_COOPERATIVE.
-            defaulted:
-              type: boolean
-              title: Loan has defaulted
-              description: |
-                The loan has defaulted because the responsible party of the loan
-                has failed required payments to the lender. This often implies that
-                the loan has been sent to a collection agency.
           extensions:
             '$ref': '#/definitions/extensionPoint'
             '$linkVal': extensionPoint
@@ -410,10 +382,6 @@ definitions:
             type: integer
             minimum: 0
             title: Money received each month for categories outside child-support and rent
-          childSupportPaidMonthly:
-            type: integer
-            minimum: 0
-            title: Money paid for child-support each month
           paymentRemark:
             type: boolean
             title: Applicant has a payment remark
