@@ -70,9 +70,8 @@ definitions:
         'meta:enum':
           REFINANCE: Refinancing existing debt
           HOME_REMODELLING: Home remodelling or renovation
-          HOME_DOWNPAYMENT: To finance down payment for purchasing a home
-          DIVORCE_PROCEEDINGS: To finance costs related to divorce proceedings
           HEALTHCARE_EXPENSES: To finance health-care costs.
+          INVESTMENT: To finance an investment
           EDUCATION: To finance education of some kind
           TRAVEL: To finance a vacation or other travel expenses
           CAR: To finance the purchase of a car or similar
@@ -80,9 +79,8 @@ definitions:
         enum:
           - REFINANCE
           - HOME_REMODELLING
-          - HOME_DOWNPAYMENT
-          - DIVORCE_PROCEEDINGS
           - HEALTHCARE_EXPENSES
+          - INVESTMENT
           - EDUCATION
           - TRAVEL
           - CAR
