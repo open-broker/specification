@@ -1,0 +1,36 @@
+{
+  "cloudEventsVersion": "0.1",
+  "eventType": "org.open-broker.v0.no.PrivateUnsecuredLoanOffering",
+  "eventTypeVersion": "v0",
+  "source": "/mycontext",
+  "eventID": "C234-1234-1234",
+  "eventTime": "2018-04-05T17:31:00Z",
+  "extensions": {
+    "comExampleExtension": "value"
+  },
+  "contentType": "application/json",
+  "data": {
+    "loanInsuranceOffer": {
+        "insuredAmount": 300000,
+        "monthlyPremium": 500
+    },
+    "offer": {
+        "effectiveInterestRate": "0.105",
+        "nominalInterestRate": "0.055",
+        "minOfferedCredit": 250000,
+        "offeredCredit": 300000,
+        "monthlyCost": 2000,
+        "maxOfferedCredit": 300000,
+        "mustRefinance": 100000,
+        "arrangementFee": 695,
+        "termFee": 500,
+        "invoiceFee": 50,
+        "termMonths": 84,
+        "amortizationType":"ANNUITY"
+    },
+    "brokerReference": {
+      "id": "14-0e2375ac997e17a54c1106a7e120fcf3b18a59de923bf4b5d14a61aea93a2a6a",
+      "issuer": "io.klira"
+    }
+  }
+}

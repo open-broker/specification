@@ -180,7 +180,7 @@ definitions:
       - dependentChildren
       - housingType
       - housingCostPerMonth
-      - monthlyIncome
+      - netMonthlyIncome
       - maritalStatus
       - citizenships
       - countriesOfResidence
@@ -338,11 +338,11 @@ definitions:
         minimum: 0
         examples:
         - 10000
-      monthlyIncome:
+      netMonthlyIncome:
         type: integer
         minimum: 0
         title: The monthly net (post-tax) income of the applicant
-      yearlyIncome:
+      grossYearlyIncome:
         type: integer
         minimum: 0
         title: The yearly gross (pre-tax) income of the applicant
