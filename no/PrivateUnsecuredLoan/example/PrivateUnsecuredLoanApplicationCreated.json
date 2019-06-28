@@ -1,0 +1,96 @@
+{
+    "cloudEventsVersion" : "0.1",
+    "eventType" : "org.open-broker.v0.no.PrivateUnsecuredLoanApplicationCreated",
+    "eventTypeVersion" : "v0",
+    "source" : "/mycontext",
+    "eventID" : "C234-1234-1234",
+    "eventTime" : "2018-04-05T17:31:00Z",
+    "extensions" : {
+      "comExampleExtension" : "value"
+    },
+    "contentType" : "application/json",
+    "data": {
+		"application": {
+			"applicant": {
+
+				"ssn": "31128012345",
+				"phone": "+4740123456",
+				"secondaryPhone": [],
+				"emailAddress": "example@example.no",
+				"employmentStatus": "PRIVATE_SECTOR",
+                "employmentStatusSinceYear": 2010,
+                "employmentStatusSinceMonth": 12,
+                "employerName": "Example AB",
+                "employerPhone": "+4740123456",
+                "dependentChildren": 0,
+                "childSupportReceivedMonthly": null,
+                "rentReceivedMonthly": null,
+                "otherIncomeReceivedMonthly": null,
+                "childSupportPaidMonthly": null,
+                "paymentRemark": false,
+				"housingType": "LODGER",
+                "housingSinceYear": 2010,
+                "housingSinceMonth": 12,
+				"housingCostPerMonth": 3000,
+				"netMonthlyIncome": 10000,
+                "grossYearlyIncome": 160000,
+                "partnerYearlyIncome": 0,
+				"maritalStatus": "COHABITING",
+				"bankAccount": "12345678901",
+				"citizenships": [
+					"NO",
+                    "SE"
+				],
+				"livedInCountrySinceYear": 1980,
+                "countriesOfResidence": [
+					"NO"
+				],
+				"taxResidentOf": [
+					"SE"
+				],
+                "education": "UNIVERSITY_SHORT",
+
+				"tentativeAddress": {
+					"firstName": "Bjarne",
+					"lastName": "Bjarnesen",
+					"address": "Fjordgatan 1",
+					"postalCode": "1234",
+					"city": "Oslo"
+				}
+			},
+			"coApplicant": null,
+			"existingLoans": [
+				{
+					"loanAmount": 100000,
+					"monthlyPayment": 3000,
+					"refinanceAmount": 100000,
+					"lenderName": "Lender name",
+					"existingLoanType": "CAR_LOAN",
+					"responsibility": "SHARED",
+                    "lender": "Example Bank"
+				},
+				{
+					"loanAmount": 150000,
+					"monthlyPayment": 1000,
+					"lenderName": "Lender name",
+					"existingLoanType": "STUDENT_LOAN",
+					"responsibility": "MAIN_APPLICANT",
+                    "lender": "Norskbank"
+				}
+			],
+			"extensions": {
+			    "io.klira.someExtensionProperty": 42,
+				"io.klira.someOtherExtensionProperty": 10000
+			},
+			"loanAmount": 300000,
+			"loanPurpose": "HOME_REMODELLING",
+			"refinanceAmount": 100000,
+			"termMonths": 36
+		},
+		"brokerReference": {
+			"issuer": "io.klira",
+			"id": "1"
+		},
+		"dataProtectionContext": "FICTIONAL"
+	}
+}
