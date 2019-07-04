@@ -12,3 +12,6 @@ properties:
   brokerReference:
     title: "The reference used for the offer being rejected"
     "$ref": "https://open-broker.org/schema/v0/se/reference"
+  offerId:
+    title: A reference used for identifying this particular offer
+    "$ref": "https://open-broker.org/schema/v0/se/reference"

@@ -184,6 +184,9 @@ properties:
   brokerReference:
     title: "The reference used by the broker for the application resulting in this offer"
     "$ref": "https://open-broker.org/schema/v0/se/reference"
+  offerId:
+    title: A reference used for identifying this particular offer
+    "$ref": "https://open-broker.org/schema/v0/se/reference"
 
   offer:
     "$ref": "#/definitions/Offer"

@@ -14,6 +14,9 @@ properties:
   brokerReference:
     title: "The reference used for the offer being accepted"
     "$ref": "definitions/Reference#/reference"
+  offerId:
+    title: A reference used for identifying this particular offer
+    "$ref": "defintions/Reference#/reference"
 
   bankAccount:
     title: "The bank account to pay out the money to"

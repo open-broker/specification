@@ -19,7 +19,11 @@
             "monthlyCost": 4900,
             "termYears": 50,
             "expires": "2018-05-05",
-            "comment": "Only valil under condition X and Y"
+            "comment": "Only valid under condition X and Y"
+        },
+        "offerId": {
+          "issuer": "org.credit-provider",
+          "id": "D879-D3290-8FE4W-9IJ"
         },
         "brokerReference": {
           "issuer": "io.klira",

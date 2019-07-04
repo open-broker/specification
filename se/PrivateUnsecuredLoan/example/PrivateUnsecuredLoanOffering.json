@@ -15,6 +15,10 @@
       "insuredAmount": 234,
       "monthlyPremium": 123
     },
+    "offerId": {
+      "id": "a9j8s0e2X5Aac9",
+      "issuer": "org.service-provider"
+    },
     "offer": {
       "arrangementFee": 0,
       "amortizationType":"ANNUITY", 

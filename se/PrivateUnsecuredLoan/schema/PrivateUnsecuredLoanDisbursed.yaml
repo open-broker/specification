@@ -14,6 +14,9 @@ properties:
   brokerReference:
     title: "A reference-id used by the broker"
     "$ref": "https://open-broker.org/schema/v0/se/reference"
+  offerId:
+    title: A reference used for identifying the offer that has been disbursed
+    $ref: 'http://open-broker.org/no/Mortgage/v0/schema#/definitions/reference'
   amountDisbursed:
     type: "integer"
     minimum: 0
