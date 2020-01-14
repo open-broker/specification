@@ -71,6 +71,7 @@ definitions:
           REFINANCE: Refinancing existing debt
           HOME_REMODELLING: Home remodelling or renovation
           HEALTHCARE_EXPENSES: To finance health-care costs.
+          INVESTMENT: To finance an investment
           EDUCATION: To finance education of some kind
           TRAVEL: To finance a vacation or other travel expenses
           CAR: To finance the purchase of a car or similar
@@ -79,6 +80,7 @@ definitions:
           - REFINANCE
           - HOME_REMODELLING
           - HEALTHCARE_EXPENSES
+          - INVESTMENT
           - EDUCATION
           - TRAVEL
           - CAR
