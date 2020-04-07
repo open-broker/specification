@@ -228,6 +228,7 @@ definitions:
           SELF_EMPLOYED: The applicant is a sole proprietor or works for his or her own company
           STUDENT: Signed up to a university or other higher education
           TEMPORARY: Employment pertaining to a limited time period (no. Midlertidig ansatt)
+          TEMPORARILY_DISCHARGED: Employed, but temporarily not working (no. permittering)
           TRIAL: Trial employment (no. Proveansatt)
           UNEMPLOYED: Not currently employed
         enum:
@@ -242,6 +243,7 @@ definitions:
           - SELF_EMPLOYED
           - STUDENT
           - TEMPORARY
+          - TEMPORARILY_DISCHARGED
           - TRIAL
           - UNEMPLOYED
       employmentStatusSinceYear:
