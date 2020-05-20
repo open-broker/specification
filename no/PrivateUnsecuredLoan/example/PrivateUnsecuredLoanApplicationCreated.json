@@ -2,9 +2,9 @@
     "cloudEventsVersion" : "0.1",
     "eventType" : "org.open-broker.v0.no.PrivateUnsecuredLoanApplicationCreated",
     "eventTypeVersion" : "v0",
-    "source" : "/mycontext",
-    "eventID" : "C234-1234-1234",
-    "eventTime" : "2018-04-05T17:31:00Z",
+    "source" : "no.zensum",
+    "eventID" : "4ebf6c88-8eed-48b3-8e0a-52d13f60e047",
+    "eventTime" : "2020-05-13T10:29:21+02:00",
     "extensions" : {
       "comExampleExtension" : "value"
     },
@@ -12,7 +12,6 @@
     "data": {
 		"application": {
 			"applicant": {
-
 				"ssn": "31128012345",
 				"phone": "+4740123456",
 				"secondaryPhone": [],
@@ -42,14 +41,9 @@
                     "SE"
 				],
 				"livedInCountrySinceYear": 1980,
-                "countriesOfResidence": [
-					"NO"
-				],
-				"taxResidentOf": [
-					"SE"
-				],
+                "countriesOfResidence": ["NO"],
+				"taxResidentOf": ["SE"],
                 "education": "UNIVERSITY_SHORT",
-
 				"tentativeAddress": {
 					"firstName": "Bjarne",
 					"lastName": "Bjarnesen",
@@ -64,32 +58,31 @@
 					"loanAmount": 100000,
 					"monthlyPayment": 3000,
 					"refinanceAmount": 100000,
-					"lenderName": "Lender name",
-					"existingLoanType": "CAR_LOAN",
+					"existingLoanType": "UNSECURED_LOAN",
 					"responsibility": "SHARED",
                     "lender": "Example Bank"
 				},
 				{
 					"loanAmount": 150000,
 					"monthlyPayment": 1000,
-					"lenderName": "Lender name",
+                    "refinanceAmount": 0,
 					"existingLoanType": "STUDENT_LOAN",
 					"responsibility": "MAIN_APPLICANT",
                     "lender": "Norskbank"
 				}
 			],
 			"extensions": {
-			    "io.klira.someExtensionProperty": 42,
-				"io.klira.someOtherExtensionProperty": 10000
+			    "se.zensum.someExtensionProperty": 42,
+				"se.zensum.someOtherExtensionProperty": 10000
 			},
 			"loanAmount": 300000,
 			"loanPurpose": "HOME_REMODELLING",
 			"refinanceAmount": 100000,
-			"termMonths": 36
+			"termMonths": 60
 		},
 		"brokerReference": {
-			"issuer": "io.klira",
-			"id": "1"
+			"issuer": "no.zensum",
+			"id": "10500-aaeb2e2ee8de09cd217ad14badd4170a549f9ec9fd4eb4815382a3b5a565d038"
 		},
 		"dataProtectionContext": "FICTIONAL"
 	}
