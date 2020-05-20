@@ -45,7 +45,7 @@ definitions:
         title: Effective interest rate (APR)
         description: |
           The effective annual interest rate of the loan
-          formatted as a string so as to avoid problems
+          formatted as a string to avoid problems
           floating-point numbers. An effective interest rate
           of 15% would be written as `0.15`, and 100% is
           equal to `1.0`.
@@ -55,7 +55,7 @@ definitions:
         title: Nominal interest rate
         description: |
           The nominal annual interest rate of the loan
-          formatted as a string so as to avoid problems
+          formatted as a string to avoid problems
           floating-point numbers. An nominal interest rate
           of 15% would be written as `0.15`, and 100% is
           equal to `1.0`.
@@ -120,7 +120,7 @@ definitions:
           Fixed fees to be paid along with amortisation and interest
           every month. This fee must be included in the calculation of
           effective interest. This field should be used for
-          unavoidable fees that the customer cannot be reduced by
+          unavoidable fees that the customer cannot reduce by
           choosing other billing arrangements.
           0 indicates that there is no per-term fee.
       invoiceFee:
@@ -138,7 +138,7 @@ definitions:
         title: Number of monthly terms
         description: |
           The number of month-terms required to payback the loan at
-          the offered interest and offered amount. 
+          the offered interest and offered amount.
       amortizationType:
         type: string
         title: Type of amortization plan

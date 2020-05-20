@@ -29,7 +29,7 @@ properties:
     type: integer
     minimum: 0
     title:
-      Amount of credit wanted by the customer
+      Amount of credit requested by the customer
     description: |
       The amount of credit requested by the user. A service-provider
       use this value to set the size of the actual loan within the
