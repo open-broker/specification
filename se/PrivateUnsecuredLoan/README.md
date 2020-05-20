@@ -1,27 +1,27 @@
 ## Private Unsecured Loans - Sweden
 
-Private unsecured loans also known as consumer loans is one of the
+Private unsecured loans, also known as consumer loans, are one of the
 products supported by the specification.
 
 The following events are defined for private unsecured loans:
 
 - Application created - [org.open-broker.v0.se.PrivateUnsecuredLoanApplicationCreated](schema/PrivateUnsecuredLoanApplicationCreated.yaml)
-- Processing delayed - [org.open-broker.v0.se.PrivateUnsecuredLoanDelayedProcessing](schema/PrivateUnsecuredLoanDelayedProcessing.yaml)
-- Loan offering - [org.open-broker.v0.se.PrivateUnsecuredLoanOffering](schema/PrivateUnsecuredLoanOffering.yaml)
+- Delayed processing  - [org.open-broker.v0.se.PrivateUnsecuredLoanDelayedProcessing](schema/PrivateUnsecuredLoanDelayedProcessing.yaml)
+- Offering - [org.open-broker.v0.se.PrivateUnsecuredLoanOffering](schema/PrivateUnsecuredLoanOffering.yaml)
 - Rejection - [org.open-broker.v0.se.PrivateUnsecuredLoanRejection](schema/PrivateUnsecuredLoanRejection.yaml)
 - Offer accepted - [org.open-broker.v0.se.PrivateUnsecuredLoanOfferAccepted](schema/PrivateUnsecuredLoanOfferAccepted.yaml)
 - Offer rejected - [org.open-broker.v0.se.PrivateUnsecuredLoanOfferRejected](schema/PrivateUnsecuredLoanOfferRejected.yaml)
 - Status updated - [org.open-broker.v0.se.PrivateUnsecuredLoanStatusUpdated](schema/PrivateUnsecuredLoanStatusUpdated.yaml)
-- Loan disbursed - [org.open-broker.v0.se.PrivateUnsecuredLoanDelayedProcessing](schema/PrivateUnsecuredLoanDisbursed.yaml)
+- Disbursed - [org.open-broker.v0.se.PrivateUnsecuredLoanDisbursed](schema/PrivateUnsecuredLoanDisbursed.yaml)
 - Message - [org.open-broker.v0.se.PrivateUnsecuredLoanMessage](schema/PrivateUnsecuredLoanMessage.yaml)
 
 An example of an event-flow between broker and service provider could look like this:
 
 1. Broker sends an application created event
 2. The service provider sends a processing delayed event indicating that the case will be processed manually.
-3. The service provider the sends a loan offering or a rejection event.
+3. The service provider then sends a loan offering or a rejection event.
 4. The customer sends an offer accepted event, indicating that the customer would like to sign for the offered loan.
-4. The service provider sends a status updated event indicating that the customer has signed the documents
+4. The service provider sends a status updated event indicating that the customer has signed the documents.
 5. The service provider sends a loan disbursed event indicating that the loan has been disbursed.
 6. [END]
 
@@ -32,7 +32,7 @@ Service provider denies the application:
 - 3.a. A rejection event is sent in response to the application
 - 3.b. [END]
 
-Customer rejects the service provider's offer.
+Customer rejects the service provider's offer:
 
 - 4.a. The broker sends an offer rejected event
 
@@ -46,9 +46,9 @@ a broker to a service provider _or_ from a service provider to a broker, but nev
 - Offer rejected
 
 #### Events from Service Provider to Broker
-- Processing delayed
-- Loan offering
+- Delayed processing
+- Offering
 - Rejection
 - Status updated
-- Loan disbursed
+- Disbursed
 - Message

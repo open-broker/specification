@@ -1,14 +1,14 @@
 # Rationale
 
-The lack of a standard way of transfering information between brokers
-and consumer banking companies, leads to wasted effort in integrating
+The lack of a standard way of transferring information between brokers
+and consumer banking companies leads to wasted effort in integrating
 systems and increased operational risks used by various actors. This
-specification, building, upon established and modern internet standard
-aims provide an extensible, validatable method of integrating system
+specification, built upon established and modern internet standard,
+aims to provide an extensible, validatable method of integrating system
 efficiently.
 
-The design allows for middlewares and is suitable for microservice
-architectures. Additionally, a design goal is ease of implementation
+The design allows for middleware and is suitable for microservice
+architectures. Additionally, a design goal is to ease of implementation
 while not compromising on the semantics.
 
 # Overview
@@ -26,8 +26,8 @@ multiple service providers.
 
 The typical interaction with a broker may include two-way
 communication, that is the service provider sending events to the
-broker and vice versa. This means that both the service provider and
-broker will act as consumers and producers of the events. For the
+broker and vice versa. This means that both, the service provider and
+broker, will act as consumers and producers of the events. For the
 purposes of this standard the terms consumer and producer are defined
 as in the CloudEvents specification. The producer creates events and
 the consumer reads events created by the producer.
@@ -39,7 +39,7 @@ semantics.
 
 Events MUST be transmitted according to the [CloudEvents webhook specification](https://github.com/cloudevents/spec/blob/master/http-webhook.md).
 
-The payload of the bodies transfered using CloudEvents MUST be a valid body according to the [CloudEvents json format](https://github.com/cloudevents/spec/blob/master/json-format.md)
+The payload of the bodies transferred using CloudEvents MUST be a valid body according to the [CloudEvents json format](https://github.com/cloudevents/spec/blob/master/json-format.md)
 
 ```
 {
@@ -63,7 +63,7 @@ All events specified in this working-copy of the spec shall be in the
 namespace `org.open-broker.v0.COUNTRYCODE` where country-code is a two
 letter ISO-3166-1 code referring to the country in which the product
 is brokered. If this specification were to specify an event for
-services brokered within Sweden called `example` its event-type would
+services brokered within Sweden called `example` its event type would
 be `org.open-broker.v0.SE.example`.
 
 # Event data
@@ -102,7 +102,7 @@ already exists in the specification.
 
 Extension points can only be used when a defined event type contains a
 value of the type `ExtensionPoint`, in those cases an extension point
-is defined it's name shall be `extensions`. Its cardinaility shall be
+is defined it's name shall be `extensions`. Its cardinality shall be
 `0..1`, that is the field can be null, indicating that no extensions
 were added.
 

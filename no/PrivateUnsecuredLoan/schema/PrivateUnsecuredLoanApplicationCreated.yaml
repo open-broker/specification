@@ -32,7 +32,7 @@ definitions:
       termMonths:
         type: integer
         title: Number of monthly terms
-        description: The number 1-month terms that the applicant desires to pay off the loan over
+        description: The number of 1-month terms that the applicant desires to pay off the loan over
         minimum: 1
         examples:
           - 24
@@ -191,7 +191,7 @@ definitions:
       ssn:
         type: string
         title: 11-digit Social Security Number (no. Fodselsnummer)
-        description: A Norweigian Social Security number on the 11-digit format DDMMYYXXXXX
+        description: A Norweigian Social Security number in 11-digit format DDMMYYXXXXX
         pattern: '^[0-9]{11}$'
         minLength: 11
         maxLength: 11
@@ -217,7 +217,7 @@ definitions:
         type: string
         title: The employment situation of the applicant
         'meta:enum':
-          DOMESTIC: Managing the home without employment 
+          DOMESTIC: Managing the home without employment
           EARLY_RETIRED: Retired earlier before the usual retirement age (no. Ufor)
           HOURLY: Formally permanently employed, hired by the hour
           OTHER: An employment status not falling neatly in to any of the other categories
@@ -274,8 +274,8 @@ definitions:
         type: integer
         title: Number of dependent children
         description: |
-          Number of child dependents under the age of 18. 
-          If greater than 15 then 15 is sent.
+          Number of child dependents under the age of 18.
+          If greater than 15, then 15 is sent.
         default: 0
         minimum: 0
         maximum: 15
@@ -297,13 +297,13 @@ definitions:
         title: Money paid for child-support each month
       paymentRemark:
         type: boolean
-        title: Applicant has a payment remark
+        title: Payment remark
         description: |
-          Indicate whether an applicant has a payment remark or not, due to a failure to 
+          Indicate whether an applicant has a payment remark or not, due to a failure to
           pay an outstanding bill.
       housingType:
         type: string
-        title: Housing type for the applicant
+        title: Applicant's housing type
         description: The form of housing in which the applicant resides
         'meta:enum':
           COOPERATIVE: The applicant owns a part in a housing cooperative (no. Borettslag)
@@ -391,7 +391,7 @@ definitions:
         '$ref': '#/definitions/countryCodeArray'
         '$linkVal': countryCodeArray
       taxResidentOf:
-        title: Countries that the applicant is a resident of for tax-purposes
+        title: Countries that the applicant is a tax resident of
         '$ref': '#/definitions/countryCodeArray'
         '$linkVal': countryCodeArray
       education:
@@ -408,7 +408,7 @@ definitions:
           - UNIVERSITY_SHORT
           - UNIVERSITY_LONG
       tentativeAddress:
-        title: Address of the applicant for display purposes
+        title: Address of the applicant
         description: |
           All actors are expected to perform proper due diligence in
           establishing the identity of the applicant
@@ -432,7 +432,7 @@ properties:
       data if processing may affect real persons, for example,
       ordering a hard credit inquiry.
     'meta:enum':
-      REAL: Production data consisting concerning real data-subjects
+      REAL: Production data concerning real data-subjects
       FICTIONAL: Fictional data, does not concern real data-subjects
     enum:
       - REAL
