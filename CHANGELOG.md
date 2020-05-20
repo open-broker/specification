@@ -1,2 +1,3 @@
 - 2018-05-21 - Added extension points
 - 2018-05-15 - Initial sketch of the specification
+- 2020-05-20 - Update Swedish and Norwegian specification, update examples, add reference in NO schema, fix typos
