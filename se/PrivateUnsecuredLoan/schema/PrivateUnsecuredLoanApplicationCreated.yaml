@@ -1,14 +1,14 @@
 title: PrivateUnsecuredLoanApplicationCreated
 description: |
   An event indicating the creation of an application for
-  a private unsecure loan.
+  a private unsecured loan.
 type: object
 additionalProperties: false
-"$id": "https://open-broker.org/schema/v0/se/PrivateUnsecuredLoanApplicationCreated"
-"$schema": "http://json-schema.org/draft-06/schema#"
+"$id": 'https://open-broker.org/schema/v0/se/PrivateUnsecuredLoanApplicationCreated'
+"$schema": 'http://json-schema.org/draft-06/schema#'
 definitions:
-  ExtensionPoint:
-    title: "Extension data"
+  extensionPoint:
+    title: Extension data
     additionalProperties: false
     patternProperties:
       "^(([a-zA-Z0-9]|[a-zA-Z0-9][a-zA-Z0-9-][a-zA-Z0-9]).)([A-Za-z0-9]|[A-Za-z0-9][A-Za-z0-9-]*[A-Za-z0-9])$":
@@ -24,48 +24,48 @@ definitions:
     properties:
       loanAmount:
         type: integer
-        title: "Amount to borrow"
-        description: "The amount that the customer wishes to borrow"
+        title: Amount to borrow
+        description: The amount that the customer wishes to borrow
         minimum: 1
         examples:
         - 50000
       termMonths:
         type: integer
-        title: 'Number of monthly terms'
-        description: "The number 1-month terms that the applicant desires to pay off the loan over"
+        title: Number of monthly terms
+        description: The number of 1-month terms that the applicant desires to pay off the loan over
         minimum: 1
         examples:
         - 3
       refinanceAmount:
         type: integer
-        title: "The amount being refinanced"
-        description: "Must be less than or equal to the loanAmount"
+        title: The amount being refinanced
+        description: Must be less than or equal to the loanAmount
         examples:
           - 25000
       extensions:
-        '$ref': '#/definitions/ExtensionPoint'
-        "$linkVal": "ExtensionPoint"
-        title: "Custom, vendor-specific extensions to the schema"
+        '$ref': '#/definitions/extensionPoint'
+        "$linkVal": extensionPoint
+        title: Custom, vendor-specific extensions to the schema
       applicant:
-        "$ref": "#/definitions/applicant"
-        "$linkVal": "applicant"
-        title: "Applicant"
-        description: "The primary applicant to the loan"
+        "$ref": '#/definitions/applicant'
+        "$linkVal": applicant
+        title: Applicant
+        description: The primary applicant to the loan
       coApplicant:
-        "$ref": "#/definitions/applicant"
-        "$linkVal": "applicant"
-        title: "Co-applicant"
-        description: "A secondary applicant for the loan, if any."
+        "$ref": '#/definitions/applicant'
+        "$linkVal": applicant
+        title: Co-applicant
+        description: A secondary applicant for the loan, if any.
       existingLoans:
         type: array
-        title: "Information about existing loans relevant to the applicant"
+        title: Information about existing loans relevant to the applicant
         items:
-          "$ref": "#/definitions/ExistingLoan"
-          "$linkVal": "ExistingLoan"
+          "$ref": '#/definitions/existingLoan'
+          "$linkVal": existingLoan
       loanPurpose:
         type: string
-        title: "Purpose of the loan"
-        description: "Categorical label for the purpose of the loan being applied for"
+        title: Purpose of the loan
+        description: Categorical label for the purpose of the loan being applied for
         default: OTHER
         "meta:enum":
           REFINANCE: Refinancing existing debt
@@ -89,7 +89,7 @@ definitions:
           - TRAVEL
           - CAR
           - OTHER
-  ExistingLoan:
+  existingLoan:
     type: object
     additionalProperties: false
     required:
@@ -127,7 +127,7 @@ definitions:
           - OTHER
       lenderName:
         type: string
-        title: "Name of the lender"
+        title: Name of the lender
       responsibility:
         type: string
         "meta:enum":
@@ -147,9 +147,9 @@ definitions:
     type: array
     uniqueItems: true
     items:
-      "$linkVal": "countryCode"
       '$ref': '#/definitions/countryCode'
-  Address:
+      "$linkVal": countryCode
+  address:
     type: object
     additionalProperties: false
     required:
@@ -197,21 +197,21 @@ definitions:
     properties:
       ssn:
         type: string
-        title: '12-digit Social Security Number (sv. Personnr) with'
-        description: "a Swedish Social-security number on the 12-digit format. YYYYMMDD-XXXX "
-        pattern: "^[0-9]{12}$"
+        title: 12-digit Social Security Number (sv. Personnr)
+        description: A Swedish Social-security number in 12-digit format. YYYYMMDDXXXX
+        pattern: '^[0-9]{12}$'
         minLength: 12
         maxLength: 12
         examples:
-        - '195911057916'
+        - "195911057916"
       phone:
         type: string
-        title: "Phone number to the applicant"
+        title: Phone number to the applicant
         pattern: '^\+[1-9][0-9]{1,14}$'
         examples:
         - "+467015114441"
       secondaryPhone:
-        title: "List of alternate phone numbers"
+        title: List of alternate phone numbers
         type: array
         items:
           type: string
@@ -219,10 +219,10 @@ definitions:
       emailAddress:
         type: string
         format: email
-        title: "Email address to the applicant"
+        title: Email address to the applicant
       employmentStatus:
         type: string
-        title: 'The employment situation of the applicant'
+        title: The employment situation of the applicant
         enum:
           - EARLY_RETIRED
           - HOURLY
@@ -235,13 +235,13 @@ definitions:
           - UNEMPLOYED
           - FULL_TIME
         "meta:enum":
-          EARLY_RETIRED: Retried earlier before the usual retirement age
+          EARLY_RETIRED: Retired earlier before the usual retirement age
           HOURLY: Formally permanently employed, hired by the hour
           OTHER: An employment status not falling neatly in to any of the other categories
           RETIRED: Retired due to age
           SELF_EMPLOYED: The applicant is a sole proprietor or works for his or her own company
           STUDENT: Signed up to a university or other higher education
-          TEMPORARY: Non-full time employment pertaining to a project
+          TEMPORARY: Non-full-time employment pertaining to a project
           TRIAL: Trial employment (sv. Provanställning)
           UNEMPLOYED: Not currently employed
           FULL_TIME: Employed full-time
@@ -250,19 +250,19 @@ definitions:
         type: integer
         minimum: 1900
         maximum: 3000
-        title: "Year in which the applicant entered into his or her current employment status"
+        title: Year in which the applicant entered into his or her current employment status
         examples:
         - 2014
       employmentStatusSinceMonth:
         type: integer
-        title: "Month in which the applicant entered into his or her current employment status"
+        title: Month in which the applicant entered into his or her current employment status
         minimum: 1
         maximum: 12
         examples:
         - 3
       employerName:
         type: string
-        title: 'The company name of the employer'
+        title: The company name of the employer
         examples:
         - ACME AB
       employerPhone:
@@ -272,34 +272,33 @@ definitions:
         - "+465069158975"
       dependentChildren:
         type: integer
-        title: 'Number of dependent children'
-        description: "Number of child dependents under the age of 18. If greater than 15 then 15 is sent."
+        title: Number of dependent children
+        description: Number of child dependents under the age of 18. If greater than 15, then 15 is sent.
         default: 0
         minimum: 0
         maximum: 15
       childSupportReceivedMonthly:
         type: integer
         minimum: 0
-        title: "Money received for child-support each month"
+        title: Money received for child-support each month
       childSupportPaidMonthly:
         type: integer
         minimum: 0
-        title: "Money paid for child-support each month"
+        title: Money paid for child-support each month
       paymentRemark:
         type: boolean
-        title: "Applicant has a payment remark"
-        description: |
-          Indicate whether an applicant has a payment remark or not, due to a failure to 
+        title: Payment remark
+        description: Indicate whether an applicant has a payment remark or not, due to a failure to
           pay an outstanding bill.
       housingType:
         type: string
-        title: "Housing type for the applicant"
+        title: Applicant's housing type
         description: The form of housing in which the applicant resides
         "meta:enum":
           RENTED: The applicant rents his or her place of residence
           OWN_APARTMENT: The applicant owns his or her apartment
           OWN_HOUSE: The applicant owns his or her house
-          LIVE_IN: "the applicant doesn't directly rent or own a house but is rather a lodger"
+          LIVE_IN: The applicant doesn't directly rent or own a house but is rather a lodger
         enum:
           - RENTED
           - OWN_APARTMENT
@@ -308,7 +307,7 @@ definitions:
 
       housingCostPerMonth:
         type: integer
-        title: 'Housing-related costs per month'
+        title: Housing-related costs per month
         default: 0
         minimum: 0
         examples:
@@ -316,35 +315,35 @@ definitions:
       monthlyIncome:
         type: integer
         minimum: 0
-        title: The monthly pre-tax income of the applicant
+        title: The monthly gross (pre-tax) income of the applicant
       maritalStatus:
         type: string
-        title: "The marital status of the applicant"
+        title: The marital status of the applicant
         enum:
           - SINGLE
           - MARRIED
           - COHABITING
       bankAccount:
-        title: "Applicant's bank account"
+        title: Applicant's bank account
         '$ref': 'https://open-broker.org/schema/v0/se/BankAccount'
       citizenships:
-        title: "Countries that the applicant is a citizen of"
+        title: Countries that the applicant is a citizen of
         '$ref': '#/definitions/countryCodeArray'
-        "$linkVal": "CountryCodeArray"
+        "$linkVal": countryCodeArray
       countriesOfResidence:
-        title: "Countries that the applicant is a resident of"
+        title: Countries that the applicant is a resident of
         '$ref': '#/definitions/countryCodeArray'
-        "$linkVal": "CountryCodeArray"
+        "$linkVal": countryCodeArray
       taxResidentOf:
-        title: "Countries that the applicant is a resident of for tax-purposes"
+        title: Countries that the applicant is a tax resident of
         '$ref': '#/definitions/countryCodeArray'
-        "$linkVal": "CountryCodeArray"
+        "$linkVal": countryCodeArray
       tentativeAddress:
-        title: "Address of the applicant for display purposes"
+        title: Address of the applicant
         description:
-          "All actors are expected to perform proper due diligence in establishing the identity of the applicant"
-        '$ref': '#/definitions/Address'
-        "$linkVal": "Address"
+          All actors are expected to perform proper due diligence in establishing the identity of the applicant
+        '$ref': '#/definitions/address'
+        "$linkVal": address
 
 required:
   - application
@@ -352,22 +351,22 @@ required:
   - brokerReference
 properties:
   brokerReference:
-    title: "A reference-id used by the broker"
+    title: A reference-id used by the broker
     "$ref": "https://open-broker.org/schema/v0/se/reference"
   dataProtectionContext:
     type: string
-    title: "The data-protection context of the application"
+    title: The data-protection context of the application
     description: |
       Consumers MAY reject or refuse to process data sent in the REAL
       data protection context if the consumer deems it cannot secure
-      the data being sent. Additionally consumers may reject FICTIONAL
+      the data being sent. Additionally, consumers may reject FICTIONAL
       data if processing may affect real persons, for example,
       ordering a hard credit inquiry.
     "meta:enum":
-      REAL: Production data consisting concerning real data-subjects
-      FICTIONAL: Fictional data, does not concern real data-subjects
+      REAL: Production data concerning real data-subjects
+      FICTIONAL: Fictional data does not concern real data-subjects
     enum:
-      - "REAL"
-      - "FICTIONAL"
+      - REAL
+      - FICTIONAL
   application:
     "$ref": "#/definitions/application"

@@ -6,7 +6,7 @@ additionalProperties: false
 "$id": "https://open-broker.org/schema/v0/se/PrivateUnsecuredLoanOffering"
 "$schema": "http://json-schema.org/draft-06/schema#"
 definitions:
-  LoanInsuranceOffer:
+  loanInsuranceOffer:
     type: object
     additionalProperties: false
     required:
@@ -24,7 +24,7 @@ definitions:
       descriptiveText:
         type: string
         title: A text to be displayed along with the offer.
-  Offer:
+  offer:
     type: object
     additionalProperties: false
     required:
@@ -46,7 +46,7 @@ definitions:
         title: Effective interest rate (APR)
         description: |
           The effective annual interest rate of the loan
-          formatted as a string so as to avoid problems
+          formatted as a string to avoid problems
           floating-point numbers. An effective interest rate
           of 15% would be written as `0.15`, and 100% is
           equal to `1.0`.
@@ -56,7 +56,7 @@ definitions:
         title: Nominal interest rate
         description: |
           The nominal annual interest rate of the loan
-          formatted as a string so as to avoid problems
+          formatted as a string to avoid problems
           floating-point numbers. An nominal interest rate
           of 15% would be written as `0.15`, and 100% is
           equal to `1.0`.
@@ -67,7 +67,6 @@ definitions:
         description: |
           The minimum amount for which the lender is
           willing to offer this interest rate for.
-
           This value can be equal to both the maxOfferedCredit and
           offeredCredit. Indicating that this is the only possible
           amount offered.
@@ -79,7 +78,6 @@ definitions:
           The amount the customer applied for or the highest number
           the customer is approved for, if this number is lower than
           what was originally applied for.
-
           This value can be equal to both the minOfferedCredit and
           maxOfferedCredit. Indicating that this is the only possible
           amount offered.
@@ -99,7 +97,6 @@ definitions:
         description: |
           The largest loan that this customer is approved for under
           the current interest rate.
-
           This value can be equal to both the minOfferedCredit and
           offeredCredit. Indicating that this is the only possible
           amount offered.
@@ -128,9 +125,8 @@ definitions:
           Fixed fees to be paid along with amortisation and interest
           every month. This fee must be included in the calculation of
           effective interest. This field should be used for
-          unavoidable fees that the customer cannot be reduced by
+          unavoidable fees that the customer cannot reduce by
           choosing other billing arrangements.
-
           0 indicates that there is no per-term fee.
 
       invoiceFee:
@@ -150,15 +146,15 @@ definitions:
         description: |
           The number of month-terms required to payback the loan at
           the offered interest and offered amount.
-      
+
       amortizationType:
         type: string
-        title: "Type of amortization plan"
-        description: "Decides in which manner the loan is amortized"
+        title: Type of amortization plan
+        description: Decides in which manner the loan is amortized
         "meta:enum":
           ANNUITY: |
             The monthly sum that is payed by the customer is fixed, and the amount that is amortized is gradually increased
-            since the the amount to cover the interest rate each month decreases which each amortization.
+            since the amount to cover the interest rate each month decreases which each amortization.
           STRAIGHT_LINE: |
             The amount paid for amortization each month is fixed, while the interest payment will be lower over time, meaning
             that the total monthly cost for the loan will decrease over time.
@@ -168,9 +164,9 @@ definitions:
 
       comment:
         type: string
-        title: "A note or comment about the offer"
+        title: A note or comment about the offer
         description: |
-          An optional human-readable comment about the offer, presenting
+          An optional human-readable comment about the offer presenting
           extra information about the offer, such as if it is only valid
           under certain conditions or it is mandated that the customer
           present necessary means of identification or other document.
@@ -182,13 +178,13 @@ required:
   - offer
 properties:
   brokerReference:
-    title: "The reference used by the broker for the application resulting in this offer"
+    title: The reference used by the broker for the application resulting in this offer
     "$ref": "https://open-broker.org/schema/v0/se/reference"
   offerId:
     title: A reference used for identifying this particular offer
     "$ref": "https://open-broker.org/schema/v0/se/reference"
 
   offer:
-    "$ref": "#/definitions/Offer"
+    "$ref": "#/definitions/offer"
   loanInsuranceOffer:
-    "$ref": "#/definitions/LoanInsuranceOffer"
+    "$ref": "#/definitions/loanInsuranceOffer"

@@ -3,8 +3,8 @@
 title: reference
 description: |
   A reference used for identification of an event. Consisting of two
-  parts an issuer domain name of the form `com.example`, and an
-  arbitrary id string. The values, taken together must be unique.
+  parts: an issuer domain name of the form `com.example`, and an
+  arbitrary id string. The values taken together must be unique.
 
   In other words, the issuing organization can issue an ID once only.
 
@@ -12,11 +12,11 @@ type: object
 additionalProperties: false
 properties:
   issuer:
-    type: "string"
-    title: 'Domain-name of the issuer of the reference, in reverse order'
-    description: "Reversed DNS name for the broker, for example, example.com becomes com.example"
+    type: string
+    title: Domain-name of the issuer of the reference in reverse order
+    description: Reversed DNS name for the broker, for instance, example.com becomes com.example
     pattern: "^(([a-zA-Z0-9]|[a-zA-Z0-9][a-zA-Z0-9-][a-zA-Z0-9]).)([A-Za-z0-9]|[A-Za-z0-9][A-Za-z0-9-]*[A-Za-z0-9])"
   id:
     type: string
-    title: "Reference number for the broker"
-    description: "An arbitrary reference string that is unique"
+    title: Reference number for the broker
+    description: An arbitrary reference string that is unique

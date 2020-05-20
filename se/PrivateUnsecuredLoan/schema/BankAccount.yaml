@@ -13,7 +13,7 @@ properties:
   clearingNo:
     title: Clearing number identifying the bank & branch.
     description: |
-      The clearing number, also known as the sort code identifies, the
+      The clearing number, also known as the sort code, identifies the
       bank along with the branch.
     type: string
     pattern: "^[1-9][0-9]{3}$"

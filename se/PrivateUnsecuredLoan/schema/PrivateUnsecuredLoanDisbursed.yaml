@@ -12,20 +12,20 @@ required:
   - amountBrokered
 properties:
   brokerReference:
-    title: "A reference-id used by the broker"
+    title: A reference-id used by the broker
     "$ref": "https://open-broker.org/schema/v0/se/reference"
   offerId:
     title: A reference used for identifying the offer that has been disbursed
-    $ref: 'http://open-broker.org/no/Mortgage/v0/schema#/definitions/reference'
+    $ref: "http://open-broker.org/no/Mortgage/v0/schema#/definitions/reference"
   amountDisbursed:
-    type: "integer"
+    type: integer
     minimum: 0
-    title: "Amount disbursed"
+    title: Amount disbursed
     description: |
       The total amount disbursed to
       the customer of the loan being brokered
   amountBrokered:
-    type: "integer"
+    type: integer
     minimum: 0
     title: |
       Amount considered brokered by the lender
