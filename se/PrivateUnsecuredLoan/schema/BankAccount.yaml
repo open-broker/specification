@@ -16,9 +16,9 @@ properties:
       The clearing number, also known as the sort code, identifies the
       bank along with the branch.
     type: string
-    pattern: "^[1-9][0-9]{3}$"
+    pattern: "^[1-9][0-9]{3,4}$"
     minLength: 4
-    maxLength: 4
+    maxLength: 5
   accountNo:
     title: Account Number
     description: |
