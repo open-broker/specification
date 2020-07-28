@@ -10,7 +10,7 @@ additionalProperties: false
 required:
   - brokerReference
   - message
-  - requriesAction
+  - requiresAction
 properties:
   brokerReference:
     title: A reference-id used by the broker
