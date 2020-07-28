@@ -10,15 +10,15 @@ required:
   - brokerReference
 properties:
   brokerReference:
-    title: The reference used for the offer being accepted
+    title: The reference used by the broker for the application resulting in this offer
     "$ref": "https://open-broker.org/schema/v0/se/reference"
 
   bankAccount:
     title: The bank account to pay out the money to
     description: |
       The broker may include an updated bank account for the
-      applicant. The service provider may ignore this updated field if
-      not unsupported.
+      applicant. The service-provider may ignore this updated field if
+      not supported.
     '$ref': "https://open-broker.org/schema/v0/se/BankAccount"
 
   requestedCredit:
@@ -27,14 +27,14 @@ properties:
     title:
       Amount of credit requested by the customer
     description: |
-      The amount of credit requested by the user. A service-provider
-      use this value to set the size of the actual loan within the
+      The amount of credit requested by the customer. A service-provider
+      uses this value to set the size of the actual loan within the
       bounds set in the loan offer. If this field is missing or
       outside the bounds set in the loan offer, service-providers
       should use the `offeredCredit` value.
 
   offerId:
-    title: A reference used for identifying this particular offer
+    title: A reference used for identifying the offer being accepted
     "$ref": "https://open-broker.org/schema/v0/se/reference"
 
   emailAddress:

@@ -10,17 +10,17 @@ required:
   - brokerReference
 properties:
   brokerReference:
-    title: The reference used for the offer being accepted
+    title: The reference used by the broker for the application resulting in this offer
     '$ref': 'https://open-broker.org/schema/v0/no/reference'
   offerId:
-    title: A reference used for identifying the offer that is being accepted
+    title: A reference used for identifying the offer being accepted
     $ref: 'http://open-broker.org/no/PrivateUnsecuredLoan/v0/schema#/definitions/reference'
   bankAccount:
     type: string
     title: The bank acccount to pay out the money to
     description: |
       The broker may include an updated bank account for the
-      applicant. The service provider may ignore this updated field if
+      applicant. The service-provider may ignore this updated field if
       not supported.
     pattern: '^[0-9]{11}$'
     minLength: 11
@@ -31,8 +31,8 @@ properties:
     title:
       Amount of credit requested by the customer
     description: |
-      The amount of credit requested by the user. A service-provider
-      use this value to set the size of the actual loan within the
+      The amount of credit requested by the customer. A service-provider
+      uses this value to set the size of the actual loan within the
       bounds set in the loan offer. If this field is missing or
       outside the bounds set in the loan offer, service-providers
       should use the `offeredCredit` value.
@@ -40,7 +40,6 @@ properties:
     type: string
     format: email
     title: Email address of the applicant
-
   emailAddressCoapplicant:
     type: string
     format: email
