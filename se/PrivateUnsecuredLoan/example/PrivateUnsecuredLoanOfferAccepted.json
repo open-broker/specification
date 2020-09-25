@@ -1,27 +1,30 @@
 {
-  "cloudEventsVersion" : "0.1",
-  "eventType" : "org.open-broker.v0.se.PrivateUnsecuredLoanOfferAccepted",
-  "eventTypeVersion" : "v0",
-  "source" : "se.zensum",
-  "eventID" : "23356dd2-ab1f-4c7e-8ea1-31d3c1983f1a",
-  "eventTime" : "2020-05-18T15:43:24+02:00",
-  "extensions" : {
-    "comExampleExtension" : "value"
-  },
-  "contentType" : "application/json",
-  "data": {
-    "brokerReference": {
-      "id": "10500-aaeb2e2ee8de09cd217ad14badd4170a549f9ec9fd4eb4815382a3b5a565d038",
-      "issuer": "se.zensum"
+    "cloudEventsVersion": "0.1",
+    "eventType": "org.open-broker.v0.se.PrivateUnsecuredLoanOfferAccepted",
+    "eventTypeVersion": "v0",
+    "source": "se.zensum",
+    "eventID": "23356dd2-ab1f-4c7e-8ea1-31d3c1983f1a",
+    "eventTime": "2020-05-18T15:43:24+02:00",
+    "extensions": {
+        "comExampleExtension": "value"
     },
-    "offerId": {
-      "id": "a9j8s0e2X5Aac9",
-      "issuer": "org.service-provider"
-    },
-    "bankAccount": {
-      "clearingNo": "8989",
-      "accountNo": "123456789"
-    },
-    "requestedCredit": 25000
-  }
+    "contentType": "application/json",
+    "data": {
+        "brokerReference": {
+            "id": "10500-aaeb2e2ee8de09cd217ad14badd4170a549f9ec9fd4eb4815382a3b5a565d038",
+            "issuer": "se.zensum"
+        },
+        "offerId": {
+            "id": "a9j8s0e2X5Aac9",
+            "issuer": "org.service-provider"
+        },
+        "bankAccount": {
+            "clearingNo": "8989",
+            "accountNo": "123456789"
+        },
+        "bankName": "Nordea",
+        "requestedCredit": 25000,
+        "emailAddress": "test@test.se",
+        "emailAddressCoapplicant": null
+    }
 }

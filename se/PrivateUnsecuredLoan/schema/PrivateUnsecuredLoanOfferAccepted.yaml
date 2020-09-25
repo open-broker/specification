@@ -21,6 +21,12 @@ properties:
       not supported.
     '$ref': "https://open-broker.org/schema/v0/se/BankAccount"
 
+  bankName:
+    type: string
+    title: Bank name of the account to pay out the money to
+    examples:
+    - "Nordea"
+
   requestedCredit:
     type: integer
     minimum: 0
