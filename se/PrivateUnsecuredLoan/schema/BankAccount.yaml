@@ -28,3 +28,9 @@ properties:
     maxLength: 11
     type: string
     pattern: "^[0-9]{1,11}$"
+  bankName:
+    type: string
+    title: Bank name of the account to pay out money to
+    examples:
+    - "Nordea"
+
