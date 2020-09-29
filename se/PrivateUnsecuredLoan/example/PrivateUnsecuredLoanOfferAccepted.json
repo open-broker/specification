@@ -20,9 +20,9 @@
         },
         "bankAccount": {
             "clearingNo": "8989",
-            "accountNo": "123456789"
+            "accountNo": "123456789",
+            "bankName": "Nordea"
         },
-        "bankName": "Nordea",
         "requestedCredit": 25000,
         "emailAddress": "test@test.se",
         "emailAddressCoapplicant": null
