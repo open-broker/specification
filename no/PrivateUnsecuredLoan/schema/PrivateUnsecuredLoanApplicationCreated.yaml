@@ -248,14 +248,28 @@ definitions:
           - UNEMPLOYED
       employmentStatusSinceYear:
         type: integer
+        title: Year in which the applicant entered into his or her current employment status
         minimum: 1900
         maximum: 3000
-        title: Year in which the applicant entered into his or her current employment status
         examples:
         - 2010
       employmentStatusSinceMonth:
         type: integer
         title: Month in which the applicant entered into his or her current employment status
+        minimum: 1
+        maximum: 12
+        examples:
+        - 12
+      employmentStatusUntilYear:
+        type: integer
+        title: Year in which the applicant ended his or her current employment status (for temporary employment)
+        minimum: 1900
+        maximum: 3000
+        examples:
+        - 2010
+      employmentStatusUntilMonth:
+        type: integer
+        title: Month in which the applicant ended his or her current employment status (for temporary employment)
         minimum: 1
         maximum: 12
         examples:
