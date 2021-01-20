@@ -19,6 +19,8 @@
 				"employmentStatus": "PRIVATE_SECTOR",
                 "employmentStatusSinceYear": 2010,
                 "employmentStatusSinceMonth": 12,
+                "employmentStatusUntilYear": null,
+                "employmentStatusUntilMonth": null,
                 "employerName": "Example AB",
                 "employerPhone": "+4740123456",
                 "dependentChildren": 0,

@@ -19,6 +19,8 @@
 				"employmentStatus": "FULL_TIME",
 				"employmentStatusSinceYear": 2017,
 				"employmentStatusSinceMonth": 2,
+                "employmentStatusUntilYear": null,
+                "employmentStatusUntilMonth": null,
 				"dependentChildren": 0,
 				"housingType": "RENTED",
 				"housingCostPerMonth": 3000,
@@ -48,6 +50,7 @@
 					"loanAmount": 10000,
 					"monthlyPayment": 800,
 					"shouldRefinance": true,
+                    "refinanceAmount": 10000,
 					"existingLoanType": "CREDIT_CARD",
 					"responsibility": "MAIN_APPLICANT"
 				},
@@ -55,6 +58,7 @@
 					"loanAmount": 15000,
 					"monthlyPayment": 560,
 					"shouldRefinance": false,
+                    "refinanceAmount": 0,
 					"existingLoanType": "CAR_LOAN",
 					"responsibility": "SHARED"
 				}
