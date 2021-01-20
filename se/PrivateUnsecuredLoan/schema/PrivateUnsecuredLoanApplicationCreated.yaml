@@ -107,6 +107,9 @@ definitions:
         minimum: 1
       shouldRefinance:
         type: boolean
+      refinanceAmount:
+        type: integer
+        minimum: 0
       existingLoanType:
         type: string
         "meta:enum":
