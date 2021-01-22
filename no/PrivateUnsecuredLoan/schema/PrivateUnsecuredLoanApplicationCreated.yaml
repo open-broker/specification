@@ -196,7 +196,7 @@ definitions:
         minLength: 11
         maxLength: 11
         examples:
-        - '31128012345'
+        - '11111111111'
       phone:
         type: string
         title: Phone number to the applicant

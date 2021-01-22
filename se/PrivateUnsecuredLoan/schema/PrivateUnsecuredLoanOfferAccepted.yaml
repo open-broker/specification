@@ -37,6 +37,26 @@ properties:
     title: A reference used for identifying the offer being accepted
     "$ref": "https://open-broker.org/schema/v0/se/reference"
 
+  ssn:
+    type: string
+    title: 12-digit Social Security Number (sv. Personnr)
+    description: A Swedish Social Security number in 12-digit format YYYYMMDDXXXX
+    pattern: '^[0-9]{12}$'
+    minLength: 12
+    maxLength: 12
+    examples:
+      - "191111111111"
+
+  ssnCoapplicant:
+    type: string
+    title: 12-digit Social Security Number (sv. Personnr)
+    description: A Swedish Social Security number in 12-digit format YYYYMMDDXXXX
+    pattern: '^[0-9]{12}$'
+    minLength: 12
+    maxLength: 12
+    examples:
+      - "191111111111"
+
   emailAddress:
     type: string
     format: email

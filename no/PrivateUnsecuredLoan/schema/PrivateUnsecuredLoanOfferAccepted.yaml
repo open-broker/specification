@@ -36,6 +36,24 @@ properties:
       bounds set in the loan offer. If this field is missing or
       outside the bounds set in the loan offer, service-providers
       should use the `offeredCredit` value.
+  ssn:
+    type: string
+    title: 11-digit Social Security Number (no. Fodselsnummer)
+    description: A Norweigian Social Security number in 11-digit format DDMMYYXXXXX
+    pattern: '^[0-9]{11}$'
+    minLength: 11
+    maxLength: 11
+    examples:
+      - '11111111111'
+  ssnCoapplicant:
+    type: string
+    title: 11-digit Social Security Number (no. Fodselsnummer)
+    description: A Norweigian Social Security number in 11-digit format DDMMYYXXXXX
+    pattern: '^[0-9]{11}$'
+    minLength: 11
+    maxLength: 11
+    examples:
+      - '11111111111'
   emailAddress:
     type: string
     format: email

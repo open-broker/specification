@@ -16,6 +16,8 @@
         },
         "bankAccount": "12345678901",
         "requestedCredit": 150000,
+        "ssn": "11111111111",
+        "ssnCoapplicant": null,
         "emailAddress": "test@test.se",
         "emailAddressCoapplicant": null
     }
