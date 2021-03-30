@@ -15,7 +15,7 @@ properties:
     type: string
     title: Domain-name of the issuer of the reference in reverse order
     description: Reversed DNS name for the broker, for instance, example.com becomes com.example
-    pattern: "^(([a-zA-Z0-9]|[a-zA-Z0-9][a-zA-Z0-9-][a-zA-Z0-9]).)([A-Za-z0-9]|[A-Za-z0-9][A-Za-z0-9-]*[A-Za-z0-9])"
+    pattern: '^[a-zA-Z0-9]+\.(([a-zA-Z0-9_-])|([a-zA-Z0-9_-]\.[a-zA-Z0-9_-]))+$'
   id:
     type: string
     title: Reference number for the broker
