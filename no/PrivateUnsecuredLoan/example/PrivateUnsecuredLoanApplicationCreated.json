@@ -54,7 +54,6 @@
 					"city": "Oslo"
 				}
 			},
-			"coApplicant": null,
 			"existingLoans": [
 				{
 					"loanAmount": 100000,
