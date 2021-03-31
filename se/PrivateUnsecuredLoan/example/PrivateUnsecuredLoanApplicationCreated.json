@@ -45,7 +45,6 @@
 					"city": "Helsingborg"
 				}
 			},
-			"coApplicant": null,
 			"existingLoans": [{
 					"loanAmount": 10000,
 					"monthlyPayment": 800,

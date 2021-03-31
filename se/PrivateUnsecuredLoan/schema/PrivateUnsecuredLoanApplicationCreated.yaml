@@ -11,8 +11,8 @@ definitions:
     title: Extension data
     additionalProperties: false
     patternProperties:
-      "^(([a-zA-Z0-9]|[a-zA-Z0-9][a-zA-Z0-9-][a-zA-Z0-9]).)([A-Za-z0-9]|[A-Za-z0-9][A-Za-z0-9-]*[A-Za-z0-9])$":
-        type: object
+      '^[a-zA-Z0-9]+\.(([a-zA-Z0-9_-])|([a-zA-Z0-9_-]\.[a-zA-Z0-9_-]))+$':
+        type: ['number','string','boolean','object', 'array']
   application:
     type: object
     additionalProperties: false
@@ -250,28 +250,28 @@ definitions:
           FULL_TIME: Employed full-time
 
       employmentStatusSinceYear:
-        type: integer
+        type: [integer, 'null']
         title: Year in which the applicant entered into his or her current employment status
         minimum: 1900
         maximum: 3000
         examples:
         - 2014
       employmentStatusSinceMonth:
-        type: integer
+        type: [integer, 'null']
         title: Month in which the applicant entered into his or her current employment status
         minimum: 1
         maximum: 12
         examples:
         - 3
       employmentStatusUntilYear:
-        type: integer
+        type: [integer, 'null']
         title: Year in which the applicant ended his or her current employment status (for temporary employment)
         minimum: 1900
         maximum: 3000
         examples:
         - 2014
       employmentStatusUntilMonth:
-        type: integer
+        type: [integer, 'null']
         title: Month in which the applicant ended his or her current employment status (for temporary employment)
         minimum: 1
         maximum: 12
@@ -295,11 +295,11 @@ definitions:
         minimum: 0
         maximum: 15
       childSupportReceivedMonthly:
-        type: integer
+        type: [integer, 'null']
         minimum: 0
         title: Money received for child-support each month
       childSupportPaidMonthly:
-        type: integer
+        type: [integer, 'null']
         minimum: 0
         title: Money paid for child-support each month
       paymentRemark:
