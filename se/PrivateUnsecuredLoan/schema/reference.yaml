@@ -10,6 +10,9 @@ description: |
 
 type: object
 additionalProperties: false
+required:
+  - issuer
+  - id
 properties:
   issuer:
     type: string
