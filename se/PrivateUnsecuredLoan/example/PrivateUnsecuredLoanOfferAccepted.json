@@ -25,8 +25,6 @@
         },
         "requestedCredit": 25000,
         "ssn": "191111111111",
-        "ssnCoapplicant": null,
-        "emailAddress": "test@test.se",
-        "emailAddressCoapplicant": null
+        "emailAddress": "test@test.se"
     }
 }
