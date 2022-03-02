@@ -13,6 +13,7 @@
 		"application": {
 			"applicant": {
 				"ssn": "191111111111",
+                "customerId": "abc145",
 				"phone": "+46705431052",
 				"secondaryPhone": [],
 				"emailAddress": "anton@zensum.se",

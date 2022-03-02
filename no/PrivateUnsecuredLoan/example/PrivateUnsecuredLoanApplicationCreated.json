@@ -13,6 +13,7 @@
 		"application": {
 			"applicant": {
 				"ssn": "11111111111",
+                "customerId": "abc146",
 				"phone": "+4740123456",
 				"secondaryPhone": [],
 				"emailAddress": "example@example.no",
