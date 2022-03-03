@@ -176,6 +176,7 @@ definitions:
     type: object
     required:
       - ssn
+      - customerId
       - employmentStatus
       - employmentStatusSinceYear
       - employmentStatusSinceMonth
@@ -197,6 +198,10 @@ definitions:
         maxLength: 11
         examples:
         - '11111111111'
+      customerId:
+        type: string
+        title: customer ID
+        description: "ID of the customer (unique per ssn)"
       phone:
         type: string
         title: Phone number to the applicant
