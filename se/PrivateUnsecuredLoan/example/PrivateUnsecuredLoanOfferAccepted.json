@@ -24,6 +24,7 @@
             "bankName": "Nordea"
         },
         "requestedCredit": 25000,
+        "termMonths": 84,
         "ssn": "191111111111",
         "emailAddress": "test@test.se"
     }
