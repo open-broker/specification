@@ -36,6 +36,12 @@ properties:
       bounds set in the loan offer. If this field is missing or
       outside the bounds set in the loan offer, service-providers
       should use the `offeredCredit` value.
+  termMonths:
+    type: integer
+    minimum: 1
+    title: Number of monthly terms
+    description: |
+      The number of month-terms to payback the loan.
   ssn:
     type: string
     title: 11-digit Social Security Number (no. Fodselsnummer)

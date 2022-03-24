@@ -16,6 +16,7 @@
         },
         "bankAccount": "12345678901",
         "requestedCredit": 150000,
+        "termMonths": 84,
         "ssn": "11111111111",
         "emailAddress": "test@test.se"
     }

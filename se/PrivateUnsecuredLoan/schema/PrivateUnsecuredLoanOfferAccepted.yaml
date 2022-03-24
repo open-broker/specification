@@ -33,6 +33,13 @@ properties:
       outside the bounds set in the loan offer, service-providers
       should use the `offeredCredit` value.
 
+  termMonths:
+    type: integer
+    minimum: 1
+    title: Number of monthly terms
+    description: |
+      The number of month-terms to payback the loan.
+
   offerId:
     title: A reference used for identifying the offer being accepted
     "$ref": "https://open-broker.org/schema/v0/se/reference"
