@@ -97,6 +97,20 @@ definitions:
       loanAmount:
         type: integer
         minimum: 1
+      nominalInterestRate:
+        type: string
+          pattern: '^[0-9]+(\.[0-9]+)?$'
+          title: Nominal interest rate
+          description: |
+            The nominal interest rate of the loan formatted as a string to avoid problems
+            with floating-point numbers. The nominal interest rate of 15% would be written as `0.15`,
+            and 100% as `1.0`.
+      remainingTerms:
+        type: integer
+          minimum: 1
+          title: Number of monthly terms
+          description: |
+            The number of month-terms required to payback the loan.
       monthlyPayment:
         type: integer
         minimum: 1
