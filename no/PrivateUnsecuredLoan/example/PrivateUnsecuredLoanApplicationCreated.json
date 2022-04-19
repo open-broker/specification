@@ -56,8 +56,6 @@
             "existingLoans": [
                 {
                     "loanAmount": 100000,
-                    "nominalInterestRate": null,
-                    "remainingTerms": null,
                     "monthlyPayment": 3000,
                     "refinanceAmount": 100000,
                     "existingLoanType": "UNSECURED_LOAN",
@@ -66,7 +64,7 @@
                 },
                 {
                     "loanAmount": 1000000,
-                    "nominalInterestRate": 0.019,
+                    "nominalInterestRate": "0.019",
                     "remainingTerms": 345,
                     "monthlyPayment": 3000,
                     "refinanceAmount": 100000,
@@ -76,7 +74,7 @@
                 },
                 {
                     "loanAmount": 50000,
-                    "nominalInterestRate": 0.045,
+                    "nominalInterestRate": "0.045",
                     "remainingTerms": 84,
                     "monthlyPayment": 3000,
                     "refinanceAmount": 100000,
@@ -86,7 +84,6 @@
                 },
                 {
                     "loanAmount": 150000,
-                    "nominalInterestRate": null,
                     "remainingTerms": 73,
                     "monthlyPayment": 1000,
                     "refinanceAmount": 0,
