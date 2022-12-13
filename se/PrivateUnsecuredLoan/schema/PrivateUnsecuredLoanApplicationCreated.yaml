@@ -73,8 +73,14 @@ definitions:
           HEALTHCARE_EXPENSES: To finance health-care costs.
           DIVORCE_PROCEEDINGS: To finance costs relating to a divorce.
           HOME_DOWNPAYMENT: To finance a downpayment for a loan
+          DRIVERS_LICENSE: To finance getting a driver's licence
+          DEBT_COLLECTION: To refinance or pay off overdue loans
+          RELOCATION: To finance moving to a different location, like different town
+          CONSUMPTION: General consumption
           INVESTMENT: To finance an investment
           EDUCATION: To finance education of some kind
+          INTERIOR: To finance a new interior, like new kitchen, furniture
+          WEDDING: To finance a wedding
           TRAVEL: To finance a vacation or other travel expenses
           CAR: To finance the purchase of a car or similar
           OTHER: Purpose not fitting the above categories
@@ -84,8 +90,14 @@ definitions:
           - HEALTHCARE_EXPENSES
           - DIVORCE_PROCEEDINGS
           - HOME_DOWNPAYMENT
+          - DRIVERS_LICENSE
+          - DEBT_COLLECTION
+          - RELOCATION
+          - CONSUMPTION
           - INVESTMENT
           - EDUCATION
+          - INTERIOR
+          - WEDDING
           - TRAVEL
           - CAR
           - OTHER
