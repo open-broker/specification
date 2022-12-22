@@ -70,18 +70,34 @@ definitions:
         'meta:enum':
           REFINANCE: Refinancing existing debt
           HOME_REMODELLING: Home remodelling or renovation
+          HOME_DOWNPAYMENT: To finance a downpayment for a loan
           HEALTHCARE_EXPENSES: To finance health-care costs.
+          DIVORCE_PROCEEDINGS: To finance costs relating to a divorce
+          DRIVERS_LICENSE: To finance getting a driver's licence
+          DEBT_COLLECTION: To refinance or pay off overdue loans
+          CONSUMPTION: General consumption
+          RELOCATION: To finance moving to a different location, like different town
           INVESTMENT: To finance an investment
           EDUCATION: To finance education of some kind
+          INTERIOR: To finance a new interior, like new kitchen, furniture
+          WEDDING: To finance a wedding
           TRAVEL: To finance a vacation or other travel expenses
           CAR: To finance the purchase of a car or similar
           OTHER: Purpose not fitting the above categories
         enum:
           - REFINANCE
           - HOME_REMODELLING
+          - HOME_DOWNPAYMENT
           - HEALTHCARE_EXPENSES
+          - DIVORCE_PROCEEDINGS
+          - DRIVERS_LICENSE
+          - DEBT_COLLECTION
+          - CONSUMPTION
+          - RELOCATION
           - INVESTMENT
           - EDUCATION
+          - INTERIOR
+          - WEDDING
           - TRAVEL
           - CAR
           - OTHER
