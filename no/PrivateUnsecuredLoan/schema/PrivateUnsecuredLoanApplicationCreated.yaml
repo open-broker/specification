@@ -11,7 +11,7 @@ definitions:
     type: object
     title: Extension data
     additionalProperties:
-      type: ['number','string','boolean','object', 'array']
+      type: object
   application:
     type: object
     additionalProperties: false
