@@ -10,11 +10,10 @@ required:
 
 definitions:
   ExtensionPoint:
+    type: object
     title: "Extension data"
-    additionalProperties: false
-    patternProperties:
-      '^(([a-zA-Z0-9]|[a-zA-Z0-9][a-zA-Z0-9-][a-zA-Z0-9]).)([A-Za-z0-9]|[A-Za-z0-9][A-Za-z0-9-]*[A-Za-z0-9])$':
-        type: object
+    additionalProperties:
+      type: object
 
 properties:
   refinancingProperty:

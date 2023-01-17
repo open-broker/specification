@@ -8,11 +8,10 @@ additionalProperties: false
 '$schema': 'http://json-schema.org/draft-06/schema#'
 definitions:
   extensionPoint:
+    type: object
     title: Extension data
-    additionalProperties: false
-    patternProperties:
-      '^[a-zA-Z0-9]+\.(([a-zA-Z0-9_-])|([a-zA-Z0-9_-]\.[a-zA-Z0-9_-]))+$':
-        type: ['number','string','boolean','object', 'array']
+    additionalProperties:
+      type: object
   application:
     type: object
     additionalProperties: false

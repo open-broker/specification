@@ -32,11 +32,10 @@ definitions:
     '$id': 'MortgageApplicationCreated'
     definitions:
       extensionPoint:
+        type: object
         title: Extension data
-        additionalProperties: false
-        patternProperties:
-          '^(([a-zA-Z0-9]|[a-zA-Z0-9][a-zA-Z0-9-][a-zA-Z0-9]).)([A-Za-z0-9]|[A-Za-z0-9][A-Za-z0-9-]*[A-Za-z0-9])$':
-            type: object
+        additionalProperties:
+          type: object
       application:
         type: object
         additionalProperties: false
@@ -648,7 +647,7 @@ definitions:
         $ref: 'http://open-broker.org/no/Mortgage/v0/schema#/definitions/reference'
       offerId:
         title: A reference used for identifying the offer being accepted
-        $ref: 'http://open-broker.org/no/Mortgage/v0/schema#/definitions/reference'  
+        $ref: 'http://open-broker.org/no/Mortgage/v0/schema#/definitions/reference'
       bankAccount:
         title: The bank acccount to pay out the money to
         description: |
