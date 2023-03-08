@@ -156,8 +156,12 @@ definitions:
     type: array
     uniqueItems: true
     items:
-      '$ref': '#/definitions/countryCode'
-      '$linkVal': countryCode
+      anyOf:
+        - '$ref': '#/definitions/countryCode'
+          '$linkVal': countryCode
+        - type: string
+          pattern: 'OTHER'
+    additionalItems: true
   address:
     type: object
     additionalProperties: false
