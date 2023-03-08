@@ -161,7 +161,6 @@ definitions:
           '$linkVal': countryCode
         - type: string
           pattern: 'OTHER'
-    additionalItems: true
   address:
     type: object
     additionalProperties: false
