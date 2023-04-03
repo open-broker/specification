@@ -73,3 +73,9 @@ properties:
     type: string
     format: email
     title: Email address of the coapplicant
+
+  extensions:
+    type: object
+    title: Extension data
+    additionalProperties:
+      type: ['object']
