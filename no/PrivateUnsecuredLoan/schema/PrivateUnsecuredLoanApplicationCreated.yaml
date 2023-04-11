@@ -17,7 +17,6 @@ definitions:
     additionalProperties: false
     required:
       - loanAmount
-      - termMonths
       - applicant
       - loanPurpose
     properties:
