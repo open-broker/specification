@@ -28,7 +28,6 @@ definitions:
     additionalProperties: false
     required:
       - effectiveInterestRate
-      - nominalInterestRate
       - offeredCredit
       - arrangementFee
       - termFee
