@@ -27,7 +27,6 @@ definitions:
     type: object
     additionalProperties: false
     required:
-      - effectiveInterestRate
       - offeredCredit
       - arrangementFee
       - termFee
