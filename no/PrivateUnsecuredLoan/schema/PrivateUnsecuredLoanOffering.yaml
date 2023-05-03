@@ -27,10 +27,17 @@ definitions:
     type: object
     additionalProperties: false
     required:
+      - effectiveInterestRate
+      - nominalInterestRate
+      - minOfferedCredit
       - offeredCredit
+      - maxOfferedCredit
+      - mustRefinance
       - arrangementFee
       - termFee
       - invoiceFee
+      - termMonths
+      - amortizationType
     properties:
       effectiveInterestRate:
         type: string

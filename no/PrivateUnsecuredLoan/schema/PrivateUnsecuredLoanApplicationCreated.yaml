@@ -17,7 +17,9 @@ definitions:
     additionalProperties: false
     required:
       - loanAmount
+      - termMonths
       - applicant
+      - loanPurpose
     properties:
       loanAmount:
         type: integer
@@ -202,6 +204,8 @@ definitions:
       - grossYearlyIncome
       - maritalStatus
       - citizenships
+      - countriesOfResidence
+      - taxResidentOf
     properties:
       ssn:
         type: string
