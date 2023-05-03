@@ -1,0 +1,124 @@
+title: PrivateUnsecuredLoanOffering
+description: An offer for a loan
+type: object
+additionalProperties: false
+'$id': 'https://open-broker.org/schema/v0/no/PrivateUnsecuredLoanOffering'
+'$schema': 'http://json-schema.org/draft-06/schema#'
+definitions:
+  loanInsuranceOffer:
+    type: object
+    additionalProperties: false
+    required:
+      - insuredAmount
+      - monthlyPremium
+    properties:
+      insuredAmount:
+        type: integer
+        minimum: 1
+        title: The amount insured
+      monthlyPremium:
+        type: integer
+        minimum: 1
+        title: The monthly premium to be paid
+      descriptiveText:
+        type: string
+        title: A text to be displayed along with the offer.
+  offer:
+    type: object
+    additionalProperties: true
+    required:
+      - effectiveInterestRate
+      - nominalInterestRate
+      - offeredCredit
+      - arrangementFee
+      - termFee
+      - invoiceFee
+    properties:
+      effectiveInterestRate:
+        title: Effective interest rate (APR)
+        description: |
+          The effective annual interest rate of the loan
+          formatted as a string to avoid problems
+          floating-point numbers. An effective interest rate
+          of 15% would be written as `0.15`, and 100% is
+          equal to `1.0`.
+        oneOf:
+          - type: 'null'
+          - type: string
+            pattern: '^[0-9]+(\.[0-9]+)?$'
+      nominalInterestRate:
+        title: Nominal interest rate
+        description: |
+          The nominal annual interest rate of the loan
+          formatted as a string to avoid problems
+          floating-point numbers. An nominal interest rate
+          of 15% would be written as `0.15`, and 100% is
+          equal to `1.0`.
+        oneOf:
+          - type: 'null'
+          - type: string
+            pattern: '^[0-9]+(\.[0-9]+)?$'
+      offeredCredit:
+        type: integer
+        minimum: 1
+        title: Offered credit card limit
+        description: |
+          The amount the customer applied for or the highest number
+          the customer is approved for, if this number is lower than
+          what was originally applied for.
+          This value can be equal to both the minOfferedCredit and
+          maxOfferedCredit. Indicating that this is the only possible
+          amount offered.
+      monthlyCost:
+        type: integer
+        minimum: 1
+        title: Average monthly cost
+        description: |
+          The average monthly cost of the loan given `offeredCredit`,
+          `termMonths` and `effectiveInterestRate`.
+      arrangementFee:
+        type: integer
+        minimum: 0
+        title: Arrangement fee for the customer
+        description: |
+          An arrangement fee is a one-time fee taken by the customer
+          charged by the lender for setting up the loan. Use 0 to indicate
+          that no arrangement fee is charged.
+      termFee:
+        type: integer
+        minimum: 0
+        title: Fixed fee charged per term
+        description: |
+          Fixed fees to be paid along with amortisation and interest
+          every month. This fee must be included in the calculation of
+          effective interest. This field should be used for
+          unavoidable fees that the customer cannot reduce by
+          choosing other billing arrangements.
+          0 indicates that there is no per-term fee.
+      invoiceFee:
+        type: integer
+        minimum: 0
+        title: Fee charged for particular invoicing solutions
+        description: |
+          A fee that the customer can avoid by choosing a different
+          payment solutions such as automated transfers or electronic
+          invoices. This value should not be included in the
+          calculation of the APR.
+required:
+  - brokerReference
+  - offer
+properties:
+  brokerReference:
+    title: The reference used by the broker for the application resulting in this offer
+    '$ref': 'https://open-broker.org/schema/v0/no/reference'
+  offerId:
+    title: A reference used for identifying this particular offer
+    anyOf:
+      - type: 'null'
+      - '$ref': 'https://open-broker.org/schema/v0/no/reference'
+  offer:
+    '$ref': '#/definitions/offer'
+  loanInsuranceOffer:
+    anyOf:
+      - type: 'null'
+      - '$ref': '#/definitions/loanInsuranceOffer'

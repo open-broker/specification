@@ -1,0 +1,33 @@
+{
+  "cloudEventsVersion": "0.1",
+  "eventType": "org.open-broker.v0.no.PrivateUnsecuredLoanOffering",
+  "eventTypeVersion": "v0",
+  "source": "org.service-provider",
+  "eventID": "4ebf6c88-8eed-48b3-8e0a-52d13f60e047",
+  "eventTime": "2020-05-18T15:43:24+02:00",
+  "extensions": null,
+  "contentType": "application/json",
+  "data": {
+    "loanInsuranceOffer": {
+      "insuredAmount": 300000,
+      "monthlyPremium": 500
+    },
+    "offerId": {
+      "id": "ASdh78ao8wiogf6",
+      "issuer": "org.service-provider"
+    },
+    "offer": {
+      "effectiveInterestRate": "0.105",
+      "nominalInterestRate": "0.055",
+      "offeredCredit": 300000,
+      "monthlyCost": 2000,
+      "arrangementFee": 695,
+      "termFee": 500,
+      "invoiceFee": 50
+    },
+    "brokerReference": {
+      "id": "10500-aaeb2e2ee8de09cd217ad14badd4170a549f9ec9fd4eb4815382a3b5a565d038",
+      "issuer": "no.zensum"
+    }
+  }
+}
