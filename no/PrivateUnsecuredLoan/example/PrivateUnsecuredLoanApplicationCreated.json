@@ -30,7 +30,7 @@
 				"housingCostPerMonth": 3000,
 				"netMonthlyIncome": 10000,
                 "grossYearlyIncome": 160000,
-                "partnerYearlyIncome": 0,
+                "partnerGrossYearlyIncome": 0,
 				"maritalStatus": "COHABITING",
 				"bankAccount": "12345678901",
 				"citizenships": [
@@ -49,6 +49,7 @@
 					"city": "Oslo"
 				}
 			},
+            "coApplicant": null,
 			"existingLoans": [
 				{
 					"loanAmount": 100000,

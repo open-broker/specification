@@ -51,8 +51,10 @@ definitions:
         title: Applicant
         description: The primary applicant to the loan
       coApplicant:
-        '$ref': '#/definitions/applicant'
-        '$linkVal': applicant
+        anyOf:
+          - type: "null"
+          - '$ref': '#/definitions/applicant'
+            '$linkVal': applicant
         title: Co-applicant
         description: A secondary applicant for the loan, if any.
       existingLoans:
@@ -187,8 +189,10 @@ definitions:
         type: string
         minLength: 1
       careOf:
-        type: string
-        minLength: 1
+        anyOf:
+          - type: 'null'
+          - type: string
+            minLength: 1
   applicant:
     additionalProperties: false
     type: object
@@ -284,29 +288,38 @@ definitions:
         examples:
         - 12
       employmentStatusUntilYear:
-        type: integer
         title: Year in which the applicant ended his or her current employment status (for temporary employment)
-        minimum: 1900
-        maximum: 3000
-        examples:
-        - 2010
+        oneOf:
+          - type: 'null'
+          - type: integer
+            minimum: 1900
+            maximum: 3000
+            examples:
+              - 2010
       employmentStatusUntilMonth:
-        type: integer
         title: Month in which the applicant ended his or her current employment status (for temporary employment)
-        minimum: 1
-        maximum: 12
-        examples:
-        - 12
+        oneOf:
+          - type: 'null'
+          - type: integer
+            minimum: 1
+            maximum: 12
+            examples:
+              - 12
       employerName:
-        type: string
         title: The company name of the employer
-        examples:
-        - Example AB
+        oneOf:
+          - type: 'null'
+          - type: string
+            examples:
+            - Example AB
       employerPhone:
-        type: string
-        pattern: '^\+[1-9][0-9]{1,14}$'
-        examples:
-        - '+4740123456'
+          title: The phone number of the employer
+          oneOf:
+            - type: 'null'
+            - type: string
+              pattern: '^\+[1-9][0-9]{1,14}$'
+              examples:
+                - '+4740123456'
       dependentChildren:
         type: integer
         title: Number of dependent children
@@ -359,19 +372,23 @@ definitions:
           - PARENTS
           - RENTED
       housingSinceYear:
-        type: integer
-        minimum: 1900
-        maximum: 3000
         title: Year in which the applicant entered into his or her current housing
-        examples:
-        - 2010
+        oneOf:
+          - type: 'null'
+          - type: integer
+            minimum: 1900
+            maximum: 3000
+            examples:
+            - 2010
       housingSinceMonth:
-        type: integer
         title: Month in which the applicant entered into his or her current housing
-        minimum: 1
-        maximum: 12
-        examples:
-        - 12
+        oneOf:
+          - type: 'null'
+          - type: integer
+            minimum: 1
+            maximum: 12
+            examples:
+              - 12
       housingCostPerMonth:
         type: integer
         title: Housing-related costs per month
@@ -387,7 +404,7 @@ definitions:
         type: integer
         minimum: 0
         title: The yearly gross (pre-tax) income of the applicant
-      partnerYearlyIncome:
+      partnerGrossYearlyIncome:
         type: integer
         minimum: 0
         title: The yearly gross (pre-tax) income of the applicant's partner
@@ -407,22 +424,26 @@ definitions:
           - SINGLE
           - WIDOW_OR_WIDOWER
       bankAccount:
-        type: string
         title: Applicant's bank account number
-        pattern: '^[0-9]{11}$'
-        minLength: 11
-        maxLength: 11
+        anyOf:
+          - type: 'null'
+          - type: string
+            pattern: '^[0-9]{11}$'
+            minLength: 11
+            maxLength: 11
       citizenships:
         title: Countries that the applicant is a citizen of
         '$ref': '#/definitions/countryCodeArray'
         '$linkVal': countryCodeArray
       livedInCountrySinceYear:
-        type: integer
-        minimum: 1900
-        maximum: 3000
         title: Year in which the applicant started living in the country
-        examples:
-        - 2010
+        oneOf:
+          - type: 'null'
+          - type: integer
+            minimum: 1900
+            maximum: 3000
+            examples:
+              - 2010
       countriesOfResidence:
         title: Countries that the applicant is a resident of
         '$ref': '#/definitions/countryCodeArray'
@@ -432,25 +453,29 @@ definitions:
         '$ref': '#/definitions/countryCodeArray'
         '$linkVal': countryCodeArray
       education:
-        type: string
         title: The highest education level of the applicant
-        'meta:enum':
-          PRIMARY_SCHOOL: Completed the obligatory first stage of formal education (no. Grunnskole)
-          SECONDARY_SCHOOL: Completed the formal education preparing for higher studies (no. Gymnasium)
-          UNIVERSITY_SHORT: Completed 1-3 years of higher education
-          UNIVERSITY_LONG: Completed 4 or more years of higher education
-        enum:
-          - PRIMARY_SCHOOL
-          - SECONDARY_SCHOOL
-          - UNIVERSITY_SHORT
-          - UNIVERSITY_LONG
+        anyOf:
+          - type: 'null'
+          - type: string
+            'meta:enum':
+              PRIMARY_SCHOOL: Completed the obligatory first stage of formal education (no. Grunnskole)
+              SECONDARY_SCHOOL: Completed the formal education preparing for higher studies (no. Gymnasium)
+              UNIVERSITY_SHORT: Completed 1-3 years of higher education
+              UNIVERSITY_LONG: Completed 4 or more years of higher education
+            enum:
+              - PRIMARY_SCHOOL
+              - SECONDARY_SCHOOL
+              - UNIVERSITY_SHORT
+              - UNIVERSITY_LONG
       tentativeAddress:
         title: Address of the applicant
         description: |
           All actors are expected to perform proper due diligence in
           establishing the identity of the applicant
-        '$ref': '#/definitions/address'
-        '$linkVal': address
+        anyOf:
+          - type: 'null'
+          - '$ref': '#/definitions/address'
+            '$linkVal': address
 required:
   - brokerReference
   - dataProtectionContext
