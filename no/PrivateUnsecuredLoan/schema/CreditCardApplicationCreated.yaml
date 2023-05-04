@@ -37,7 +37,7 @@ definitions:
         description: The primary applicant to the loan
       coApplicant:
         anyOf:
-          - type: "null"
+          - type: 'null'
           - '$ref': '#/definitions/applicant'
             '$linkVal': applicant
         title: Co-applicant
@@ -319,7 +319,7 @@ definitions:
             maximum: 3000
             examples:
               - 2010
-          - type: null
+          - type: 'null'
       housingSinceMonth:
         title: Month in which the applicant entered into his or her current housing
         oneOf:
@@ -328,7 +328,7 @@ definitions:
             maximum: 12
             examples:
               - 12
-          - type: null
+          - type: 'null'
       housingCostPerMonth:
         type: integer
         title: Housing-related costs per month
