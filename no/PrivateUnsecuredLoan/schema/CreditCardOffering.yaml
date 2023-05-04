@@ -1,8 +1,8 @@
-title: PrivateUnsecuredLoanOffering
-description: An offer for a loan
+title: CreditCardOffering
+description: An offer for a credit card application
 type: object
 additionalProperties: false
-'$id': 'https://open-broker.org/schema/v0/no/PrivateUnsecuredLoanOffering'
+'$id': 'https://open-broker.org/schema/v0/no/CreditCardOffering'
 '$schema': 'http://json-schema.org/draft-06/schema#'
 definitions:
   loanInsuranceOffer:

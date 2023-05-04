@@ -1,10 +1,10 @@
-title: PrivateUnsecuredLoanApplicationCreated
+title: CreditCardApplicationCreated
 description: |
   An event indicating the creation of an application for
   a private unsecured loan.
 type: object
 additionalProperties: false
-'$id': 'https://open-broker.org/schema/v0/no/PrivateUnsecuredLoanApplicationCreated'
+'$id': 'https://open-broker.org/schema/v0/no/CreditCardApplicationCreated'
 '$schema': 'http://json-schema.org/draft-06/schema#'
 definitions:
   extensionPoint:
