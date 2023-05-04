@@ -20,7 +20,6 @@
       "effectiveInterestRate": "0.105",
       "nominalInterestRate": "0.055",
       "offeredCredit": 300000,
-      "monthlyCost": 2000,
       "arrangementFee": 695,
       "termFee": 500,
       "invoiceFee": 50
