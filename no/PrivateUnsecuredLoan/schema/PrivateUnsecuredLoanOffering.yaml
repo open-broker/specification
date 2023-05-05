@@ -60,8 +60,6 @@ definitions:
           of 15% would be written as `0.15`, and 100% is
           equal to `1.0`.
       minOfferedCredit:
-        type: integer
-        minimum: 1
         title: Minimum offered credit
         description: |
           The minimum amount for which the lender is
@@ -69,6 +67,10 @@ definitions:
           This value can be equal to both the maxOfferedCredit and
           offeredCredit. Indicating that this is the only possible
           amount offered.
+        oneOf:
+          - 'null'
+          - type: integer
+            minimum: 1
       offeredCredit:
         type: integer
         minimum: 1
@@ -81,15 +83,15 @@ definitions:
           maxOfferedCredit. Indicating that this is the only possible
           amount offered.
       monthlyCost:
-        type: integer
-        minimum: 1
         title: Average monthly cost
         description: |
           The average monthly cost of the loan given `offeredCredit`,
           `termMonths` and `effectiveInterestRate`.
+        oneOf:
+          - 'null'
+          - type: integer
+            minimum: 1
       maxOfferedCredit:
-        type: integer
-        minimum: 1
         title: Maximum offered credit
         description: |
           The largest loan that this customer is approved for under
@@ -97,13 +99,19 @@ definitions:
           This value can be equal to both the minOfferedCredit and
           offeredCredit. Indicating that this is the only possible
           amount offered.
+        oneOf:
+          - 'null'
+          - type: integer
+            minimum: 1
       mustRefinance:
-        type: integer
-        minimum: 0
         title: Amount that must be refinanced
         description: |
           Amount the customer must use to refinance other loans.
           Use zero to indicate that no refinancing is required.
+        oneOf:
+          - 'null'
+          - type: integer
+            minimum: 1
       arrangementFee:
         type: integer
         minimum: 0
@@ -133,26 +141,30 @@ definitions:
           invoices. This value should not be included in the
           calculation of the APR.
       termMonths:
-        type: integer
-        minimum: 1
         title: Number of monthly terms
         description: |
           The number of month-terms required to payback the loan at
           the offered interest and offered amount.
+        oneOf:
+          - 'null'
+          - type: integer
+            minimum: 1
       amortizationType:
-        type: string
         title: Type of amortization plan
         description: Decides in which manner the loan is amortized
-        'meta:enum':
-          ANNUITY: |
-            The monthly sum that is payed by the customer is fixed, and the amount that is amortized is gradually increased
-            since the the amount to cover the interest rate each month decreases which each amortization.
-          STRAIGHT_LINE: |
-            The amount paid for amortization each month is fixed, while the interest payment will be lower over time, meaning
-            that the total monthly cost for the loan will decrease over time.
-        enum:
-          - ANNUITY
-          - STRAIGHT_LINE
+        oneOf:
+          - 'null'
+          - type: string
+            'meta:enum':
+              ANNUITY: |
+                The monthly sum that is payed by the customer is fixed, and the amount that is amortized is gradually increased
+                since the the amount to cover the interest rate each month decreases which each amortization.
+              STRAIGHT_LINE: |
+                The amount paid for amortization each month is fixed, while the interest payment will be lower over time, meaning
+                that the total monthly cost for the loan will decrease over time.
+            enum:
+              - ANNUITY
+              - STRAIGHT_LINE
 required:
   - brokerReference
   - offer
