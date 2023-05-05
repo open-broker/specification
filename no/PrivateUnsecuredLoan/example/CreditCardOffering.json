@@ -19,12 +19,15 @@
     "offer": {
       "effectiveInterestRate": "0.105",
       "nominalInterestRate": "0.055",
+      "minOfferedCredit": null,
       "offeredCredit": 300000,
+      "maxOfferedCredit": null,
       "monthlyCost": 2000,
       "arrangementFee": 695,
       "termFee": 500,
       "invoiceFee": 50,
-      "termMonths": 84
+      "termMonths": 84,
+      "amortizationType": null
     },
     "brokerReference": {
       "id": "10500-aaeb2e2ee8de09cd217ad14badd4170a549f9ec9fd4eb4815382a3b5a565d038",
