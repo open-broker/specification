@@ -29,8 +29,9 @@ properties:
     type: string
     pattern: "^[0-9]{1,11}$"
   bankName:
-    type: string
+    anyOf:
+      - type: 'null'
+      - type: string
+        examples:
+          - "Nordea"
     title: Bank name of the account to pay out money to
-    examples:
-    - "Nordea"
-
