@@ -36,11 +36,13 @@ definitions:
         examples:
           - 24
       refinanceAmount:
-        type: integer
+        anyOf:
+          - type: "null"
+          - type: integer
+            examples:
+              - 25000
         title: The amount being refinanced
         description: Must be less than or equal to the loanAmount
-        examples:
-          - 25000
       extensions:
         '$ref': '#/definitions/extensionPoint'
         '$linkVal': extensionPoint
@@ -203,6 +205,7 @@ definitions:
       - employmentStatusSinceYear
       - employmentStatusSinceMonth
       - dependentChildren
+      - paymentRemark
       - housingType
       - housingCostPerMonth
       - grossYearlyIncome
@@ -225,20 +228,26 @@ definitions:
         title: customer ID
         description: "ID of the customer (unique per ssn)"
       phone:
-        type: string
+        anyOf:
+          - type: 'null'
+          - type: string
+            pattern: '^\+[1-9][0-9]{1,14}$'
+            examples:
+              - '+4740123456'
         title: Phone number to the applicant
-        pattern: '^\+[1-9][0-9]{1,14}$'
-        examples:
-        - '+4740123456'
       secondaryPhone:
+        anyOf:
+          - type: 'null'
+          - type: array
+            items:
+              type: string
+              pattern: '^\+[1-9][0-9]{1,14}$'
         title: List of alternate phone numbers
-        type: array
-        items:
-          type: string
-          pattern: '^\+[1-9][0-9]{1,14}$'
       emailAddress:
-        type: string
-        format: email
+        anyOf:
+          - type: 'null'
+          - type: string
+            format: email
         title: Email address to the applicant
       employmentStatus:
         type: string
@@ -330,20 +339,28 @@ definitions:
         minimum: 0
         maximum: 15
       childSupportReceivedMonthly:
-        type: integer
-        minimum: 0
+        anyOf:
+          - type: 'null'
+          - type: integer
+            minimum: 0
         title: Money received for child-support each month
       rentReceivedMonthly:
-        type: integer
-        minimum: 0
+        anyOf:
+          - type: 'null'
+          - type: integer
+            minimum: 0
         title: Money received for rent each month
       otherIncomeReceivedMonthly:
-        type: integer
-        minimum: 0
+        anyOf:
+          - type: 'null'
+          - type: integer
+            minimum: 0
         title: Money received each month for categories outside child-support and rent
       childSupportPaidMonthly:
-        type: integer
-        minimum: 0
+        anyOf:
+          - type: 'null'
+          - type: integer
+            minimum: 0
         title: Money paid for child-support each month
       paymentRemark:
         type: boolean
@@ -397,16 +414,20 @@ definitions:
         examples:
         - 10000
       netMonthlyIncome:
-        type: integer
-        minimum: 0
+        anyOf:
+          - type: 'null'
+          - type: integer
+            minimum: 0
         title: The monthly net (post-tax) income of the applicant
       grossYearlyIncome:
         type: integer
         minimum: 0
         title: The yearly gross (pre-tax) income of the applicant
       partnerGrossYearlyIncome:
-        type: integer
-        minimum: 0
+        anyOf:
+          - type: 'null'
+          - type: integer
+            minimum: 0
         title: The yearly gross (pre-tax) income of the applicant's partner
       maritalStatus:
         type: string
