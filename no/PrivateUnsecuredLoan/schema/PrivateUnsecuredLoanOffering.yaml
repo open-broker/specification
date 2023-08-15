@@ -68,7 +68,7 @@ definitions:
           offeredCredit. Indicating that this is the only possible
           amount offered.
         oneOf:
-          - 'null'
+          - type: 'null'
           - type: integer
             minimum: 1
       offeredCredit:
@@ -88,7 +88,7 @@ definitions:
           The average monthly cost of the loan given `offeredCredit`,
           `termMonths` and `effectiveInterestRate`.
         oneOf:
-          - 'null'
+          - type: 'null'
           - type: integer
             minimum: 1
       maxOfferedCredit:
@@ -100,7 +100,7 @@ definitions:
           offeredCredit. Indicating that this is the only possible
           amount offered.
         oneOf:
-          - 'null'
+          - type: 'null'
           - type: integer
             minimum: 1
       mustRefinance:
@@ -109,7 +109,7 @@ definitions:
           Amount the customer must use to refinance other loans.
           Use zero to indicate that no refinancing is required.
         oneOf:
-          - 'null'
+          - type: 'null'
           - type: integer
             minimum: 1
       arrangementFee:
@@ -146,14 +146,14 @@ definitions:
           The number of month-terms required to payback the loan at
           the offered interest and offered amount.
         oneOf:
-          - 'null'
+          - type: 'null'
           - type: integer
             minimum: 1
       amortizationType:
         title: Type of amortization plan
         description: Decides in which manner the loan is amortized
         oneOf:
-          - 'null'
+          - type: 'null'
           - type: string
             'meta:enum':
               ANNUITY: |
@@ -174,12 +174,12 @@ properties:
     '$ref': 'https://open-broker.org/schema/v0/no/reference'
   offerId:
     title: A reference used for identifying this particular offer
-    anyOf:
+    oneOf:
       - type: 'null'
       - '$ref': 'https://open-broker.org/schema/v0/no/reference'
   offer:
     '$ref': '#/definitions/offer'
   loanInsuranceOffer:
-    anyOf:
+    oneOf:
       - type: 'null'
       - '$ref': '#/definitions/loanInsuranceOffer'

@@ -36,7 +36,7 @@ definitions:
         title: Applicant
         description: The primary applicant to the loan
       coApplicant:
-        anyOf:
+        oneOf:
           - type: 'null'
           - '$ref': '#/definitions/applicant'
             '$linkVal': applicant
@@ -135,7 +135,7 @@ definitions:
         type: string
         minLength: 1
       careOf:
-        anyOf:
+        oneOf:
           - type: 'null'
           - type: string
             minLength: 1
@@ -367,7 +367,7 @@ definitions:
           - WIDOW_OR_WIDOWER
       bankAccount:
         title: Applicant's bank account number
-        anyOf:
+        oneOf:
           - type: 'null'
           - type: string
             pattern: '^[0-9]{11}$'
@@ -388,19 +388,19 @@ definitions:
               - 2010
       countriesOfResidence:
         title: Countries that the applicant is a resident of
-        anyOf:
+        oneOf:
           - type: 'null'
           - '$ref': '#/definitions/countryCodeArray'
             '$linkVal': countryCodeArray
       taxResidentOf:
         title: Countries that the applicant is a tax resident of
-        anyOf:
+        oneOf:
           - type: 'null'
           - '$ref': '#/definitions/countryCodeArray'
             '$linkVal': countryCodeArray
       education:
         title: The highest education level of the applicant
-        anyOf:
+        oneOf:
           - type: 'null'
           - type: string
             'meta:enum':
@@ -418,7 +418,7 @@ definitions:
         description: |
           All actors are expected to perform proper due diligence in
           establishing the identity of the applicant
-        anyOf:
+        oneOf:
           - type: 'null'
           - '$ref': '#/definitions/address'
             '$linkVal': address
