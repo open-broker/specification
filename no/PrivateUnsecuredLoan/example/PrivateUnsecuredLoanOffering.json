@@ -23,8 +23,8 @@
       "nominalInterestRate": "0.055",
       "minOfferedCredit": 250000,
       "offeredCredit": 300000,
-      "minimumMonthlyCost": 3650,
-      "monthlyCost": 2000,
+      "minimumMonthlyCost": 2000,
+      "monthlyCost": 3650,
       "maxOfferedCredit": 300000,
       "mustRefinance": 100000,
       "totalRepaymentAmount": 398000,
@@ -33,7 +33,7 @@
       "invoiceFee": 50,
       "termMonths": 84,
       "amortizationType": "ANNUITY",
-      "customerUrl": "https://urlforsiging.com"
+      "customerUrl": "https://urlforsigning.com"
     },
     "brokerReference": {
       "id": "10500-aaeb2e2ee8de09cd217ad14badd4170a549f9ec9fd4eb4815382a3b5a565d038",

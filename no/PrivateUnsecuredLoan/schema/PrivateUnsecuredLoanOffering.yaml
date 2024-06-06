@@ -78,8 +78,7 @@ definitions:
         minimum: 1
         title: Minimum monthly cost
         description: |
-          The minimum monthly cost of the loan given `offeredCredit`,
-          `termMonths` and `effectiveInterestRate`.
+          The minimum amount the customer must pay on the credit each month.
       monthlyCost:
         type: integer
         minimum: 1
