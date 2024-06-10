@@ -73,6 +73,12 @@ definitions:
           This value can be equal to both the minOfferedCredit and
           maxOfferedCredit. Indicating that this is the only possible
           amount offered.
+      minimumMonthlyCost:
+        type: integer
+        minimum: 1
+        title: Minimum monthly cost
+        description: |
+          The minimum amount the customer must pay on the credit each month.
       monthlyCost:
         type: integer
         minimum: 1
@@ -97,6 +103,12 @@ definitions:
         description: |
           Amount the customer must use to refinance other loans.
           Use zero to indicate that no refinancing is required.
+      totalRepaymentAmount:
+        type: integer
+        minimum: 1
+        title: Total repayment amount
+        description: |
+          Total amount that should be paid to lender over the length of the loan.
       arrangementFee:
         type: integer
         minimum: 0
@@ -146,6 +158,10 @@ definitions:
         enum:
           - ANNUITY
           - STRAIGHT_LINE
+      customerUrl:
+        type: string
+        title: Signing URL
+        description: URL for signing the contract
 required:
   - brokerReference
   - offer

@@ -81,7 +81,12 @@ definitions:
           This value can be equal to both the minOfferedCredit and
           maxOfferedCredit. Indicating that this is the only possible
           amount offered.
-
+      minimumMonthlyCost:
+        type: integer
+        minimum: 1
+        title: Minimum monthly cost
+        description: |
+          The minimum amount the customer must pay on the credit each month.
       monthlyCost:
         type: integer
         minimum: 1
@@ -107,7 +112,12 @@ definitions:
         description: |
           Amount the customer must use to refinance other loans.
           Use zero to indicate that no refinancing is required.
-
+      totalRepaymentAmount:
+        type: integer
+        minimum: 1
+        title: Total repayment amount
+        description: |
+          Total amount that should be paid to lender over the length of the loan.
       arrangementFee:
         type: integer
         minimum: 0
@@ -116,7 +126,6 @@ definitions:
           An arrangement fee is a one-time fee taken by the customer
           charged by the lender for setting up the loan. Use 0 to indicate
           that no arrangement fee is charged.
-
       termFee:
         type: integer
         minimum: 0
@@ -128,7 +137,6 @@ definitions:
           unavoidable fees that the customer cannot reduce by
           choosing other billing arrangements.
           0 indicates that there is no per-term fee.
-
       invoiceFee:
         type: integer
         minimum: 0
@@ -138,7 +146,6 @@ definitions:
           payment solutions such as automated transfers or electronic
           invoices. This value should not be included in the
           calculation of the APR.
-
       termMonths:
         type: integer
         minimum: 1
@@ -146,7 +153,6 @@ definitions:
         description: |
           The number of month-terms required to payback the loan at
           the offered interest and offered amount.
-
       amortizationType:
         type: string
         title: Type of amortization plan
@@ -161,7 +167,10 @@ definitions:
         enum:
           - ANNUITY
           - STRAIGHT_LINE
-
+      customerUrl:
+        type: string
+        title: Signing URL
+        description: URL for signing the contract
       comment:
         type: string
         title: A note or comment about the offer
