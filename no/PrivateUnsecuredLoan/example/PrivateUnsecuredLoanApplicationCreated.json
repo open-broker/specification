@@ -1,86 +1,111 @@
 {
-    "cloudEventsVersion" : "0.1",
-    "eventType" : "org.open-broker.v0.no.PrivateUnsecuredLoanApplicationCreated",
-    "eventTypeVersion" : "v0",
-    "source" : "no.zensum",
-    "eventID" : "4ebf6c88-8eed-48b3-8e0a-52d13f60e047",
-    "eventTime" : "2020-05-13T10:29:21+02:00",
-    "extensions" : {
-      "comExampleExtension" : "value"
+    "cloudEventsVersion": "0.1",
+    "eventType": "org.open-broker.v0.no.PrivateUnsecuredLoanApplicationCreated",
+    "eventTypeVersion": "v0",
+    "source": "no.zensum",
+    "eventID": "4ebf6c88-8eed-48b3-8e0a-52d13f60e047",
+    "eventTime": "2020-05-13T10:29:21+02:00",
+    "extensions": {
+        "comExampleExtension": "value"
     },
-    "contentType" : "application/json",
+    "contentType": "application/json",
     "data": {
-		"application": {
-			"applicant": {
-				"ssn": "11111111111",
+        "application": {
+            "applicant": {
+                "ssn": "11111111111",
                 "customerId": "abc146",
-				"phone": "+4740123456",
-				"secondaryPhone": [],
-				"emailAddress": "example@example.no",
-				"employmentStatus": "PRIVATE_SECTOR",
+                "phone": "+4740123456",
+                "secondaryPhone": [],
+                "emailAddress": "example@example.no",
+                "employmentStatus": "PRIVATE_SECTOR",
                 "employmentStatusSinceYear": 2010,
                 "employmentStatusSinceMonth": 12,
                 "employerName": "Example AB",
                 "employerPhone": "+4740123456",
                 "dependentChildren": 0,
                 "paymentRemark": false,
-				"housingType": "LODGER",
+                "housingType": "LODGER",
                 "housingSinceYear": 2010,
                 "housingSinceMonth": 12,
-				"housingCostPerMonth": 3000,
-				"netMonthlyIncome": 10000,
+                "housingCostPerMonth": 3000,
+                "netMonthlyIncome": 10000,
                 "grossYearlyIncome": 160000,
                 "partnerGrossYearlyIncome": 0,
-				"maritalStatus": "COHABITING",
-				"bankAccount": "12345678901",
-				"citizenships": [
-					"NO",
+                "maritalStatus": "COHABITING",
+                "bankAccount": "12345678901",
+                "citizenships": [
+                    "NO",
                     "SE"
-				],
-				"livedInCountrySinceYear": 1980,
-                "countriesOfResidence": ["NO"],
-				"taxResidentOf": ["SE"],
+                ],
+                "livedInCountrySinceYear": 1980,
+                "countriesOfResidence": [
+                    "NO"
+                ],
+                "taxResidentOf": [
+                    "SE"
+                ],
                 "education": "UNIVERSITY_SHORT",
-				"tentativeAddress": {
-					"firstName": "Bjarne",
-					"lastName": "Bjarnesen",
-					"address": "Fjordgatan 1",
-					"postalCode": "1234",
-					"city": "Oslo"
-				}
-			},
+                "tentativeAddress": {
+                    "firstName": "Bjarne",
+                    "lastName": "Bjarnesen",
+                    "address": "Fjordgatan 1",
+                    "postalCode": "1234",
+                    "city": "Oslo"
+                }
+            },
             "coApplicant": null,
-			"existingLoans": [
-				{
-					"loanAmount": 100000,
-					"monthlyPayment": 3000,
-					"refinanceAmount": 100000,
-					"existingLoanType": "UNSECURED_LOAN",
-					"responsibility": "SHARED",
+            "existingLoans": [
+                {
+                    "loanAmount": 100000,
+                    "monthlyPayment": 3000,
+                    "refinanceAmount": 100000,
+                    "existingLoanType": "UNSECURED_LOAN",
+                    "responsibility": "SHARED",
                     "lender": "Example Bank"
-				},
-				{
-					"loanAmount": 150000,
-					"monthlyPayment": 1000,
+                },
+                {
+                    "loanAmount": 1000000,
+                    "nominalInterestRate": "0.019",
+                    "remainingTerms": 345,
+                    "monthlyPayment": 3000,
+                    "refinanceAmount": 100000,
+                    "existingLoanType": "MORTGAGE",
+                    "responsibility": "SHARED",
+                    "lender": "Example Bank"
+                },
+                {
+                    "loanAmount": 50000,
+                    "nominalInterestRate": "0.045",
+                    "remainingTerms": 84,
+                    "monthlyPayment": 3000,
+                    "refinanceAmount": 100000,
+                    "existingLoanType": "CAR_LOAN",
+                    "responsibility": "SHARED",
+                    "lender": "Example Bank"
+                },
+                {
+                    "loanAmount": 150000,
+                    "remainingTerms": 73,
+                    "monthlyPayment": 1000,
                     "refinanceAmount": 0,
-					"existingLoanType": "STUDENT_LOAN",
-					"responsibility": "MAIN_APPLICANT",
+                    "existingLoanType": "STUDENT_LOAN",
+                    "responsibility": "MAIN_APPLICANT",
                     "lender": "Norskbank"
-				}
-			],
-			"extensions": {
-			    "se.zensum.someExtensionProperty": 42,
-				"se.zensum.someOtherExtensionProperty": 10000
-			},
-			"loanAmount": 300000,
-			"loanPurpose": "HOME_REMODELLING",
-			"refinanceAmount": 100000,
-			"termMonths": 60
-		},
-		"brokerReference": {
-			"issuer": "no.zensum",
-			"id": "10500-aaeb2e2ee8de09cd217ad14badd4170a549f9ec9fd4eb4815382a3b5a565d038"
-		},
-		"dataProtectionContext": "FICTIONAL"
-	}
+                }
+            ],
+            "extensions": {
+                "se.zensum.someExtensionProperty": 42,
+                "se.zensum.someOtherExtensionProperty": 10000
+            },
+            "loanAmount": 300000,
+            "loanPurpose": "HOME_REMODELLING",
+            "refinanceAmount": 100000,
+            "termMonths": 60
+        },
+        "brokerReference": {
+            "issuer": "no.zensum",
+            "id": "10500-aaeb2e2ee8de09cd217ad14badd4170a549f9ec9fd4eb4815382a3b5a565d038"
+        },
+        "dataProtectionContext": "FICTIONAL"
+    }
 }
