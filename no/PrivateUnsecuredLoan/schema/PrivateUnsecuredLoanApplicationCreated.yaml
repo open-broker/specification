@@ -99,7 +99,7 @@ definitions:
         minimum: 1
       nominalInterestRate:
         type: string
-        pattern: '^[0-9]+(\.[0-9]+)?$'
+        pattern: '^(0\.[0-9]+|1\.0+)$'
         title: Nominal interest rate
         description: |
           The nominal interest rate of the loan formatted as a string to avoid problems
