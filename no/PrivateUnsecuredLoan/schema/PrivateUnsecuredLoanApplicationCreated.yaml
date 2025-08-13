@@ -37,7 +37,7 @@ definitions:
           - 24
       refinanceAmount:
         oneOf:
-          - type: "null"
+          - type: null
           - type: integer
             examples:
               - 25000
@@ -54,7 +54,7 @@ definitions:
         description: The primary applicant to the loan
       coApplicant:
         oneOf:
-          - type: "null"
+          - type: null
           - '$ref': '#/definitions/applicant'
             '$linkVal': applicant
         title: Co-applicant
@@ -216,7 +216,7 @@ definitions:
         minLength: 11
         maxLength: 11
         examples:
-        - '11111111111'
+          - '11111111111'
       customerId:
         type: string
         title: customer ID
@@ -282,14 +282,14 @@ definitions:
         minimum: 1900
         maximum: 3000
         examples:
-        - 2010
+          - 2010
       employmentStatusSinceMonth:
         type: integer
         title: Month in which the applicant entered into his or her current employment status
         minimum: 1
         maximum: 12
         examples:
-        - 12
+          - 12
       employmentStatusUntilYear:
         title: Year in which the applicant ended his or her current employment status (for temporary employment)
         oneOf:
@@ -314,15 +314,15 @@ definitions:
           - type: null
           - type: string
             examples:
-            - Example AB
+              - Example AB
       employerPhone:
-          title: The phone number of the employer
-          oneOf:
-            - type: null
-            - type: string
-              pattern: '^\+[1-9][0-9]{1,14}$'
-              examples:
-                - '+4740123456'
+        title: The phone number of the employer
+        oneOf:
+          - type: null
+          - type: string
+            pattern: '^\+[1-9][0-9]{1,14}$'
+            examples:
+              - '+4740123456'
       dependentChildren:
         type: integer
         title: Number of dependent children
@@ -390,7 +390,7 @@ definitions:
             minimum: 1900
             maximum: 3000
             examples:
-            - 2010
+              - 2010
       housingSinceMonth:
         title: Month in which the applicant entered into his or her current housing
         oneOf:
@@ -406,7 +406,7 @@ definitions:
         default: 0
         minimum: 0
         examples:
-        - 10000
+          - 10000
       netMonthlyIncome:
         oneOf:
           - type: null
