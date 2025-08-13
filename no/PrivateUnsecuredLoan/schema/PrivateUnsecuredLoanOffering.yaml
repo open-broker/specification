@@ -68,7 +68,7 @@ definitions:
           offeredCredit. Indicating that this is the only possible
           amount offered.
         oneOf:
-          - type: 'null'
+          - type: null
           - type: integer
             minimum: 1
       offeredCredit:
@@ -82,13 +82,19 @@ definitions:
           This value can be equal to both the minOfferedCredit and
           maxOfferedCredit. Indicating that this is the only possible
           amount offered.
+      minimumMonthlyCost:
+        type: integer
+        minimum: 1
+        title: Minimum monthly cost
+        description: |
+          The minimum amount the customer must pay on the credit each month.
       monthlyCost:
         title: Average monthly cost
         description: |
           The average monthly cost of the loan given `offeredCredit`,
           `termMonths` and `effectiveInterestRate`.
         oneOf:
-          - type: 'null'
+          - type: null
           - type: integer
             minimum: 1
       maxOfferedCredit:
@@ -109,7 +115,15 @@ definitions:
           Amount the customer must use to refinance other loans.
           Use zero to indicate that no refinancing is required.
         oneOf:
-          - type: 'null'
+          - type: null
+          - type: integer
+            minimum: 1
+      totalRepaymentAmount:
+        title: Total repayment amount
+        description: |
+          Total amount that should be paid to lender over the length of the loan.
+        oneOf:
+          - type: null
           - type: integer
             minimum: 1
       arrangementFee:
@@ -146,14 +160,14 @@ definitions:
           The number of month-terms required to payback the loan at
           the offered interest and offered amount.
         oneOf:
-          - type: 'null'
+          - type: null
           - type: integer
             minimum: 1
       amortizationType:
         title: Type of amortization plan
         description: Decides in which manner the loan is amortized
         oneOf:
-          - type: 'null'
+          - type: null
           - type: string
             'meta:enum':
               ANNUITY: |
@@ -165,6 +179,10 @@ definitions:
             enum:
               - ANNUITY
               - STRAIGHT_LINE
+      customerUrl:
+        type: string
+        title: Signing URL
+        description: URL for signing the contract
 required:
   - brokerReference
   - offer
@@ -175,11 +193,11 @@ properties:
   offerId:
     title: A reference used for identifying this particular offer
     oneOf:
-      - type: 'null'
+      - type: null
       - '$ref': 'https://open-broker.org/schema/v0/no/reference'
   offer:
     '$ref': '#/definitions/offer'
   loanInsuranceOffer:
     oneOf:
-      - type: 'null'
+      - type: null
       - '$ref': '#/definitions/loanInsuranceOffer'

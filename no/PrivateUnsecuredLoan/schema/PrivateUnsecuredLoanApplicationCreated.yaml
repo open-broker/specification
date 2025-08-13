@@ -171,9 +171,6 @@ definitions:
     required:
       - firstName
       - lastName
-      - address
-      - city
-      - postalCode
     properties:
       firstName:
         type: string
@@ -183,13 +180,10 @@ definitions:
         minLength: 1
       address:
         type: string
-        minLength: 1
       city:
         type: string
-        minLength: 1
       postalCode:
         type: string
-        minLength: 1
       careOf:
         oneOf:
           - type: 'null'
