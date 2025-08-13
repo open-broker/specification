@@ -15,5 +15,5 @@ properties:
   offerId:
     title: A reference used for identifying the offer being rejected
     oneOf:
-      - type: 'null'
+      - type: null
       - '$ref': 'http://open-broker.org/no/PrivateUnsecuredLoan/v0/schema#/definitions/reference'

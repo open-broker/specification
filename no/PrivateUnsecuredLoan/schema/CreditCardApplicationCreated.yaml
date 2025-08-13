@@ -37,7 +37,7 @@ definitions:
         description: The primary applicant to the loan
       coApplicant:
         oneOf:
-          - type: 'null'
+          - type: null
           - '$ref': '#/definitions/applicant'
             '$linkVal': applicant
         title: Co-applicant
@@ -136,7 +136,7 @@ definitions:
         minLength: 1
       careOf:
         oneOf:
-          - type: 'null'
+          - type: null
           - type: string
             minLength: 1
   applicant:
@@ -248,14 +248,14 @@ definitions:
       employerName:
         title: The company name of the employer
         oneOf:
-          - type: 'null'
+          - type: null
           - type: string
             examples:
               - Example AB
       employerPhone:
         title: The phone number of the employer
         oneOf:
-          - type: 'null'
+          - type: null
           - type: string
             pattern: '^\+[1-9][0-9]{1,14}$'
             examples:
@@ -319,7 +319,7 @@ definitions:
             maximum: 3000
             examples:
               - 2010
-          - type: 'null'
+          - type: null
       housingSinceMonth:
         title: Month in which the applicant entered into his or her current housing
         oneOf:
@@ -328,7 +328,7 @@ definitions:
             maximum: 12
             examples:
               - 12
-          - type: 'null'
+          - type: null
       housingCostPerMonth:
         type: integer
         title: Housing-related costs per month
@@ -347,7 +347,7 @@ definitions:
       partnerGrossYearlyIncome:
         title: The yearly gross (pre-tax) income of the applicant's partner
         oneOf:
-          - type: 'null'
+          - type: null
           - type: integer
             minimum: 0
       maritalStatus:
@@ -368,7 +368,7 @@ definitions:
       bankAccount:
         title: Applicant's bank account number
         oneOf:
-          - type: 'null'
+          - type: null
           - type: string
             pattern: '^[0-9]{11}$'
             minLength: 11
@@ -380,7 +380,7 @@ definitions:
       livedInCountrySinceYear:
         title: Year in which the applicant started living in the country
         oneOf:
-          - type: 'null'
+          - type: null
           - type: integer
             minimum: 1900
             maximum: 3000
@@ -389,19 +389,19 @@ definitions:
       countriesOfResidence:
         title: Countries that the applicant is a resident of
         oneOf:
-          - type: 'null'
+          - type: null
           - '$ref': '#/definitions/countryCodeArray'
             '$linkVal': countryCodeArray
       taxResidentOf:
         title: Countries that the applicant is a tax resident of
         oneOf:
-          - type: 'null'
+          - type: null
           - '$ref': '#/definitions/countryCodeArray'
             '$linkVal': countryCodeArray
       education:
         title: The highest education level of the applicant
         oneOf:
-          - type: 'null'
+          - type: null
           - type: string
             'meta:enum':
               PRIMARY_SCHOOL: Completed the obligatory first stage of formal education (no. Grunnskole)
@@ -419,7 +419,7 @@ definitions:
           All actors are expected to perform proper due diligence in
           establishing the identity of the applicant
         oneOf:
-          - type: 'null'
+          - type: null
           - '$ref': '#/definitions/address'
             '$linkVal': address
 required:

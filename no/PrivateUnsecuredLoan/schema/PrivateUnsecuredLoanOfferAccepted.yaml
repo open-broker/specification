@@ -14,12 +14,12 @@ properties:
     '$ref': 'https://open-broker.org/schema/v0/no/reference'
   offerId:
     oneOf:
-      - type: 'null'
+      - type: null
       - '$ref': 'http://open-broker.org/no/PrivateUnsecuredLoan/v0/schema#/definitions/reference'
     title: A reference used for identifying the offer being accepted
   bankAccount:
     oneOf:
-      - type: 'null'
+      - type: null
       - type: string
         pattern: '^[0-9]{11}$'
         minLength: 11
@@ -32,7 +32,7 @@ properties:
       not supported.
   requestedCredit:
     oneOf:
-      - type: 'null'
+      - type: null
       - type: integer
         minimum: 0
     title:
@@ -45,7 +45,7 @@ properties:
       should use the `offeredCredit` value.
   termMonths:
     oneOf:
-      - type: 'null'
+      - type: null
       - type: integer
         minimum: 1
     title: Number of monthly terms
@@ -53,7 +53,7 @@ properties:
       The number of month-terms to payback the loan.
   ssn:
     oneOf:
-      - type: 'null'
+      - type: null
       - type: string
         pattern: '^[0-9]{11}$'
         minLength: 11
@@ -64,7 +64,7 @@ properties:
     description: A Norweigian Social Security number in 11-digit format DDMMYYXXXXX
   ssnCoapplicant:
     oneOf:
-      - type: 'null'
+      - type: null
       - type: string
         pattern: '^[0-9]{11}$'
         minLength: 11
@@ -75,13 +75,13 @@ properties:
     description: A Norweigian Social Security number in 11-digit format DDMMYYXXXXX
   emailAddress:
     oneOf:
-      - type: 'null'
+      - type: null
       - type: string
         format: email
     title: Email address of the applicant
   emailAddressCoapplicant:
     oneOf:
-      - type: 'null'
+      - type: null
       - type: string
         format: email
     title: Email address of the coapplicant

@@ -186,7 +186,7 @@ definitions:
         type: string
       careOf:
         oneOf:
-          - type: 'null'
+          - type: null
           - type: string
             minLength: 1
   applicant:
@@ -223,7 +223,7 @@ definitions:
         description: "ID of the customer (unique per ssn)"
       phone:
         oneOf:
-          - type: 'null'
+          - type: null
           - type: string
             pattern: '^\+[1-9][0-9]{1,14}$'
             examples:
@@ -231,7 +231,7 @@ definitions:
         title: Phone number to the applicant
       secondaryPhone:
         oneOf:
-          - type: 'null'
+          - type: null
           - type: array
             items:
               type: string
@@ -239,7 +239,7 @@ definitions:
         title: List of alternate phone numbers
       emailAddress:
         oneOf:
-          - type: 'null'
+          - type: null
           - type: string
             format: email
         title: Email address to the applicant
@@ -293,7 +293,7 @@ definitions:
       employmentStatusUntilYear:
         title: Year in which the applicant ended his or her current employment status (for temporary employment)
         oneOf:
-          - type: 'null'
+          - type: null
           - type: integer
             minimum: 1900
             maximum: 3000
@@ -302,7 +302,7 @@ definitions:
       employmentStatusUntilMonth:
         title: Month in which the applicant ended his or her current employment status (for temporary employment)
         oneOf:
-          - type: 'null'
+          - type: null
           - type: integer
             minimum: 1
             maximum: 12
@@ -311,14 +311,14 @@ definitions:
       employerName:
         title: The company name of the employer
         oneOf:
-          - type: 'null'
+          - type: null
           - type: string
             examples:
             - Example AB
       employerPhone:
           title: The phone number of the employer
           oneOf:
-            - type: 'null'
+            - type: null
             - type: string
               pattern: '^\+[1-9][0-9]{1,14}$'
               examples:
@@ -334,25 +334,25 @@ definitions:
         maximum: 15
       childSupportReceivedMonthly:
         oneOf:
-          - type: 'null'
+          - type: null
           - type: integer
             minimum: 0
         title: Money received for child-support each month
       rentReceivedMonthly:
         oneOf:
-          - type: 'null'
+          - type: null
           - type: integer
             minimum: 0
         title: Money received for rent each month
       otherIncomeReceivedMonthly:
         oneOf:
-          - type: 'null'
+          - type: null
           - type: integer
             minimum: 0
         title: Money received each month for categories outside child-support and rent
       childSupportPaidMonthly:
         oneOf:
-          - type: 'null'
+          - type: null
           - type: integer
             minimum: 0
         title: Money paid for child-support each month
@@ -385,7 +385,7 @@ definitions:
       housingSinceYear:
         title: Year in which the applicant entered into his or her current housing
         oneOf:
-          - type: 'null'
+          - type: null
           - type: integer
             minimum: 1900
             maximum: 3000
@@ -394,7 +394,7 @@ definitions:
       housingSinceMonth:
         title: Month in which the applicant entered into his or her current housing
         oneOf:
-          - type: 'null'
+          - type: null
           - type: integer
             minimum: 1
             maximum: 12
@@ -409,7 +409,7 @@ definitions:
         - 10000
       netMonthlyIncome:
         oneOf:
-          - type: 'null'
+          - type: null
           - type: integer
             minimum: 0
         title: The monthly net (post-tax) income of the applicant
@@ -419,7 +419,7 @@ definitions:
         title: The yearly gross (pre-tax) income of the applicant
       partnerGrossYearlyIncome:
         oneOf:
-          - type: 'null'
+          - type: null
           - type: integer
             minimum: 0
         title: The yearly gross (pre-tax) income of the applicant's partner
@@ -441,7 +441,7 @@ definitions:
       bankAccount:
         title: Applicant's bank account number
         oneOf:
-          - type: 'null'
+          - type: null
           - type: string
             pattern: '^[0-9]{11}$'
             minLength: 11
@@ -453,7 +453,7 @@ definitions:
       livedInCountrySinceYear:
         title: Year in which the applicant started living in the country
         oneOf:
-          - type: 'null'
+          - type: null
           - type: integer
             minimum: 1900
             maximum: 3000
@@ -470,7 +470,7 @@ definitions:
       education:
         title: The highest education level of the applicant
         oneOf:
-          - type: 'null'
+          - type: null
           - type: string
             'meta:enum':
               PRIMARY_SCHOOL: Completed the obligatory first stage of formal education (no. Grunnskole)
@@ -488,7 +488,7 @@ definitions:
           All actors are expected to perform proper due diligence in
           establishing the identity of the applicant
         oneOf:
-          - type: 'null'
+          - type: null
           - '$ref': '#/definitions/address'
             '$linkVal': address
 required:

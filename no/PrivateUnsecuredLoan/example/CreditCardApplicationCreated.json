@@ -30,7 +30,6 @@
                 "grossYearlyIncome": 160000,
                 "partnerGrossYearlyIncome": 0,
                 "maritalStatus": "COHABITING",
-                "bankAccount": "12345678901",
                 "citizenships": [
                     "NO",
                     "SE"
@@ -56,7 +55,7 @@
                 {
                     "loanAmount": 100000,
                     "monthlyPayment": 3000,
-                    "refinanceAmount": 100000,
+                    "refinanceAmount": 0,
                     "existingLoanType": "UNSECURED_LOAN",
                     "responsibility": "SHARED",
                     "lender": "Example Bank"
@@ -71,8 +70,7 @@
                 }
             ],
             "extensions": {
-                "product": "CREDIT_CARD",
-                "se.zensum.someOtherExtensionProperty": 10000
+                "product": "CREDIT_CARD"
             },
             "loanAmount": 300000
         },

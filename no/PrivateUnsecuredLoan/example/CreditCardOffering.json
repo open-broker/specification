@@ -8,10 +8,7 @@
   "extensions": null,
   "contentType": "application/json",
   "data": {
-    "loanInsuranceOffer": {
-      "insuredAmount": 300000,
-      "monthlyPremium": 500
-    },
+    "loanInsuranceOffer": null,
     "offerId": {
       "id": "ASdh78ao8wiogf6",
       "issuer": "org.service-provider"
@@ -22,12 +19,16 @@
       "minOfferedCredit": null,
       "offeredCredit": 300000,
       "maxOfferedCredit": null,
+      "minimumMonthlyCost": null,
       "monthlyCost": 2000,
       "arrangementFee": 695,
       "termFee": 500,
       "invoiceFee": 50,
       "termMonths": 84,
-      "amortizationType": null
+      "mustRefinance": null,
+      "totalRepaymentAmount": null,
+      "amortizationType": null,
+      "customerUrl": null
     },
     "brokerReference": {
       "id": "10500-aaeb2e2ee8de09cd217ad14badd4170a549f9ec9fd4eb4815382a3b5a565d038",

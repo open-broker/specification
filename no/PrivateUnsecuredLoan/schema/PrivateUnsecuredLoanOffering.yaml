@@ -83,11 +83,13 @@ definitions:
           maxOfferedCredit. Indicating that this is the only possible
           amount offered.
       minimumMonthlyCost:
-        type: integer
-        minimum: 1
         title: Minimum monthly cost
         description: |
           The minimum amount the customer must pay on the credit each month.
+        oneOf:
+          - type: null
+          - type: integer
+            minimum: 1
       monthlyCost:
         title: Average monthly cost
         description: |
@@ -106,7 +108,7 @@ definitions:
           offeredCredit. Indicating that this is the only possible
           amount offered.
         oneOf:
-          - type: 'null'
+          - type: null
           - type: integer
             minimum: 1
       mustRefinance:
@@ -180,9 +182,12 @@ definitions:
               - ANNUITY
               - STRAIGHT_LINE
       customerUrl:
-        type: string
         title: Signing URL
         description: URL for signing the contract
+        anyOf:
+          - type: null
+          - type: string
+            format: uri
 required:
   - brokerReference
   - offer
