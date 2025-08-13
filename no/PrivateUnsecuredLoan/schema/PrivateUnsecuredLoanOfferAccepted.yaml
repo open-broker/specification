@@ -13,21 +13,28 @@ properties:
     title: The reference used by the broker for the application resulting in this offer
     '$ref': 'https://open-broker.org/schema/v0/no/reference'
   offerId:
+    oneOf:
+      - type: null
+      - '$ref': 'http://open-broker.org/no/PrivateUnsecuredLoan/v0/schema#/definitions/reference'
     title: A reference used for identifying the offer being accepted
-    $ref: 'http://open-broker.org/no/PrivateUnsecuredLoan/v0/schema#/definitions/reference'
   bankAccount:
+    oneOf:
+      - type: null
+      - type: string
+        pattern: '^[0-9]{11}$'
+        minLength: 11
+        maxLength: 11
     type: string
     title: The bank acccount to pay out the money to
     description: |
       The broker may include an updated bank account for the
       applicant. The service-provider may ignore this updated field if
       not supported.
-    pattern: '^[0-9]{11}$'
-    minLength: 11
-    maxLength: 11
   requestedCredit:
-    type: integer
-    minimum: 0
+    oneOf:
+      - type: null
+      - type: integer
+        minimum: 0
     title:
       Amount of credit requested by the customer
     description: |
@@ -37,34 +44,44 @@ properties:
       outside the bounds set in the loan offer, service-providers
       should use the `offeredCredit` value.
   termMonths:
-    type: integer
-    minimum: 1
+    oneOf:
+      - type: null
+      - type: integer
+        minimum: 1
     title: Number of monthly terms
     description: |
       The number of month-terms to payback the loan.
   ssn:
-    type: string
+    oneOf:
+      - type: null
+      - type: string
+        pattern: '^[0-9]{11}$'
+        minLength: 11
+        maxLength: 11
+        examples:
+          - '11111111111'
     title: 11-digit Social Security Number (no. Fodselsnummer)
     description: A Norweigian Social Security number in 11-digit format DDMMYYXXXXX
-    pattern: '^[0-9]{11}$'
-    minLength: 11
-    maxLength: 11
-    examples:
-      - '11111111111'
   ssnCoapplicant:
-    type: string
+    oneOf:
+      - type: null
+      - type: string
+        pattern: '^[0-9]{11}$'
+        minLength: 11
+        maxLength: 11
+        examples:
+          - '11111111111'
     title: 11-digit Social Security Number (no. Fodselsnummer)
     description: A Norweigian Social Security number in 11-digit format DDMMYYXXXXX
-    pattern: '^[0-9]{11}$'
-    minLength: 11
-    maxLength: 11
-    examples:
-      - '11111111111'
   emailAddress:
-    type: string
-    format: email
+    oneOf:
+      - type: null
+      - type: string
+        format: email
     title: Email address of the applicant
   emailAddressCoapplicant:
-    type: string
-    format: email
+    oneOf:
+      - type: null
+      - type: string
+        format: email
     title: Email address of the coapplicant
