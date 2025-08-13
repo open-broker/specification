@@ -127,9 +127,9 @@ definitions:
       remainingTerms:
         type: integer
         minimum: 1
-        title: Number of monthly terms
+        title: Remaining loan term in months
         description: |
-            The number of month-terms required to payback the loan.
+            The number of months required to pay back the loan.
       monthlyPayment:
         type: integer
         minimum: 1
