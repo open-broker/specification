@@ -117,19 +117,26 @@ definitions:
         type: integer
         minimum: 1
       nominalInterestRate:
-        type: string
-        pattern: '^(0\.[0-9]+|1\.0+)$'
         title: Nominal interest rate
         description: |
           The nominal interest rate of the loan formatted as a string to avoid problems
           with floating-point numbers. The nominal interest rate of 15% would be written as `0.15`,
           and 100% as `1.0`.
+        oneOf:
+          - type: null
+          - type: string
+            pattern: '^(0\.[0-9]+|1\.0+)$'
+            examples:
+            - '0.15'
+            - '1.0'
       remainingTerms:
-        type: integer
-        minimum: 1
         title: Remaining loan term in months
         description: |
             The number of months required to pay back the loan.
+        oneOf:
+          - type: null
+          - type: integer
+            minimum: 1
       monthlyPayment:
         type: integer
         minimum: 1
