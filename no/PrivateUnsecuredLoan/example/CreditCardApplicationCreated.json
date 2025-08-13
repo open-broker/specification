@@ -4,10 +4,8 @@
     "eventTypeVersion": "v0",
     "source": "no.zensum",
     "eventID": "4ebf6c88-8eed-48b3-8e0a-52d13f60e047",
-    "eventTime": "2020-05-13T10:29:21+02:00",
-    "extensions": {
-        "comExampleExtension": "value"
-    },
+    "eventTime": "2023-05-03T12:17:25.302775Z",
+    "extensions": null,
     "contentType": "application/json",
     "data": {
         "application": {
@@ -32,7 +30,6 @@
                 "grossYearlyIncome": 160000,
                 "partnerGrossYearlyIncome": 0,
                 "maritalStatus": "COHABITING",
-                "bankAccount": "12345678901",
                 "citizenships": [
                     "NO",
                     "SE"
@@ -58,34 +55,13 @@
                 {
                     "loanAmount": 100000,
                     "monthlyPayment": 3000,
-                    "refinanceAmount": 100000,
+                    "refinanceAmount": 0,
                     "existingLoanType": "UNSECURED_LOAN",
                     "responsibility": "SHARED",
                     "lender": "Example Bank"
                 },
                 {
-                    "loanAmount": 1000000,
-                    "nominalInterestRate": "0.019",
-                    "remainingTerms": 345,
-                    "monthlyPayment": 3000,
-                    "refinanceAmount": 100000,
-                    "existingLoanType": "MORTGAGE",
-                    "responsibility": "SHARED",
-                    "lender": "Example Bank"
-                },
-                {
-                    "loanAmount": 50000,
-                    "nominalInterestRate": "0.045",
-                    "remainingTerms": 84,
-                    "monthlyPayment": 3000,
-                    "refinanceAmount": 100000,
-                    "existingLoanType": "CAR_LOAN",
-                    "responsibility": "SHARED",
-                    "lender": "Example Bank"
-                },
-                {
                     "loanAmount": 150000,
-                    "remainingTerms": 73,
                     "monthlyPayment": 1000,
                     "refinanceAmount": 0,
                     "existingLoanType": "STUDENT_LOAN",
@@ -94,13 +70,9 @@
                 }
             ],
             "extensions": {
-                "se.zensum.someExtensionProperty": 42,
-                "se.zensum.someOtherExtensionProperty": 10000
+                "product": "CREDIT_CARD"
             },
-            "loanAmount": 300000,
-            "loanPurpose": "HOME_REMODELLING",
-            "refinanceAmount": 100000,
-            "termMonths": 60
+            "loanAmount": 300000
         },
         "brokerReference": {
             "issuer": "no.zensum",

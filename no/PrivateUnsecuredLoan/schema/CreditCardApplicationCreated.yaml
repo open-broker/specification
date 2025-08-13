@@ -1,10 +1,10 @@
-title: PrivateUnsecuredLoanApplicationCreated
+title: CreditCardApplicationCreated
 description: |
   An event indicating the creation of an application for
   a private unsecured loan.
 type: object
 additionalProperties: false
-'$id': 'https://open-broker.org/schema/v0/no/PrivateUnsecuredLoanApplicationCreated'
+'$id': 'https://open-broker.org/schema/v0/no/CreditCardApplicationCreated'
 '$schema': 'http://json-schema.org/draft-06/schema#'
 definitions:
   extensionPoint:
@@ -14,12 +14,10 @@ definitions:
       type: ['number','string','boolean','object', 'array']
   application:
     type: object
-    additionalProperties: false
+    additionalProperties: true
     required:
       - loanAmount
-      - termMonths
       - applicant
-      - loanPurpose
     properties:
       loanAmount:
         type: integer
@@ -28,21 +26,6 @@ definitions:
         minimum: 1
         examples:
           - 50000
-      termMonths:
-        type: integer
-        title: Number of monthly terms
-        description: The number of 1-month terms that the applicant desires to pay off the loan over
-        minimum: 1
-        examples:
-          - 24
-      refinanceAmount:
-        oneOf:
-          - type: null
-          - type: integer
-            examples:
-              - 25000
-        title: The amount being refinanced
-        description: Must be less than or equal to the loanAmount
       extensions:
         '$ref': '#/definitions/extensionPoint'
         '$linkVal': extensionPoint
@@ -58,52 +41,13 @@ definitions:
           - '$ref': '#/definitions/applicant'
             '$linkVal': applicant
         title: Co-applicant
-        description: A secondary applicant for the loan, if any.
+        description: A secondary applicant for the credit card application, if any.
       existingLoans:
         type: array
         title: Information about existing loans relevant to the applicant
         items:
           '$ref': '#/definitions/existingLoan'
           '$linkVal': existingLoan
-      loanPurpose:
-        type: string
-        title: Purpose of the loan
-        description: Categorical label for the purpose of the loan being applied for
-        default: OTHER
-        'meta:enum':
-          REFINANCE: Refinancing existing debt
-          HOME_REMODELLING: Home remodelling or renovation
-          HOME_DOWNPAYMENT: To finance a downpayment for a loan
-          HEALTHCARE_EXPENSES: To finance health-care costs.
-          DIVORCE_PROCEEDINGS: To finance costs relating to a divorce
-          DRIVERS_LICENSE: To finance getting a driver's licence
-          DEBT_COLLECTION: To refinance or pay off overdue loans
-          CONSUMPTION: General consumption
-          RELOCATION: To finance moving to a different location, like different town
-          INVESTMENT: To finance an investment
-          EDUCATION: To finance education of some kind
-          INTERIOR: To finance a new interior, like new kitchen, furniture
-          WEDDING: To finance a wedding
-          TRAVEL: To finance a vacation or other travel expenses
-          CAR: To finance the purchase of a car or similar
-          OTHER: Purpose not fitting the above categories
-        enum:
-          - REFINANCE
-          - HOME_REMODELLING
-          - HOME_DOWNPAYMENT
-          - HEALTHCARE_EXPENSES
-          - DIVORCE_PROCEEDINGS
-          - DRIVERS_LICENSE
-          - DEBT_COLLECTION
-          - CONSUMPTION
-          - RELOCATION
-          - INVESTMENT
-          - EDUCATION
-          - INTERIOR
-          - WEDDING
-          - TRAVEL
-          - CAR
-          - OTHER
   existingLoan:
     type: object
     required:
@@ -116,20 +60,6 @@ definitions:
       loanAmount:
         type: integer
         minimum: 1
-      nominalInterestRate:
-        type: string
-        pattern: '^(0\.[0-9]+|1\.0+)$'
-        title: Nominal interest rate
-        description: |
-          The nominal interest rate of the loan formatted as a string to avoid problems
-          with floating-point numbers. The nominal interest rate of 15% would be written as `0.15`,
-          and 100% as `1.0`.
-      remainingTerms:
-        type: integer
-        minimum: 1
-        title: Number of monthly terms
-        description: |
-            The number of month-terms required to payback the loan.
       monthlyPayment:
         type: integer
         minimum: 1
@@ -185,6 +115,9 @@ definitions:
     required:
       - firstName
       - lastName
+      - address
+      - city
+      - postalCode
     properties:
       firstName:
         type: string
@@ -194,10 +127,13 @@ definitions:
         minLength: 1
       address:
         type: string
+        minLength: 1
       city:
         type: string
+        minLength: 1
       postalCode:
         type: string
+        minLength: 1
       careOf:
         oneOf:
           - type: null
@@ -213,14 +149,11 @@ definitions:
       - employmentStatusSinceYear
       - employmentStatusSinceMonth
       - dependentChildren
-      - paymentRemark
       - housingType
       - housingCostPerMonth
       - grossYearlyIncome
       - maritalStatus
       - citizenships
-      - countriesOfResidence
-      - taxResidentOf
     properties:
       ssn:
         type: string
@@ -236,26 +169,20 @@ definitions:
         title: customer ID
         description: "ID of the customer (unique per ssn)"
       phone:
-        oneOf:
-          - type: null
-          - type: string
-            pattern: '^\+[1-9][0-9]{1,14}$'
-            examples:
-              - '+4740123456'
+        type: string
         title: Phone number to the applicant
+        pattern: '^\+[1-9][0-9]{1,14}$'
+        examples:
+          - '+4740123456'
       secondaryPhone:
-        oneOf:
-          - type: null
-          - type: array
-            items:
-              type: string
-              pattern: '^\+[1-9][0-9]{1,14}$'
         title: List of alternate phone numbers
+        type: array
+        items:
+          type: string
+          pattern: '^\+[1-9][0-9]{1,14}$'
       emailAddress:
-        oneOf:
-          - type: null
-          - type: string
-            format: email
+        type: string
+        format: email
         title: Email address to the applicant
       employmentStatus:
         type: string
@@ -305,23 +232,19 @@ definitions:
         examples:
           - 12
       employmentStatusUntilYear:
+        type: integer
         title: Year in which the applicant ended his or her current employment status (for temporary employment)
-        oneOf:
-          - type: null
-          - type: integer
-            minimum: 1900
-            maximum: 3000
-            examples:
-              - 2010
+        minimum: 1900
+        maximum: 3000
+        examples:
+          - 2010
       employmentStatusUntilMonth:
+        type: integer
         title: Month in which the applicant ended his or her current employment status (for temporary employment)
-        oneOf:
-          - type: null
-          - type: integer
-            minimum: 1
-            maximum: 12
-            examples:
-              - 12
+        minimum: 1
+        maximum: 12
+        examples:
+          - 12
       employerName:
         title: The company name of the employer
         oneOf:
@@ -347,28 +270,20 @@ definitions:
         minimum: 0
         maximum: 15
       childSupportReceivedMonthly:
-        oneOf:
-          - type: null
-          - type: integer
-            minimum: 0
+        type: integer
+        minimum: 0
         title: Money received for child-support each month
       rentReceivedMonthly:
-        oneOf:
-          - type: null
-          - type: integer
-            minimum: 0
+        type: integer
+        minimum: 0
         title: Money received for rent each month
       otherIncomeReceivedMonthly:
-        oneOf:
-          - type: null
-          - type: integer
-            minimum: 0
+        type: integer
+        minimum: 0
         title: Money received each month for categories outside child-support and rent
       childSupportPaidMonthly:
-        oneOf:
-          - type: null
-          - type: integer
-            minimum: 0
+        type: integer
+        minimum: 0
         title: Money paid for child-support each month
       paymentRemark:
         type: boolean
@@ -399,21 +314,21 @@ definitions:
       housingSinceYear:
         title: Year in which the applicant entered into his or her current housing
         oneOf:
-          - type: null
           - type: integer
             minimum: 1900
             maximum: 3000
             examples:
               - 2010
+          - type: null
       housingSinceMonth:
         title: Month in which the applicant entered into his or her current housing
         oneOf:
-          - type: null
           - type: integer
             minimum: 1
             maximum: 12
             examples:
               - 12
+          - type: null
       housingCostPerMonth:
         type: integer
         title: Housing-related costs per month
@@ -422,21 +337,19 @@ definitions:
         examples:
           - 10000
       netMonthlyIncome:
-        oneOf:
-          - type: null
-          - type: integer
-            minimum: 0
+        type: integer
+        minimum: 0
         title: The monthly net (post-tax) income of the applicant
       grossYearlyIncome:
         type: integer
         minimum: 0
         title: The yearly gross (pre-tax) income of the applicant
       partnerGrossYearlyIncome:
+        title: The yearly gross (pre-tax) income of the applicant's partner
         oneOf:
           - type: null
           - type: integer
             minimum: 0
-        title: The yearly gross (pre-tax) income of the applicant's partner
       maritalStatus:
         type: string
         title: The marital status of the applicant
@@ -475,12 +388,16 @@ definitions:
               - 2010
       countriesOfResidence:
         title: Countries that the applicant is a resident of
-        '$ref': '#/definitions/countryCodeArray'
-        '$linkVal': countryCodeArray
+        oneOf:
+          - type: null
+          - '$ref': '#/definitions/countryCodeArray'
+            '$linkVal': countryCodeArray
       taxResidentOf:
         title: Countries that the applicant is a tax resident of
-        '$ref': '#/definitions/countryCodeArray'
-        '$linkVal': countryCodeArray
+        oneOf:
+          - type: null
+          - '$ref': '#/definitions/countryCodeArray'
+            '$linkVal': countryCodeArray
       education:
         title: The highest education level of the applicant
         oneOf:
