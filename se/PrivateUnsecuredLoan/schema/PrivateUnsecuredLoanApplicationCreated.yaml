@@ -36,7 +36,10 @@ definitions:
         examples:
         - 3
       refinanceAmount:
-        type: integer
+        oneOf:
+          - type: 'null'
+          - type: integer
+            minimum: 0
         title: The amount being refinanced
         description: Must be less than or equal to the loanAmount
         examples:
@@ -51,8 +54,10 @@ definitions:
         title: Applicant
         description: The primary applicant to the loan
       coApplicant:
-        "$ref": '#/definitions/applicant'
-        "$linkVal": applicant
+        anyOf:
+          - type: 'null'
+          - '$ref': '#/definitions/applicant'
+            '$linkVal': applicant
         title: Co-applicant
         description: A secondary applicant for the loan, if any.
       existingLoans:
@@ -119,8 +124,10 @@ definitions:
       shouldRefinance:
         type: boolean
       refinanceAmount:
-        type: integer
-        minimum: 0
+        anyOf:
+          - type: 'null'
+          - type: integer
+            minimum: 0
       existingLoanType:
         type: string
         "meta:enum":
@@ -139,9 +146,6 @@ definitions:
           - STUDENT_LOAN
           - UNSECURED_LOAN
           - OTHER
-      lenderName:
-        type: string
-        title: Name of the lender
       responsibility:
         type: string
         "meta:enum":
@@ -161,8 +165,11 @@ definitions:
     type: array
     uniqueItems: true
     items:
-      '$ref': '#/definitions/countryCode'
-      "$linkVal": countryCode
+      anyOf:
+        - '$ref': '#/definitions/countryCode'
+          "$linkVal": countryCode
+        - type: string
+          pattern: 'OTHER'
   address:
     type: object
     additionalProperties: false
@@ -189,9 +196,10 @@ definitions:
         type: string
         minLength: 1
       careOf:
-        type: string
-        minLength: 1
-
+        anyOf:
+          - type: 'null'
+          - type: string
+            minLength: 1
   applicant:
     additionalProperties: false
     type: object
@@ -224,20 +232,26 @@ definitions:
         title: customer ID
         description: "ID of the customer (unique per ssn)"
       phone:
-        type: string
+        anyOf:
+          - type: 'null'
+          - type: string
+            pattern: '^\+[1-9][0-9]{1,14}$'
+            examples:
+              - "+467015114441"
         title: Phone number to the applicant
-        pattern: '^\+[1-9][0-9]{1,14}$'
-        examples:
-        - "+467015114441"
       secondaryPhone:
         title: List of alternate phone numbers
-        type: array
-        items:
-          type: string
-          pattern: '^\+[1-9][0-9]{1,14}$'
+        anyOf:
+          - type: 'null'
+          - type: array
+            items:
+              type: string
+              pattern: '^\+[1-9][0-9]{1,14}$'
       emailAddress:
-        type: string
-        format: email
+        anyOf:
+          - type: 'null'
+          - type: string
+            format: email
         title: Email address to the applicant
       employmentStatus:
         type: string
@@ -280,29 +294,38 @@ definitions:
         examples:
         - 3
       employmentStatusUntilYear:
-        type: integer
+        oneOf:
+          - type: 'null'
+          - type: integer
+            minimum: 1900
+            maximum: 3000
+            examples:
+              - 2014
         title: Year in which the applicant ended his or her current employment status (for temporary employment)
-        minimum: 1900
-        maximum: 3000
-        examples:
-        - 2014
       employmentStatusUntilMonth:
-        type: integer
+        oneOf:
+          - type: 'null'
+          - type: integer
+            minimum: 1
+            maximum: 12
+            examples:
+              - 3
         title: Month in which the applicant ended his or her current employment status (for temporary employment)
-        minimum: 1
-        maximum: 12
-        examples:
-        - 3
       employerName:
-        type: string
+        oneOf:
+          - type: 'null'
+          - type: string
+            examples:
+              - ACME AB
         title: The company name of the employer
-        examples:
-        - ACME AB
       employerPhone:
-        type: string
-        pattern: '^\+[1-9][0-9]{1,14}$'
-        examples:
-        - "+465069158975"
+        oneOf:
+          - type: 'null'
+          - type: string
+            pattern: '^\+[1-9][0-9]{1,14}$'
+            examples:
+              - "+465069158975"
+        title: The phone number of the employer
       dependentChildren:
         type: integer
         title: Number of dependent children
@@ -311,15 +334,21 @@ definitions:
         minimum: 0
         maximum: 15
       childSupportReceivedMonthly:
-        type: integer
-        minimum: 0
+        oneOf:
+          - type: 'null'
+          - type: integer
+            minimum: 0
         title: Money received for child-support each month
       childSupportPaidMonthly:
-        type: integer
-        minimum: 0
+        oneOf:
+          - type: 'null'
+          - type: integer
+            minimum: 0
         title: Money paid for child-support each month
       paymentRemark:
-        type: boolean
+        oneOf:
+          - type: 'null'
+          - type: boolean
         title: Payment remark
         description: Indicate whether an applicant has a payment remark or not, due to a failure to
           pay an outstanding bill.
@@ -357,8 +386,10 @@ definitions:
           - MARRIED
           - COHABITING
       bankAccount:
+        anyOf:
+          - type: 'null'
+          - '$ref': 'https://open-broker.org/schema/v0/se/BankAccount'
         title: Applicant's bank account
-        '$ref': 'https://open-broker.org/schema/v0/se/BankAccount'
       citizenships:
         title: Countries that the applicant is a citizen of
         '$ref': '#/definitions/countryCodeArray'
@@ -375,8 +406,10 @@ definitions:
         title: Address of the applicant
         description:
           All actors are expected to perform proper due diligence in establishing the identity of the applicant
-        '$ref': '#/definitions/address'
-        "$linkVal": address
+        anyOf:
+          - type: 'null'
+          - '$ref': '#/definitions/address'
+            "$linkVal": address
 
 required:
   - application
