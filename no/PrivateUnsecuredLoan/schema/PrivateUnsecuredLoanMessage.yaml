@@ -11,6 +11,7 @@ required:
   - brokerReference
   - message
   - requiresAction
+  - origin
 properties:
   brokerReference:
     title: A reference-id used by the broker
@@ -23,3 +24,11 @@ properties:
     type: boolean
     title: Requires action
     description: An indicator showing whether the provided message requires an action.
+  origin:
+    type: string
+    enum:
+      - BANK
+      - BANKING_ADVISOR
+      - BROKER
+      - INTEGRATION
+    description: Origin of the message.

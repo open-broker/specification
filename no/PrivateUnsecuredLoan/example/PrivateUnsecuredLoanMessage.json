@@ -15,6 +15,7 @@
       "issuer": "no.zensum"
     },
     "message": "Application will be processed manually",
-    "requiresAction": false
+    "requiresAction": false,
+    "origin": "INTEGRATION"
   }
 }

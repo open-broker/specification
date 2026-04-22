@@ -15,6 +15,7 @@
       "issuer": "se.zensum"
     },
     "message": "Requires the following documents: id; payment slip",
-    "requiresAction": true
+    "requiresAction": true,
+    "origin": "INTEGRATION"
   }
 }
