@@ -31,4 +31,9 @@ properties:
       - BANKING_ADVISOR
       - BROKER
       - INTEGRATION
+    'meta:enum':
+      BANK: automatic messages from a creditor (status updates, signing links, etc.)
+      BANKING_ADVISOR: human messages from a banking advisor to a broker
+      BROKER: human messages from a broker to a creditor
+      INTEGRATION: automatic messages or errors from an integration
     description: Origin of the message.
