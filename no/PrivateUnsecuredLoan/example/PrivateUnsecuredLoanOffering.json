@@ -33,6 +33,7 @@
       "invoiceFee": 50,
       "termMonths": 84,
       "amortizationType": "ANNUITY",
+      "creditorProduct": "UNSECURED_LOAN",
       "customerUrl": "https://urlforsigning.com"
     },
     "brokerReference": {
