@@ -28,6 +28,7 @@
       "mustRefinance": null,
       "totalRepaymentAmount": null,
       "amortizationType": null,
+      "creditorProduct": "CREDIT_CARD",
       "customerUrl": null
     },
     "brokerReference": {

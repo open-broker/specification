@@ -188,6 +188,24 @@ definitions:
           - type: 'null'
           - type: string
             format: uri
+      creditorProduct:
+        type: string
+        title: Type of credit product offered
+        description: |
+          The kind of credit product the offer represents.
+          Defaults to `UNSECURED_LOAN` when omitted. Must not be null.
+        default: UNSECURED_LOAN
+        'meta:enum':
+          UNSECURED_LOAN: |
+            An unsecured personal loan paid out as a lump sum and amortized over a fixed term.
+          CREDIT_CARD: |
+            A revolving credit account accessed through a credit card.
+          CREDIT_LINE: |
+            A revolving line of credit the customer can draw from up to a credit limit.
+        enum:
+          - UNSECURED_LOAN
+          - CREDIT_CARD
+          - CREDIT_LINE
 required:
   - brokerReference
   - offer
