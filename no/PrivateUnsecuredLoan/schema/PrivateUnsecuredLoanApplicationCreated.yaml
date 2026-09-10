@@ -35,12 +35,12 @@ definitions:
         type: ['null', 'array']
         items:
           type: object
-        minItems: 1
         title: Properties (Norway)
         description: |
           Every Norwegian property the application concerns, most relevant first.
           An application can cover more than one, which 'property.no' has no room
           for. Brokers send both keys, so moving to this one is per-creditor.
+          Omit the key rather than sending an empty array.
   application:
     type: object
     additionalProperties: false
