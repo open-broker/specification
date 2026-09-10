@@ -28,17 +28,20 @@ definitions:
         type: ['null', 'object']
         title: Property (Norway)
         description: |
-          A single Norwegian property. When 'properties.no' is also present this
-          holds its first entry, so a creditor that accepts one property only can
-          keep reading this key alone.
+          A single Norwegian property whose mortgage is being refinanced by this
+          application. When 'properties.no' is also present this holds its first
+          entry, so a creditor that accepts one property only can keep reading
+          this key alone.
       'properties.no':
         type: ['null', 'array']
         items:
           type: object
         title: Properties (Norway)
         description: |
-          Every Norwegian property the application concerns, most relevant first.
-          An application can cover more than one, which 'property.no' has no room
+          The Norwegian properties whose mortgages are being refinanced by this
+          application, most relevant first - not every property the applicant
+          owns, only the ones the refinanced mortgages are secured on. An
+          application can cover more than one, which 'property.no' has no room
           for. Brokers send both keys, so moving to this one is per-creditor.
           Omit the key rather than sending an empty array.
   application:
