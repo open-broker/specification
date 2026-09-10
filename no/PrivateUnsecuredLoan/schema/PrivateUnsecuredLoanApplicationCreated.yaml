@@ -12,6 +12,35 @@ definitions:
     title: Extension data
     additionalProperties:
       type: ['number','string','boolean','object', 'array']
+  propertyExtensions:
+    type: object
+    title: Property extension keys (Norway)
+    description: |
+      Documents the 'property.no' and 'properties.no' keys a broker may place in
+      'extensions' on this event, which the Norwegian mortgage-refinance flow uses
+      to say which real estate the application concerns.
+
+      This definition is descriptive and intentionally not referenced from
+      'extensionPoint': that stays an open map, so these keys remain optional and
+      no creditor is obliged to read either of them.
+    properties:
+      'property.no':
+        type: ['null', 'object']
+        title: Property (Norway)
+        description: |
+          A single Norwegian property. When 'properties.no' is also present this
+          holds its first entry, so a creditor that accepts one property only can
+          keep reading this key alone.
+      'properties.no':
+        type: ['null', 'array']
+        items:
+          type: object
+        minItems: 1
+        title: Properties (Norway)
+        description: |
+          Every Norwegian property the application concerns, most relevant first.
+          An application can cover more than one, which 'property.no' has no room
+          for. Brokers send both keys, so moving to this one is per-creditor.
   application:
     type: object
     additionalProperties: false
