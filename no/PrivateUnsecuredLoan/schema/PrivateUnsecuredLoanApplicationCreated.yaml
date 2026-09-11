@@ -31,11 +31,20 @@ definitions:
           A single Norwegian property whose mortgage is being refinanced by this
           application. When 'properties.no' is also present this holds its first
           entry, so a creditor that accepts one property only can keep reading
-          this key alone.
+          this key alone. Carries the same 'propertyId' as that entry.
       'properties.no':
         type: ['null', 'array']
         items:
           type: object
+          properties:
+            propertyId:
+              type: ['null', 'string']
+              title: Property identifier
+              description: |
+                Identifies this property within the event, so entries in
+                'existingLoans' can point back at it. Unique among the
+                properties sent on the same event; brokers use a UUID. Send it
+                on every entry whenever more than one property is present.
         title: Properties (Norway)
         description: |
           The Norwegian properties whose mortgages are being refinanced by this
@@ -204,6 +213,15 @@ definitions:
       lender:
         type: string
         minLength: 1
+      propertyId:
+        title: Property this loan is secured on
+        description: |
+          The 'propertyId' of the entry in the 'properties.no' extension that
+          this loan is secured on. Lets a creditor tell which mortgage belongs
+          to which property when an application refinances mortgages across
+          more than one. Absent for an unsecured loan, and unnecessary when the
+          application concerns a single property.
+        type: ['null', 'string']
   countryCode:
     type: string
     minLength: 2
