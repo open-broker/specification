@@ -14,45 +14,28 @@ definitions:
       type: ['number','string','boolean','object', 'array']
   propertyExtensions:
     type: object
-    title: Property extension keys (Norway)
+    title: Property extension key (Norway)
     description: |
-      Documents the 'property.no' and 'properties.no' keys a broker may place in
-      'extensions' on this event, which the Norwegian mortgage-refinance flow uses
-      to say which real estate the application concerns.
+      Documents the 'property.no' key a broker may place in 'extensions' on this
+      event. The Norwegian mortgage-refinance flow has sent it since 2021 to say
+      which real estate the application concerns.
 
       This definition is descriptive and intentionally not referenced from
-      'extensionPoint': that stays an open map, so these keys remain optional and
-      no creditor is obliged to read either of them.
+      'extensionPoint': that stays an open map, so the key remains optional and
+      no creditor is obliged to read it.
+
+      For more than one property, read 'application.properties' below. The
+      extension holds a single property and is kept for creditors already
+      reading it.
     properties:
       'property.no':
         type: ['null', 'object']
         title: Property (Norway)
         description: |
           A single Norwegian property whose mortgage is being refinanced by this
-          application. When 'properties.no' is also present this holds its first
-          entry, so a creditor that accepts one property only can keep reading
-          this key alone. Carries the same 'propertyId' as that entry.
-      'properties.no':
-        type: ['null', 'array']
-        items:
-          type: object
-          properties:
-            propertyId:
-              type: ['null', 'string']
-              title: Property identifier
-              description: |
-                Identifies this property within the event, so entries in
-                'existingLoans' can point back at it. Unique among the
-                properties sent on the same event; brokers use a UUID. Send it
-                on every entry whenever more than one property is present.
-        title: Properties (Norway)
-        description: |
-          The Norwegian properties whose mortgages are being refinanced by this
-          application, most relevant first - not every property the applicant
-          owns, only the ones the refinanced mortgages are secured on. An
-          application can cover more than one, which 'property.no' has no room
-          for. Brokers send both keys, so moving to this one is per-creditor.
-          Omit the key rather than sending an empty array.
+          application. When 'application.properties' is also present this is its
+          first entry, carrying the same 'propertyId', so a creditor that accepts
+          one property only can keep reading this key alone.
   application:
     type: object
     additionalProperties: false
@@ -106,6 +89,30 @@ definitions:
         items:
           '$ref': '#/definitions/existingLoan'
           '$linkVal': existingLoan
+      properties:
+        type: array
+        title: Properties the application concerns (Norway)
+        description: |
+          The Norwegian properties whose mortgages this application refinances -
+          not every property the applicant owns, only the ones the refinanced
+          mortgages are secured on. Most relevant first, so the first entry is
+          the one the 'property.no' extension repeats.
+
+          Each entry carries a 'propertyId' that 'existingLoans' entries
+          reference through 'propertyIds'. 'application' sets
+          additionalProperties: false, so this key has to be declared here for
+          an event carrying it to be valid.
+        minItems: 1
+        items:
+          type: object
+          properties:
+            propertyId:
+              type: ['null', 'string']
+              title: Property identifier
+              description: |
+                Identifies this property within the event, so entries in
+                'existingLoans' can point back at it. Unique among the
+                properties sent on the same event; brokers use a UUID.
       loanPurpose:
         type: string
         title: Purpose of the loan
@@ -213,15 +220,28 @@ definitions:
       lender:
         type: string
         minLength: 1
-      propertyId:
-        title: Property this loan is secured on
+      loanId:
+        title: Identifier of this loan
         description: |
-          The 'propertyId' of the entry in the 'properties.no' extension that
-          this loan is secured on. Lets a creditor tell which mortgage belongs
-          to which property when an application refinances mortgages across
-          more than one. Absent for an unsecured loan, and unnecessary when the
-          application concerns a single property.
+          Identifies the loan itself, stable across re-invites of the same
+          application, so it can be referred to rather than matched on its
+          amounts. Without it only one side of the loan-to-property relation is
+          addressable.
         type: ['null', 'string']
+      propertyIds:
+        title: Properties this loan is secured on
+        description: |
+          The 'propertyId' values, in 'application.properties', of the
+          properties securing this loan. The relation is many-to-many: a
+          mortgage split into several debts sits on one property, and one
+          mortgage can be secured on several. Only a MORTGAGE loan has any.
+
+          Omitted rather than guessed when the broker cannot attribute the
+          loan, so its absence does not mean the loan is unsecured.
+        type: ['null', 'array']
+        minItems: 1
+        items:
+          type: string
   countryCode:
     type: string
     minLength: 2
