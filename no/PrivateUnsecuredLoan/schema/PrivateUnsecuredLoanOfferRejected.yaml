@@ -17,3 +17,16 @@ properties:
     oneOf:
       - type: 'null'
       - '$ref': 'http://open-broker.org/no/PrivateUnsecuredLoan/v0/schema#/definitions/reference'
+  reason:
+    title: The reason for rejecting the offer
+    description: |
+      An optional reason for why the offer is being rejected.
+    oneOf:
+      - type: 'null'
+      - type: string
+        enum:
+          - NEW_APPLICATION_SUBMITTED
+          - CANCELLED_BY_BANK
+        'meta:enum':
+          NEW_APPLICATION_SUBMITTED: The customer has submitted a new application, which replaces this one
+          CANCELLED_BY_BANK: The application was cancelled by the bank
