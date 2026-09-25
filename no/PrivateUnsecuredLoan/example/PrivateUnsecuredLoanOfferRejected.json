@@ -14,6 +14,7 @@
       "id": "10500-aaeb2e2ee8de09cd217ad14badd4170a549f9ec9fd4eb4815382a3b5a565d038",
       "issuer": "no.zensum"
     },
-    "reason": "NEW_APPLICATION_SUBMITTED"
+    "reason": "CANCELLED_BY_BANK",
+    "bankReason": "Occupation"
   }
 }

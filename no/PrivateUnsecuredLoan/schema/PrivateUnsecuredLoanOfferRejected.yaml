@@ -8,6 +8,7 @@ additionalProperties: false
 '$schema': 'http://json-schema.org/draft-06/schema#'
 required:
   - brokerReference
+  - reason
 properties:
   brokerReference:
     title: The reference used for the offer being rejected
@@ -20,13 +21,22 @@ properties:
   reason:
     title: The reason for rejecting the offer
     description: |
-      An optional reason for why the offer is being rejected.
+      The reason for why the offer is being rejected.
+    type: string
+    enum:
+      - NEW_APPLICATION_SUBMITTED
+      - CANCELLED_BY_BANK
+    'meta:enum':
+      NEW_APPLICATION_SUBMITTED: The customer has submitted a new application, which replaces this one
+      CANCELLED_BY_BANK: The application was cancelled by the bank
+  bankReason:
+    title: The reason for rejecting the offer as given by the bank
+    description: |
+      Free-text comment or decline reason from the creditor.
+      Values are not standardised. Usually set for CANCELLED_BY_BANK,
+      and null for NEW_APPLICATION_SUBMITTED.
     oneOf:
       - type: 'null'
       - type: string
-        enum:
-          - NEW_APPLICATION_SUBMITTED
-          - CANCELLED_BY_BANK
-        'meta:enum':
-          NEW_APPLICATION_SUBMITTED: The customer has submitted a new application, which replaces this one
-          CANCELLED_BY_BANK: The application was cancelled by the bank
+    examples:
+      - Occupation
