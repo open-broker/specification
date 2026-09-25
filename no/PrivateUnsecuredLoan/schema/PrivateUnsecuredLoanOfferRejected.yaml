@@ -29,8 +29,8 @@ properties:
     'meta:enum':
       NEW_APPLICATION_SUBMITTED: The customer has submitted a new application, which replaces this one
       CANCELLED_BY_BANK: The application was cancelled by the bank
-  bankReason:
-    title: The reason for rejecting the offer as given by the bank
+  reasonDetails:
+    title: Details of the reason for rejecting the offer
     description: |
       Free-text comment or decline reason from the creditor.
       Values are not standardised. Usually set for CANCELLED_BY_BANK,
