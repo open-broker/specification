@@ -209,6 +209,19 @@ definitions:
           - CREDIT_CARD
           - CREDIT_LINE
           - MORTGAGE_LOAN
+      condition:
+        title: Condition attached to the offer
+        description: |
+          An optional condition that must be fulfilled before the offer
+          can be accepted. Use null or omit when the offer is unconditional.
+        oneOf:
+          - type: 'null'
+          - type: string
+            'meta:enum':
+              CO_APPLICANT_NEEDED: |
+                The offer is only valid if a co-applicant is added to the application.
+            enum:
+              - CO_APPLICANT_NEEDED
 required:
   - brokerReference
   - offer
