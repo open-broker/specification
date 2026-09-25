@@ -29,6 +29,7 @@
       "totalRepaymentAmount": null,
       "amortizationType": null,
       "creditorProduct": "CREDIT_CARD",
+      "condition": null,
       "customerUrl": null
     },
     "brokerReference": {

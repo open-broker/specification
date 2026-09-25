@@ -34,6 +34,7 @@
       "termMonths": 84,
       "amortizationType": "ANNUITY",
       "creditorProduct": "UNSECURED_LOAN",
+      "condition": "CO_APPLICANT_NEEDED",
       "customerUrl": "https://urlforsigning.com"
     },
     "brokerReference": {

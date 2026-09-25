@@ -209,6 +209,22 @@ definitions:
           - CREDIT_CARD
           - CREDIT_LINE
           - MORTGAGE_LOAN
+      condition:
+        title: Offer condition
+        description: |
+          An optional condition attached to the offer. The offer can be
+          accepted while the condition is still open, but the condition must
+          be fulfilled before the offer can be disbursed. Use null or omit
+          when the offer has no condition.
+        oneOf:
+          - type: 'null'
+          - type: string
+            'meta:enum':
+              CO_APPLICANT_NEEDED: |
+                A co-applicant must be added to the application before the
+                offer can be disbursed.
+            enum:
+              - CO_APPLICANT_NEEDED
 required:
   - brokerReference
   - offer
