@@ -1,0 +1,72 @@
+{
+  "cloudEventsVersion": "0.1",
+  "eventType": "org.open-broker.v0.no.PrivateUnsecuredLoanOffering",
+  "eventTypeVersion": "v0",
+  "source": "org.service-provider",
+  "eventID": "8d0f3b52-1c7a-4e9b-a6d2-5f4e3c2b1a09",
+  "eventTime": "2026-11-05T11:15:00+01:00",
+  "contentType": "application/json",
+  "data": {
+    "brokerReference": {
+      "id": "10500-aaeb2e2ee8de09cd217ad14badd4170a549f9ec9fd4eb4815382a3b5a565d038",
+      "issuer": "no.zensum"
+    },
+    "offerId": {
+      "id": "1000001",
+      "issuer": "no.creditor"
+    },
+    "offer": {
+      "offerReference": "be1843e4-90ff-4580-9027-25c3f7f90572",
+      "type": "STANDARD",
+      "status": "NEW",
+      "purpose": "REFINANCE",
+      "issuedAt": "2026-11-05T10:15:00.123Z",
+      "validUntil": "2026-12-05T22:59:59.999Z",
+      "effectiveInterestRate": "0.1399009",
+      "nominalInterestRate": "0.1189",
+      "minOfferedCredit": null,
+      "offeredCredit": 162984,
+      "maxOfferedCredit": null,
+      "existingLoanAtCreditor": null,
+      "minimumMonthlyCost": null,
+      "monthlyCost": 2734,
+      "mustRefinance": null,
+      "totalRepaymentAmount": null,
+      "arrangementFee": 2495,
+      "termFee": 0,
+      "invoiceFee": 65,
+      "termMonths": 96,
+      "amortizationType": "ANNUITY",
+      "customerUrl": null,
+      "creditorProduct": "UNSECURED_LOAN",
+      "condition": null
+    },
+    "supplementaryOffers": [
+      {
+        "offerReference": "9ee42e7c-3d21-4e0f-9d87-89c62c43d728",
+        "type": "DUAL",
+        "status": "NEW",
+        "issuedAt": "2026-11-05T10:15:00.123Z",
+        "validUntil": "2026-12-05T22:59:59.999Z",
+        "effectiveInterestRate": "0.13793788",
+        "nominalInterestRate": "0.1189",
+        "minOfferedCredit": null,
+        "offeredCredit": 216233,
+        "maxOfferedCredit": null,
+        "existingLoanAtCreditor": null,
+        "minimumMonthlyCost": null,
+        "monthlyCost": 4089,
+        "mustRefinance": null,
+        "totalRepaymentAmount": null,
+        "arrangementFee": 2495,
+        "termFee": 0,
+        "invoiceFee": 65,
+        "termMonths": 78,
+        "amortizationType": "ANNUITY",
+        "customerUrl": null,
+        "creditorProduct": "UNSECURED_LOAN",
+        "condition": null
+      }
+    ]
+  }
+}
