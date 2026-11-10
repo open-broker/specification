@@ -225,6 +225,184 @@ definitions:
                 offer can be disbursed.
             enum:
               - CO_APPLICANT_NEEDED
+      offerReference:
+        type: string
+        minLength: 1
+        title: Unique reference of the offer
+        description: |
+          A reference that is unique per offer. It is created once, when the
+          offer is first sent with status `NEW`, and stays the same in all
+          `REVISED` versions of the offer. The broker sends it back in
+          `PrivateUnsecuredLoanOfferAccepted` to tell which offer was accepted.
+      type:
+        type: string
+        title: Type of the offer
+        description: |
+          The kind of offer. Defaults to `STANDARD` when omitted. Must not be null.
+        default: STANDARD
+        'meta:enum':
+          STANDARD: |
+            An offer based on the amount the customer applied for.
+          TOP_UP: |
+            An increase of a loan the customer already has at this creditor.
+          DUAL: |
+            An alternative refinance offer, based on the debt in the debt register
+            instead of the amount applied for. The creditor sends it when the
+            register shows more loans than the customer stated in the application.
+          COMBO: |
+            An offer that consists of a refinance loan and a cash loan, given as
+            two separate loans. The extra loans are listed in `comboLoans`.
+        enum:
+          - STANDARD
+          - TOP_UP
+          - DUAL
+          - COMBO
+      status:
+        type: string
+        title: Status of the offer
+        description: |
+          Tells if this is the first or a later version of the offer.
+          Defaults to `NEW` when omitted. Must not be null.
+        default: NEW
+        'meta:enum':
+          NEW: |
+            First version of the offer.
+          REVISED: |
+            A later version of the offer, for example when the conditions
+            changed after the offer was accepted.
+        enum:
+          - NEW
+          - REVISED
+      purpose:
+        title: Purpose of the loan
+        description: What the loan money is used for.
+        oneOf:
+          - type: 'null'
+          - '$ref': '#/definitions/purpose'
+      issuedAt:
+        title: Time the offer was issued
+        oneOf:
+          - type: 'null'
+          - type: string
+            format: date-time
+      validUntil:
+        title: Time the offer expires
+        description: The offer can not be accepted after this time.
+        oneOf:
+          - type: 'null'
+          - type: string
+            format: date-time
+      existingLoanAtCreditor:
+        title: Existing loan at the creditor
+        description: |
+          The amount the customer already owes on a loan at this creditor,
+          for example the loan that a `TOP_UP` offer increases.
+        oneOf:
+          - type: 'null'
+          - type: integer
+            minimum: 0
+      comboLoans:
+        type: array
+        title: Other loans in a combo offer
+        description: |
+          Used when `type` is `COMBO`. Each item is a separate loan, with its own
+          terms, that comes with this offer. The customer accepts only this offer,
+          and the loans in `comboLoans` go along with it.
+        default: []
+        items:
+          '$ref': '#/definitions/comboLoan'
+  purpose:
+    type: string
+    'meta:enum':
+      REFINANCE: |
+        The loan pays off the customer's existing loans.
+      CASH: |
+        The loan is paid out to the customer as cash.
+    enum:
+      - REFINANCE
+      - CASH
+  comboLoan:
+    type: object
+    additionalProperties: false
+    description: |
+      One loan in a combo offer. Field meanings are the same as in `offer`.
+    required:
+      - effectiveInterestRate
+      - nominalInterestRate
+      - offeredCredit
+      - mustRefinance
+      - arrangementFee
+      - termFee
+      - invoiceFee
+      - termMonths
+      - amortizationType
+    properties:
+      caseReference:
+        type: string
+        minLength: 1
+        title: Creditor's reference for this loan
+        description: The case or application id the creditor uses for this loan.
+      purpose:
+        title: Purpose of the loan
+        oneOf:
+          - type: 'null'
+          - '$ref': '#/definitions/purpose'
+      effectiveInterestRate:
+        type: string
+        pattern: '^[0-9]+(\.[0-9]+)?$'
+        title: Effective interest rate (APR)
+      nominalInterestRate:
+        type: string
+        pattern: '^[0-9]+(\.[0-9]+)?$'
+        title: Nominal interest rate
+      offeredCredit:
+        type: integer
+        minimum: 1
+        title: Offered credit
+      monthlyCost:
+        title: Average monthly cost
+        oneOf:
+          - type: 'null'
+          - type: integer
+            minimum: 1
+      mustRefinance:
+        title: Amount that must be refinanced
+        oneOf:
+          - type: 'null'
+          - type: integer
+            minimum: 0
+      totalRepaymentAmount:
+        title: Total repayment amount
+        oneOf:
+          - type: 'null'
+          - type: integer
+            minimum: 1
+      arrangementFee:
+        type: integer
+        minimum: 0
+        title: Arrangement fee for the customer
+      termFee:
+        type: integer
+        minimum: 0
+        title: Fixed fee charged per term
+      invoiceFee:
+        type: integer
+        minimum: 0
+        title: Fee charged for particular invoicing solutions
+      termMonths:
+        title: Number of monthly terms
+        oneOf:
+          - type: 'null'
+          - type: integer
+            minimum: 1
+      amortizationType:
+        title: Type of amortization plan
+        oneOf:
+          - type: 'null'
+          - type: string
+            enum:
+              - ANNUITY
+              - STRAIGHT_LINE
 required:
   - brokerReference
   - offer
@@ -243,3 +421,13 @@ properties:
     oneOf:
       - type: 'null'
       - '$ref': '#/definitions/loanInsuranceOffer'
+  supplementaryOffers:
+    type: array
+    title: Other offers the customer can choose instead
+    description: |
+      Other offers on the same application, for example a `DUAL` offer.
+      The customer can accept only one offer: `offer` or one of these.
+      The accepted offer is identified by its `offerReference`.
+    default: []
+    items:
+      '$ref': '#/definitions/offer'

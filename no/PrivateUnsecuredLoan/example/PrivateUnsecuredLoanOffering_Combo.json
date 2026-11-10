@@ -1,0 +1,63 @@
+{
+  "cloudEventsVersion": "0.1",
+  "eventType": "org.open-broker.v0.no.PrivateUnsecuredLoanOffering",
+  "eventTypeVersion": "v0",
+  "source": "org.service-provider",
+  "eventID": "e2a7c4d1-5b3f-4a8e-9c61-7d0b2f9e4a35",
+  "eventTime": "2026-11-05T11:50:46+01:00",
+  "contentType": "application/json",
+  "data": {
+    "brokerReference": {
+      "id": "10500-aaeb2e2ee8de09cd217ad14badd4170a549f9ec9fd4eb4815382a3b5a565d038",
+      "issuer": "no.zensum"
+    },
+    "offerId": {
+      "id": "1000002",
+      "issuer": "no.creditor"
+    },
+    "offer": {
+      "offerReference": "e90ee812-ef50-4154-99e1-b5415ec4971d",
+      "type": "COMBO",
+      "status": "NEW",
+      "purpose": "REFINANCE",
+      "issuedAt": "2026-11-05T10:50:46.000Z",
+      "validUntil": "2026-12-05T22:59:59.999Z",
+      "effectiveInterestRate": "0.1683857",
+      "nominalInterestRate": "0.1239",
+      "minOfferedCredit": null,
+      "offeredCredit": 42061,
+      "maxOfferedCredit": null,
+      "existingLoanAtCreditor": null,
+      "minimumMonthlyCost": null,
+      "monthlyCost": 690,
+      "mustRefinance": null,
+      "totalRepaymentAmount": null,
+      "arrangementFee": 995,
+      "termFee": 0,
+      "invoiceFee": 65,
+      "termMonths": 120,
+      "amortizationType": "ANNUITY",
+      "customerUrl": null,
+      "creditorProduct": "UNSECURED_LOAN",
+      "condition": null,
+      "comboLoans": [
+        {
+          "caseReference": "1000003",
+          "purpose": "CASH",
+          "effectiveInterestRate": "0.1329455",
+          "nominalInterestRate": "0.1239",
+          "offeredCredit": 110000,
+          "monthlyCost": 2459,
+          "mustRefinance": null,
+          "totalRepaymentAmount": null,
+          "arrangementFee": 0,
+          "termFee": 0,
+          "invoiceFee": 0,
+          "termMonths": 60,
+          "amortizationType": "ANNUITY"
+        }
+      ]
+    },
+    "supplementaryOffers": []
+  }
+}
