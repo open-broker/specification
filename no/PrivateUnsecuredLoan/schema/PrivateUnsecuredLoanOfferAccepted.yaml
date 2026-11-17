@@ -18,13 +18,15 @@ properties:
       - '$ref': 'http://open-broker.org/no/PrivateUnsecuredLoan/v0/schema#/definitions/reference'
     title: A reference used for identifying the offer being accepted
   brokerOfferId:
-    type: string
-    minLength: 1
     title: Broker's id of the accepted offer version
     description: |
       The `brokerOfferId` of the accepted offer version from
       `PrivateUnsecuredLoanOffering`. It can be the main `offer` or one of the
-      `supplementaryOffers`.
+      `supplementaryOffers`. Not sent, or null, means unknown.
+    oneOf:
+      - type: 'null'
+      - type: string
+        minLength: 1
   bankAccount:
     oneOf:
       - type: 'null'
