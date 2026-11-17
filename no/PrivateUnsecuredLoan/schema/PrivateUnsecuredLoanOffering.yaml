@@ -450,7 +450,7 @@ properties:
     description: |
       Other offers from the same creditor for the same application, for
       example a `DUAL` or `MULTIPLE` offer. The customer can accept only one
-      offer per response: `offer` or one of these. The accepted offer is
+      offer per application: `offer` or one of these. The accepted offer is
       identified by its `brokerOfferId`.
     default: []
     items:
