@@ -226,14 +226,16 @@ definitions:
             enum:
               - CO_APPLICANT_NEEDED
       brokerOfferId:
-        type: string
-        minLength: 1
         title: Broker's id of this offer version
         description: |
           The broker's id for this version of the offer. Every version gets a
           new id: the first one with status `NEW` and each `REVISED` one. The
           broker sends it back in `PrivateUnsecuredLoanOfferAccepted` to tell
           which offer version was accepted.
+        oneOf:
+          - type: 'null'
+          - type: string
+            minLength: 1
       type:
         type: string
         title: Type of the offer
@@ -273,17 +275,21 @@ definitions:
           - NEW
           - REVISED
       issuedAt:
-        type: string
-        format: date-time
         title: Time this offer version was issued
         description: Date-time in UTC.
+        oneOf:
+          - type: 'null'
+          - type: string
+            format: date-time
       validUntil:
-        type: string
-        format: date-time
         title: Time this offer version expires
         description: |
           Last moment the customer can accept this version of the offer.
           Date-time in UTC.
+        oneOf:
+          - type: 'null'
+          - type: string
+            format: date-time
       existingLoanAtCreditor:
         title: Existing loan at the creditor
         description: |
@@ -308,23 +314,11 @@ definitions:
     type: object
     additionalProperties: false
     description: |
-      One part of an offer. All fields must be present; most of them can be
-      null. Field meanings are the same as in `offer`, but for this part only.
+      One part of an offer. Only `type` is required. A field that is not
+      sent, or is null, means the value is unknown. Field meanings are the
+      same as in `offer`, but for this part only.
     required:
       - type
-      - creditorOfferId
-      - offeredCredit
-      - topUpAmount
-      - effectiveInterestRate
-      - nominalInterestRate
-      - monthlyCost
-      - mustRefinance
-      - totalRepaymentAmount
-      - arrangementFee
-      - termFee
-      - invoiceFee
-      - termMonths
-      - amortizationType
     properties:
       type:
         type: string
@@ -359,9 +353,11 @@ definitions:
           - type: string
             minLength: 1
       offeredCredit:
-        type: integer
-        minimum: 1
         title: Offered credit
+        oneOf:
+          - type: 'null'
+          - type: integer
+            minimum: 1
       topUpAmount:
         title: New money in the loan part
         oneOf:
@@ -454,7 +450,7 @@ properties:
     description: |
       Other offers from the same creditor for the same application, for
       example a `DUAL` or `MULTIPLE` offer. The customer can accept only one
-      offer per application: `offer` or one of these. The accepted offer is
+      offer per response: `offer` or one of these. The accepted offer is
       identified by its `brokerOfferId`.
     default: []
     items:
