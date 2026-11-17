@@ -78,7 +78,9 @@ definitions:
         description: |
           The amount the customer applied for or the highest number
           the customer is approved for, if this number is lower than
-          what was originally applied for.
+          what was originally applied for. For a `DUAL` offer, it is
+          the amount based on the debt register, which can be higher
+          than the amount applied for.
           This value can be equal to both the minOfferedCredit and
           maxOfferedCredit. Indicating that this is the only possible
           amount offered.
