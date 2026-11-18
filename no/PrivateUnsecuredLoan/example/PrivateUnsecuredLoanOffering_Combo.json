@@ -20,7 +20,7 @@
       "brokerOfferId": "d147263f-95d5-4330-a63d-c6da0a372cec",
       "status": "NEW",
       "issuedAt": "2026-11-05T10:50:46.000Z",
-      "validUntil": "2026-12-05T10:50:46.000Z",
+      "validUntil": null,
       "effectiveInterestRate": "0.168386",
       "nominalInterestRate": "0.123900",
       "minOfferedCredit": 42061,
