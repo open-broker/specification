@@ -78,7 +78,9 @@ definitions:
         description: |
           The amount the customer applied for or the highest number
           the customer is approved for, if this number is lower than
-          what was originally applied for.
+          what was originally applied for. For a `DUAL` offer, it is
+          the amount based on the debt register, which can be higher
+          than the amount applied for.
           This value can be equal to both the minOfferedCredit and
           maxOfferedCredit. Indicating that this is the only possible
           amount offered.
@@ -225,6 +227,209 @@ definitions:
                 offer can be disbursed.
             enum:
               - CO_APPLICANT_NEEDED
+      brokerOfferId:
+        title: Broker's id of this offer
+        description: |
+          The broker's id for the offer. It stays the same for every version
+          of the offer: the first one with status `NEW` and each `REVISED` one.
+          The service provider must keep it when it sends a revised version.
+          The broker sends it back in `PrivateUnsecuredLoanOfferAccepted` to
+          tell which offer was accepted.
+        oneOf:
+          - type: 'null'
+          - type: string
+            minLength: 1
+      type:
+        type: string
+        title: Type of the offer
+        description: |
+          The kind of offer. Defaults to `STANDARD` when omitted. Must not be null.
+        default: STANDARD
+        'meta:enum':
+          STANDARD: |
+            An offer based on the amount the customer applied for.
+          DUAL: |
+            An alternative refinance offer, based on the debt in the debt register
+            instead of the amount applied for. The creditor sends it when the
+            register shows more loans than the customer stated in the application.
+            It comes in the same response as a `STANDARD` offer, and the customer
+            can accept only one of them.
+          MULTIPLE: |
+            One of several alternatives from the creditor, for example the same
+            amount with different terms. The customer can accept only one of them.
+        enum:
+          - STANDARD
+          - DUAL
+          - MULTIPLE
+      status:
+        type: string
+        title: Status of the offer
+        description: |
+          Tells if this is the first or a later version of the offer.
+          Defaults to `NEW` when omitted. Must not be null.
+        default: NEW
+        'meta:enum':
+          NEW: |
+            First version of the offer.
+          REVISED: |
+            A later version of the offer, for example when the conditions
+            changed after the offer was accepted.
+        enum:
+          - NEW
+          - REVISED
+      issuedAt:
+        title: Time this offer version was issued
+        description: Date-time in UTC.
+        oneOf:
+          - type: 'null'
+          - type: string
+            format: date-time
+      validUntil:
+        title: Time this offer version expires
+        description: |
+          Last moment the customer can accept this version of the offer, as
+          given by the creditor. Null or not sent when the creditor gave no
+          date. Date-time in UTC.
+        oneOf:
+          - type: 'null'
+          - type: string
+            format: date-time
+      existingLoanAtCreditor:
+        title: Existing loan at the creditor
+        description: |
+          Current balance of the loan the customer already has at this
+          creditor, for example the loan that a `TOP_UP` or `COMBO_TOP_UP`
+          loan part tops up.
+        oneOf:
+          - type: 'null'
+          - type: integer
+            minimum: 0
+      loanParts:
+        type: array
+        title: Loan parts of the offer
+        description: |
+          Parts of the offer, such as a top-up of an existing loan or a
+          separate loan accepted together with the offer. See `loanPart.type`
+          for which parts are included in the offer amounts.
+        default: []
+        items:
+          '$ref': '#/definitions/loanPart'
+  loanPart:
+    type: object
+    additionalProperties: false
+    description: |
+      One part of an offer. Only `type` is required. A field that is not
+      sent, or is null, means the value is unknown. Field meanings are the
+      same as in `offer`, but for this part only.
+    required:
+      - type
+    properties:
+      type:
+        type: string
+        title: Type of the loan part
+        description: |
+          The kind of loan part, and whether its amounts are included in
+          the offer amounts.
+        'meta:enum':
+          TOP_UP: |
+            The new money added to a loan the customer already has at this
+            creditor. It is included in the offer amounts. `topUpAmount` is
+            the new money. `offeredCredit`, rates and costs, when sent, are for
+            the new money alone.
+          COMBO: |
+            A separate new loan, in its own creditor case, accepted together
+            with the offer. It is not included in the offer amounts.
+            `topUpAmount` is null.
+          COMBO_TOP_UP: |
+            A separate loan, in its own creditor case, that tops up a loan the
+            customer already has at this creditor. It is accepted together with
+            the offer and is not included in the offer amounts. `offeredCredit`
+            is the whole loan after the top-up, and `topUpAmount` is the new
+            money in it.
+        enum:
+          - TOP_UP
+          - COMBO
+          - COMBO_TOP_UP
+      creditorOfferId:
+        title: Creditor's id for the loan part
+        oneOf:
+          - type: 'null'
+          - type: string
+            minLength: 1
+      offeredCredit:
+        title: Offered credit
+        oneOf:
+          - type: 'null'
+          - type: integer
+            minimum: 1
+      topUpAmount:
+        title: New money in the loan part
+        oneOf:
+          - type: 'null'
+          - type: integer
+            minimum: 1
+      effectiveInterestRate:
+        title: Effective interest rate (APR)
+        oneOf:
+          - type: 'null'
+          - type: string
+            pattern: '^[0-9]+(\.[0-9]+)?$'
+      nominalInterestRate:
+        title: Nominal interest rate
+        oneOf:
+          - type: 'null'
+          - type: string
+            pattern: '^[0-9]+(\.[0-9]+)?$'
+      monthlyCost:
+        title: Average monthly cost, without fees
+        oneOf:
+          - type: 'null'
+          - type: integer
+            minimum: 1
+      mustRefinance:
+        title: Amount that must be refinanced
+        oneOf:
+          - type: 'null'
+          - type: integer
+            minimum: 0
+      totalRepaymentAmount:
+        title: Total repayment amount
+        oneOf:
+          - type: 'null'
+          - type: integer
+            minimum: 1
+      arrangementFee:
+        title: Arrangement fee for the customer
+        oneOf:
+          - type: 'null'
+          - type: integer
+            minimum: 0
+      termFee:
+        title: Fixed fee charged per term
+        oneOf:
+          - type: 'null'
+          - type: integer
+            minimum: 0
+      invoiceFee:
+        title: Fee charged for particular invoicing solutions
+        oneOf:
+          - type: 'null'
+          - type: integer
+            minimum: 0
+      termMonths:
+        title: Number of monthly terms
+        oneOf:
+          - type: 'null'
+          - type: integer
+            minimum: 1
+      amortizationType:
+        title: Type of amortization plan
+        oneOf:
+          - type: 'null'
+          - type: string
+            enum:
+              - ANNUITY
+              - STRAIGHT_LINE
 required:
   - brokerReference
   - offer
@@ -243,3 +448,20 @@ properties:
     oneOf:
       - type: 'null'
       - '$ref': '#/definitions/loanInsuranceOffer'
+  supplementaryOffers:
+    type: array
+    title: Other offers the customer can choose instead
+    description: |
+      Other offers from the same creditor for the same application, for
+      example a `DUAL` or `MULTIPLE` offer. The customer can accept only one
+      offer per application: `offer` or one of these. The accepted offer is
+      identified by its `brokerOfferId`.
+      Each Offering carries all offers of the creditor for the application
+      that are still valid. Before an accept, these are `offer` and the
+      alternatives in `supplementaryOffers`. After an accept, it is only the
+      accepted offer, in `offer`, with its loan parts, and
+      `supplementaryOffers` is empty. An offer sent earlier that is not in
+      the event is no longer valid.
+    default: []
+    items:
+      '$ref': '#/definitions/offer'

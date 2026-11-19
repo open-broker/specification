@@ -1,0 +1,72 @@
+{
+  "cloudEventsVersion": "0.1",
+  "eventType": "org.open-broker.v0.no.PrivateUnsecuredLoanOffering",
+  "eventTypeVersion": "v0",
+  "source": "org.service-provider",
+  "eventID": "5f4de6b3-1dff-41d1-848c-86c83e506035",
+  "eventTime": "2026-11-05T08:40:45.249493602Z",
+  "contentType": "application/json",
+  "data": {
+    "brokerReference": {
+      "id": "0d1e2f3a4b5-1",
+      "issuer": "no.zensum"
+    },
+    "offerId": {
+      "id": "1000001",
+      "issuer": "no.creditor"
+    },
+    "offer": {
+      "type": "STANDARD",
+      "brokerOfferId": "94bc6b30-2fb7-4628-97fa-98ed31540085",
+      "status": "NEW",
+      "issuedAt": "2026-11-05T08:40:45.249493602Z",
+      "validUntil": null,
+      "effectiveInterestRate": "0.139901",
+      "nominalInterestRate": "0.118900",
+      "minOfferedCredit": 162984,
+      "offeredCredit": 162984,
+      "maxOfferedCredit": 162984,
+      "minimumMonthlyCost": null,
+      "monthlyCost": 2669,
+      "mustRefinance": 162984,
+      "totalRepaymentAmount": null,
+      "arrangementFee": 2495,
+      "termFee": 65,
+      "invoiceFee": 0,
+      "termMonths": 96,
+      "amortizationType": "ANNUITY",
+      "customerUrl": null,
+      "creditorProduct": "UNSECURED_LOAN",
+      "condition": null,
+      "existingLoanAtCreditor": null,
+      "loanParts": []
+    },
+    "supplementaryOffers": [
+      {
+        "type": "DUAL",
+        "brokerOfferId": "9bfd3e05-d804-4c13-99c5-34924f044576",
+        "status": "NEW",
+        "issuedAt": "2026-11-05T08:40:45.249493602Z",
+        "validUntil": null,
+        "effectiveInterestRate": "0.13794",
+        "nominalInterestRate": "0.1189",
+        "minOfferedCredit": 216233,
+        "offeredCredit": 216233,
+        "maxOfferedCredit": 216233,
+        "minimumMonthlyCost": null,
+        "monthlyCost": 4024,
+        "mustRefinance": 216233,
+        "totalRepaymentAmount": null,
+        "arrangementFee": 2495,
+        "termFee": 65,
+        "invoiceFee": 0,
+        "termMonths": 78,
+        "amortizationType": "ANNUITY",
+        "customerUrl": null,
+        "creditorProduct": "UNSECURED_LOAN",
+        "condition": null,
+        "existingLoanAtCreditor": null
+      }
+    ]
+  }
+}

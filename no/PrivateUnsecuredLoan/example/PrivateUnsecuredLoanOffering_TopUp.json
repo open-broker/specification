@@ -1,0 +1,63 @@
+{
+  "cloudEventsVersion": "0.1",
+  "eventType": "org.open-broker.v0.no.PrivateUnsecuredLoanOffering",
+  "eventTypeVersion": "v0",
+  "source": "org.service-provider",
+  "eventID": "5615cdac-0a11-4e76-9bd6-e40ab0703ba4",
+  "eventTime": "2026-11-10T15:13:21.18033515Z",
+  "contentType": "application/json",
+  "data": {
+    "brokerReference": {
+      "id": "0d1e2f3a4b8-1",
+      "issuer": "no.zensum"
+    },
+    "offerId": {
+      "id": "1000004",
+      "issuer": "no.creditor"
+    },
+    "offer": {
+      "type": "STANDARD",
+      "brokerOfferId": "6a371b89-1926-41ef-a28b-c3a6f77d319c",
+      "status": "NEW",
+      "issuedAt": "2026-11-10T15:13:21.18033515Z",
+      "validUntil": null,
+      "effectiveInterestRate": "0.1111",
+      "nominalInterestRate": "0.1054",
+      "minOfferedCredit": 25000,
+      "offeredCredit": 580885,
+      "maxOfferedCredit": 580885,
+      "minimumMonthlyCost": null,
+      "monthlyCost": 10891,
+      "mustRefinance": 580885,
+      "totalRepaymentAmount": 786283,
+      "arrangementFee": 0,
+      "termFee": 30,
+      "invoiceFee": 0,
+      "termMonths": 72,
+      "amortizationType": "ANNUITY",
+      "customerUrl": null,
+      "creditorProduct": "UNSECURED_LOAN",
+      "condition": null,
+      "existingLoanAtCreditor": 545964,
+      "loanParts": [
+        {
+          "type": "TOP_UP",
+          "creditorOfferId": null,
+          "topUpAmount": 34921,
+          "offeredCredit": 34921,
+          "effectiveInterestRate": "0.1101",
+          "nominalInterestRate": "0.1054",
+          "monthlyCost": 655,
+          "mustRefinance": 34921,
+          "totalRepaymentAmount": 47139,
+          "arrangementFee": 0,
+          "invoiceFee": 0,
+          "termFee": 0,
+          "termMonths": null,
+          "amortizationType": "ANNUITY"
+        }
+      ]
+    },
+    "supplementaryOffers": []
+  }
+}
