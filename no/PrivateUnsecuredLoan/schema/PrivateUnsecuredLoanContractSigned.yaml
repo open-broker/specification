@@ -12,3 +12,20 @@ properties:
   brokerReference:
     title: A reference-id used by the broker
     '$ref': 'https://open-broker.org/schema/v0/no/reference'
+  type:
+    '$ref': '#/definitions/loanPartType'
+definitions:
+  loanPartType:
+    type: string
+    title: Type of the loan part the event is for
+    description: |
+      Sent when the event is for a loan part of the offer that is a loan
+      of its own (see `loanPart.type` in PrivateUnsecuredLoanOffering).
+      Not sent for the offer's own loan. A `TOP_UP` part is inside the
+      offer's own loan and has no events of its own.
+    'meta:enum':
+      COMBO: The customer signed the contract of the `COMBO` loan part.
+      COMBO_TOP_UP: The customer signed the contract of the `COMBO_TOP_UP` loan part.
+    enum:
+      - COMBO
+      - COMBO_TOP_UP
