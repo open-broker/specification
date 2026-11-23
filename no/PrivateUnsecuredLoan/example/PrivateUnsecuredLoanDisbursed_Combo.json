@@ -1,0 +1,25 @@
+{
+  "cloudEventsVersion": "0.1",
+  "eventType": "org.open-broker.v0.no.PrivateUnsecuredLoanDisbursed",
+  "eventTypeVersion": "v0",
+  "source": "org.service-provider",
+  "eventID": "23356dd2-ab1f-4c7e-8ea1-31d3c1983f1a",
+  "eventTime": "2020-05-18T15:43:24+02:00",
+  "extensions": {
+    "comExampleExtension": "value"
+  },
+  "contentType": "application/json",
+  "data": {
+    "brokerReference": {
+      "id": "0d1e2f3a4b6-1",
+      "issuer": "no.zensum"
+    },
+    "offerId": {
+      "id": "2000002",
+      "issuer": "no.creditor"
+    },
+    "type": "COMBO",
+    "amountBrokered": 110000,
+    "amountDisbursed": 110000
+  }
+}

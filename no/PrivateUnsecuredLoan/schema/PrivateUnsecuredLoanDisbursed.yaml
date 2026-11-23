@@ -16,6 +16,12 @@ properties:
     $ref: 'https://open-broker.org/schema/v0/no/reference'
   offerId:
     title: A reference used for identifying the offer that has been disbursed
+    description: |
+      For the offer's own loan, the id of the offer. For a loan part (see
+      `type`), the part's `creditorOfferId` from the Offering, or the id of
+      the offer when the part has no `creditorOfferId`. The broker must not
+      rely on `offerId` alone to tell the loans apart: an event without
+      `type` is always for the offer's own loan.
     $ref: 'https://open-broker.org/schema/v0/no/reference'
   amountDisbursed:
     type: integer
@@ -23,7 +29,9 @@ properties:
     title: Amount disbursed
     description: |
       The total amount disbursed to
-      the customer of the loan being brokered
+      the customer of the loan being brokered. When an offer has loan
+      parts that are loans of their own, each loan has its own event
+      with its own amounts (see `type`).
   amountBrokered:
     type: integer
     minimum: 0
@@ -32,3 +40,25 @@ properties:
       The amount the lender considers the broker to have
       brokered. For example, the amount disbursed exclusive
       of loans refinanced within the lender.
+  type:
+    '$ref': '#/definitions/loanPartType'
+definitions:
+  loanPartType:
+    type: string
+    title: Type of the loan part the event is for
+    description: |
+      Sent when the event is for a loan part of the offer that is a loan
+      of its own (see `loanPart.type` in PrivateUnsecuredLoanOffering).
+      Not sent for the offer's own loan. A `TOP_UP` part is inside the
+      offer's own loan and has no events of its own.
+      The events of the loans of one offer can come in any order. An
+      event without `type` does not mean that every loan is disbursed.
+      The broker should expect one Disbursed for the offer's own loan
+      and one for each `COMBO` or `COMBO_TOP_UP` part of the accepted
+      offer.
+    'meta:enum':
+      COMBO: The `COMBO` loan part was disbursed. The amounts are for that loan alone.
+      COMBO_TOP_UP: The `COMBO_TOP_UP` loan part was disbursed. The amounts are for that loan alone.
+    enum:
+      - COMBO
+      - COMBO_TOP_UP
